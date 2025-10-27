@@ -1,0 +1,62 @@
+name: Publish executables
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write # actions/upload-release-asset needs this.
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2025, ubuntu-22.04, ubuntu-22.04-arm, macos-latest]
+        include:
+          - os: windows-2025
+            pathsep: ";"
+            asset_name: black_windows.exe
+            executable_mime: "application/vnd.microsoft.portable-executable"
+          - os: ubuntu-22.04
+            pathsep: ":"
+            asset_name: black_linux
+            executable_mime: "application/x-executable"
+          - os: ubuntu-22.04-arm
+            pathsep: ":"
+            asset_name: black_linux-arm
+            executable_mime: "application/x-executable"
+          - os: macos-latest
+            pathsep: ":"
+            asset_name: black_macos
+            executable_mime: "application/x-mach-binary"
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set up latest Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12.4"
+
+      - name: Install Black and PyInstaller
+        run: |
+          python -m pip install --upgrade pip wheel
+          python -m pip install .[colorama]
+          python -m pip install pyinstaller
+
+      - name: Build executable with PyInstaller
+        run: >
+          python -m PyInstaller -F --name ${{ matrix.asset_name }} --add-data
+          'src/blib2to3${{ matrix.pathsep }}blib2to3' src/black/__main__.py
+
+      - name: Quickly test executable
+        run: |
+          ./dist/${{ matrix.asset_name }} --version
+          ./dist/${{ matrix.asset_name }} src --verbose
+
+      - name: Upload binary as release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/${{ matrix.asset_name }}
