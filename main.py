@@ -17,6 +17,11 @@ if __name__ == "__main__":
             category="spacing",
             text=f"Nella definizione di una variabile nel file {spacingAnalyzer.question_S01()[0]}, quanti spazi vengono utilizzati per separare i token?"
         ),
+        Question(
+            id="S02",
+            category="spacing",
+            text=f"Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?"
+        ),
     ]
 
     # Crea il sistema
