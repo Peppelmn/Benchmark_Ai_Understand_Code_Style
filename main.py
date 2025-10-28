@@ -20,16 +20,16 @@ if __name__ == "__main__":
         Question(
             id="S02",
             category="spacing",
-            text=f"Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?"
+            text=f"Nella definizione della condizione in una struttura di controllo nel file {spacingAnalyzer.question_S02()[0]}, quanti spazi vengono usati per separare i token?"
         ),
     ]
-
     # Crea il sistema
     system = BenchmarkSystem(codebase_path=codebase_path)
 
     # Genera il benchmark
     benchmark = system.generate_benchmark(questions, output_path="benchmark.json")
-    
+
+
     # Inizializza il sistema AI
     ai_system = AISystem(
         ollama_url="http://localhost:11434",
