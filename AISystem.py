@@ -147,7 +147,7 @@ class AISystem:
         prompt = self._create_prompt(benchmark_item, codebase_context)
         
         # Invia la domanda all'AI
-        print(f"Invio domanda {benchmark_item['question_id']} all'AI...")
+        print(f"Invio domanda {benchmark_item['question_id']} a LLama 3.1...")
         ai_response = self._call_ollama(prompt)
         
         # Estrai la lettera della risposta
