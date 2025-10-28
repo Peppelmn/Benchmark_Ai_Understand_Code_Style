@@ -1,4 +1,6 @@
 import os
+import json
+from AISystem import AISystem
 from BenchmarkSystem import BenchmarkSystem
 from DataClassesDefiner import Question
 from Spacing.SpacingAnalyzer import SpacingAnalyzer
@@ -13,7 +15,7 @@ if __name__ == "__main__":
         Question(
             id="S01",
             category="spacing",
-            text=f"Nella definizione di una variabile nel file {spacingAnalyzer.question_S01()[0]} della codebase, quanti spazi vengono utilizzati per separare i token?"
+            text=f"Nel file {spacingAnalyzer.question_S01()[0]} della codebase, quando si definisce una variabile, quanti spazi vengono utilizzati per separare i token?"
         ),
     ]
 
@@ -22,3 +24,37 @@ if __name__ == "__main__":
 
     # Genera il benchmark
     benchmark = system.generate_benchmark(questions, output_path="benchmark.json")
+    
+    # Inizializza il sistema AI
+    ai_system = AISystem(
+        ollama_url="http://localhost:11434",
+        model="llama3.1"  # o "llama3.1:8b", "llama3.1:70b", ecc.
+    )
+    
+    # Valuta l'AI sul benchmark
+    evaluation_results = ai_system.evaluate_benchmark(
+        benchmark_items=system.get_benchmark_items("benchmark.json"),
+        codebase_path=codebase_path,
+        output_path="ai_evaluation.json"
+    )
+    
+    # ========== ANALISI RISULTATI ==========
+    print("\n=== ANALISI DETTAGLIATA ===\n")
+    
+    # Mostra domande sbagliate
+    wrong_answers = [r for r in evaluation_results['results'] if not r['is_correct']]
+    
+    if wrong_answers:
+        print(f"Domande sbagliate ({len(wrong_answers)}):")
+        for result in wrong_answers:
+            print(f"\n  ID: {result['question_id']}")
+            print(f"  Domanda: {result['question']}")
+            print(f"  Risposta AI: {result['ai_answer']}")
+            print(f"  Risposta corretta: {result['correct_label']}")
+            print(f"  Risposta completa AI: {result['ai_raw_response'][:100]}...")
+    else:
+        print("✓ Tutte le risposte sono corrette!")
+    
+    print("\n" + "="*60)
+    print("Valutazione completata!")
+    print("="*60)

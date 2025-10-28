@@ -77,7 +77,8 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 # Verifica coerenza: tutte le spaziature sono uguali
                 if max(spaces) == min(spaces):
                     # salva solo il nome del file (basename) e il valore costante
-                    consistent_files.append((path.name, spaces[0]))
+                    relative_path = path.relative_to(self.codebase_path)
+                    consistent_files.append((str(relative_path), spaces[0]))
 
             return random.choice(consistent_files) if consistent_files else None
 

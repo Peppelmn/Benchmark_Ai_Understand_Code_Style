@@ -62,11 +62,16 @@ class BenchmarkSystem:
                 benchmark_items.append(item.to_dict())
             except Exception as e:
                 print(f"Errore processando domanda {question.id}: {e}")
-                print(self.process_question(question))
         
         # Salva su file se richiesto
         if output_path:
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(benchmark_items, f, indent=2, ensure_ascii=False)
         
+        return benchmark_items
+    
+    def get_benchmark_items(self, benchmark_path: str) -> List[Dict]:
+        """Carica gli item del benchmark da un file JSON"""
+        with open(benchmark_path, 'r', encoding='utf-8') as f:
+            benchmark_items = json.load(f)
         return benchmark_items

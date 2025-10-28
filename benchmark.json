@@ -2,25 +2,25 @@
   {
     "question_id": "S01",
     "category": "spacing",
-    "question": "Nella definizione di una variabile nel file trailing_comma.py della codebase, quanti spazi vengono utilizzati per separare i token?",
+    "question": "Nel file tests\\data\\cases\\import_spacing.py della codebase, quando si definisce una variabile, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": 1.0,
+        "text": "3.0",
         "label": "A"
       },
       {
-        "text": "0.0",
+        "text": "4.0",
         "label": "B"
       },
       {
-        "text": "2.0",
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": "4.0",
+        "text": "2.0",
         "label": "D"
       }
     ],
-    "correct_label": "A"
+    "correct_label": "C"
   }
 ]
