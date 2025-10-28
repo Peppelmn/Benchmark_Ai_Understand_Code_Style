@@ -2,10 +2,10 @@
   {
     "question_id": "S01",
     "category": "spacing",
-    "question": "Nel file tests\\data\\cases\\import_spacing.py della codebase, quando si definisce una variabile, quanti spazi vengono utilizzati per separare i token?",
+    "question": "Nel file tests\\data\\cases\\numeric_literals_skip_underscores.py della codebase, quando si definisce una variabile, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": "3.0",
+        "text": "0.0",
         "label": "A"
       },
       {
@@ -13,14 +13,14 @@
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": "3.0",
         "label": "C"
       },
       {
-        "text": "2.0",
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "C"
+    "correct_label": "D"
   }
 ]

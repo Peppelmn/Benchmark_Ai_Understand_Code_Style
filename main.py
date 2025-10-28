@@ -15,7 +15,7 @@ if __name__ == "__main__":
         Question(
             id="S01",
             category="spacing",
-            text=f"Nel file {spacingAnalyzer.question_S01()[0]} della codebase, quando si definisce una variabile, quanti spazi vengono utilizzati per separare i token?"
+            text=f"Nella definizione di una variabile nel file {spacingAnalyzer.question_S01()[0]}, quanti spazi vengono utilizzati per separare i token?"
         ),
     ]
 
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     # Inizializza il sistema AI
     ai_system = AISystem(
         ollama_url="http://localhost:11434",
-        model="llama3.1"  # o "llama3.1:8b", "llama3.1:70b", ecc.
+        model="llama3.1"
     )
     
     # Valuta l'AI sul benchmark
@@ -38,11 +38,11 @@ if __name__ == "__main__":
         output_path="ai_evaluation.json"
     )
     
-    # ========== ANALISI RISULTATI ==========
     print("\n=== ANALISI DETTAGLIATA ===\n")
     
     # Mostra domande sbagliate
     wrong_answers = [r for r in evaluation_results['results'] if not r['is_correct']]
+    right_answers = [r for r in evaluation_results['results'] if r['is_correct']]
     
     if wrong_answers:
         print(f"Domande sbagliate ({len(wrong_answers)}):")
@@ -51,9 +51,25 @@ if __name__ == "__main__":
             print(f"  Domanda: {result['question']}")
             print(f"  Risposta AI: {result['ai_answer']}")
             print(f"  Risposta corretta: {result['correct_label']}")
-            print(f"  Risposta completa AI: {result['ai_raw_response'][:100]}...")
+            print(f"  Risposta completa AI: {result['ai_raw_response']}")
+
+        if right_answers:
+            print(f"\nDomande corrette ({len(right_answers)}):")
+            for result in right_answers:
+                print(f"\n  ID: {result['question_id']}")
+                print(f"  Domanda: {result['question']}")
+                print(f"  Risposta AI: {result['ai_answer']}")
+                print(f"  Risposta corretta: {result['correct_label']}")
+                print(f"  Risposta completa AI: {result['ai_raw_response']}")
+
     else:
-        print("✓ Tutte le risposte sono corrette!")
+        print("✓ Tutte le risposte sono corrette!\n")
+        for result in right_answers:
+            print(f"\n  ID: {result['question_id']}")
+            print(f"  Domanda: {result['question']}")
+            print(f"  Risposta AI: {result['ai_answer']}")
+            print(f"  Risposta corretta: {result['correct_label']}")
+            print(f"  Risposta completa AI: {result['ai_raw_response']}")
     
     print("\n" + "="*60)
     print("Valutazione completata!")

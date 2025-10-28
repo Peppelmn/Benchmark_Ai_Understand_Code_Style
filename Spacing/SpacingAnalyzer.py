@@ -61,10 +61,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
             return spaces
         
         def find_consistent_spacing_files():
-            """Restituisce i file dove la spaziatura è costante in tutte le assegnazioni.
-
-            Usa `self.python_files` (Path objects) forniti dalla classe base `CodebaseAnalyzer`.
-            """
+            """Restituisce i file dove la spaziatura è costante in tutte le assegnazioni."""
             consistent_files = []
 
             for path in self.python_files:
