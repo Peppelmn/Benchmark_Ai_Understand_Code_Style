@@ -2,7 +2,31 @@
   {
     "question_id": "S01",
     "category": "spacing",
-    "question": "Nella definizione di una variabile nel file tests\\data\\cases\\tricky_unicode_symbols.py, quanti spazi vengono utilizzati per separare i token?",
+    "question": "Nella definizione di una variabile nel file tests\\data\\cases\\import_spacing.py, quanti spazi vengono utilizzati per separare i token?",
+    "answers": [
+      {
+        "text": "0.0",
+        "label": "A"
+      },
+      {
+        "text": "3.0",
+        "label": "B"
+      },
+      {
+        "text": "2.0",
+        "label": "C"
+      },
+      {
+        "text": 1.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "D"
+  },
+  {
+    "question_id": "S02",
+    "category": "spacing",
+    "question": "Nella definizione della condizione in una struttura di controllo nel file scripts\\migrate-black.py, quanti spazi vengono usati per separare i token?",
     "answers": [
       {
         "text": "0.0",
@@ -22,29 +46,5 @@
       }
     ],
     "correct_label": "C"
-  },
-  {
-    "question_id": "S02",
-    "category": "spacing",
-    "question": "Nella definizione della condizione in una struttura di controllo nel file tests\\data\\cases\\pep_572_remove_parens.py, quanti spazi vengono usati per separare i token?",
-    "answers": [
-      {
-        "text": "3.0",
-        "label": "A"
-      },
-      {
-        "text": 1.0,
-        "label": "B"
-      },
-      {
-        "text": "0.0",
-        "label": "C"
-      },
-      {
-        "text": "2.0",
-        "label": "D"
-      }
-    ],
-    "correct_label": "B"
   }
 ]

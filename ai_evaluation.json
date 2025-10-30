@@ -1,5 +1,5 @@
 {
-  "model": "gpt-4",
+  "model": "gpt-4.1",
   "total_questions": 2,
   "correct_answers": 0,
   "wrong_answers": 2,
@@ -8,8 +8,8 @@
     {
       "question_id": "S01",
       "category": "spacing",
-      "question": "Nella definizione di una variabile nel file tests\\data\\cases\\trailing_comma.py, quanti spazi vengono utilizzati per separare i token?",
-      "correct_label": "A",
+      "question": "Nella definizione di una variabile nel file tests\\data\\cases\\import_spacing.py, quanti spazi vengono utilizzati per separare i token?",
+      "correct_label": "D",
       "ai_answer": "",
       "ai_raw_response": "",
       "is_correct": false
@@ -17,7 +17,7 @@
     {
       "question_id": "S02",
       "category": "spacing",
-      "question": "Nella definizione della condizione in una struttura di controllo nel file scripts\\check_pre_commit_rev_in_example.py, quanti spazi vengono usati per separare i token?",
+      "question": "Nella definizione della condizione in una struttura di controllo nel file scripts\\migrate-black.py, quanti spazi vengono usati per separare i token?",
       "correct_label": "C",
       "ai_answer": "",
       "ai_raw_response": "",

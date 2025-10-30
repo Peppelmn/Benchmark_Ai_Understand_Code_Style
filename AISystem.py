@@ -4,29 +4,33 @@ from pathlib import Path
 from typing import Dict, List
 from DataClassesDefiner import Question, BenchmarkItem
 import litellm
+from dotenv import load_dotenv
 
 
 class AISystem:
     
-    def __init__(self, model: str):
+    def __init__(self, model: str, env_file: str = "keys.env"):
         """
         Inizializza il sistema AI.
         
         Args:
             model: Nome del modello da utilizzare (es. gpt-4, gpt-3.5-turbo, claude-3-opus-20240229, ecc.)
-            api_key: Chiave API (opzionale, altrimenti usa variabile d'ambiente)
+            env_file: Path al file .env con le chiavi API (default: keys.env)
         """
         self.model = model
         
-        if "OPENAI_API_KEY" not in os.environ:
-            # Prova a leggere dalla variabile d'ambiente
-            self.api_key = os.getenv("OPENAI_API_KEY")
-            if not self.api_key:
-                raise ValueError("OPENAI_API_KEY non trovata. Passa la chiave API al costruttore o impostala come variabile d'ambiente.")
+        # Carica le variabili d'ambiente dal file
+        load_dotenv(env_file)
+        
+        # Verifica che la chiave API sia presente
+        self.api_key = os.getenv("OPENAI_API_KEY")
+        if not self.api_key:
+            raise ValueError(f"OPENAI_API_KEY non trovata nel file {env_file}. "
+                           f"Assicurati che il file contenga: OPENAI_API_KEY=your-key-here")
         
         print(f"Sistema AI inizializzato con modello: {self.model}")
-        print(f"API Key configurata: {'✓' if self.api_key else '✗'}")
-
+        print(f"API Key caricata da {env_file}: ✓")
+    
     def _load_codebase_context(self, codebase_path: str, max_files: int = 200) -> str:
         """
         Carica il contenuto della codebase come contesto per l'AI.
@@ -67,17 +71,17 @@ class AISystem:
         """
         prompt = f"""{codebase_context}
 
-            === ISTRUZIONI ===
-            Analizza attentamente la codebase fornita sopra e rispondi alla seguente domanda.
+        === ISTRUZIONI ===
+        Analizza attentamente la codebase fornita sopra e rispondi alla seguente domanda.
 
-            IMPORTANTE: Devi rispondere SOLO con la lettera corrispondente alla risposta corretta (A, B, C, o D).
-            Non aggiungere spiegazioni, commenti o altro testo. Solo la lettera.
+        IMPORTANTE: Devi rispondere SOLO con la lettera corrispondente alla risposta corretta (A, B, C, o D).
+        Non aggiungere spiegazioni, commenti o altro testo. Solo la lettera.
 
-            === DOMANDA ===
-            {benchmark_item['question']}
+        === DOMANDA ===
+        {benchmark_item['question']}
 
-            === OPZIONI DI RISPOSTA ===
-            """
+        === OPZIONI DI RISPOSTA ===
+        """
         
         for answer in benchmark_item['answers']:
             prompt += f"{answer['label']}) {answer['text']}\n"
