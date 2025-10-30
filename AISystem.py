@@ -15,7 +15,7 @@ class AISystem:
         
         Args:
             model: Nome del modello da utilizzare (es. gpt-4, gpt-3.5-turbo, claude-3-opus-20240229, ecc.)
-            env_file: Path al file .env con le chiavi API (default: keys.env)
+            env_file: Path al file .env con le chiavi API (default: keys.env) prova
         """
         self.model = model
         
