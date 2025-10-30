@@ -76,5 +76,5 @@ if __name__ == "__main__":
             print(f"  Risposta completa AI: {result['ai_raw_response']}")
     
     print("\n" + "="*60)
-    print("Valutazione completata!")
+    print("Valutazione completata!aa")
     print("="*60)
