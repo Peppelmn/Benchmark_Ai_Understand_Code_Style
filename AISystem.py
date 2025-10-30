@@ -4,21 +4,21 @@ import requests
 from pathlib import Path
 from typing import Dict, List, Tuple
 from DataClassesDefiner import Question, BenchmarkItem
+import litellm
 
 
 class AISystem:
     
-    def __init__(self, ollama_url: str = "http://localhost:11434", model: str = "llama3.1"):
+    def __init__(self, model: str):
         """
         Inizializza il sistema AI.
         
         Args:
-            ollama_url: URL del server Ollama
-            model: Nome del modello da utilizzare
+            model: Nome del modello da utilizzare (es. gpt-3.5-turbo, claude-2, ecc.)
         """
-        self.ollama_url = ollama_url
+        self.llm = litellm
+            
         self.model = model
-        self.api_endpoint = f"{ollama_url}/api/generate"
     
     def _load_codebase_context(self, codebase_path: str, max_files: int = 200) -> str:
         """
@@ -94,7 +94,7 @@ class AISystem:
             "prompt": prompt,
             "stream": False,
             "options": {
-                "temperature": 0.1,  # Bassa temperatura per risposte più deterministiche
+                "temperature": 0,  # Bassa temperatura per risposte più deterministiche
                 "top_p": 0.9,
                 "num_predict": 10  # Limitiamo la lunghezza della risposta
             }

@@ -1,26 +1,26 @@
 {
   "model": "llama3.1",
   "total_questions": 2,
-  "correct_answers": 0,
-  "wrong_answers": 2,
-  "accuracy": 0.0,
+  "correct_answers": 1,
+  "wrong_answers": 1,
+  "accuracy": 50.0,
   "results": [
     {
       "question_id": "S01",
       "category": "spacing",
-      "question": "Nella definizione di una variabile nel file tests\\data\\cases\\trailing_comma_optional_parens1.py, quanti spazi vengono utilizzati per separare i token?",
-      "correct_label": "C",
+      "question": "Nella definizione di una variabile nel file tests\\data\\cases\\is_simple_lookup_for_doublestar_expression.py, quanti spazi vengono utilizzati per separare i token?",
+      "correct_label": "D",
       "ai_answer": "D",
-      "ai_raw_response": "D) 0.0",
-      "is_correct": false
+      "ai_raw_response": "D) 1.0",
+      "is_correct": true
     },
     {
       "question_id": "S02",
       "category": "spacing",
-      "question": "Nella definizione della condizione in una struttura di controllo nel file tests\\data\\cases\\empty_lines.py, quanti spazi vengono usati per separare i token?",
-      "correct_label": "A",
+      "question": "Nella definizione della condizione in una struttura di controllo nel file tests\\data\\cases\\nested_stub.py, quanti spazi vengono usati per separare i token?",
+      "correct_label": "B",
       "ai_answer": "D",
-      "ai_raw_response": "D) 2.0",
+      "ai_raw_response": "D) 0.0",
       "is_correct": false
     }
   ]
