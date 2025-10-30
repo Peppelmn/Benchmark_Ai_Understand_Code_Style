@@ -1,0 +1,8 @@
+# Ignora file con chiavi o configurazioni sensibili
+.env
+
+# (opzionale ma consigliato)
+__pycache__/
+*.pyc
+.DS_Store
+venv/

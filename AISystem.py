@@ -1,8 +1,7 @@
 import os
 import json
-import requests
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List
 from DataClassesDefiner import Question, BenchmarkItem
 import litellm
 
@@ -14,12 +13,20 @@ class AISystem:
         Inizializza il sistema AI.
         
         Args:
-            model: Nome del modello da utilizzare (es. gpt-3.5-turbo, claude-2, ecc.)
+            model: Nome del modello da utilizzare (es. gpt-4, gpt-3.5-turbo, claude-3-opus-20240229, ecc.)
+            api_key: Chiave API (opzionale, altrimenti usa variabile d'ambiente)
         """
-        self.llm = litellm
-            
         self.model = model
-    
+        
+        if "OPENAI_API_KEY" not in os.environ:
+            # Prova a leggere dalla variabile d'ambiente
+            self.api_key = os.getenv("OPENAI_API_KEY")
+            if not self.api_key:
+                raise ValueError("OPENAI_API_KEY non trovata. Passa la chiave API al costruttore o impostala come variabile d'ambiente.")
+        
+        print(f"Sistema AI inizializzato con modello: {self.model}")
+        print(f"API Key configurata: {'✓' if self.api_key else '✗'}")
+
     def _load_codebase_context(self, codebase_path: str, max_files: int = 200) -> str:
         """
         Carica il contenuto della codebase come contesto per l'AI.
@@ -79,9 +86,9 @@ class AISystem:
         
         return prompt
     
-    def _call_ollama(self, prompt: str) -> str:
+    def _call_litellm(self, prompt: str) -> str:
         """
-        Effettua la chiamata API a Ollama.
+        Effettua la chiamata API usando LiteLLM.
         
         Args:
             prompt: Prompt da inviare
@@ -89,24 +96,21 @@ class AISystem:
         Returns:
             Risposta dell'AI
         """
-        payload = {
-            "model": self.model,
-            "prompt": prompt,
-            "stream": False,
-            "options": {
-                "temperature": 0,  # Bassa temperatura per risposte più deterministiche
-                "top_p": 0.9,
-                "num_predict": 10  # Limitiamo la lunghezza della risposta
-            }
-        }
-        
         try:
-            response = requests.post(self.api_endpoint, json=payload, timeout=120)
-            response.raise_for_status()
-            result = response.json()
-            return result.get('response', '').strip()
-        except requests.exceptions.RequestException as e:
-            print(f"Errore nella chiamata a Ollama: {e}")
+            response = litellm.completion(
+                model=self.model,
+                messages=[
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0,  # Bassa temperatura per risposte più deterministiche
+                max_tokens=10,  # Limitiamo la lunghezza della risposta
+                top_p=0.9
+            )
+            
+            return response.choices[0].message.content.strip()
+            
+        except Exception as e:
+            print(f"Errore nella chiamata a LiteLLM: {e}")
             return ""
     
     def _extract_answer_letter(self, ai_response: str) -> str:
@@ -147,8 +151,8 @@ class AISystem:
         prompt = self._create_prompt(benchmark_item, codebase_context)
         
         # Invia la domanda all'AI
-        print(f"Invio domanda {benchmark_item['question_id']} a LLama 3.1...")
-        ai_response = self._call_ollama(prompt)
+        print(f"Invio domanda {benchmark_item['question_id']} al modello {self.model}...")
+        ai_response = self._call_litellm(prompt)
         
         # Estrai la lettera della risposta
         ai_answer = self._extract_answer_letter(ai_response)

@@ -4,10 +4,12 @@ from AISystem import AISystem
 from BenchmarkSystem import BenchmarkSystem
 from DataClassesDefiner import Question
 from Spacing.SpacingAnalyzer import SpacingAnalyzer
+import os
+
 
 
 if __name__ == "__main__":
-    
+    print(os.getenv("OPENAI_API_KEY"))
     codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "black-main")
     spacingAnalyzer=SpacingAnalyzer(codebase_path=codebase_path)
     # Definisci le tue domande
@@ -31,10 +33,7 @@ if __name__ == "__main__":
 
 
     # Inizializza il sistema AI
-    ai_system = AISystem(
-        ollama_url="http://localhost:11434",
-        model="llama3.1"
-    )
+    ai_system = AISystem(model="gpt-4")
     
     # Valuta l'AI sul benchmark
     evaluation_results = ai_system.evaluate_benchmark(
