@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
 
     # Inizializza il sistema AI
-    ai_system = AISystem(model="gpt-4.1")
+    ai_system = AISystem(model="llama3.1", provider="ollama")
     
     # Valuta l'AI sul benchmark
     evaluation_results = ai_system.evaluate_benchmark(

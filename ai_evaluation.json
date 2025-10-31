@@ -1,26 +1,27 @@
 {
-  "model": "gpt-4.1",
+  "model": "llama3.1",
+  "provider": "ollama",
   "total_questions": 2,
-  "correct_answers": 0,
-  "wrong_answers": 2,
-  "accuracy": 0.0,
+  "correct_answers": 1,
+  "wrong_answers": 1,
+  "accuracy": 50.0,
   "results": [
     {
       "question_id": "S01",
       "category": "spacing",
-      "question": "Nella definizione di una variabile nel file tests\\data\\cases\\import_spacing.py, quanti spazi vengono utilizzati per separare i token?",
+      "question": "Nella definizione di una variabile nel file tests\\data\\cases\\preview_import_line_collapse.py, quanti spazi vengono utilizzati per separare i token?",
       "correct_label": "D",
-      "ai_answer": "",
-      "ai_raw_response": "",
-      "is_correct": false
+      "ai_answer": "D",
+      "ai_raw_response": "D) 1.0",
+      "is_correct": true
     },
     {
       "question_id": "S02",
       "category": "spacing",
-      "question": "Nella definizione della condizione in una struttura di controllo nel file scripts\\migrate-black.py, quanti spazi vengono usati per separare i token?",
-      "correct_label": "C",
-      "ai_answer": "",
-      "ai_raw_response": "",
+      "question": "Nella definizione della condizione in una struttura di controllo nel file tests\\data\\cases\\trailing_comma_optional_parens1.py, quanti spazi vengono usati per separare i token?",
+      "correct_label": "B",
+      "ai_answer": "A",
+      "ai_raw_response": "La risposta è B) 1.0",
       "is_correct": false
     }
   ]

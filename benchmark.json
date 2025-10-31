@@ -2,10 +2,10 @@
   {
     "question_id": "S01",
     "category": "spacing",
-    "question": "Nella definizione di una variabile nel file tests\\data\\cases\\import_spacing.py, quanti spazi vengono utilizzati per separare i token?",
+    "question": "Nella definizione di una variabile nel file tests\\data\\cases\\preview_import_line_collapse.py, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": "0.0",
+        "text": "2.0",
         "label": "A"
       },
       {
@@ -13,7 +13,7 @@
         "label": "B"
       },
       {
-        "text": "2.0",
+        "text": "0.0",
         "label": "C"
       },
       {
@@ -26,25 +26,25 @@
   {
     "question_id": "S02",
     "category": "spacing",
-    "question": "Nella definizione della condizione in una struttura di controllo nel file scripts\\migrate-black.py, quanti spazi vengono usati per separare i token?",
+    "question": "Nella definizione della condizione in una struttura di controllo nel file tests\\data\\cases\\trailing_comma_optional_parens1.py, quanti spazi vengono usati per separare i token?",
     "answers": [
       {
         "text": "0.0",
         "label": "A"
       },
       {
-        "text": "3.0",
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": "2.0",
         "label": "C"
       },
       {
-        "text": "2.0",
+        "text": "3.0",
         "label": "D"
       }
     ],
-    "correct_label": "C"
+    "correct_label": "B"
   }
 ]
