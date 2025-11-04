@@ -1,27 +1,72 @@
 {
   "model": "llama3.1",
   "provider": "ollama",
-  "total_questions": 2,
-  "correct_answers": 1,
-  "wrong_answers": 1,
-  "accuracy": 50.0,
+  "total_questions": 7,
+  "correct_answers": 2,
+  "wrong_answers": 5,
+  "accuracy": 28.57,
   "results": [
     {
       "question_id": "S01",
       "category": "spacing",
-      "question": "Nella definizione di una variabile nel file tests\\data\\cases\\preview_import_line_collapse.py, quanti spazi vengono utilizzati per separare i token?",
+      "question": "Nella definizione di una variabile nel file tests\\data\\cases\\one_element_subscript.py, quanti spazi vengono utilizzati per separare i token?",
+      "correct_label": "C",
+      "ai_answer": "D",
+      "ai_raw_response": "D) 2.0",
+      "is_correct": false
+    },
+    {
+      "question_id": "S02",
+      "category": "spacing",
+      "question": "Nella definizione della condizione in una struttura di controllo nel file tests\\data\\line_ranges_formatted\\basic.py, quanti spazi vengono usati per separare i token?",
       "correct_label": "D",
       "ai_answer": "D",
       "ai_raw_response": "D) 1.0",
       "is_correct": true
     },
     {
-      "question_id": "S02",
+      "question_id": "S03",
       "category": "spacing",
-      "question": "Nella definizione della condizione in una struttura di controllo nel file tests\\data\\cases\\trailing_comma_optional_parens1.py, quanti spazi vengono usati per separare i token?",
-      "correct_label": "B",
+      "question": "Nelle liste di argomenti delle funzioni nel file tests\\data\\cases\\pep_570.py, quanti spazi vengono utilizzati prima della virgola?",
+      "correct_label": "C",
+      "ai_answer": "D",
+      "ai_raw_response": "D) 1.0",
+      "is_correct": false
+    },
+    {
+      "question_id": "S04",
+      "category": "spacing",
+      "question": "Nelle liste di argomenti delle funzioni nel file tests\\data\\cases\\fstring.py, quanti spazi vengono utilizzati dopo la virgola?",
+      "correct_label": "A",
+      "ai_answer": "B",
+      "ai_raw_response": "B) 0.0",
+      "is_correct": false
+    },
+    {
+      "question_id": "S05",
+      "category": "spacing",
+      "question": "Nel file tests\\data\\cases\\keep_newline_after_match.py, quante righe vuote ci sono dopo la definizione di una funzione (incluso il corpo della funzione)?",
+      "correct_label": "A",
+      "ai_answer": "D",
+      "ai_raw_response": "D) 2.0",
+      "is_correct": false
+    },
+    {
+      "question_id": "S06",
+      "category": "spacing",
+      "question": "Nel file src\\blib2to3\\pgen2\\grammar.py, qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
+      "correct_label": "D",
+      "ai_answer": "D",
+      "ai_raw_response": "D) 132",
+      "is_correct": true
+    },
+    {
+      "question_id": "S07",
+      "category": "spacing",
+      "question": "Nel file tests\\data\\cases\\conditional_expression.py, quanti spazi vengono utilizzati per l'indentazione del codice?",
+      "correct_label": "C",
       "ai_answer": "A",
-      "ai_raw_response": "La risposta è B) 1.0",
+      "ai_raw_response": "A) 3.0",
       "is_correct": false
     }
   ]

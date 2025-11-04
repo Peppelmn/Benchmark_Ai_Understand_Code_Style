@@ -22,6 +22,31 @@ if __name__ == "__main__":
             category="spacing",
             text=f"Nella definizione della condizione in una struttura di controllo nel file {spacingAnalyzer.question_S02()[0]}, quanti spazi vengono usati per separare i token?"
         ),
+        Question(
+            id="S03",
+            category="spacing",
+            text=f"Nelle liste di argomenti delle funzioni nel file {spacingAnalyzer.question_S03_S04("before")[0]}, quanti spazi vengono utilizzati prima della virgola?"
+        ),
+        Question(
+            id="S04",
+            category="spacing",
+            text=f"Nelle liste di argomenti delle funzioni nel file {spacingAnalyzer.question_S03_S04("after")[0]}, quanti spazi vengono utilizzati dopo la virgola?"
+        ),
+        Question(
+            id="S05",
+            category="spacing",
+            text=f"Nel file {spacingAnalyzer.question_S05()[0]}, quante righe vuote ci sono dopo la definizione di una funzione (incluso il corpo della funzione)?"
+        ),
+        Question(
+            id="S06",
+            category="spacing",
+            text=f"Nel file {spacingAnalyzer.question_S06()[0]}, qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?"
+        ),
+        Question(
+            id="S07",
+            category="spacing",
+            text=f"Nel file {spacingAnalyzer.question_S07()[0]}, quanti spazi vengono utilizzati per l'indentazione del codice?"
+        ),
     ]
     # Crea il sistema
     system = BenchmarkSystem(codebase_path=codebase_path)

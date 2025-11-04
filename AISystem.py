@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 class AISystem:
     
-    def __init__(self, model: str, provider: str = "openai"):
+    def __init__(self, model: str, provider: str = "ollama"):
         """
         Inizializza il sistema AI.
         
@@ -47,7 +47,7 @@ class AISystem:
         else:
             print(f"Nessuna API Key necessaria per {self.provider.upper()}")
 
-    def _load_codebase_context(self, codebase_path: str, max_files: int = 30) -> str:
+    def _load_codebase_context(self, codebase_path: str, max_files: int = 200) -> str:
         """Carica il contenuto della codebase come contesto per l'AI."""
         codebase = Path(codebase_path)
         python_files = list(codebase.rglob("*.py"))[:max_files]
