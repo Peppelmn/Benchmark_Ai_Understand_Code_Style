@@ -1,6 +1,7 @@
 import os
 import json
 from pathlib import Path
+import time
 from typing import Dict, List
 from DataClassesDefiner import Question, BenchmarkItem
 import litellm
@@ -33,6 +34,10 @@ class AISystem:
             self.api_key = os.getenv("GROQ_API_KEY")
             self.api_base = None
 
+        elif self.provider == "google":
+            self.api_key = os.getenv("GEMINI_API_KEY")
+            self.api_base = None
+
         elif self.provider == "ollama":
             # Ollama gira in locale, quindi non serve API key
             self.api_key = None
@@ -47,19 +52,27 @@ class AISystem:
         else:
             print(f"Nessuna API Key necessaria per {self.provider.upper()}")
 
-    def _load_codebase_context(self, codebase_path: str, max_files: int = 200) -> str:
-        """Carica il contenuto della codebase come contesto per l'AI."""
-        codebase = Path(codebase_path)
-        python_files = list(codebase.rglob("*.py"))[:max_files]
+    # In AISystem.py
+
+    def _load_specific_file_context(self, codebase_path: str, target_file: str) -> str:
+        """Carica il contenuto di UN SINGOLO file come contesto per l'AI."""
+        
+        # Costruisce il percorso completo al file
+        full_path = Path(codebase_path) / target_file
         context = "=== CODEBASE ===\n\n"
-        for file_path in python_files:
-            try:
-                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-                    content = f.read()
-                    relative_path = file_path.relative_to(codebase)
-                    context += f"--- File: {relative_path} ---\n{content}\n\n"
-            except Exception as e:
-                print(f"Errore leggendo {file_path}: {e}")
+        
+        if not full_path.exists():
+            print(f"[ERRORE] File target non trovato: {full_path}")
+            return f"{context}--- File: {target_file} ---\nERRORE: File non trovato.\n\n"
+        
+        try:
+            with open(full_path, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+                # Usa il 'target_file' (percorso relativo) per il contesto
+                context += f"--- File: {target_file} ---\n{content}\n\n"
+        except Exception as e:
+            print(f"Errore leggendo il file specifico {full_path}: {e}")
+            context += f"--- File: {target_file} ---\nERRORE: Impossibile leggere il file.\n\n"
         return context
 
     def _create_prompt(self, benchmark_item: Dict, codebase_context: str):
@@ -89,10 +102,11 @@ class AISystem:
                 model=f"ollama/{self.model}" if self.provider == "ollama" else self.model,
                 messages=[
                     {"role": "system", "content": context},
-                    {"role": "user", "content": prompt}
+                    {"role": "user", "content": prompt},
                 ],
                 api_key=self.api_key,
-                api_base=self.api_base  # Ollama
+                api_base=self.api_base,
+                temperature=0.0
             )
             return response.choices[0].message.content.strip()
         except Exception as e:
@@ -109,8 +123,12 @@ class AISystem:
 
     def process_question(self, benchmark_item: Dict, codebase_path: str) -> Dict:
         """Processa una singola domanda inviandola all'AI e valuta la risposta."""
-        print(f"Caricamento codebase da {codebase_path}...")
-        codebase_context = self._load_codebase_context(codebase_path)
+        target_file = benchmark_item.get('target_file') 
+        if not target_file:
+            print(f"[ERRORE] Manca 'target_file' nel benchmark_item per {benchmark_item['question_id']}")
+        # Carica SOLO il file specifico
+        print(f"Caricamento file specifico: {target_file}...")
+        codebase_context = self._load_specific_file_context(codebase_path, target_file)
         prompt = self._create_prompt(benchmark_item, codebase_context)
         print(f"Invio domanda {benchmark_item['question_id']} al modello {self.model} ({self.provider})...")
         ai_response = self._call_litellm(prompt["prompt"], prompt["context"])
@@ -141,6 +159,8 @@ class AISystem:
             results.append(result)
             if result['is_correct']:
                 correct_count += 1
+            time.sleep(5)
+
         accuracy = (correct_count / len(benchmark_items)) * 100 if benchmark_items else 0
         evaluation_summary = {
             "model": self.model,

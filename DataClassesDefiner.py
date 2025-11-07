@@ -8,6 +8,7 @@ class Question:
     id: str
     category: str  # es: "naming", "spacing", "structure"
     text: str
+    target_file: str
 
 @dataclass
 class Answer:
@@ -33,5 +34,6 @@ class BenchmarkItem:
             "category": self.question.category,
             "question": self.question.text,
             "answers": [{"text": a.text, "label": chr(65 + i)} for i, a in enumerate(answers)],
-            "correct_label": chr(65 + answers.index(self.correct_answer))
+            "correct_label": chr(65 + answers.index(self.correct_answer)),
+            "target_file": self.question.target_file
         }
