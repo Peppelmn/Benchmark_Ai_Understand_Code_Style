@@ -97,21 +97,50 @@ class AISystem:
 
     def _call_litellm(self, prompt: str, context: str) -> str:
         """Effettua la chiamata API usando LiteLLM."""
-        try:
-            response = litellm.completion(
-                model=f"ollama/{self.model}" if self.provider == "ollama" else self.model,
-                messages=[
-                    {"role": "system", "content": context},
-                    {"role": "user", "content": prompt},
-                ],
-                api_key=self.api_key,
-                api_base=self.api_base,
-                temperature=0.0
-            )
-            return response.choices[0].message.content.strip()
-        except Exception as e:
-            print(f"Errore nella chiamata a LiteLLM: {e}")
-            return ""
+
+        #Logica di retry per gestire errori 503 (service unavailable)
+        max_retries = 4  
+        base_wait_time = 5 
+
+        for attempt in range(max_retries):
+            try:
+                response = litellm.completion(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": context},
+                        {"role": "user", "content": prompt}
+                    ],
+                    api_key=self.api_key,
+                    api_base=self.api_base
+                )
+                return response.choices[0].message.content.strip()
+
+            # --- GESTIONE SPECIFICA DELL'ERRORE 503 ---
+            except litellm.InternalServerError as e:
+                # Controlla se è un errore 503
+                error_str = str(e).lower()
+                if "503" in error_str or "unavailable" in error_str or "overloaded" in error_str:
+                    
+                    if attempt < max_retries - 1:
+                        # Calcola il tempo di attesa (es. 5s, 10s, 20s)
+                        wait_time = base_wait_time * (2 ** attempt) 
+                        print(f"Errore 503 (Overload). Riprovo tra {wait_time} secondi... (Tentativo {attempt + 2}/{max_retries})")
+                        time.sleep(wait_time)
+                    else:
+                        # Ultimo tentativo fallito
+                        print(f"Errore 503 (Overload). Tentativi esauriti. Errore: {e}")
+                        return ""
+                else:
+                    # È un altro tipo di InternalServerError, non riprovare
+                    print(f"Errore InternalServerError (non 503) nella chiamata a LiteLLM: {e}")
+                    return ""
+            # --- FINE GESTIONE ERRORE ---
+
+            except Exception as e:
+                print(f"Errore generico nella chiamata a LiteLLM: {e}")
+                return ""
+
+        return "" # Fallback nel caso il loop finisca senza un return
 
     def _extract_answer_letter(self, ai_response: str) -> str:
         """Estrae la lettera della risposta dal testo dell'AI."""
@@ -159,7 +188,7 @@ class AISystem:
             results.append(result)
             if result['is_correct']:
                 correct_count += 1
-            time.sleep(5)
+            time.sleep(10)
 
         accuracy = (correct_count / len(benchmark_items)) * 100 if benchmark_items else 0
         evaluation_summary = {

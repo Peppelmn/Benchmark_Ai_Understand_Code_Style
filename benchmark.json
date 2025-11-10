@@ -5,7 +5,7 @@
     "question": "Nella definizione di una variabile quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": "0.0",
+        "text": "3.0",
         "label": "A"
       },
       {
@@ -17,12 +17,12 @@
         "label": "C"
       },
       {
-        "text": "2.0",
+        "text": "0.0",
         "label": "D"
       }
     ],
     "correct_label": "C",
-    "target_file": "tests\\data\\cases\\is_simple_lookup_for_doublestar_expression.py"
+    "target_file": "scripts\\release.py"
   },
   {
     "question_id": "S02",
@@ -30,7 +30,7 @@
     "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "answers": [
       {
-        "text": "1.0",
+        "text": 1.0,
         "label": "A"
       },
       {
@@ -42,12 +42,12 @@
         "label": "C"
       },
       {
-        "text": 0,
+        "text": "0.0",
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "scripts\\fuzz.py"
+    "correct_label": "A",
+    "target_file": "tests\\data\\cases\\comments_in_blocks.py"
   },
   {
     "question_id": "S03",
@@ -55,24 +55,24 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "answers": [
       {
-        "text": "3.0",
+        "text": "2.0",
         "label": "A"
       },
       {
-        "text": "2.0",
+        "text": "3.0",
         "label": "B"
       },
       {
-        "text": "1.0",
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": "1.0",
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "tests\\data\\cases\\fmtonoff5.py"
+    "correct_label": "C",
+    "target_file": "tests\\data\\cases\\pep646_typed_star_arg_type_var_tuple.py"
   },
   {
     "question_id": "S04",
@@ -80,7 +80,7 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "answers": [
       {
-        "text": "2.0",
+        "text": "3.0",
         "label": "A"
       },
       {
@@ -97,7 +97,7 @@
       }
     ],
     "correct_label": "B",
-    "target_file": "src\\black\\files.py"
+    "target_file": "tests\\data\\cases\\line_ranges_outside_source.py"
   },
   {
     "question_id": "S05",
@@ -105,24 +105,24 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "answers": [
       {
-        "text": "3.0",
+        "text": "2.0",
         "label": "A"
       },
       {
-        "text": "4.0",
+        "text": "1.0",
         "label": "B"
       },
       {
-        "text": "0.0",
+        "text": "3.0",
         "label": "C"
       },
       {
-        "text": 1,
+        "text": 0,
         "label": "D"
       }
     ],
     "correct_label": "D",
-    "target_file": "scripts\\check_version_in_basics_example.py"
+    "target_file": "tests\\data\\miscellaneous\\blackd_diff.py"
   },
   {
     "question_id": "S06",
@@ -130,24 +130,24 @@
     "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "answers": [
       {
-        "text": "49.0",
+        "text": 128,
         "label": "A"
       },
       {
-        "text": "47.0",
+        "text": "129.0",
         "label": "B"
       },
       {
-        "text": "52.0",
+        "text": "130.0",
         "label": "C"
       },
       {
-        "text": 50,
+        "text": "127.0",
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "tests\\data\\cases\\collections.py"
+    "correct_label": "A",
+    "target_file": "tests\\data\\cases\\comment_after_escaped_newline.py"
   },
   {
     "question_id": "S07",
@@ -155,15 +155,15 @@
     "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
     "answers": [
       {
-        "text": "7.0",
+        "text": "5.0",
         "label": "A"
       },
       {
-        "text": "6.0",
+        "text": "1.0",
         "label": "B"
       },
       {
-        "text": "2.0",
+        "text": "3.0",
         "label": "C"
       },
       {
@@ -172,7 +172,7 @@
       }
     ],
     "correct_label": "D",
-    "target_file": "tests\\data\\cases\\fmtonoff2.py"
+    "target_file": "tests\\data\\cases\\prefer_rhs_split_reformatted.py"
   },
   {
     "question_id": "S08",
@@ -180,11 +180,11 @@
     "question": "Quante righe vuote ci sono sopra un commento?",
     "answers": [
       {
-        "text": "1.0",
+        "text": 0,
         "label": "A"
       },
       {
-        "text": 0,
+        "text": "3.0",
         "label": "B"
       },
       {
@@ -192,12 +192,12 @@
         "label": "C"
       },
       {
-        "text": "3.0",
+        "text": "1.0",
         "label": "D"
       }
     ],
-    "correct_label": "B",
-    "target_file": "scripts\\diff_shades_gha_helper.py"
+    "correct_label": "A",
+    "target_file": "tests\\data\\cases\\numeric_literals.py"
   },
   {
     "question_id": "S09",
@@ -213,16 +213,16 @@
         "label": "B"
       },
       {
-        "text": 0,
+        "text": "3.0",
         "label": "C"
       },
       {
-        "text": "3.0",
+        "text": 0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
-    "target_file": "tests\\data\\cases\\fmtskip7.py"
+    "correct_label": "D",
+    "target_file": "tests\\data\\cases\\beginning_backslash.py"
   },
   {
     "question_id": "S10",
@@ -230,11 +230,11 @@
     "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "answers": [
       {
-        "text": "4.0",
+        "text": "3.0",
         "label": "A"
       },
       {
-        "text": "2.0",
+        "text": 1,
         "label": "B"
       },
       {
@@ -242,12 +242,12 @@
         "label": "C"
       },
       {
-        "text": 1,
+        "text": "4.0",
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "tests\\data\\cases\\comments_in_blocks.py"
+    "correct_label": "B",
+    "target_file": "src\\blib2to3\\pgen2\\grammar.py"
   },
   {
     "question_id": "S11",
@@ -255,7 +255,7 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "answers": [
       {
-        "text": 2,
+        "text": "3.0",
         "label": "A"
       },
       {
@@ -263,16 +263,16 @@
         "label": "B"
       },
       {
-        "text": "3.0",
+        "text": "0.0",
         "label": "C"
       },
       {
-        "text": "0.0",
+        "text": 2,
         "label": "D"
       }
     ],
-    "correct_label": "A",
-    "target_file": "tests\\test_tokenize.py"
+    "correct_label": "D",
+    "target_file": "src\\blib2to3\\pgen2\\pgen.py"
   },
   {
     "question_id": "S12",
@@ -284,19 +284,19 @@
         "label": "A"
       },
       {
-        "text": "3.0",
+        "text": "5.0",
         "label": "B"
       },
       {
-        "text": 1,
+        "text": "3.0",
         "label": "C"
       },
       {
-        "text": "4.0",
+        "text": 2,
         "label": "D"
       }
     ],
-    "correct_label": "C",
-    "target_file": "src\\blib2to3\\pgen2\\parse.py"
+    "correct_label": "D",
+    "target_file": "tests\\test_docs.py"
   }
 ]

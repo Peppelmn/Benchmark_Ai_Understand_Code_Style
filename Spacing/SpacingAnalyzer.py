@@ -50,7 +50,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                     values = []
                     with open(path, "r", encoding="utf-8", errors="ignore") as f:
                         for i, line in enumerate(f):
-                            if i > 3000:  # evita file enormi
+                            if i > 1000:  # evita file enormi
                                 break
                             val = analyze_function(line)
                             if val is not None:

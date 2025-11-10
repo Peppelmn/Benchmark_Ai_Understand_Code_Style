@@ -2,9 +2,9 @@
   "model": "gemini/gemini-2.5-flash",
   "provider": "google",
   "total_questions": 12,
-  "correct_answers": 8,
-  "wrong_answers": 4,
-  "accuracy": 66.67,
+  "correct_answers": 10,
+  "wrong_answers": 2,
+  "accuracy": 83.33,
   "results": [
     {
       "question_id": "S01",
@@ -19,18 +19,18 @@
       "question_id": "S02",
       "category": "spacing",
       "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
-      "correct_label": "D",
+      "correct_label": "A",
       "ai_answer": "A",
       "ai_raw_response": "A",
-      "is_correct": false
+      "is_correct": true
     },
     {
       "question_id": "S03",
       "category": "spacing",
       "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
-      "correct_label": "D",
-      "ai_answer": "D",
-      "ai_raw_response": "D",
+      "correct_label": "C",
+      "ai_answer": "C",
+      "ai_raw_response": "C",
       "is_correct": true
     },
     {
@@ -47,18 +47,18 @@
       "category": "spacing",
       "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
       "correct_label": "D",
-      "ai_answer": "C",
-      "ai_raw_response": "C",
+      "ai_answer": "B",
+      "ai_raw_response": "B",
       "is_correct": false
     },
     {
       "question_id": "S06",
       "category": "spacing",
       "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
-      "correct_label": "D",
-      "ai_answer": "C",
-      "ai_raw_response": "C",
-      "is_correct": false
+      "correct_label": "A",
+      "ai_answer": "A",
+      "ai_raw_response": "A",
+      "is_correct": true
     },
     {
       "question_id": "S07",
@@ -73,45 +73,45 @@
       "question_id": "S08",
       "category": "spacing",
       "question": "Quante righe vuote ci sono sopra un commento?",
-      "correct_label": "B",
-      "ai_answer": "B",
-      "ai_raw_response": "B",
-      "is_correct": true
+      "correct_label": "A",
+      "ai_answer": "D",
+      "ai_raw_response": "D",
+      "is_correct": false
     },
     {
       "question_id": "S09",
       "category": "spacing",
       "question": "Quante righe vuote ci sono dopo un commento?",
-      "correct_label": "C",
-      "ai_answer": "A",
-      "ai_raw_response": "A",
-      "is_correct": false
-    },
-    {
-      "question_id": "S10",
-      "category": "spacing",
-      "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
       "correct_label": "D",
       "ai_answer": "D",
       "ai_raw_response": "D",
       "is_correct": true
     },
     {
+      "question_id": "S10",
+      "category": "spacing",
+      "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
+      "correct_label": "B",
+      "ai_answer": "B",
+      "ai_raw_response": "B",
+      "is_correct": true
+    },
+    {
       "question_id": "S11",
       "category": "spacing",
       "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
-      "correct_label": "A",
-      "ai_answer": "A",
-      "ai_raw_response": "A",
+      "correct_label": "D",
+      "ai_answer": "D",
+      "ai_raw_response": "D",
       "is_correct": true
     },
     {
       "question_id": "S12",
       "category": "spacing",
       "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
-      "correct_label": "C",
-      "ai_answer": "C",
-      "ai_raw_response": "C",
+      "correct_label": "D",
+      "ai_answer": "D",
+      "ai_raw_response": "D",
       "is_correct": true
     }
   ]
