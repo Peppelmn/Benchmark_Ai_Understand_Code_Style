@@ -1,12 +1,8 @@
-# In question_definitions.py
-
 from DataClassesDefiner import Question
-# Importa l'analyzer per il type hinting
 from Spacing.SpacingAnalyzer import SpacingAnalyzer 
 from Naming.NamingAnalyzer import NamingAnalyzer
 from typing import List, Dict, Any
 
-# --- La firma della funzione è cambiata ---
 def get_all_questions(spacingAnalyzer: SpacingAnalyzer = None, namingAnalyzer: NamingAnalyzer = None) -> List[Question]:
     """
     Genera la lista di tutte le domande di spacing e naming,
@@ -31,9 +27,14 @@ def get_all_questions(spacingAnalyzer: SpacingAnalyzer = None, namingAnalyzer: N
         data_map["S10"] = spacingAnalyzer.question_S10()
         data_map["S11"] = spacingAnalyzer.question_S11()
         data_map["S12"] = spacingAnalyzer.question_S12()
+        data_map["N01"] = namingAnalyzer.question_N01()
+        data_map["N02"] = namingAnalyzer.question_N02()
+        data_map["N03"] = namingAnalyzer.question_N03()
+        data_map["N04"] = namingAnalyzer.question_N04()
+        data_map["N05"] = namingAnalyzer.question_N05()
 
         if any(data is None for data in data_map.values()):
-            raise ValueError("Uno o più analyzer non hanno trovato file consistenti.")
+            raise ValueError("Uno o più analyzer non hanno prodotto risultati validi.")
             
     except Exception as e:
         print(f"Errore fatale durante la pre-analisi (in get_all_questions): {e}")
@@ -114,4 +115,40 @@ def get_all_questions(spacingAnalyzer: SpacingAnalyzer = None, namingAnalyzer: N
             text=f"Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
             target_file=data_map['S12'][0]
         ),
+        Question(
+            id="N01",
+            category="naming",
+            text=f"Quanti elementi sono nominati con metodologia snake_case?",
+            target_file=data_map['N01'][0]
+        ),
+        Question(
+            id="N02",
+            category="naming",
+            text=f"Quanti elementi sono nominati con metodologia camelCase?",
+            target_file=data_map['N02'][0]
+        ),
+        Question(
+            id="N03",
+            category="naming",
+            text=f"Quanti elementi sono nominati con metodologia PascalCase?",
+            target_file=data_map['N03'][0]
+        ),
+        Question(
+            id="N04",
+            category="naming",
+            text=f"Qual è la metodologia più utilizzata per nominare gli elementi di questo script?",
+            target_file=data_map['N04'][0]
+        ),
+        Question(
+            id="N05",
+            category="naming",
+            text=f"Quale metodologia di denominazione è stata utilizzata in questo caso: {data_map['N05'][2]}?",
+            target_file=data_map['N05'][0]
+        ),
+        # Question(
+        #     id="N06",
+        #     category="naming",
+        #     text=f"Nel caso della denominazione di una costante, vengono utilizzati underscore per separare le parole (es. MY_CONSTANT)?",
+        #     target_file=None
+        # )
     ]

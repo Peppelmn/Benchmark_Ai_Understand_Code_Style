@@ -7,6 +7,10 @@ import ast
 
 class SpacingAnalyzer(CodebaseAnalyzer):
     """Analizza la codebase su aspetti di spacing, trova la risposta corretta per le domande"""
+    
+    def __init__(self, codebase_path: str):
+        super().__init__(codebase_path)
+        self.parse_error_count = 0
 
     def analyze(self, question: Question) -> Answer:
         # Scorri le domande di spacing e crei metodi specifici per ognuna per trovare la risposta corretta
@@ -255,7 +259,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 
             except Exception as e:
                 # Gestisce sia SyntaxError di ast.parse sia Errori I/O
-                print(f"[!] Errore durante lettura/parsing AST di {file_path}: {e}")
+                self.parse_error_count += 1
                 return []
 
             # ast.walk() scorre l'albero e trova TUTTI i nodi,
@@ -453,7 +457,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 tree = ast.parse(content)
                 
             except Exception as e:
-                print(f"[!] Errore durante lettura/parsing AST di {file_path}: {e}")
+                self.parse_error_count += 1
                 return []
 
             def count_blanks_from(start_line_index, all_lines):
@@ -547,7 +551,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 
             except Exception as e:
                 # Gestisce sia SyntaxError di ast.parse sia Errori I/O
-                print(f"[!] Errore durante lettura/parsing AST di {file_path}: {e}")
+                self.parse_error_count += 1
                 return []
 
             # ast.walk() scorre l'albero e trova TUTTI i nodi ClassDef,
@@ -626,7 +630,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 tree = ast.parse(content)
                 
             except Exception as e:
-                print(f"[!] Errore durante lettura/parsing AST di {file_path}: {e}")
+                self.parse_error_count += 1
                 return []
 
             def count_blanks_from(start_line_index, all_lines):

@@ -8,10 +8,10 @@ class SpacingDistractorGenerator(DistractorGenerator):
     
     def generate(self, correct_answer: Answer, question: Question, num_distractors: int = 3) -> List[Answer]:
         if any(question.id.__eq__(id) for id in ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12"]):
-            return self.generate_distractors_1(float(correct_answer.text), num_distractors)
+            return self.generate_distractor(float(correct_answer.text), num_distractors)
         pass
 
-    def generate_distractors_1(self, correct_value: float, num_distractors: int) -> List[Answer]:
+    def generate_distractor(self, correct_value: float, num_distractors: int) -> List[Answer]:
 
         distractors = list()
         while len(distractors) < num_distractors:

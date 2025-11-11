@@ -6,7 +6,7 @@ import random
 class Question:
     """Rappresenta una domanda del benchmark"""
     id: str
-    category: str  # es: "naming", "spacing", "structure"
+    category: str
     text: str
     target_file: str
 
@@ -26,7 +26,6 @@ class BenchmarkItem:
     def to_dict(self) -> Dict:
         """Converte in formato per l'IA"""
         answers = [self.correct_answer] + self.distractors
-        # Mescola per non avere sempre la risposta corretta in prima posizione
         random.shuffle(answers)
         
         return {
