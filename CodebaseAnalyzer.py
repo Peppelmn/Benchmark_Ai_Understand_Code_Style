@@ -6,6 +6,7 @@ class CodebaseAnalyzer:
     def __init__(self, codebase_path: str):
         self.codebase_path = Path(codebase_path)
         self.python_files = []
+        self.parse_error_count = 0
 
         # Usa glob non ricorsivo e manualmente controlla le directory
         for path in self.codebase_path.rglob("*.py"):

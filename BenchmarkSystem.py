@@ -6,7 +6,7 @@ from DistractorGenerator import DistractorGenerator
 from CodebaseAnalyzer import CodebaseAnalyzer
 from Naming.NamingAnalyzer import NamingAnalyzer
 from Spacing.SpacingAnalyzer import SpacingAnalyzer
-from DataClassesDefiner import Question, BenchmarkItem
+from DataClassesDefiner import Answer, Question, BenchmarkItem
 from Naming.NamingDistractorGenerator import NamingDistractorGenerator
 from Spacing.SpacingDistractorGenerator import SpacingDistractorGenerator
 
@@ -15,12 +15,6 @@ class BenchmarkSystem:
     
     def __init__(self, codebase_path: str):
         self.codebase_path = codebase_path
-        
-        # Registra gli analyzers
-        self.analyzers: Dict[str, CodebaseAnalyzer] = {
-            "naming": NamingAnalyzer(codebase_path),
-            "spacing": SpacingAnalyzer(codebase_path),
-        }
         
         # Registra i generatori di distrattori
         self.distractor_generators: Dict[str, DistractorGenerator] = {
@@ -31,12 +25,7 @@ class BenchmarkSystem:
     def process_question(self, question: Question) -> BenchmarkItem:
         """Processa una singola domanda e genera l'item completo"""
         
-        #Trova la risposta corretta
-        analyzer = self.analyzers.get(question.category)
-        if not analyzer:
-            raise ValueError(f"Analyzer non trovato: {question.category}")
-        
-        correct_answer = analyzer.analyze(question)
+        correct_answer = Answer(question.correct_answer_value, True)
         
         #Genera distrattori
         generator = self.distractor_generators.get(question.category)

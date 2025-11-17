@@ -7,37 +7,6 @@ import ast
 
 class SpacingAnalyzer(CodebaseAnalyzer):
     """Analizza la codebase su aspetti di spacing, trova la risposta corretta per le domande"""
-    
-    def __init__(self, codebase_path: str):
-        super().__init__(codebase_path)
-        self.parse_error_count = 0
-
-    def analyze(self, question: Question) -> Answer:
-        # Scorri le domande di spacing e crei metodi specifici per ognuna per trovare la risposta corretta
-        if question.id.__eq__("S01"):
-            return Answer(self.question_S01()[1], True) 
-        elif question.id.__eq__("S02"):
-            return Answer(self.question_S02()[1], True)
-        elif question.id.__eq__("S03"):
-            return Answer(self.question_S03_S04("before")[1], True)
-        elif question.id.__eq__("S04"):
-            return Answer(self.question_S03_S04("after")[1], True)
-        elif question.id.__eq__("S05"):
-            return Answer(self.question_S05()[1], True)
-        elif question.id.__eq__("S06"):
-            return Answer(self.question_S06()[1], True)
-        elif question.id.__eq__("S07"):
-            return Answer(self.question_S07()[1], True)
-        elif question.id.__eq__("S08"):
-            return Answer(self.question_S08_S09("above")[1], True)
-        elif question.id.__eq__("S09"):
-            return Answer(self.question_S08_S09("below")[1], True)
-        elif question.id.__eq__("S10"):
-            return Answer(self.question_S10()[1], True)
-        elif question.id.__eq__("S11"):
-            return Answer(self.question_S11()[1], True)
-        elif question.id.__eq__("S12"):
-            return Answer(self.question_S12()[1], True)
 
     def _find_consistent_files(self, analyze_function, per_line=True):
         """
@@ -82,7 +51,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 # Verifica se i valori sono consistenti (tutti uguali)
                 if len(set(values)) == 1:
                     relative_path = path.relative_to(self.codebase_path)
-                    consistent_files.append((str(relative_path), values[0]))
+                    consistent_files.append((str(relative_path), float(values[0])))
 
             except Exception as e:
                 print(f"[!] Errore analizzando {path}: {e}")
@@ -185,7 +154,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
 
         return self._find_consistent_files(count_spaces_in_control_structure)
     
-    def question_S03_S04(self, count_before_after: str):
+    def get_spaces_around_commas(self, count_before_after: str):
 
         def count_spaces_around_commas(line):
             """Analizza gli spazi prima o dopo le virgole negli argomenti di funzione."""
@@ -233,7 +202,13 @@ class SpacingAnalyzer(CodebaseAnalyzer):
             return sum(space_counts) / len(space_counts) if space_counts else None
         
         return self._find_consistent_files(count_spaces_around_commas)
-        
+    
+    def question_S03(self):
+        return self.get_spaces_around_commas("before")
+    
+    def question_S04(self):
+        return self.get_spaces_around_commas("after")
+
     def question_S05(self):
         """
         Trova i file che usano un numero coerente di righe vuote
@@ -329,7 +304,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
             max_len = max_line_length(path)
             if max_len is not None:
                 relative_path = path.relative_to(self.codebase_path)
-                consistent_files.append((str(relative_path), max_len))
+                consistent_files.append((str(relative_path), float(max_len)))
 
         return random.choice(consistent_files) if consistent_files else None
 
@@ -381,7 +356,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
 
         return self._find_consistent_files(analyze_file, per_line=False)
 
-    def question_S08_S09(self, count_above_below: str):
+    def get_blank_lines_around_comments(self, count_above_below: str):
         """Trova i file che hanno un numero coerente di righe vuote sopra e sotto i commenti.
         Restituisce un file e la media di righe vuote trovata, se coerente.
         """
@@ -433,6 +408,12 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 return blanks_below if blanks_below else 0
             
         return self._find_consistent_files(count_blank_lines_around_comments, per_line=False)
+
+    def question_S08(self):
+        return self.get_blank_lines_around_comments("above")
+    
+    def question_S09(self):
+        return self.get_blank_lines_around_comments("below")
 
     def question_S10(self):
         """

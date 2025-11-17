@@ -6,11 +6,12 @@ from typing import Dict, List
 from DataClassesDefiner import Question, BenchmarkItem
 import litellm
 from dotenv import load_dotenv
+from datetime import datetime
 
 
 class AISystem:
     
-    def __init__(self, model: str, provider: str = "ollama"):
+    def __init__(self, model: str, provider: str):
         """
         Inizializza il sistema AI.
         
@@ -42,6 +43,10 @@ class AISystem:
             # Ollama gira in locale, quindi non serve API key
             self.api_key = None
             self.api_base = "http://localhost:11434"
+
+        elif self.provider == "copilot-api":
+            self.api_key = None
+            self.api_base = "http://localhost:4141/v1"
 
         else:
             raise ValueError(f"Provider sconosciuto: {provider}")
@@ -99,7 +104,7 @@ class AISystem:
         """Effettua la chiamata API usando LiteLLM."""
 
         #Logica di retry per gestire errori 503 (service unavailable)
-        max_retries = 4  
+        max_retries = 5  
         base_wait_time = 5 
 
         for attempt in range(max_retries):
@@ -176,12 +181,13 @@ class AISystem:
         return result
 
     def evaluate_benchmark(self, benchmark_items: List[Dict], codebase_path: str, output_path: str = "ai_evaluation.json") -> Dict:
-        """Valuta il modello su tutto il benchmark."""
+        """Valuta il modello su tutto il benchmark e salva lo storico."""
         results = []
         correct_count = 0
         print(f"\n{'='*60}")
         print(f"Inizio valutazione su {len(benchmark_items)} domande")
         print(f"{'='*60}\n")
+        
         for i, item in enumerate(benchmark_items, 1):
             print(f"\n[{i}/{len(benchmark_items)}] Processando domanda {item['question_id']}...")
             result = self.process_question(item, codebase_path)
@@ -191,7 +197,10 @@ class AISystem:
             time.sleep(10)
 
         accuracy = (correct_count / len(benchmark_items)) * 100 if benchmark_items else 0
-        evaluation_summary = {
+        
+        # Creazione del sommario corrente
+        current_summary = {
+            "timestamp": datetime.now().isoformat(), # Aggiunge la data/ora
             "model": self.model,
             "provider": self.provider,
             "total_questions": len(benchmark_items),
@@ -200,12 +209,43 @@ class AISystem:
             "accuracy": round(accuracy, 2),
             "results": results
         }
+
+        # --- LOGICA DI SALVATAGGIO STORICO ---
         if output_path:
-            with open(output_path, 'w', encoding='utf-8') as f:
-                json.dump(evaluation_summary, f, indent=2, ensure_ascii=False)
-            print(f"\nRisultati salvati in {output_path}")
+            history = []
+            path = Path(output_path)
+
+            # 1. Prova a leggere lo storico esistente
+            if path.exists():
+                try:
+                    with open(path, 'r', encoding='utf-8') as f:
+                        content = f.read().strip()
+                        if content:
+                            loaded_data = json.loads(content)
+                            if isinstance(loaded_data, list):
+                                history = loaded_data
+                            elif isinstance(loaded_data, dict):
+                                # Se il file conteneva una singola esecuzione (vecchio formato), la convertiamo in lista
+                                history = [loaded_data]
+                except json.JSONDecodeError:
+                    print(f"Attenzione: Il file {output_path} era corrotto o vuoto. Verrà sovrascritto.")
+                except Exception as e:
+                    print(f"Errore leggendo lo storico: {e}")
+
+            # 2. Aggiungi la nuova esecuzione
+            history.append(current_summary)
+
+            # 3. Salva l'intera lista
+            try:
+                with open(path, 'w', encoding='utf-8') as f:
+                    json.dump(history, f, indent=2, ensure_ascii=False)
+                print(f"\nRisultati aggiunti allo storico in {output_path}")
+            except Exception as e:
+                print(f"Errore durante il salvataggio del file: {e}")
+
+        # --- STAMPA A VIDEO ---
         print(f"\n{'='*60}")
-        print(f"RIEPILOGO VALUTAZIONE")
+        print(f"RIEPILOGO VALUTAZIONE CORRENTE")
         print(f"{'='*60}")
         print(f"Modello: {self.model} ({self.provider})")
         print(f"Domande totali: {len(benchmark_items)}")
@@ -213,4 +253,44 @@ class AISystem:
         print(f"Risposte errate: {len(benchmark_items) - correct_count}")
         print(f"Accuratezza: {accuracy:.2f}%")
         print(f"{'='*60}\n")
-        return evaluation_summary
+        
+        return current_summary
+    
+    def print_benchmark_result(self, evaluation_results):
+        print("\n=== ANALISI DETTAGLIATA ===\n")
+        
+        # Mostra domande sbagliate
+        wrong_answers = [r for r in evaluation_results['results'] if not r['is_correct']]
+        right_answers = [r for r in evaluation_results['results'] if r['is_correct']]
+        
+        if wrong_answers:
+            print(f"Domande sbagliate ({len(wrong_answers)}):")
+            for result in wrong_answers:
+                print(f"\n  ID: {result['question_id']}")
+                print(f"  Domanda: {result['question']}")
+                print(f"  Risposta AI: {result['ai_answer']}")
+                print(f"  Risposta corretta: {result['correct_label']}")
+                print(f"  Risposta completa AI: {result['ai_raw_response']}")
+
+            if right_answers:
+                print(f"\nDomande corrette ({len(right_answers)}):")
+                for result in right_answers:
+                    print(f"\n  ID: {result['question_id']}")
+                    print(f"  Domanda: {result['question']}")
+                    print(f"  Risposta AI: {result['ai_answer']}")
+                    print(f"  Risposta corretta: {result['correct_label']}")
+                    print(f"  Risposta completa AI: {result['ai_raw_response']}")
+
+        else:
+            print("✓ Tutte le risposte sono corrette!\n")
+            for result in right_answers:
+                print(f"\n  ID: {result['question_id']}")
+                print(f"  Domanda: {result['question']}")
+                print(f"  Risposta AI: {result['ai_answer']}")
+                print(f"  Risposta corretta: {result['correct_label']}")
+                print(f"  Risposta completa AI: {result['ai_raw_response']}")
+        
+        print("\n" + "="*60)
+        print("Valutazione completata!")
+        print("="*60)
+        return None

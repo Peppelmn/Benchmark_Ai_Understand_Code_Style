@@ -1,118 +1,401 @@
-{
-  "model": "gemini/gemini-2.5-flash",
-  "provider": "google",
-  "total_questions": 12,
-  "correct_answers": 10,
-  "wrong_answers": 2,
-  "accuracy": 83.33,
-  "results": [
-    {
-      "question_id": "S01",
-      "category": "spacing",
-      "question": "Nella definizione di una variabile quanti spazi vengono utilizzati per separare i token?",
-      "correct_label": "C",
-      "ai_answer": "C",
-      "ai_raw_response": "C",
-      "is_correct": true
-    },
-    {
-      "question_id": "S02",
-      "category": "spacing",
-      "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
-      "correct_label": "A",
-      "ai_answer": "A",
-      "ai_raw_response": "A",
-      "is_correct": true
-    },
-    {
-      "question_id": "S03",
-      "category": "spacing",
-      "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
-      "correct_label": "C",
-      "ai_answer": "C",
-      "ai_raw_response": "C",
-      "is_correct": true
-    },
-    {
-      "question_id": "S04",
-      "category": "spacing",
-      "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
-      "correct_label": "B",
-      "ai_answer": "B",
-      "ai_raw_response": "B",
-      "is_correct": true
-    },
-    {
-      "question_id": "S05",
-      "category": "spacing",
-      "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
-      "correct_label": "D",
-      "ai_answer": "B",
-      "ai_raw_response": "B",
-      "is_correct": false
-    },
-    {
-      "question_id": "S06",
-      "category": "spacing",
-      "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
-      "correct_label": "A",
-      "ai_answer": "A",
-      "ai_raw_response": "A",
-      "is_correct": true
-    },
-    {
-      "question_id": "S07",
-      "category": "spacing",
-      "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
-      "correct_label": "D",
-      "ai_answer": "D",
-      "ai_raw_response": "D",
-      "is_correct": true
-    },
-    {
-      "question_id": "S08",
-      "category": "spacing",
-      "question": "Quante righe vuote ci sono sopra un commento?",
-      "correct_label": "A",
-      "ai_answer": "D",
-      "ai_raw_response": "D",
-      "is_correct": false
-    },
-    {
-      "question_id": "S09",
-      "category": "spacing",
-      "question": "Quante righe vuote ci sono dopo un commento?",
-      "correct_label": "D",
-      "ai_answer": "D",
-      "ai_raw_response": "D",
-      "is_correct": true
-    },
-    {
-      "question_id": "S10",
-      "category": "spacing",
-      "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
-      "correct_label": "B",
-      "ai_answer": "B",
-      "ai_raw_response": "B",
-      "is_correct": true
-    },
-    {
-      "question_id": "S11",
-      "category": "spacing",
-      "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
-      "correct_label": "D",
-      "ai_answer": "D",
-      "ai_raw_response": "D",
-      "is_correct": true
-    },
-    {
-      "question_id": "S12",
-      "category": "spacing",
-      "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
-      "correct_label": "D",
-      "ai_answer": "D",
-      "ai_raw_response": "D",
-      "is_correct": true
-    }
-  ]
-}
+[
+  {
+    "model": "openai/gpt-4",
+    "provider": "copilot-api",
+    "total_questions": 21,
+    "correct_answers": 15,
+    "wrong_answers": 6,
+    "accuracy": 71.43,
+    "results": [
+      {
+        "question_id": "S01",
+        "category": "spacing",
+        "question": "Nella definizione di una variabile quanti spazi vengono utilizzati per separare i token?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": true
+      },
+      {
+        "question_id": "S02",
+        "category": "spacing",
+        "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
+        "correct_label": "C",
+        "ai_answer": "B",
+        "ai_raw_response": "B",
+        "is_correct": false
+      },
+      {
+        "question_id": "S03",
+        "category": "spacing",
+        "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": true
+      },
+      {
+        "question_id": "S04",
+        "category": "spacing",
+        "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": true
+      },
+      {
+        "question_id": "S05",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
+        "correct_label": "A",
+        "ai_answer": "A",
+        "ai_raw_response": "A",
+        "is_correct": true
+      },
+      {
+        "question_id": "S06",
+        "category": "spacing",
+        "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
+        "correct_label": "A",
+        "ai_answer": "A",
+        "ai_raw_response": "A",
+        "is_correct": true
+      },
+      {
+        "question_id": "S07",
+        "category": "spacing",
+        "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": true
+      },
+      {
+        "question_id": "S08",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono sopra un commento?",
+        "correct_label": "B",
+        "ai_answer": "B",
+        "ai_raw_response": "B",
+        "is_correct": true
+      },
+      {
+        "question_id": "S09",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono dopo un commento?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C) 2.0",
+        "is_correct": true
+      },
+      {
+        "question_id": "S10",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
+        "correct_label": "D",
+        "ai_answer": "D",
+        "ai_raw_response": "D",
+        "is_correct": true
+      },
+      {
+        "question_id": "S11",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
+        "correct_label": "A",
+        "ai_answer": "B",
+        "ai_raw_response": "B",
+        "is_correct": false
+      },
+      {
+        "question_id": "S12",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
+        "correct_label": "D",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": false
+      },
+      {
+        "question_id": "N01",
+        "category": "naming",
+        "question": "Quanti elementi sono nominati usando la convenzione snake_case?",
+        "correct_label": "C",
+        "ai_answer": "A",
+        "ai_raw_response": "A",
+        "is_correct": false
+      },
+      {
+        "question_id": "N02",
+        "category": "naming",
+        "question": "Quanti elementi sono nominati usando la convenzione camelCase?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": true
+      },
+      {
+        "question_id": "N03",
+        "category": "naming",
+        "question": "Quanti elementi sono nominati usando la convenzione PascalCase?",
+        "correct_label": "B",
+        "ai_answer": "B",
+        "ai_raw_response": "B",
+        "is_correct": true
+      },
+      {
+        "question_id": "N04",
+        "category": "naming",
+        "question": "Qual è la convenzione più utilizzata per nominare gli elementi di questo script?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": true
+      },
+      {
+        "question_id": "N05",
+        "category": "naming",
+        "question": "Quale convenzione di denominazione è stata utilizzata in questo caso: Priority?",
+        "correct_label": "B",
+        "ai_answer": "B",
+        "ai_raw_response": "B",
+        "is_correct": true
+      },
+      {
+        "question_id": "N06",
+        "category": "naming",
+        "question": "In questo caso: ALonelyClass, è stata utilizzata una delle seguenti convenzioni di denominazione: snake_case, camelCase, PascalCase?",
+        "correct_label": "A",
+        "ai_answer": "A",
+        "ai_raw_response": "A) true",
+        "is_correct": true
+      },
+      {
+        "question_id": "N07",
+        "category": "naming",
+        "question": "Quanti elementi non utilizzano una delle seguenti convenzioni di denominazione: snake_case, camelCase, PascalCase?",
+        "correct_label": "D",
+        "ai_answer": "B",
+        "ai_raw_response": "B",
+        "is_correct": false
+      },
+      {
+        "question_id": "N08",
+        "category": "naming",
+        "question": "Nel caso della costante: EXTRAS_RE, è stato utilizzato un underscore?",
+        "correct_label": "A",
+        "ai_answer": "A",
+        "ai_raw_response": "A",
+        "is_correct": true
+      },
+      {
+        "question_id": "N09",
+        "category": "naming",
+        "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
+        "correct_label": "A",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-11-17T20:40:29.743092",
+    "model": "gemini/gemini-2.5-flash",
+    "provider": "google",
+    "total_questions": 21,
+    "correct_answers": 17,
+    "wrong_answers": 4,
+    "accuracy": 80.95,
+    "results": [
+      {
+        "question_id": "S01",
+        "category": "spacing",
+        "question": "Nella definizione di una variabile quanti spazi vengono utilizzati per separare i token?",
+        "correct_label": "A",
+        "ai_answer": "A",
+        "ai_raw_response": "A)",
+        "is_correct": true
+      },
+      {
+        "question_id": "S02",
+        "category": "spacing",
+        "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
+        "correct_label": "B",
+        "ai_answer": "A",
+        "ai_raw_response": "A",
+        "is_correct": false
+      },
+      {
+        "question_id": "S03",
+        "category": "spacing",
+        "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
+        "correct_label": "A",
+        "ai_answer": "A",
+        "ai_raw_response": "A",
+        "is_correct": true
+      },
+      {
+        "question_id": "S04",
+        "category": "spacing",
+        "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": true
+      },
+      {
+        "question_id": "S05",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
+        "correct_label": "D",
+        "ai_answer": "D",
+        "ai_raw_response": "D)",
+        "is_correct": true
+      },
+      {
+        "question_id": "S06",
+        "category": "spacing",
+        "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
+        "correct_label": "B",
+        "ai_answer": "B",
+        "ai_raw_response": "B",
+        "is_correct": true
+      },
+      {
+        "question_id": "S07",
+        "category": "spacing",
+        "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
+        "correct_label": "D",
+        "ai_answer": "D",
+        "ai_raw_response": "D",
+        "is_correct": true
+      },
+      {
+        "question_id": "S08",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono sopra un commento?",
+        "correct_label": "B",
+        "ai_answer": "D",
+        "ai_raw_response": "D",
+        "is_correct": false
+      },
+      {
+        "question_id": "S09",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono dopo un commento?",
+        "correct_label": "D",
+        "ai_answer": "D",
+        "ai_raw_response": "D",
+        "is_correct": true
+      },
+      {
+        "question_id": "S10",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
+        "correct_label": "D",
+        "ai_answer": "D",
+        "ai_raw_response": "D",
+        "is_correct": true
+      },
+      {
+        "question_id": "S11",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
+        "correct_label": "D",
+        "ai_answer": "D",
+        "ai_raw_response": "D)",
+        "is_correct": true
+      },
+      {
+        "question_id": "S12",
+        "category": "spacing",
+        "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
+        "correct_label": "D",
+        "ai_answer": "C",
+        "ai_raw_response": "Il mio compito è contare le righe vuote dopo la definizione di una costante o di un blocco di costanti.\n\nPer \"costante\", in Python, si intendono tipicamente le variabili definite a livello di modulo con nomi in maiuscolo (UPPER_CASE). Un \"blocco di costanti\" si riferirebbe a un gruppo di tali definizioni.\n\nAnalizzerò il codice formattato (output) per trovare tali definizioni.\n\n1.  Cerca definizioni di variabili in UPPER_CASE a livello di modulo.\n    Scorrendo il codice, le uniche definizioni di variabili globali in UPPER_CASE sono:\n    - `RE_ONE_BACKSLASH`\n    - `RE_TWO_BACKSLASHES`\n    - `RE_THREE_BACKSLASHES`\n\n2.  Esamina il blocco di codice relativo a queste definizioni nell'output formattato:\n    ```python\n    RE_ONE_BACKSLASH = {\n        \"asdf_hjkl_jkl\": re.compile(\n            r\"(?<!([0-9]\\ ))(?<=(^|\\ ))([A-Z]+(\\ )?|[0-9](\\ )|[a-z](\\ )){4,7}([A-Z]|[0-9]|[a-z])($|\\b)(?!(\\ ?([0-9]\\ )|(\\.)))\"\n        ),\n    } # Riga 285\n\n    # Riga 286 è vuota\n\n    RE_TWO_BACKSLASHES = {\n        \"asdf_hjkl_jkl\": re.compile(\n            r\"(?<!([0-9]\\ ))(?<=(^|\\ ))([A-Z]+(\\ )?|[0-9](\\ )|[a-z](\\\\\"\n            r\" )){4,7}([A-Z]|[0-9]|[a-z])($|\\b)(?!(\\ ?([0-9]\\ )|(\\.)))\"\n        ),\n    } # Riga 291\n\n    # Riga 292 è vuota\n\n    RE_THREE_BACKSLASHES = {\n        \"asdf_hjkl_jkl\": re.compile(\n            r\"(?<!([0-9]\\ ))(?<=(^|\\ ))([A-Z]+(\\ )?|[0-9](\\ )|[a-z](\\\\\\ )){4,7}([A-Z]|[0-9]|[a-z])($|\\b)(?!(\\ ?([0-9]\\ )|(\\.)))\"\n        ),\n    } # Riga 297\n\n    # Riga 298 è vuota\n\n    # Riga 299 contiene un commento: `# We do NOT split on f-string expressions.`\n    ```\n\n3.  Conta le righe vuote:\n    - Dopo la definizione di `RE_ONE_BACKSLASH` (riga 285 `}`), c'è una riga vuota (riga 286). (1 riga vuota)\n    - Dopo la definizione di `RE_TWO_BACKSLASHES` (riga 291 `}`), c'è una riga vuota (riga 292). (1 riga vuota)\n    - Dopo la definizione di `RE_THREE_BACKSLASHES` (riga 297 `}`), c'è una riga vuota (riga 298). (1 riga vuota)\n\nLe tre definizioni sono trattate come entità separate, ciascuna seguita da una riga vuota. Il totale è 1 + 1 + 1 = 3 righe vuote.\n\nPertanto, ci sono 3 righe vuote dopo le definizioni delle costanti.\n\nLa risposta è C.\n\nThe final answer is $\\boxed{C}$",
+        "is_correct": false
+      },
+      {
+        "question_id": "N01",
+        "category": "naming",
+        "question": "Quanti elementi sono nominati usando la convenzione snake_case?",
+        "correct_label": "B",
+        "ai_answer": "D",
+        "ai_raw_response": "D",
+        "is_correct": false
+      },
+      {
+        "question_id": "N02",
+        "category": "naming",
+        "question": "Quanti elementi sono nominati usando la convenzione camelCase?",
+        "correct_label": "B",
+        "ai_answer": "B",
+        "ai_raw_response": "B",
+        "is_correct": true
+      },
+      {
+        "question_id": "N03",
+        "category": "naming",
+        "question": "Quanti elementi sono nominati usando la convenzione PascalCase?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": true
+      },
+      {
+        "question_id": "N04",
+        "category": "naming",
+        "question": "Qual è la convenzione più utilizzata per nominare gli elementi di questo script?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": true
+      },
+      {
+        "question_id": "N05",
+        "category": "naming",
+        "question": "Quale convenzione di denominazione è stata utilizzata in questo caso: _LinesMapping?",
+        "correct_label": "C",
+        "ai_answer": "C",
+        "ai_raw_response": "C",
+        "is_correct": true
+      },
+      {
+        "question_id": "N06",
+        "category": "naming",
+        "question": "In questo caso: restrict_to_this_line, è stata utilizzata una delle seguenti convenzioni di denominazione: snake_case, camelCase, PascalCase?",
+        "correct_label": "B",
+        "ai_answer": "B",
+        "ai_raw_response": "B",
+        "is_correct": true
+      },
+      {
+        "question_id": "N07",
+        "category": "naming",
+        "question": "Quanti elementi non utilizzano una delle seguenti convenzioni di denominazione: snake_case, camelCase, PascalCase?",
+        "correct_label": "B",
+        "ai_answer": "B",
+        "ai_raw_response": "B",
+        "is_correct": true
+      },
+      {
+        "question_id": "N08",
+        "category": "naming",
+        "question": "Nel caso della costante: DFA, è stato utilizzato un underscore?",
+        "correct_label": "A",
+        "ai_answer": "A",
+        "ai_raw_response": "A",
+        "is_correct": true
+      },
+      {
+        "question_id": "N09",
+        "category": "naming",
+        "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
+        "correct_label": "A",
+        "ai_answer": "A",
+        "ai_raw_response": "A",
+        "is_correct": true
+      }
+    ]
+  }
+]

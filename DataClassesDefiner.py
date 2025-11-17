@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import Any, Dict, List
 import random
 
 @dataclass
@@ -9,11 +9,12 @@ class Question:
     category: str
     text: str
     target_file: str
+    correct_answer_value: Any
 
 @dataclass
 class Answer:
     """Rappresenta una risposta (corretta o errata)"""
-    text: str
+    text: Any
     is_correct: bool
 
 @dataclass

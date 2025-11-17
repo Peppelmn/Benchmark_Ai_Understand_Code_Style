@@ -54,33 +54,21 @@ class NamingAnalyzer(CodebaseAnalyzer):
     def __init__(self, codebase_path: str):
         super().__init__(codebase_path)
         self._file_naming_cache: Dict[str, Dict[str, int]] = {}
-        self.parse_error_count = 0
-
-    def analyze(self, question: Question) -> Answer:
-        
-        if question.id == "N01":
-            return Answer(self.question_N01()[1] , True)
-        elif question.id == "N02":
-            return Answer(self.question_N02()[1], True)
-        elif question.id == "N03":
-            return Answer(self.question_N03()[1], True)
-        elif question.id == "N04":
-            return Answer(self.question_N04()[1], True)
-        elif question.id == "N05":
-            return Answer(self.question_N05()[1], True)
-        else:
-            raise ValueError(f"ID domanda Naming sconosciuto: {question.id}")
                 
-    
     def _is_pascal_case(self, name: str) -> bool:
-        if not name or name.startswith("_") or len(name) < 2: return False
+        if not name or name.startswith("_") or len(name) < 2: 
+            return False
+        
         return (
             "_" not in name and
-            name[0].isupper()
+            name[0].isupper() and
+            any(c.islower() for c in name)
         )
 
     def _is_camel_case(self, name: str) -> bool:
-        if not name or name.startswith("_") or len(name) < 2: return False
+        if not name or name.startswith("_") or len(name) < 2: 
+            return False
+        
         return (
             "_" not in name and
             name[0].islower() and
@@ -88,8 +76,12 @@ class NamingAnalyzer(CodebaseAnalyzer):
         )
 
     def _is_snake_case(self, name: str) -> bool:
-        if not name or name.startswith("_") or len(name) < 2: return False
-        return name.islower()
+        if not name or name.startswith("_") or len(name) < 2: 
+            return False
+        return (
+            name.islower() and
+            "_" in name
+        )
 
     def _get_naming_counts_for_file(self, file_path: str) -> Dict[str, Dict]:
         """
@@ -123,32 +115,45 @@ class NamingAnalyzer(CodebaseAnalyzer):
             all_names_in_file = collector.names
             
         except Exception as e:
+            self.parse_error_count += 1 
             self._file_naming_cache[file_path] = counts
             return counts
-
-        for name in all_names_in_file:
-            if name.isupper():
+        
+        for original_name in all_names_in_file:
+            
+            # Se è TUTTO MAIUSCOLO, è una costante.
+            if original_name.isupper():
                 counts["constants"]["count"] += 1
-                counts["constants"]["names"].append(name)
-            elif name.startswith('__') and name.endswith('__'):
+                counts["constants"]["names"].append(original_name)
+                continue # Classificazione terminata
+
+            # Se è un metodo "dunder", è speciale.
+            if original_name.startswith('__') and original_name.endswith('__'):
                 counts["special"]["count"] += 1
-                counts["special"]["names"].append(name)
-            elif name.startswith('_'):
-                counts["special"]["count"] += 1
-                counts["special"]["names"].append(name)
-            elif self._is_pascal_case(name):
+                counts["special"]["names"].append(original_name)
+                continue # Classificazione terminata
+
+            name_to_classify = original_name.lstrip('_')
+
+            # --- 3. Classificazione (usa il nome "pulito") ---
+            # Le funzioni _is_... vengono chiamate sul nome pulito.
+            
+            if self._is_pascal_case(name_to_classify):
                 counts["PascalCase"]["count"] += 1
-                counts["PascalCase"]["names"].append(name)
-            elif self._is_camel_case(name):
+                counts["PascalCase"]["names"].append(original_name)
+
+            elif self._is_camel_case(name_to_classify):
                 counts["camelCase"]["count"] += 1
-                counts["camelCase"]["names"].append(name)
-            elif self._is_snake_case(name):
+                counts["camelCase"]["names"].append(original_name)
+
+            elif self._is_snake_case(name_to_classify):
                 counts["snake_case"]["count"] += 1
-                counts["snake_case"]["names"].append(name)
+                counts["snake_case"]["names"].append(original_name)
+
             else:
                 counts["other"]["count"] += 1
-                counts["other"]["names"].append(name)
-
+                counts["other"]["names"].append(original_name)
+        
         self._file_naming_cache[file_path] = counts
         return counts
 
@@ -187,7 +192,7 @@ class NamingAnalyzer(CodebaseAnalyzer):
             # Se questo file ha almeno un esempio, è un candidato
             if current_count > 0:
                 relative_path = file_path.relative_to(self.codebase_path)
-                candidate_files.append((str(relative_path), current_count, current_names))
+                candidate_files.append((str(relative_path), float(current_count), current_names))
 
         if not candidate_files:
             print(f"[ATTENZIONE] NamingAnalyzer non ha trovato file per '{convention}' (con < {max_lines} righe)")
@@ -268,6 +273,133 @@ class NamingAnalyzer(CodebaseAnalyzer):
         random_convention = random.choice(["snake_case", "camelCase", "PascalCase"])
         random_file = self._find_random_file_for_convention(random_convention)
         random_element = random.choice(random_file[2]) if random_file else None
-        return random_file[0], random_convention, random_element if random_element else None
+        random_tuple = (random_file[0], random_convention, random_element if random_element else None) if random_file else None
+        return random_tuple
     
+    def question_N06(self):
+        """
+        Prende un file a caso, un nome a caso da quel file, e determina
+        se quel nome segue una delle 3 convenzioni principali.
+        
+        Restituisce: (percorso_file, nome_scelto, è_standard [True/False])
+        """
+        max_lines = 1000
+        tentativi = 0
+        
+        # Prova a trovare un file valido per un massimo di 50 tentativi
+        while tentativi < 50:
+            try:
+                # 1. Scegli un file a caso
+                file_path = random.choice(self.python_files)
+                
+                # 2. Controlla la lunghezza
+                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                    if len(f.readlines()) > max_lines:
+                        tentativi += 1
+                        continue # File troppo lungo, riprova
+
+                # 3. Analizza il file e prendi TUTTI i nomi
+                counts_data = self._get_naming_counts_for_file(str(file_path))
+                
+                all_names_in_file = (
+                    counts_data["PascalCase"]["names"] +
+                    counts_data["camelCase"]["names"] +
+                    counts_data["snake_case"]["names"] +
+                    counts_data["constants"]["names"] +
+                    counts_data["other"]["names"] +
+                    counts_data["special"]["names"]
+                )
+
+                if not all_names_in_file:
+                    tentativi += 1
+                    continue # File vuoto o con soli dunder, riprova
+
+                # 4. Scegli un nome a caso da questo file
+                random_name = random.choice(all_names_in_file)
+                
+                # 5. Classificalo: è una delle 3 convenzioni?
+                # Pulisci il nome (rimuovi _) prima di testarlo
+                name_to_test = random_name.lstrip('_')
+                
+                is_standard = (
+                    self._is_pascal_case(name_to_test) or
+                    self._is_camel_case(name_to_test) or
+                    self._is_snake_case(name_to_test)
+                )
+                
+                # 6. Restituisci i dati
+                relative_path = file_path.relative_to(self.codebase_path)
+                return (str(relative_path), str(is_standard).lower(), random_name)
+
+            except Exception as e:
+                # Probabile errore di parsing AST su un file strano, riprova
+                tentativi += 1
+                continue
+        
+        # Se dopo 50 tentativi non abbiamo trovato nulla
+        print("[ATTENZIONE] NamingAnalyzer.question_N06 non è riuscito a trovare un nome valido.")
+        return None
     
+    def question_N07(self):
+        return self._find_random_file_for_convention("other")
+    
+    def question_N08(self):
+        random_file = self._find_random_file_for_convention("constants")
+        random_constant = random.choice(random_file[2])
+        return (random_file[0], "true" , random_constant) if "_" in random_constant else (random_file[0], "false", random_constant)
+    
+    def question_N09(self):
+        """
+        Sceglie un file CASUALE (con < 1000 righe) e trova la lunghezza 
+        del nome più lungo presente all'interno di QUEL file specifico.
+        
+        Restituisce: (percorso_file, lunghezza_massima_nel_file)
+        """
+        max_lines = 1000
+        tentativi = 0
+        
+        while tentativi < 50:
+            try:
+                # 1. Scegli un file a caso
+                file_path = random.choice(self.python_files)
+                
+                # 2. Controlla la lunghezza (per performance)
+                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                    if len(f.readlines()) > max_lines:
+                        tentativi += 1
+                        continue 
+
+                # 3. Analizza il file e prendi TUTTI i nomi
+                #    (Usa la cache se il file è già stato analizzato)
+                counts_data = self._get_naming_counts_for_file(str(file_path))
+                
+                # Uniamo tutte le liste per avere tutti gli identificatori del file
+                all_names_in_file = (
+                    counts_data["PascalCase"]["names"] +
+                    counts_data["camelCase"]["names"] +
+                    counts_data["snake_case"]["names"] +
+                    counts_data["constants"]["names"] +
+                    counts_data["other"]["names"] +
+                    counts_data["special"]["names"]
+                )
+
+                if not all_names_in_file:
+                    tentativi += 1
+                    continue # File vuoto, riprova
+
+                # 4. Trova il nome più lungo IN QUESTO FILE
+                longest_name = max(all_names_in_file, key=len)
+                max_length = len(longest_name)
+                
+                # 5. Restituisci i dati
+                relative_path = file_path.relative_to(self.codebase_path)
+                
+                return (str(relative_path), float(max_length), longest_name)
+
+            except Exception as e:
+                # Errore di lettura o parsing, prova un altro file
+                tentativi += 1
+                continue
+        
+        print("[ATTENZIONE] NamingAnalyzer.question_N09 non è riuscito a trovare un file valido.")
+        return None

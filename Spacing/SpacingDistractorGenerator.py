@@ -18,6 +18,6 @@ class SpacingDistractorGenerator(DistractorGenerator):
             # Genera un distrattore casuale vicino al valore corretto
             perturbation = random.choice([-3 ,-2, -1, 1, 2, 3])
             distractor_value = correct_value + perturbation
-            if distractor_value >= 0 and distractor_value != correct_value and all(d.text != str(distractor_value) for d in distractors):
-                distractors.append(Answer(str(distractor_value), False))
+            if distractor_value >= 0 and distractor_value != correct_value and all(float(d.text) != float(distractor_value) for d in distractors):
+                distractors.append(Answer(float(distractor_value), False))
         return distractors
