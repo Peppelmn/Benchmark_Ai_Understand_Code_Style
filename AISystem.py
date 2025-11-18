@@ -2,7 +2,7 @@ import os
 import json
 from pathlib import Path
 import time
-from typing import Dict, List
+from typing import Dict, List, Tuple, Optional # Aggiunto Tuple e Optional
 from DataClassesDefiner import Question, BenchmarkItem
 import litellm
 from dotenv import load_dotenv
@@ -12,100 +12,65 @@ from datetime import datetime
 class AISystem:
     
     def __init__(self, model: str, provider: str):
-        """
-        Inizializza il sistema AI.
-        
-        Args:
-            model: Nome del modello da utilizzare (es. gpt-4, llama3, mistral, ecc.)
-            provider: Provider del modello ("openai", "groq", "ollama")
-        """
         self.model = model
         self.provider = provider.lower()
         self.env_file = "keys.env"
-
-        # Carica variabili d'ambiente
         load_dotenv(self.env_file)
 
-        # Configura in base al provider
         if self.provider == "openai":
             self.api_key = os.getenv("OPENAI_API_KEY")
             self.api_base = None
-
-        elif self.provider == "groq":
-            self.api_key = os.getenv("GROQ_API_KEY")
-            self.api_base = None
-
         elif self.provider == "google":
             self.api_key = os.getenv("GEMINI_API_KEY")
             self.api_base = None
-
         elif self.provider == "ollama":
-            # Ollama gira in locale, quindi non serve API key
             self.api_key = None
             self.api_base = "http://localhost:11434"
-
         elif self.provider == "copilot-api":
             self.api_key = None
             self.api_base = "http://localhost:4141/v1"
-
         else:
             raise ValueError(f"Provider sconosciuto: {provider}")
 
         print(f"Sistema AI inizializzato con modello: {self.model} (provider: {self.provider})")
-        if self.api_key:
-            print(f"API Key caricata da {self.env_file}: ✓")
-        else:
-            print(f"Nessuna API Key necessaria per {self.provider.upper()}")
-
-    # In AISystem.py
 
     def _load_specific_file_context(self, codebase_path: str, target_file: str) -> str:
-        """Carica il contenuto di UN SINGOLO file come contesto per l'AI."""
-        
-        # Costruisce il percorso completo al file
         full_path = Path(codebase_path) / target_file
         context = "=== CODEBASE ===\n\n"
-        
         if not full_path.exists():
-            print(f"[ERRORE] File target non trovato: {full_path}")
             return f"{context}--- File: {target_file} ---\nERRORE: File non trovato.\n\n"
-        
         try:
             with open(full_path, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
-                # Usa il 'target_file' (percorso relativo) per il contesto
                 context += f"--- File: {target_file} ---\n{content}\n\n"
         except Exception as e:
-            print(f"Errore leggendo il file specifico {full_path}: {e}")
-            context += f"--- File: {target_file} ---\nERRORE: Impossibile leggere il file.\n\n"
+            context += f"--- File: {target_file} ---\nERRORE: Impossibile leggere il file. {e}\n\n"
         return context
 
     def _create_prompt(self, benchmark_item: Dict, codebase_context: str):
-        """Crea il prompt per l'AI includendo la codebase e la domanda."""
         context_prompt = f"""{codebase_context}
         === ISTRUZIONI ===
         Analizza attentamente la codebase fornita sopra e rispondi alla seguente domanda.
-
         IMPORTANTE: Devi rispondere SOLO con la lettera corrispondente alla risposta corretta (A, B, C, o D).
         Non aggiungere spiegazioni, commenti o altro testo. Solo la lettera."""
 
         question_prompt = f"""=== DOMANDA ===
         {benchmark_item['question']}
-
         === OPZIONI DI RISPOSTA ===
         """
         for answer in benchmark_item['answers']:
             question_prompt += f"{answer['label']}) {answer['text']}\n"
-
         question_prompt += "\nRisposta:"
         return {"prompt": question_prompt, "context": context_prompt}
 
-    def _call_litellm(self, prompt: str, context: str) -> str:
-        """Effettua la chiamata API usando LiteLLM."""
-
-        #Logica di retry per gestire errori 503 (service unavailable)
+    def _call_litellm(self, prompt: str, context: str) -> Tuple[str, Optional[str]]:
+        """
+        Effettua la chiamata API.
+        Restituisce: (contenuto_risposta, messaggio_errore)
+        """
         max_retries = 5  
         base_wait_time = 5 
+        last_error = None
 
         for attempt in range(max_retries):
             try:
@@ -118,37 +83,32 @@ class AISystem:
                     api_key=self.api_key,
                     api_base=self.api_base
                 )
-                return response.choices[0].message.content.strip()
+                # Successo: Ritorna il contenuto e Nessun errore
+                return response.choices[0].message.content.strip(), None
 
-            # --- GESTIONE SPECIFICA DELL'ERRORE 503 ---
             except litellm.InternalServerError as e:
-                # Controlla se è un errore 503
+                last_error = str(e)
                 error_str = str(e).lower()
                 if "503" in error_str or "unavailable" in error_str or "overloaded" in error_str:
-                    
                     if attempt < max_retries - 1:
-                        # Calcola il tempo di attesa (es. 5s, 10s, 20s)
                         wait_time = base_wait_time * (2 ** attempt) 
-                        print(f"Errore 503 (Overload). Riprovo tra {wait_time} secondi... (Tentativo {attempt + 2}/{max_retries})")
+                        print(f"Errore 503 (Overload). Riprovo tra {wait_time}s... (Tentativo {attempt + 2}/{max_retries})")
                         time.sleep(wait_time)
                     else:
-                        # Ultimo tentativo fallito
-                        print(f"Errore 503 (Overload). Tentativi esauriti. Errore: {e}")
-                        return ""
+                        print(f"Errore 503. Tentativi esauriti.")
+                        return "", f"503 Overloaded (Max retries reached): {e}"
                 else:
-                    # È un altro tipo di InternalServerError, non riprovare
-                    print(f"Errore InternalServerError (non 503) nella chiamata a LiteLLM: {e}")
-                    return ""
-            # --- FINE GESTIONE ERRORE ---
+                    print(f"Errore InternalServerError: {e}")
+                    return "", f"InternalServerError: {e}"
 
             except Exception as e:
-                print(f"Errore generico nella chiamata a LiteLLM: {e}")
-                return ""
+                print(f"Errore generico LiteLLM: {e}")
+                return "", f"Generic Error: {e}"
 
-        return "" # Fallback nel caso il loop finisca senza un return
+        return "", f"Unknown Error (Loop finished): {last_error}"
 
     def _extract_answer_letter(self, ai_response: str) -> str:
-        """Estrae la lettera della risposta dal testo dell'AI."""
+        if not ai_response: return ""
         ai_response = ai_response.upper().strip()
         for char in ai_response:
             if char in ['A', 'B', 'C', 'D']:
@@ -156,18 +116,29 @@ class AISystem:
         return ""
 
     def process_question(self, benchmark_item: Dict, codebase_path: str) -> Dict:
-        """Processa una singola domanda inviandola all'AI e valuta la risposta."""
-        target_file = benchmark_item.get('target_file') 
+        """Processa una domanda e salva eventuali errori."""
+        target_file = benchmark_item.get('target_file')
+        error_msg = None
+        
         if not target_file:
-            print(f"[ERRORE] Manca 'target_file' nel benchmark_item per {benchmark_item['question_id']}")
-        # Carica SOLO il file specifico
-        print(f"Caricamento file specifico: {target_file}...")
-        codebase_context = self._load_specific_file_context(codebase_path, target_file)
+            error_msg = "Missing 'target_file' in benchmark item"
+            print(f"[ERRORE] {error_msg}")
+            codebase_context = ""
+        else:
+            print(f"Caricamento file specifico: {target_file}...")
+            codebase_context = self._load_specific_file_context(codebase_path, target_file)
+        
         prompt = self._create_prompt(benchmark_item, codebase_context)
         print(f"Invio domanda {benchmark_item['question_id']} al modello {self.model} ({self.provider})...")
-        ai_response = self._call_litellm(prompt["prompt"], prompt["context"])
+        
+        ai_response, call_error = self._call_litellm(prompt["prompt"], prompt["context"])
+        
+        if call_error:
+            error_msg = call_error
+            
         ai_answer = self._extract_answer_letter(ai_response)
         is_correct = ai_answer == benchmark_item['correct_label']
+        
         result = {
             "question_id": benchmark_item['question_id'],
             "category": benchmark_item['category'],
@@ -175,15 +146,34 @@ class AISystem:
             "correct_label": benchmark_item['correct_label'],
             "ai_answer": ai_answer,
             "ai_raw_response": ai_response,
-            "is_correct": is_correct
+            "is_correct": is_correct,
+            "error": error_msg
         }
-        print(f"Risposta AI: {ai_answer} | Corretta: {benchmark_item['correct_label']} | Esito: {'✓' if is_correct else '✗'}")
+        
+        status_icon = '✓' if is_correct else '✗'
+        if error_msg: status_icon = '!'
+            
+        print(f"Risposta AI: {ai_answer} | Corretta: {benchmark_item['correct_label']} | Esito: {status_icon}")
+        if error_msg:
+            print(f"  -> Errore rilevato: {error_msg}")
+            
         return result
 
-    def evaluate_benchmark(self, benchmark_items: List[Dict], codebase_path: str, output_path: str = "ai_evaluation.json") -> Dict:
-        """Valuta il modello su tutto il benchmark e salva lo storico."""
+    def evaluate_benchmark(self, benchmark_items: List[Dict], codebase_path: str, output_path: str = "ai_evaluation.json", wait_time: int = 10) -> Dict:
+        """Valuta il modello e salva statistiche sugli errori."""
         results = []
-        correct_count = 0
+        correct_count = {
+            "spacing": 0,
+            "naming": 0,
+            "total": 0
+        }
+        wrong_count = {
+            "spacing": 0,
+            "naming": 0,
+            "total": 0
+        }
+        error_count = 0
+        
         print(f"\n{'='*60}")
         print(f"Inizio valutazione su {len(benchmark_items)} domande")
         print(f"{'='*60}\n")
@@ -192,30 +182,40 @@ class AISystem:
             print(f"\n[{i}/{len(benchmark_items)}] Processando domanda {item['question_id']}...")
             result = self.process_question(item, codebase_path)
             results.append(result)
+            
             if result['is_correct']:
-                correct_count += 1
-            time.sleep(10)
+                correct_count[result['category']] += 1
+            else:
+                wrong_count[result['category']] += 1
+            
+            if result['error']:
+                error_count += 1
+                
+            time.sleep(wait_time)
 
-        accuracy = (correct_count / len(benchmark_items)) * 100 if benchmark_items else 0
+        total_correct = correct_count["spacing"] + correct_count["naming"]
+        total_wrong = wrong_count["spacing"] + wrong_count["naming"]
+        correct_count['total'] = total_correct
+        wrong_count['total'] = total_wrong
+
+        accuracy = (total_correct) / len(benchmark_items) * 100 if benchmark_items else 0
         
-        # Creazione del sommario corrente
         current_summary = {
-            "timestamp": datetime.now().isoformat(), # Aggiunge la data/ora
+            "timestamp": datetime.now().isoformat(),
             "model": self.model,
             "provider": self.provider,
             "total_questions": len(benchmark_items),
             "correct_answers": correct_count,
-            "wrong_answers": len(benchmark_items) - correct_count,
+            "wrong_answers": wrong_count,
+            "execution_errors": error_count,
             "accuracy": round(accuracy, 2),
-            "results": results
+            "results": results 
         }
 
-        # --- LOGICA DI SALVATAGGIO STORICO ---
         if output_path:
             history = []
             path = Path(output_path)
 
-            # 1. Prova a leggere lo storico esistente
             if path.exists():
                 try:
                     with open(path, 'r', encoding='utf-8') as f:
@@ -225,72 +225,28 @@ class AISystem:
                             if isinstance(loaded_data, list):
                                 history = loaded_data
                             elif isinstance(loaded_data, dict):
-                                # Se il file conteneva una singola esecuzione (vecchio formato), la convertiamo in lista
                                 history = [loaded_data]
-                except json.JSONDecodeError:
-                    print(f"Attenzione: Il file {output_path} era corrotto o vuoto. Verrà sovrascritto.")
                 except Exception as e:
                     print(f"Errore leggendo lo storico: {e}")
 
-            # 2. Aggiungi la nuova esecuzione
             history.append(current_summary)
 
-            # 3. Salva l'intera lista
             try:
                 with open(path, 'w', encoding='utf-8') as f:
                     json.dump(history, f, indent=2, ensure_ascii=False)
-                print(f"\nRisultati aggiunti allo storico in {output_path}")
+                print(f"\nRisultati salvati in {output_path}")
             except Exception as e:
-                print(f"Errore durante il salvataggio del file: {e}")
+                print(f"Errore durante il salvataggio: {e}")
 
-        # --- STAMPA A VIDEO ---
         print(f"\n{'='*60}")
         print(f"RIEPILOGO VALUTAZIONE CORRENTE")
         print(f"{'='*60}")
         print(f"Modello: {self.model} ({self.provider})")
         print(f"Domande totali: {len(benchmark_items)}")
-        print(f"Risposte corrette: {correct_count}")
-        print(f"Risposte errate: {len(benchmark_items) - correct_count}")
+        print(f"Risposte corrette: {total_correct}")
+        print(f"Risposte errate: {total_wrong}")
+        print(f"Errori di esecuzione: {error_count}")
         print(f"Accuratezza: {accuracy:.2f}%")
         print(f"{'='*60}\n")
         
         return current_summary
-    
-    def print_benchmark_result(self, evaluation_results):
-        print("\n=== ANALISI DETTAGLIATA ===\n")
-        
-        # Mostra domande sbagliate
-        wrong_answers = [r for r in evaluation_results['results'] if not r['is_correct']]
-        right_answers = [r for r in evaluation_results['results'] if r['is_correct']]
-        
-        if wrong_answers:
-            print(f"Domande sbagliate ({len(wrong_answers)}):")
-            for result in wrong_answers:
-                print(f"\n  ID: {result['question_id']}")
-                print(f"  Domanda: {result['question']}")
-                print(f"  Risposta AI: {result['ai_answer']}")
-                print(f"  Risposta corretta: {result['correct_label']}")
-                print(f"  Risposta completa AI: {result['ai_raw_response']}")
-
-            if right_answers:
-                print(f"\nDomande corrette ({len(right_answers)}):")
-                for result in right_answers:
-                    print(f"\n  ID: {result['question_id']}")
-                    print(f"  Domanda: {result['question']}")
-                    print(f"  Risposta AI: {result['ai_answer']}")
-                    print(f"  Risposta corretta: {result['correct_label']}")
-                    print(f"  Risposta completa AI: {result['ai_raw_response']}")
-
-        else:
-            print("✓ Tutte le risposte sono corrette!\n")
-            for result in right_answers:
-                print(f"\n  ID: {result['question_id']}")
-                print(f"  Domanda: {result['question']}")
-                print(f"  Risposta AI: {result['ai_answer']}")
-                print(f"  Risposta corretta: {result['correct_label']}")
-                print(f"  Risposta completa AI: {result['ai_raw_response']}")
-        
-        print("\n" + "="*60)
-        print("Valutazione completata!")
-        print("="*60)
-        return None
