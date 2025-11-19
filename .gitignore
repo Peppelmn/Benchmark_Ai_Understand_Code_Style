@@ -1,4 +1,5 @@
 # Ignora file con chiavi o configurazioni sensibili
+.json
 .env
 keys.env
 

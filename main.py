@@ -96,7 +96,6 @@ if __name__ == "__main__":
                 "gemini/gemini-2.5-flash",
                 # "gemini/gemini-2.5-pro",
             ]
-        
         }
 
     for provider, models_list in models.items():
