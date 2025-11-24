@@ -51,8 +51,8 @@ class _NameCollector(ast.NodeVisitor):
 class NamingAnalyzer(CodebaseAnalyzer):
     """Analizza la codebase su aspetti di naming, trova la risposta corretta per le domande"""
 
-    def __init__(self, codebase_path: str):
-        super().__init__(codebase_path)
+    def __init__(self, codebase_path: str, max_token_limit):
+        super().__init__(codebase_path, max_token_limit)
         self._file_naming_cache: Dict[str, Dict[str, int]] = {}
                 
     def _is_pascal_case(self, name: str) -> bool:
@@ -170,6 +170,9 @@ class NamingAnalyzer(CodebaseAnalyzer):
 
         for file_path in self.python_files:
             
+            if len(candidate_files) >= self.num_target_files_per_question:
+                break 
+
             try:
                 with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                     lines = f.readlines()
@@ -198,7 +201,7 @@ class NamingAnalyzer(CodebaseAnalyzer):
             print(f"[ATTENZIONE] NamingAnalyzer non ha trovato file per '{convention}' (con < {max_lines} righe)")
             return None 
 
-        return random.choice(candidate_files)
+        return candidate_files
 
     def question_N01(self):
         """Trova un file casuale con nomi snake_case e il loro numero."""
@@ -220,12 +223,15 @@ class NamingAnalyzer(CodebaseAnalyzer):
         
         Restituisce: (percorso_file_relativo, "convenzione_dominante")
         """
-        best_file_path = None
         dominant_convention = "other"
-        max_total_names = 0 
         max_lines = 1000
+        candidate_files = []
 
         for file_path in self.python_files:
+
+            if len(candidate_files) >= self.num_target_files_per_question:
+                break
+
             try:
                 with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                     if len(f.readlines()) > max_lines:
@@ -246,9 +252,7 @@ class NamingAnalyzer(CodebaseAnalyzer):
 
             # Troviamo il file con il maggior numero di nomi in totale
             # (ignoriamo file con meno di 10 nomi per evitare file banali)
-            if total_classifiable_names > max_total_names and total_classifiable_names > 10:
-                max_total_names = total_classifiable_names
-                best_file_path = file_path
+            if total_classifiable_names >= 10:
                 
                 # Ora determina la convenzione dominante PER QUESTO file
                 convention_counts = {
@@ -259,22 +263,62 @@ class NamingAnalyzer(CodebaseAnalyzer):
                 
                 # Trova la chiave (il nome della convenzione) con il valore (conteggio) massimo
                 dominant_convention = max(convention_counts, key=convention_counts.get)
+                relative_path = str(file_path.relative_to(self.codebase_path))
 
-        if best_file_path is None:
+                candidate_files.append((relative_path, dominant_convention))
+
+        if not candidate_files:
             print(f"[ATTENZIONE] NamingAnalyzer non ha trovato file con > 10 nomi per N04")
             return None # Restituisce None come le altre funzioni
 
-        relative_path = best_file_path.relative_to(self.codebase_path)
-        
-        # Restituisce il file trovato e la sua convenzione vincente (es. "snake_case")
-        return (str(relative_path), dominant_convention)
+        return candidate_files
     
     def question_N05(self):
-        random_convention = random.choice(["snake_case", "camelCase", "PascalCase"])
-        random_file = self._find_random_file_for_convention(random_convention)
-        random_element = random.choice(random_file[2]) if random_file else None
-        random_tuple = (random_file[0], random_convention, random_element if random_element else None) if random_file else None
-        return random_tuple
+        results = []
+        attempts = 0
+        max_attempts = 50
+        
+        conventions = ["snake_case", "camelCase", "PascalCase"]
+
+        while len(results) < self.num_target_files_per_question and attempts < max_attempts:
+            attempts += 1
+            
+            # 1. Scegli una convenzione a caso per questo singolo item
+            random_convention = random.choice(conventions)
+            
+            # 2. Trova dei file candidati per questa convenzione
+            candidates = self._find_random_file_for_convention(random_convention)
+            
+            if not candidates:
+                continue
+
+            if isinstance(candidates, list):
+                chosen_file_data = random.choice(candidates)
+            else:
+                chosen_file_data = candidates
+
+            # chosen_file_data è la tupla: (path, count, names_list)
+            file_path = chosen_file_data[0]
+            names_list = chosen_file_data[2]
+
+            if not names_list:
+                continue
+
+            # 3. Scegli un nome (elemento) a caso da quel file
+            random_element = random.choice(names_list)
+            
+            # 4. Costruisci la tupla risultato
+            # Formato: (File Target, Risposta Corretta, Dato Extra per la domanda)
+            item = (file_path, random_convention, random_element)
+            
+            # Evitiamo duplicati esatti se possibile
+            if item not in results:
+                results.append(item)
+
+        if len(results) < self.num_target_files_per_question:
+            print(f"[WARN] question_N05 ha trovato solo {len(results)}/{self.num_target_files_per_question} campioni.")
+
+        return results
     
     def question_N06(self):
         """
@@ -284,10 +328,12 @@ class NamingAnalyzer(CodebaseAnalyzer):
         Restituisce: (percorso_file, nome_scelto, è_standard [True/False])
         """
         max_lines = 1000
+        candidate_files = []
         tentativi = 0
         
         # Prova a trovare un file valido per un massimo di 50 tentativi
-        while tentativi < 50:
+        while len(candidate_files) < self.num_target_files_per_question and tentativi < 50:
+            tentativi += 1
             try:
                 # 1. Scegli un file a caso
                 file_path = random.choice(self.python_files)
@@ -329,24 +375,70 @@ class NamingAnalyzer(CodebaseAnalyzer):
                 
                 # 6. Restituisci i dati
                 relative_path = file_path.relative_to(self.codebase_path)
-                return (str(relative_path), str(is_standard).lower(), random_name)
+                candidate_files.append((str(relative_path), str(is_standard).lower(), random_name))
 
             except Exception as e:
                 # Probabile errore di parsing AST su un file strano, riprova
                 tentativi += 1
                 continue
         
-        # Se dopo 50 tentativi non abbiamo trovato nulla
-        print("[ATTENZIONE] NamingAnalyzer.question_N06 non è riuscito a trovare un nome valido.")
-        return None
+        return candidate_files if candidate_files else None
     
     def question_N07(self):
         return self._find_random_file_for_convention("other")
     
     def question_N08(self):
-        random_file = self._find_random_file_for_convention("constants")
-        random_constant = random.choice(random_file[2])
-        return (random_file[0], "true" , random_constant) if "_" in random_constant else (random_file[0], "false", random_constant)
+        """
+        Genera 10 campioni per verificare se una specifica costante contiene un underscore.
+        
+        Restituisce una lista di 10 tuple:
+        [(percorso_file, "true"/"false", nome_costante), ...]
+        """
+        results = []
+        target_count = 10
+        max_lines = 1000
+        
+        # Mescoliamo i file per garantire varietà
+        files_to_check = list(self.python_files)
+        random.shuffle(files_to_check)
+
+        for file_path in files_to_check:
+            # Interrompi se abbiamo raggiunto l'obiettivo
+            if len(results) >= target_count:
+                break
+
+            try:
+                # 1. Controllo lunghezza file
+                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                    if len(f.readlines()) > max_lines:
+                        continue
+            except:
+                continue
+
+            # 2. Ottieni le costanti (Usa la cache se disponibile)
+            counts_data = self._get_naming_counts_for_file(str(file_path))
+            constants_list = counts_data["constants"]["names"]
+
+            # Se non ci sono costanti in questo file, passa al prossimo
+            if not constants_list:
+                continue
+
+            # 3. Scegli una costante a caso
+            random_constant = random.choice(constants_list)
+
+            # 4. Applica la tua logica ("true" se ha underscore, altrimenti "false")
+            answer = "true" if "_" in random_constant else "false"
+            
+            relative_path = str(file_path.relative_to(self.codebase_path))
+
+            # 5. Aggiungi alla lista
+            # Tupla: (File, Risposta Corretta, Dato Extra per la domanda)
+            results.append((relative_path, answer, random_constant))
+
+        if len(results) < target_count:
+            print(f"[WARN] question_N08 ha trovato solo {len(results)}/{target_count} campioni.")
+
+        return results
     
     def question_N09(self):
         """
@@ -357,8 +449,13 @@ class NamingAnalyzer(CodebaseAnalyzer):
         """
         max_lines = 1000
         tentativi = 0
+        candidate_files = []
         
         while tentativi < 50:
+
+            if len(candidate_files) >= self.num_target_files_per_question:
+                break
+
             try:
                 # 1. Scegli un file a caso
                 file_path = random.choice(self.python_files)
@@ -393,13 +490,11 @@ class NamingAnalyzer(CodebaseAnalyzer):
                 
                 # 5. Restituisci i dati
                 relative_path = file_path.relative_to(self.codebase_path)
-                
-                return (str(relative_path), float(max_length), longest_name)
+                candidate_files.append((str(relative_path), float(max_length), longest_name))
 
             except Exception as e:
                 # Errore di lettura o parsing, prova un altro file
                 tentativi += 1
                 continue
-        
-        print("[ATTENZIONE] NamingAnalyzer.question_N09 non è riuscito a trovare un file valido.")
-        return None
+
+        return candidate_files if candidate_files else None

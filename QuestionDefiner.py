@@ -57,153 +57,57 @@ def get_all_questions(spacingAnalyzer: SpacingAnalyzer = None, namingAnalyzer: N
         raise e 
     
     print("Dati pre-calcolati con successo.")
-    
-    return [
-        Question(
-            id="S01",
-            category="spacing",
-            text=f"Nella definizione di una variabile quanti spazi vengono utilizzati per separare i token?",
-            target_file=data_map['S01'][0],
-            correct_answer_value=data_map['S01'][1]
-        ),
-        Question(
-            id="S02",
-            category="spacing",
-            text=f"Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
-            target_file=data_map['S02'][0],
-            correct_answer_value=data_map['S02'][1]
-        ),
-        Question(
-            id="S03",
-            category="spacing",
-            text=f"Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
-            target_file=data_map['S03'][0],
-            correct_answer_value=data_map['S03'][1]
-        ),
-        Question(
-            id="S04",
-            category="spacing",
-            text=f"Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
-            target_file=data_map['S04'][0],
-            correct_answer_value=data_map['S04'][1]
-        ),
-        Question(
-            id="S05",
-            category="spacing",
-            text=f"Quante righe vuote ci sono dopo la definizione di una funzione?",
-            target_file=data_map['S05'][0],
-            correct_answer_value=data_map['S05'][1]
-        ),
-        Question(
-            id="S06",
-            category="spacing",
-            text=f"Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
-            target_file=data_map['S06'][0],
-            correct_answer_value=data_map['S06'][1] 
-        ),
-        Question(
-            id="S07",
-            category="spacing",
-            text=f"Quanti spazi vengono utilizzati per l'indentazione del codice?",
-            target_file=data_map['S07'][0],
-            correct_answer_value=data_map['S07'][1]
-        ),
-        Question(
-            id="S08",
-            category="spacing",
-            text=f"Quante righe vuote ci sono sopra un commento?",
-            target_file=data_map['S08'][0],
-            correct_answer_value=data_map['S08'][1]
-        ),
-        Question(
-            id="S09",
-            category="spacing",
-            text=f"Quante righe vuote ci sono dopo un commento?",
-            target_file=data_map['S09'][0],
-            correct_answer_value=data_map['S09'][1]
-        ),
-        Question(
-            id="S10",
-            category="spacing",
-            text=f"Quante righe vuote ci sono dopo ogni import o blocco di import?",
-            target_file=data_map['S10'][0],
-            correct_answer_value=data_map['S10'][1]
-        ),
-        Question(
-            id="S11",
-            category="spacing",
-            text=f"Quante righe vuote ci sono dopo la definizione di una classe?",
-            target_file=data_map['S11'][0],
-            correct_answer_value=data_map['S11'][1]
-        ),
-        Question(
-            id="S12",
-            category="spacing",
-            text=f"Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
-            target_file=data_map['S12'][0],
-            correct_answer_value=data_map['S12'][1]
-        ),
-        Question(
-            id="N01",
-            category="naming",
-            text=f"Quanti elementi sono nominati usando la convenzione snake_case?",
-            target_file=data_map['N01'][0],
-            correct_answer_value=data_map['N01'][1]
-        ),
-        Question(
-            id="N02",
-            category="naming",
-            text=f"Quanti elementi sono nominati usando la convenzione camelCase?",
-            target_file=data_map['N02'][0],
-            correct_answer_value=data_map['N02'][1]
-        ),
-        Question(
-            id="N03",
-            category="naming",
-            text=f"Quanti elementi sono nominati usando la convenzione PascalCase?",
-            target_file=data_map['N03'][0],
-            correct_answer_value=data_map['N03'][1]
-        ),
-        Question(
-            id="N04",
-            category="naming",
-            text=f"Qual è la convenzione più utilizzata per nominare gli elementi di questo script?",
-            target_file=data_map['N04'][0],
-            correct_answer_value=data_map['N04'][1]
-        ),
-        Question(
-            id="N05",
-            category="naming",
-            text=f"Quale convenzione di denominazione è stata utilizzata in questo caso: {data_map['N05'][2]}?",
-            target_file=data_map['N05'][0],
-            correct_answer_value=data_map['N05'][1]
-        ),
-        Question(
-            id="N06",
-            category="naming",
-            text=f"In questo caso: {data_map['N06'][2]}, è stata utilizzata una delle seguenti convenzioni di denominazione: snake_case, camelCase, PascalCase?",
-            target_file=data_map['N06'][0],
-            correct_answer_value=data_map['N06'][1]
-        ),
-        Question(
-            id="N07",
-            category="naming",
-            text=f"Quanti elementi non utilizzano una delle seguenti convenzioni di denominazione: snake_case, camelCase, PascalCase?",
-            target_file=data_map['N07'][0],
-            correct_answer_value=data_map['N07'][1]
-        ),
-        Question(
-            id="N08",
-            category="naming",
-            text=f"Nel caso della costante: {data_map['N08'][2]}, è stato utilizzato un underscore?",
-            target_file=data_map['N08'][0],
-            correct_answer_value=data_map['N08'][1]
-        ),
-        Question(
-            id="N09",
-            category="naming",
-            text=f"Qual è la lunghezza del nome più lungo trovato nel file?",
-            target_file=data_map['N09'][0],
-            correct_answer_value=data_map['N09'][1]
-        ),
-    ]
+
+    questions = []
+
+    # Loop generico per creare le Question dagli oggetti in data_map
+    # Definiamo i template di testo manualmente
+    templates = {
+        "S01": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
+        "S02": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
+        "S03": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
+        "S04": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
+        "S05": "Quante righe vuote ci sono dopo la definizione di una funzione?",
+        "S06": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
+        "S07": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
+        "S08": "Quante righe vuote ci sono prima di un commento?",
+        "S09": "Quante righe vuote ci sono dopo un commento?",
+        "S10": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
+        "S11": "Quante righe vuote ci sono dopo la definizione di una classe?",
+        "S12": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
+        "N01": "Quanti nomi 'snake_case' sono presenti in questo file?",
+        "N02": "Quanti nomi 'camelCase' sono presenti in questo file?",
+        "N03": "Quanti nomi 'PascalCase' sono presenti in questo file?",
+        "N04": "Qual è la convenzione di naming più utilizzata in questo file?",
+        "N05": "Quale convenzione di naming è stata utilizzata per il nome '{0}'?",
+        "N06": "Il nome '{0}' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+        "N07": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+        "N08": "Il nome della costante '{0}' utilizza un underscore?",
+        "N09": "Qual è la lunghezza del nome più lungo trovato nel file?",
+    }
+
+    for q_id, results_list in data_map.items():
+        if not results_list: continue # Salta se vuoto
+        
+        template = templates.get(q_id, "Domanda generica...")
+        category = "spacing" if q_id.startswith("S") else "naming"
+        
+        # Estraiamo le liste parallele
+        target_files = [r[0] for r in results_list]
+        correct_answers = [r[1] for r in results_list]
+        
+        # Gestione dati extra (es. N06, N08, N09 hanno 3 elementi nella tupla)
+        extra_data = None
+        if len(results_list[0]) > 2:
+            extra_data = [r[2] for r in results_list]
+
+        questions.append(Question(
+            id=q_id,
+            category=category,
+            text_template=template,
+            target_files=target_files,
+            correct_answer_values=correct_answers,
+            extra_data=extra_data
+        ))
+
+    return questions

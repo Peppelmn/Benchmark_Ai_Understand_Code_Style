@@ -7,9 +7,10 @@ class Question:
     """Rappresenta una domanda del benchmark"""
     id: str
     category: str
-    text: str
-    target_file: str
-    correct_answer_value: Any
+    text_template: str
+    target_files: List[str] 
+    correct_answer_values: List[Any]
+    extra_data: List[Any] = None
 
 @dataclass
 class Answer:
@@ -32,8 +33,8 @@ class BenchmarkItem:
         return {
             "question_id": self.question.id,
             "category": self.question.category,
-            "question": self.question.text,
+            "question": self.question.text_template,
             "answers": [{"text": a.text, "label": chr(65 + i)} for i, a in enumerate(answers)],
             "correct_label": chr(65 + answers.index(self.correct_answer)),
-            "target_file": self.question.target_file
+            "target_file": self.question.target_files[0]
         }

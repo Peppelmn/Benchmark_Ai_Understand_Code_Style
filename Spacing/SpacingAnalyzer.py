@@ -8,6 +8,9 @@ import ast
 class SpacingAnalyzer(CodebaseAnalyzer):
     """Analizza la codebase su aspetti di spacing, trova la risposta corretta per le domande"""
 
+    def __init__(self, codebase_path: str, max_token_limit):
+        super().__init__(codebase_path, max_token_limit)
+
     def _find_consistent_files(self, analyze_function, per_line=True):
         """
         Metodo generico per trovare file con una caratteristica 'consistente'.
@@ -18,7 +21,12 @@ class SpacingAnalyzer(CodebaseAnalyzer):
         consistent_files = []
 
         for path in self.python_files:
+
+            if len(consistent_files) >= self.num_target_files_per_question:
+                break
+
             try:
+
                 if per_line:
                     values = []
                     with open(path, "r", encoding="utf-8", errors="ignore") as f:
@@ -57,7 +65,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 print(f"[!] Errore analizzando {path}: {e}")
 
         # Se non trovi nulla, restituisci None
-        return random.choice(consistent_files) if consistent_files else None
+        return consistent_files
 
     def question_S01(self):
         
@@ -305,8 +313,9 @@ class SpacingAnalyzer(CodebaseAnalyzer):
             if max_len is not None:
                 relative_path = path.relative_to(self.codebase_path)
                 consistent_files.append((str(relative_path), float(max_len)))
-
-        return random.choice(consistent_files) if consistent_files else None
+                if len(consistent_files) >= self.num_target_files_per_question:
+                    break
+        return consistent_files
 
     def question_S07(self):
         """Trova i file che usano un numero coerente di spazi per indentazione.

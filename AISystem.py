@@ -2,7 +2,7 @@ import os
 import json
 from pathlib import Path
 import time
-from typing import Dict, List, Tuple, Optional # Aggiunto Tuple e Optional
+from typing import Dict, List, Tuple, Optional
 from DataClassesDefiner import Question, BenchmarkItem
 import litellm
 from dotenv import load_dotenv
@@ -61,9 +61,10 @@ class AISystem:
         for answer in benchmark_item['answers']:
             question_prompt += f"{answer['label']}) {answer['text']}\n"
         question_prompt += "\nRisposta:"
-        return {"prompt": question_prompt, "context": context_prompt}
+        prompt = context_prompt + "\n" + question_prompt
+        return prompt
 
-    def _call_litellm(self, prompt: str, context: str) -> Tuple[str, Optional[str]]:
+    def _call_litellm(self, prompt: str) -> Tuple[str, Optional[str]]:
         """
         Effettua la chiamata API.
         Restituisce: (contenuto_risposta, messaggio_errore)
@@ -77,7 +78,6 @@ class AISystem:
                 response = litellm.completion(
                     model=self.model,
                     messages=[
-                        {"role": "system", "content": context},
                         {"role": "user", "content": prompt}
                     ],
                     api_key=self.api_key,
@@ -85,6 +85,10 @@ class AISystem:
                 )
                 # Successo: Ritorna il contenuto e Nessun errore
                 return response.choices[0].message.content.strip(), None
+
+            except litellm.RateLimitError as e:
+                print(f"Errore RateLimitError: Limite API raggiunto. Interruzione del processo. Riavvia lo script più tardi per continuare.")
+                return "", f"RateLimitError: {e}"
 
             except litellm.InternalServerError as e:
                 last_error = str(e)
@@ -116,10 +120,11 @@ class AISystem:
         return ""
 
     def process_question(self, benchmark_item: Dict, codebase_path: str) -> Dict:
-        """Processa una domanda e salva eventuali errori."""
+        """Processa una domanda, riprovando se la risposta è troppo prolissa (>10 char)."""
         target_file = benchmark_item.get('target_file')
         error_msg = None
         
+        # --- 1. Caricamento Contesto ---
         if not target_file:
             error_msg = "Missing 'target_file' in benchmark item"
             print(f"[ERRORE] {error_msg}")
@@ -129,13 +134,40 @@ class AISystem:
             codebase_context = self._load_specific_file_context(codebase_path, target_file)
         
         prompt = self._create_prompt(benchmark_item, codebase_context)
-        print(f"Invio domanda {benchmark_item['question_id']} al modello {self.model} ({self.provider})...")
         
-        ai_response, call_error = self._call_litellm(prompt["prompt"], prompt["context"])
-        
-        if call_error:
-            error_msg = call_error
+        # --- 2. Ciclo di Tentativi per Lunghezza ---
+        max_len_retries = 3
+        ai_response = ""
+        call_error = None
+
+        for i in range(max_len_retries):
+            print(f"Invio domanda {benchmark_item['question_id']} al modello (Tentativo {i+1})...")
             
+            # Chiamata all'AI
+            ai_response, call_error = self._call_litellm(prompt)
+            
+            # Se c'è un errore tecnico (es. 503, 429, RateLimit), fermiamo subito il ciclo
+            if call_error:
+                error_msg = call_error
+                break
+            
+            # Pulisci la risposta da spazi bianchi
+            cleaned_response = ai_response.strip()
+            
+            # CONTROLLO LUNGHEZZA: Se <= 10 caratteri, accettiamo e usciamo
+            if len(cleaned_response) <= 10:
+                break
+            
+            # Se siamo qui, la risposta era troppo lunga
+            print(f"  -> Risposta troppo lunga ({len(cleaned_response)} char): '{cleaned_response[:20]}...'. Riprovo tra 10 secondi.")
+            
+            # Opzionale: Aggiungiamo un messaggio di rinforzo al prompt per il prossimo tentativo
+            if i < max_len_retries - 1:
+                prompt += "\n\n[SYSTEM MESSAGE]: La tua risposta precedente era troppo lunga. Rispondi SOLO con la lettera (A, B, C, o D)."
+
+            time.sleep(10)  # Attesa prima del prossimo tentativo
+
+        # --- 3. Elaborazione Risultato Finale ---
         ai_answer = self._extract_answer_letter(ai_response)
         is_correct = ai_answer == benchmark_item['correct_label']
         
@@ -159,94 +191,177 @@ class AISystem:
             
         return result
 
-    def evaluate_benchmark(self, benchmark_items: List[Dict], codebase_path: str, output_path: str = "ai_evaluation.json", wait_time: int = 10) -> Dict:
-        """Valuta il modello e salva statistiche sugli errori."""
-        results = []
-        correct_count = {
-            "spacing": 0,
-            "naming": 0,
-            "total": 0
-        }
-        wrong_count = {
-            "spacing": 0,
-            "naming": 0,
-            "total": 0
-        }
-        error_count = 0
+    def _save_state(self, output_path: Path, current_run_summary: Dict):
+        """Legge lo storico, aggiorna o aggiunge l'esecuzione corrente e salva tutto."""
+        history = []
+        if output_path.exists():
+            try:
+                with open(output_path, 'r', encoding='utf-8') as f:
+                    content = f.read().strip()
+                    if content:
+                        history = json.loads(content)
+                        # Assicura che history sia una lista
+                        if not isinstance(history, list):
+                            history = [history]
+            except (json.JSONDecodeError, IOError) as e:
+                print(f"Attenzione: impossibile leggere o decodificare il file storico {output_path}. Verrà creato un nuovo file. Errore: {e}")
+                history = []
+
+        # Cerca se un'esecuzione per questo modello/provider è già nello storico
+        run_found = False
+        for i, run in enumerate(history):
+            if run.get("model") == self.model and run.get("provider") == self.provider:
+                history[i] = current_run_summary
+                run_found = True
+                break
         
+        if not run_found:
+            history.append(current_run_summary)
+
+        # Salva lo storico aggiornato
+        try:
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(history, f, indent=2, ensure_ascii=False)
+        except IOError as e:
+            print(f"ERRORE CRITICO: Impossibile salvare lo stato in {output_path}. Errore: {e}")
+
+    def evaluate_benchmark(self, benchmark_items: List[Dict], codebase_path: str, output_path: str = "ai_evaluation.json", wait_time: int = 10) -> Dict:
+        """Valuta il modello, salva i progressi dopo ogni item e può riprendere un'esecuzione interrotta."""
+        
+        path = Path(output_path)
+        processed_ids = set()
+        current_run_summary = None
+
+        # --- 1. Caricamento Stato Precedente (se esiste) ---
+        if path.exists():
+            try:
+                with open(path, 'r', encoding='utf-8') as f:
+                    history = json.load(f)
+                    if not isinstance(history, list): history = [history]
+                    
+                    for run in history:
+                        if run.get("model") == self.model and run.get("provider") == self.provider:
+                            current_run_summary = run
+                            for result_group in run.get("results", []):
+                                for execution in result_group.get("executions", []):
+                                    processed_ids.add(execution["execution_id"])
+                            print(f"Trovata esecuzione precedente per {self.model}. Riprendendo... ({len(processed_ids)} items già processati)")
+                            break
+            except (json.JSONDecodeError, IOError) as e:
+                print(f"Attenzione: file di output {path} corrotto o illeggibile. Si ricomincia da capo. Errore: {e}")
+
+        # --- 2. Inizializzazione se non è stato trovato uno stato precedente ---
+        if current_run_summary is None:
+            print("Nessuna esecuzione precedente trovata per questo modello. Inizio una nuova valutazione.")
+            current_run_summary = {
+                "timestamp": datetime.now().isoformat(),
+                "model": self.model,
+                "provider": self.provider,
+                "stats": {"correct": {}, "wrong": {}, "errors": 0, "accuracy_percent": 0},
+                "results": []
+            }
+
+        grouped_results = {res["template_id"]: res for res in current_run_summary["results"]}
+
         print(f"\n{'='*60}")
-        print(f"Inizio valutazione su {len(benchmark_items)} domande")
+        print(f"Inizio valutazione su {len(benchmark_items)} item (Modello: {self.model})")
         print(f"{'='*60}\n")
         
-        for i, item in enumerate(benchmark_items, 1):
-            print(f"\n[{i}/{len(benchmark_items)}] Processando domanda {item['question_id']}...")
-            result = self.process_question(item, codebase_path)
-            results.append(result)
-            
-            if result['is_correct']:
-                correct_count[result['category']] += 1
-            else:
-                wrong_count[result['category']] += 1
-            
-            if result['error']:
-                error_count += 1
-                
-            time.sleep(wait_time)
-
-        total_correct = correct_count["spacing"] + correct_count["naming"]
-        total_wrong = wrong_count["spacing"] + wrong_count["naming"]
-        correct_count['total'] = total_correct
-        wrong_count['total'] = total_wrong
-
-        accuracy = (total_correct) / len(benchmark_items) * 100 if benchmark_items else 0
+        # --- 3. Ciclo Principale di Elaborazione ---
+        items_to_process = [item for item in benchmark_items if item['question_id'] not in processed_ids]
+        if not items_to_process:
+            print("Tutti gli item sono già stati processati. Nessuna nuova operazione da eseguire.")
         
-        current_summary = {
-            "timestamp": datetime.now().isoformat(),
-            "model": self.model,
-            "provider": self.provider,
-            "total_questions": len(benchmark_items),
-            "correct_answers": correct_count,
-            "wrong_answers": wrong_count,
-            "execution_errors": error_count,
-            "accuracy": round(accuracy, 2),
-            "results": results 
-        }
+        for i, item in enumerate(benchmark_items, 1):
+            full_id = item['question_id']
+            
+            if full_id in processed_ids:
+                print(f"\n[{i}/{len(benchmark_items)}] Item {full_id} già processato. Salto.")
+                continue
 
-        if output_path:
-            history = []
-            path = Path(output_path)
+            print(f"\n[{i}/{len(benchmark_items)}] Processando item {full_id}...")
+            
+            result = self.process_question(item, codebase_path)
+            
+            # Se la chiamata API fallisce per un limite, interrompi il ciclo
+            if result['error'] and "RateLimitError" in result['error']:
+                print("Interruzione a causa di Rate Limit. I progressi sono stati salvati.")
+                break
 
-            if path.exists():
-                try:
-                    with open(path, 'r', encoding='utf-8') as f:
-                        content = f.read().strip()
-                        if content:
-                            loaded_data = json.loads(content)
-                            if isinstance(loaded_data, list):
-                                history = loaded_data
-                            elif isinstance(loaded_data, dict):
-                                history = [loaded_data]
-                except Exception as e:
-                    print(f"Errore leggendo lo storico: {e}")
+            # --- Logica di Raggruppamento Incrementale ---
+            logical_id = full_id.split('_')[0]
+            if logical_id not in grouped_results:
+                grouped_results[logical_id] = {
+                    "template_id": logical_id,
+                    "category": item['category'],
+                    "question_template": item.get("question_template", item['question']),
+                    "executions": []
+                }
+            
+            execution_detail = {
+                "execution_id": full_id,
+                "target_file": item.get('target_file'),
+                "choosen_item": item.get('choosen_item'), 
+                "ai_answer": result['ai_answer'],
+                "ai_raw_response": result['ai_raw_response'],
+                "correct_label": item['correct_label'],
+                "is_correct": result['is_correct'],
+                "error": result['error']
+            }
+            grouped_results[logical_id]["executions"].append(execution_detail)
+            
+            # --- 4. Aggiornamento e Salvataggio dello Stato dopo ogni item ---
+            current_run_summary["results"] = list(grouped_results.values())
+            
+            # Ricalcola le statistiche ogni volta
+            all_executions = [ex for group in current_run_summary["results"] for ex in group["executions"]]
+            total_processed = len(all_executions)
+            total_correct = sum(1 for ex in all_executions if ex["is_correct"] and not ex["error"])
+            total_errors = sum(1 for ex in all_executions if ex["error"])
+            
+            stats_correct = {"total": 0}
+            stats_wrong = {"total": 0}
+            
+            total_valid_for_accuracy = 0
+            
+            for group in current_run_summary["results"]:
+                category = group.get("category")
+                if category not in stats_correct:
+                    stats_correct[category] = 0
+                if category not in stats_wrong:
+                    stats_wrong[category] = 0
+                
+                for ex in group["executions"]:
+                    if not ex["error"]:
+                        total_valid_for_accuracy += 1
+                        if ex["is_correct"]:
+                            stats_correct[category] += 1
+                            stats_correct["total"] += 1
+                        else:
+                            stats_wrong[category] += 1
+                            stats_wrong["total"] += 1
 
-            history.append(current_summary)
+            current_run_summary["stats"]["correct"] = stats_correct
+            current_run_summary["stats"]["wrong"] = stats_wrong
+            current_run_summary["stats"]["errors"] = total_errors
+            current_run_summary["stats"]["accuracy_percent"] = round((stats_correct["total"] / total_valid_for_accuracy) * 100, 2) if total_valid_for_accuracy > 0 else 0
 
-            try:
-                with open(path, 'w', encoding='utf-8') as f:
-                    json.dump(history, f, indent=2, ensure_ascii=False)
-                print(f"\nRisultati salvati in {output_path}")
-            except Exception as e:
-                print(f"Errore durante il salvataggio: {e}")
+            self._save_state(path, current_run_summary)
+            print(f"  -> Progresso salvato in {path.name}")
+            
+            # Se c'è stato un errore che non è un Rate Limit, attendi prima di continuare
+            if not ("RateLimitError" in (result['error'] or "")):
+                 time.sleep(wait_time)
 
+        # --- 5. Riepilogo Finale ---
         print(f"\n{'='*60}")
         print(f"RIEPILOGO VALUTAZIONE CORRENTE")
         print(f"{'='*60}")
         print(f"Modello: {self.model} ({self.provider})")
-        print(f"Domande totali: {len(benchmark_items)}")
-        print(f"Risposte corrette: {total_correct}")
-        print(f"Risposte errate: {total_wrong}")
-        print(f"Errori di esecuzione: {error_count}")
-        print(f"Accuratezza: {accuracy:.2f}%")
+        print(f"Item totali processati in questa sessione: {len(all_executions)}")
+        print(f"Accuratezza complessiva: {current_run_summary['stats']['accuracy_percent']:.2f}%")
+        print(f"Errori totali: {current_run_summary['stats']['errors']}")
+        print(f"Risultati completi salvati in {output_path}")
         print(f"{'='*60}\n")
         
-        return current_summary
+        return current_run_summary
