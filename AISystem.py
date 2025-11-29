@@ -136,7 +136,7 @@ class AISystem:
         prompt = self._create_prompt(benchmark_item, codebase_context)
         
         # --- 2. Ciclo di Tentativi per Lunghezza ---
-        max_len_retries = 3
+        max_len_retries = 5
         ai_response = ""
         call_error = None
 
@@ -159,13 +159,16 @@ class AISystem:
                 break
             
             # Se siamo qui, la risposta era troppo lunga
-            print(f"  -> Risposta troppo lunga ({len(cleaned_response)} char): '{cleaned_response[:20]}...'. Riprovo tra 10 secondi.")
+            print(f"  -> Risposta troppo lunga ({len(cleaned_response)} char): '{cleaned_response[:20]}...'. Riprovo tra 60 secondi.")
             
             # Opzionale: Aggiungiamo un messaggio di rinforzo al prompt per il prossimo tentativo
             if i < max_len_retries - 1:
                 prompt += "\n\n[SYSTEM MESSAGE]: La tua risposta precedente era troppo lunga. Rispondi SOLO con la lettera (A, B, C, o D)."
 
-            time.sleep(10)  # Attesa prima del prossimo tentativo
+            time.sleep(60)  # Attesa prima del prossimo tentativo
+
+        if len(ai_response.strip()) > 10 and not call_error:
+            error_msg = "Risposta AI troppo lunga dopo più tentativi."
 
         # --- 3. Elaborazione Risultato Finale ---
         ai_answer = self._extract_answer_letter(ai_response)
@@ -257,7 +260,7 @@ class AISystem:
                 "timestamp": datetime.now().isoformat(),
                 "model": self.model,
                 "provider": self.provider,
-                "stats": {"correct": {}, "wrong": {}, "errors": 0, "accuracy_percent": 0},
+                "stats": {"correct": {}, "wrong": {}, "errors": 0, "accuracy": {}},
                 "results": []
             }
 
@@ -295,6 +298,13 @@ class AISystem:
                     "template_id": logical_id,
                     "category": item['category'],
                     "question_template": item.get("question_template", item['question']),
+                    "group_stats": {
+                        "correct": 0,
+                        "wrong": 0,
+                        "errors": 0,
+                        "total": 0,
+                        "accuracy": 0.0
+                    },
                     "executions": []
                 }
             
@@ -309,18 +319,33 @@ class AISystem:
                 "error": result['error']
             }
             grouped_results[logical_id]["executions"].append(execution_detail)
+
+            group_stats = grouped_results[logical_id]["group_stats"]
+            group_stats["total"] += 1
+            
+            if result['error']:
+                group_stats["errors"] += 1
+            elif result['is_correct']:
+                group_stats["correct"] += 1
+            else:
+                group_stats["wrong"] += 1
+            
+            # Ricalcola l'accuratezza del gruppo (escludendo gli errori tecnici dal denominatore se preferisci, qui li includiamo nel totale)
+            valid_total = group_stats["total"] - group_stats["errors"]
+            if valid_total > 0:
+                group_stats["accuracy"] = round((group_stats["correct"] / valid_total) * 100, 2)
+            else:
+                group_stats["accuracy"] = 0.0
             
             # --- 4. Aggiornamento e Salvataggio dello Stato dopo ogni item ---
             current_run_summary["results"] = list(grouped_results.values())
             
             # Ricalcola le statistiche ogni volta
             all_executions = [ex for group in current_run_summary["results"] for ex in group["executions"]]
-            total_processed = len(all_executions)
-            total_correct = sum(1 for ex in all_executions if ex["is_correct"] and not ex["error"])
             total_errors = sum(1 for ex in all_executions if ex["error"])
             
-            stats_correct = {"total": 0}
-            stats_wrong = {"total": 0}
+            stats_correct = {"spacing": 0, "naming": 0, "total": 0}
+            stats_wrong = {"spacing": 0, "naming": 0, "total": 0}
             
             total_valid_for_accuracy = 0
             
@@ -341,10 +366,20 @@ class AISystem:
                             stats_wrong[category] += 1
                             stats_wrong["total"] += 1
 
+            valid_spacing = stats_correct.get("spacing", 0) + stats_wrong.get("spacing", 0)
+            valid_naming = stats_correct.get("naming", 0) + stats_wrong.get("naming", 0)
+            valid_total = stats_correct["total"] + stats_wrong["total"]
+
+            accuracy_breakdown = {
+                "spacing": round((stats_correct.get("spacing", 0) / valid_spacing) * 100, 2) if valid_spacing > 0 else 0.0,
+                "naming": round((stats_correct.get("naming", 0) / valid_naming) * 100, 2) if valid_naming > 0 else 0.0,
+                "total": round((stats_correct["total"] / valid_total) * 100, 2) if valid_total > 0 else 0.0
+            }
             current_run_summary["stats"]["correct"] = stats_correct
             current_run_summary["stats"]["wrong"] = stats_wrong
             current_run_summary["stats"]["errors"] = total_errors
-            current_run_summary["stats"]["accuracy_percent"] = round((stats_correct["total"] / total_valid_for_accuracy) * 100, 2) if total_valid_for_accuracy > 0 else 0
+            current_run_summary["stats"]["accuracy"] = accuracy_breakdown
+            current_run_summary["results"] = list(grouped_results.values())
 
             self._save_state(path, current_run_summary)
             print(f"  -> Progresso salvato in {path.name}")

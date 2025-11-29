@@ -1,4 +1,5 @@
 import os
+import random
 import warnings
 from AISystem import AISystem
 from BenchmarkSystem import BenchmarkSystem
@@ -60,9 +61,9 @@ if __name__ == "__main__":
         "openai" : 
             [
                 # "openai/gpt-4.1",
-                # "openai/gpt-5-mini",
+                # "openai/gpt-5.1",
                 # "openai/gpt-3.5-turbo",
-                "openai/gpt-4o-mini",
+                # "openai/gpt-4o-mini",
                 # "openai/gpt-4",
                 # "openai/gpt-4o",
                 # "openai/gpt-5.1",
@@ -78,7 +79,7 @@ if __name__ == "__main__":
             ],
         "google" : 
             [
-                # "gemini/gemini-2.5-flash",
+                "gemini/gemini-2.5-flash",
                 # "gemini/gemini-2.5-pro",
             ]
         }
@@ -89,8 +90,8 @@ if __name__ == "__main__":
             if model == "gemini/gemini-2.5-pro":
                 max_token_per_minute = 125000
             elif model == "gemini/gemini-2.5-flash":
-                max_token_per_minute = 250000
-            elif model == "openai/gpt-4o-mini":
+                max_token_per_minute = 2350000
+            elif model in ["openai/gpt-4o-mini", "openai/gpt-5.1"]:
                 max_token_per_minute = 10000
 
             codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "black-main")

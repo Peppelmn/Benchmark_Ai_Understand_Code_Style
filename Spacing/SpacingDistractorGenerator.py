@@ -9,6 +9,18 @@ class SpacingDistractorGenerator(DistractorGenerator):
     def generate(self, correct_answer: Answer, question: Question, num_distractors: int = 3) -> List[Answer]:
         if any(question.id.__eq__(id) for id in ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12"]):
             return self.generate_distractor(float(correct_answer.text), num_distractors)
+        elif question.id == "S13":
+            strategies = [
+                "Tutti gli argomenti sono sulla stessa riga",
+                "Ogni argomento è su una nuova riga",
+                "Strategia mista (alcuni a capo, altri no)"
+            ]
+            distractors = []
+            correct_value = correct_answer.text
+            for strategy in strategies:
+                if strategy != correct_value and all(d.text != strategy for d in distractors):
+                    distractors.append(Answer(strategy, False))
+            return distractors
         pass
 
     def generate_distractor(self, correct_value: float, num_distractors: int) -> List[Answer]:

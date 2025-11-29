@@ -75,6 +75,7 @@ def get_all_questions(spacingAnalyzer: SpacingAnalyzer = None, namingAnalyzer: N
         "S10": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
         "S11": "Quante righe vuote ci sono dopo la definizione di una classe?",
         "S12": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
+        "S13": "Osservando questa parte di codice: \n\n{0}\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
         "N01": "Quanti nomi 'snake_case' sono presenti in questo file?",
         "N02": "Quanti nomi 'camelCase' sono presenti in questo file?",
         "N03": "Quanti nomi 'PascalCase' sono presenti in questo file?",

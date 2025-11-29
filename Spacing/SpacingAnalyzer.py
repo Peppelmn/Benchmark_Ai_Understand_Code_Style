@@ -703,3 +703,114 @@ class SpacingAnalyzer(CodebaseAnalyzer):
 
         # Il tuo metodo helper _find_consistent_files non cambia
         return self._find_consistent_files(count_blank_lines_after_constants_ast, per_line=False)
+    
+    def question_S13(self):
+        """
+        Analizza come viene gestita la spaziatura degli argomenti nelle chiamate a funzione.
+        Restituisce 10 varianti nel formato:
+        (percorso_file, strategia_corretta, snippet_codice)
+        """
+
+        def analyze_function_calls_in_file(file_path):
+            """
+            Analizza le chiamate a funzione in un file.
+            Restituisce una lista di tuple: (strategia, snippet_codice)
+            """
+            found_calls = []
+            try:
+                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                    content = f.read()
+                    lines_content = content.splitlines()
+                
+                if not content.strip(): return []
+
+                tree = ast.parse(content)
+                
+                for node in ast.walk(tree):
+                    if isinstance(node, ast.Call):
+                        args = node.args + node.keywords
+                        
+                        # Consideriamo solo chiamate con almeno 2 argomenti
+                        if len(args) < 2: continue
+                            
+                        # --- 1. Estrazione Linee ---
+                        # ast.Call ha lineno e end_lineno (Python 3.8+)
+                        if not hasattr(node, 'lineno') or not hasattr(node, 'end_lineno'):
+                            continue
+
+                        start_line = node.lineno - 1
+                        end_line = node.end_lineno - 1
+                        
+                        # Estrai lo snippet di codice
+                        # Se è su una sola riga
+                        if start_line == end_line:
+                            snippet = lines_content[start_line].strip()
+                        else:
+                            # Se è su più righe, prendiamo tutto il blocco
+                            # Aggiungiamo un po' di pulizia per l'indentazione se necessario, 
+                            # ma per ora prendiamo le righe raw
+                            snippet_lines = lines_content[start_line : end_line + 1]
+                            snippet = "\n".join(snippet_lines).strip()
+
+                        # --- 2. Analisi Strategia ---
+                        arg_lines = []
+                        for arg in node.args:
+                            arg_lines.append(arg.lineno)
+                        for kw in node.keywords:
+                            if hasattr(kw, 'lineno'): arg_lines.append(kw.lineno)
+                            elif hasattr(kw, 'value'): arg_lines.append(kw.value.lineno)
+                        
+                        if not arg_lines: continue
+
+                        unique_lines = set(arg_lines)
+                        
+                        strategy = "mixed"
+                        if len(unique_lines) == 1:
+                            # Se tutti gli argomenti sono sulla stessa riga, controlliamo se sono sulla stessa riga della chiamata
+                            # (anche se tecnicamente 'same_line' si riferisce agli argomenti tra loro)
+                            strategy = "same_line"
+                        elif len(unique_lines) == len(args):
+                            strategy = "newline_every_arg"
+                        
+                        # Salva il risultato
+                        found_calls.append((strategy, snippet))
+                            
+            except Exception:
+                return []
+                
+            return found_calls
+
+        # --- Logica per trovare 10 file diversi ---
+        results = []
+        target_count = 10
+        max_lines = 1000
+        
+        files_to_check = list(self.python_files)
+        random.shuffle(files_to_check)
+
+        for file_path in files_to_check:
+            if len(results) >= target_count:
+                break
+
+            # Controllo preliminare dimensione
+            try:
+                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                    if len(f.readlines()) > max_lines: continue
+            except: continue
+
+            # Analizza il file
+            calls_data = analyze_function_calls_in_file(str(file_path))
+            
+            if calls_data:
+                # Scegli una chiamata a caso da questo file
+                chosen_strategy, snippet = random.choice(calls_data)
+                
+                relative_path = str(file_path.relative_to(self.codebase_path))
+                
+                if chosen_strategy == "mixed": chosen_strategy = "Strategia mista (alcuni a capo, altri no)"
+                elif chosen_strategy == "same_line": chosen_strategy = "Tutti gli argomenti sono sulla stessa riga"
+                elif chosen_strategy == "newline_every_arg": chosen_strategy = "Ogni argomento è su una nuova riga"
+                
+                results.append((relative_path, chosen_strategy, snippet))
+
+        return results
