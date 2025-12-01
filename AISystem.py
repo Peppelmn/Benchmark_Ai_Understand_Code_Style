@@ -167,12 +167,14 @@ class AISystem:
 
             time.sleep(60)  # Attesa prima del prossimo tentativo
 
+        # --- 3. Elaborazione Risultato Finale ---
         if len(ai_response.strip()) > 10 and not call_error:
             error_msg = "Risposta AI troppo lunga dopo più tentativi."
-
-        # --- 3. Elaborazione Risultato Finale ---
-        ai_answer = self._extract_answer_letter(ai_response)
-        is_correct = ai_answer == benchmark_item['correct_label']
+            ai_answer = ""
+        else:
+            ai_answer = self._extract_answer_letter(ai_response)
+            
+        is_correct = ai_answer == benchmark_item['correct_label'] if error_msg is None else False
         
         result = {
             "question_id": benchmark_item['question_id'],
@@ -387,16 +389,5 @@ class AISystem:
             # Se c'è stato un errore che non è un Rate Limit, attendi prima di continuare
             if not ("RateLimitError" in (result['error'] or "")):
                  time.sleep(wait_time)
-
-        # --- 5. Riepilogo Finale ---
-        print(f"\n{'='*60}")
-        print(f"RIEPILOGO VALUTAZIONE CORRENTE")
-        print(f"{'='*60}")
-        print(f"Modello: {self.model} ({self.provider})")
-        print(f"Item totali processati in questa sessione: {len(all_executions)}")
-        print(f"Accuratezza complessiva: {current_run_summary['stats']['accuracy_percent']:.2f}%")
-        print(f"Errori totali: {current_run_summary['stats']['errors']}")
-        print(f"Risultati completi salvati in {output_path}")
-        print(f"{'='*60}\n")
         
         return current_run_summary

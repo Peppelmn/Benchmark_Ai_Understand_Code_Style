@@ -91,7 +91,7 @@ if __name__ == "__main__":
                 max_token_per_minute = 125000
             elif model == "gemini/gemini-2.5-flash":
                 max_token_per_minute = 2350000
-            elif model in ["openai/gpt-4o-mini", "openai/gpt-5.1"]:
+            elif model in ["openai/gpt-4o-mini", "openai/gpt-5.1", "openai/gpt-4.1", "openai/gpt-3.5-turbo"]:
                 max_token_per_minute = 10000
 
             codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "black-main")

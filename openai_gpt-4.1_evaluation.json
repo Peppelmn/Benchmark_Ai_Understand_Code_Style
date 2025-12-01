@@ -1,24 +1,24 @@
 [
   {
-    "timestamp": "2025-11-28T17:44:53.562652",
-    "model": "gemini/gemini-2.5-flash",
-    "provider": "google",
+    "timestamp": "2025-11-30T16:32:57.778976",
+    "model": "openai/gpt-4.1",
+    "provider": "copilot-api",
     "stats": {
       "correct": {
-        "spacing": 100,
-        "naming": 56,
-        "total": 156
+        "spacing": 76,
+        "naming": 42,
+        "total": 118
       },
       "wrong": {
-        "spacing": 30,
-        "naming": 28,
-        "total": 58
+        "spacing": 54,
+        "naming": 42,
+        "total": 96
       },
       "errors": 0,
       "accuracy": {
-        "spacing": 76.92,
-        "naming": 66.67,
-        "total": 72.9
+        "spacing": 58.46,
+        "naming": 50.0,
+        "total": 55.14
       }
     },
     "results": [
@@ -27,16 +27,26 @@
         "category": "spacing",
         "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
         "group_stats": {
-          "correct": 10,
-          "wrong": 0,
+          "correct": 9,
+          "wrong": 1,
           "errors": 0,
           "total": 10,
-          "accuracy": 100.0
+          "accuracy": 90.0
         },
         "executions": [
           {
             "execution_id": "S01_1",
             "target_file": "docs\\conf.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A) 1.0",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S01_2",
+            "target_file": "profiling\\mix_small.py",
             "choosen_item": null,
             "ai_answer": "C",
             "ai_raw_response": "C",
@@ -45,37 +55,17 @@
             "error": null
           },
           {
-            "execution_id": "S01_2",
-            "target_file": "profiling\\mix_big.py",
-            "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
             "execution_id": "S01_3",
-            "target_file": "profiling\\mix_small.py",
-            "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B)",
-            "correct_label": "B",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S01_4",
             "target_file": "scripts\\make_width_table.py",
             "choosen_item": null,
             "ai_answer": "D",
-            "ai_raw_response": "D)",
+            "ai_raw_response": "D",
             "correct_label": "D",
             "is_correct": true,
             "error": null
           },
           {
-            "execution_id": "S01_5",
+            "execution_id": "S01_4",
             "target_file": "scripts\\release_tests.py",
             "choosen_item": null,
             "ai_answer": "C",
@@ -85,38 +75,48 @@
             "error": null
           },
           {
-            "execution_id": "S01_6",
+            "execution_id": "S01_5",
             "target_file": "tests\\test_docs.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S01_6",
+            "target_file": "tests\\test_no_ipynb.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D) 1.0",
+            "correct_label": "D",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S01_7",
-            "target_file": "tests\\test_no_ipynb.py",
+            "target_file": "tests\\test_ranges.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C)",
-            "correct_label": "C",
+            "ai_answer": "D",
+            "ai_raw_response": "D) 1.0",
+            "correct_label": "D",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S01_8",
-            "target_file": "tests\\test_ranges.py",
+            "target_file": "tests\\test_schema.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S01_9",
-            "target_file": "tests\\test_schema.py",
+            "target_file": "tests\\test_tokenize.py",
             "choosen_item": null,
             "ai_answer": "A",
             "ai_raw_response": "A",
@@ -126,12 +126,12 @@
           },
           {
             "execution_id": "S01_10",
-            "target_file": "tests\\test_tokenize.py",
+            "target_file": "tests\\test_trans.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
-            "is_correct": true,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "A",
+            "is_correct": false,
             "error": null
           }
         ]
@@ -152,25 +152,15 @@
             "execution_id": "S02_1",
             "target_file": "docs\\conf.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C)",
-            "correct_label": "C",
+            "ai_answer": "D",
+            "ai_raw_response": "D) 1.0",
+            "correct_label": "D",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S02_2",
             "target_file": "scripts\\check_pre_commit_rev_in_example.py",
-            "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S02_3",
-            "target_file": "scripts\\fuzz.py",
             "choosen_item": null,
             "ai_answer": "D",
             "ai_raw_response": "D) 1.0",
@@ -179,12 +169,22 @@
             "error": null
           },
           {
-            "execution_id": "S02_4",
-            "target_file": "scripts\\migrate-black.py",
+            "execution_id": "S02_3",
+            "target_file": "scripts\\fuzz.py",
             "choosen_item": null,
             "ai_answer": "C",
             "ai_raw_response": "C",
             "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S02_4",
+            "target_file": "scripts\\migrate-black.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
             "is_correct": true,
             "error": null
           },
@@ -193,7 +193,7 @@
             "target_file": "scripts\\release_tests.py",
             "choosen_item": null,
             "ai_answer": "C",
-            "ai_raw_response": "C",
+            "ai_raw_response": "C) 1.0",
             "correct_label": "C",
             "is_correct": true,
             "error": null
@@ -202,16 +202,6 @@
             "execution_id": "S02_6",
             "target_file": "tests\\test_blackd.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D)",
-            "correct_label": "D",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S02_7",
-            "target_file": "tests\\test_schema.py",
-            "choosen_item": null,
             "ai_answer": "C",
             "ai_raw_response": "C",
             "correct_label": "C",
@@ -219,12 +209,22 @@
             "error": null
           },
           {
+            "execution_id": "S02_7",
+            "target_file": "tests\\test_schema.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
             "execution_id": "S02_8",
             "target_file": "tests\\test_trans.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "D",
+            "ai_answer": "A",
+            "ai_raw_response": "A) 1.0",
+            "correct_label": "C",
             "is_correct": false,
             "error": null
           },
@@ -233,7 +233,7 @@
             "target_file": "src\\black\\debug.py",
             "choosen_item": null,
             "ai_answer": "C",
-            "ai_raw_response": "C)",
+            "ai_raw_response": "C",
             "correct_label": "B",
             "is_correct": false,
             "error": null
@@ -242,9 +242,9 @@
             "execution_id": "S02_10",
             "target_file": "src\\blackd\\client.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C)",
-            "correct_label": "C",
+            "ai_answer": "D",
+            "ai_raw_response": "D) 1.0",
+            "correct_label": "D",
             "is_correct": true,
             "error": null
           }
@@ -266,9 +266,9 @@
             "execution_id": "S03_1",
             "target_file": "action\\main.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
             "is_correct": true,
             "error": null
           },
@@ -276,9 +276,9 @@
             "execution_id": "S03_2",
             "target_file": "docs\\conf.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
             "is_correct": true,
             "error": null
           },
@@ -296,9 +296,9 @@
             "execution_id": "S03_4",
             "target_file": "scripts\\check_pre_commit_rev_in_example.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D)",
-            "correct_label": "D",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -306,9 +306,9 @@
             "execution_id": "S03_5",
             "target_file": "scripts\\check_version_in_basics_example.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -316,9 +316,9 @@
             "execution_id": "S03_6",
             "target_file": "scripts\\diff_shades_gha_helper.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -327,7 +327,7 @@
             "target_file": "scripts\\fuzz.py",
             "choosen_item": null,
             "ai_answer": "D",
-            "ai_raw_response": "D",
+            "ai_raw_response": "D) 0.0",
             "correct_label": "D",
             "is_correct": true,
             "error": null
@@ -336,9 +336,9 @@
             "execution_id": "S03_8",
             "target_file": "scripts\\generate_schema.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D)",
-            "correct_label": "D",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -346,9 +346,9 @@
             "execution_id": "S03_9",
             "target_file": "scripts\\make_width_table.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D)",
-            "correct_label": "D",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -381,7 +381,7 @@
             "target_file": "action\\main.py",
             "choosen_item": null,
             "ai_answer": "A",
-            "ai_raw_response": "A)",
+            "ai_raw_response": "A",
             "correct_label": "A",
             "is_correct": true,
             "error": null
@@ -390,9 +390,9 @@
             "execution_id": "S04_2",
             "target_file": "docs\\conf.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C)",
-            "correct_label": "C",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
@@ -400,9 +400,9 @@
             "execution_id": "S04_3",
             "target_file": "scripts\\check_pre_commit_rev_in_example.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -410,9 +410,9 @@
             "execution_id": "S04_4",
             "target_file": "scripts\\check_version_in_basics_example.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -420,15 +420,25 @@
             "execution_id": "S04_5",
             "target_file": "scripts\\diff_shades_gha_helper.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "A",
+            "ai_answer": "D",
+            "ai_raw_response": "D) 1.0",
+            "correct_label": "D",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S04_6",
             "target_file": "scripts\\fuzz.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S04_7",
+            "target_file": "scripts\\generate_schema.py",
             "choosen_item": null,
             "ai_answer": "D",
             "ai_raw_response": "D",
@@ -437,22 +447,12 @@
             "error": null
           },
           {
-            "execution_id": "S04_7",
-            "target_file": "scripts\\generate_schema.py",
-            "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C)",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
             "execution_id": "S04_8",
             "target_file": "scripts\\make_width_table.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "ai_answer": "C",
+            "ai_raw_response": "C) 1.0",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -470,9 +470,9 @@
             "execution_id": "S04_10",
             "target_file": "scripts\\release.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D)",
-            "correct_label": "D",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           }
@@ -483,46 +483,16 @@
         "category": "spacing",
         "question_template": "Quante righe vuote ci sono dopo la definizione di una funzione?",
         "group_stats": {
-          "correct": 5,
-          "wrong": 5,
+          "correct": 4,
+          "wrong": 6,
           "errors": 0,
           "total": 10,
-          "accuracy": 50.0
+          "accuracy": 40.0
         },
         "executions": [
           {
             "execution_id": "S05_1",
             "target_file": "action\\main.py",
-            "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "B",
-            "is_correct": false,
-            "error": null
-          },
-          {
-            "execution_id": "S05_2",
-            "target_file": "docs\\conf.py",
-            "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "A",
-            "is_correct": false,
-            "error": null
-          },
-          {
-            "execution_id": "S05_3",
-            "target_file": "gallery\\gallery.py",
-            "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C)",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S05_4",
-            "target_file": "scripts\\check_pre_commit_rev_in_example.py",
             "choosen_item": null,
             "ai_answer": "A",
             "ai_raw_response": "A",
@@ -531,48 +501,48 @@
             "error": null
           },
           {
-            "execution_id": "S05_5",
-            "target_file": "scripts\\check_version_in_basics_example.py",
-            "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S05_6",
-            "target_file": "scripts\\diff_shades_gha_helper.py",
+            "execution_id": "S05_2",
+            "target_file": "docs\\conf.py",
             "choosen_item": null,
             "ai_answer": "D",
-            "ai_raw_response": "D",
+            "ai_raw_response": "D) 1.0",
             "correct_label": "B",
             "is_correct": false,
             "error": null
           },
           {
-            "execution_id": "S05_7",
-            "target_file": "scripts\\fuzz.py",
+            "execution_id": "S05_3",
+            "target_file": "gallery\\gallery.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
+            "ai_answer": "B",
+            "ai_raw_response": "B) 1.0",
             "correct_label": "D",
             "is_correct": false,
             "error": null
           },
           {
-            "execution_id": "S05_8",
-            "target_file": "scripts\\generate_schema.py",
+            "execution_id": "S05_4",
+            "target_file": "scripts\\check_pre_commit_rev_in_example.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S05_5",
+            "target_file": "scripts\\check_version_in_basics_example.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
             "correct_label": "A",
             "is_correct": false,
             "error": null
           },
           {
-            "execution_id": "S05_9",
-            "target_file": "scripts\\make_width_table.py",
+            "execution_id": "S05_6",
+            "target_file": "scripts\\diff_shades_gha_helper.py",
             "choosen_item": null,
             "ai_answer": "B",
             "ai_raw_response": "B",
@@ -581,13 +551,43 @@
             "error": null
           },
           {
+            "execution_id": "S05_7",
+            "target_file": "scripts\\fuzz.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B) 1.0",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S05_8",
+            "target_file": "scripts\\generate_schema.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B) 2.0",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S05_9",
+            "target_file": "scripts\\make_width_table.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
             "execution_id": "S05_10",
             "target_file": "scripts\\migrate-black.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B)",
-            "correct_label": "B",
-            "is_correct": true,
+            "ai_answer": "C",
+            "ai_raw_response": "C) 0.0",
+            "correct_label": "D",
+            "is_correct": false,
             "error": null
           }
         ]
@@ -597,96 +597,16 @@
         "category": "spacing",
         "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
         "group_stats": {
-          "correct": 7,
-          "wrong": 3,
-          "errors": 1,
-          "total": 11,
-          "accuracy": 70.0
+          "correct": 1,
+          "wrong": 9,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 10.0
         },
         "executions": [
           {
             "execution_id": "S06_1",
             "target_file": "action\\main.py",
-            "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S06_3",
-            "target_file": "gallery\\gallery.py",
-            "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B)",
-            "correct_label": "D",
-            "is_correct": false,
-            "error": null
-          },
-          {
-            "execution_id": "S06_4",
-            "target_file": "profiling\\dict_big.py",
-            "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D)",
-            "correct_label": "D",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S06_5",
-            "target_file": "profiling\\list_big.py",
-            "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "A",
-            "is_correct": false,
-            "error": null
-          },
-          {
-            "execution_id": "S06_6",
-            "target_file": "profiling\\list_huge.py",
-            "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S06_7",
-            "target_file": "profiling\\mix_big.py",
-            "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A) 191.0",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S06_8",
-            "target_file": "profiling\\mix_small.py",
-            "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S06_9",
-            "target_file": "scripts\\check_pre_commit_rev_in_example.py",
-            "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S06_10",
-            "target_file": "scripts\\check_version_in_basics_example.py",
             "choosen_item": null,
             "ai_answer": "B",
             "ai_raw_response": "B",
@@ -700,7 +620,87 @@
             "choosen_item": null,
             "ai_answer": "A",
             "ai_raw_response": "A",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_3",
+            "target_file": "gallery\\gallery.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
             "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_4",
+            "target_file": "profiling\\mix_small.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_5",
+            "target_file": "scripts\\check_pre_commit_rev_in_example.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_6",
+            "target_file": "scripts\\check_version_in_basics_example.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_7",
+            "target_file": "scripts\\diff_shades_gha_helper.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_8",
+            "target_file": "scripts\\fuzz.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_9",
+            "target_file": "scripts\\generate_schema.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_10",
+            "target_file": "scripts\\make_width_table.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "A",
             "is_correct": false,
             "error": null
           }
@@ -732,35 +732,15 @@
             "execution_id": "S07_2",
             "target_file": "docs\\conf.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S07_3",
             "target_file": "gallery\\gallery.py",
-            "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S07_4",
-            "target_file": "profiling\\dict_big.py",
-            "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S07_5",
-            "target_file": "profiling\\list_big.py",
             "choosen_item": null,
             "ai_answer": "C",
             "ai_raw_response": "C",
@@ -769,27 +749,7 @@
             "error": null
           },
           {
-            "execution_id": "S07_6",
-            "target_file": "profiling\\list_huge.py",
-            "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D)",
-            "correct_label": "D",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S07_7",
-            "target_file": "profiling\\mix_big.py",
-            "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S07_8",
+            "execution_id": "S07_4",
             "target_file": "profiling\\mix_small.py",
             "choosen_item": null,
             "ai_answer": "B",
@@ -799,7 +759,7 @@
             "error": null
           },
           {
-            "execution_id": "S07_9",
+            "execution_id": "S07_5",
             "target_file": "scripts\\check_pre_commit_rev_in_example.py",
             "choosen_item": null,
             "ai_answer": "B",
@@ -809,12 +769,52 @@
             "error": null
           },
           {
-            "execution_id": "S07_10",
+            "execution_id": "S07_6",
             "target_file": "scripts\\check_version_in_basics_example.py",
             "choosen_item": null,
             "ai_answer": "C",
             "ai_raw_response": "C",
             "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_7",
+            "target_file": "scripts\\diff_shades_gha_helper.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_8",
+            "target_file": "scripts\\fuzz.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_9",
+            "target_file": "scripts\\generate_schema.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_10",
+            "target_file": "scripts\\make_width_table.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
             "is_correct": true,
             "error": null
           }
@@ -825,11 +825,11 @@
         "category": "spacing",
         "question_template": "Quante righe vuote ci sono prima di un commento?",
         "group_stats": {
-          "correct": 7,
-          "wrong": 3,
+          "correct": 3,
+          "wrong": 7,
           "errors": 0,
           "total": 10,
-          "accuracy": 70.0
+          "accuracy": 30.0
         },
         "executions": [
           {
@@ -838,17 +838,17 @@
             "choosen_item": null,
             "ai_answer": "C",
             "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
+            "correct_label": "D",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S08_2",
             "target_file": "gallery\\gallery.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "A",
+            "ai_answer": "A",
+            "ai_raw_response": "A) 2.0",
+            "correct_label": "B",
             "is_correct": false,
             "error": null
           },
@@ -856,10 +856,10 @@
             "execution_id": "S08_3",
             "target_file": "scripts\\diff_shades_gha_helper.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
+            "ai_answer": "B",
+            "ai_raw_response": "B) 1.0",
+            "correct_label": "D",
+            "is_correct": false,
             "error": null
           },
           {
@@ -867,18 +867,18 @@
             "target_file": "scripts\\generate_schema.py",
             "choosen_item": null,
             "ai_answer": "B",
-            "ai_raw_response": "B) 0.0",
-            "correct_label": "B",
-            "is_correct": true,
+            "ai_raw_response": "B) 2.0",
+            "correct_label": "D",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S08_5",
             "target_file": "scripts\\make_width_table.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -886,9 +886,9 @@
             "execution_id": "S08_6",
             "target_file": "scripts\\migrate-black.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
+            "ai_answer": "C",
+            "ai_raw_response": "C) 0.0",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -896,29 +896,29 @@
             "execution_id": "S08_7",
             "target_file": "tests\\test_blackd.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
-            "is_correct": true,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "B",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S08_8",
             "target_file": "tests\\test_ipynb.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "A",
-            "is_correct": true,
+            "ai_answer": "D",
+            "ai_raw_response": "D) 1.0",
+            "correct_label": "B",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S08_9",
             "target_file": "tests\\test_tokenize.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "A",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "D",
             "is_correct": false,
             "error": null
           },
@@ -926,10 +926,10 @@
             "execution_id": "S08_10",
             "target_file": "src\\black\\cache.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "A",
-            "is_correct": false,
+            "ai_answer": "C",
+            "ai_raw_response": "C) 0.0",
+            "correct_label": "C",
+            "is_correct": true,
             "error": null
           }
         ]
@@ -939,20 +939,20 @@
         "category": "spacing",
         "question_template": "Quante righe vuote ci sono dopo un commento?",
         "group_stats": {
-          "correct": 8,
-          "wrong": 2,
+          "correct": 2,
+          "wrong": 8,
           "errors": 0,
           "total": 10,
-          "accuracy": 80.0
+          "accuracy": 20.0
         },
         "executions": [
           {
             "execution_id": "S09_1",
             "target_file": "action\\main.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "C",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "D",
             "is_correct": false,
             "error": null
           },
@@ -960,19 +960,19 @@
             "execution_id": "S09_2",
             "target_file": "scripts\\diff_shades_gha_helper.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
-            "is_correct": true,
+            "ai_answer": "C",
+            "ai_raw_response": "C) 1.0",
+            "correct_label": "D",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S09_3",
             "target_file": "scripts\\generate_schema.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
@@ -982,18 +982,18 @@
             "choosen_item": null,
             "ai_answer": "D",
             "ai_raw_response": "D",
-            "correct_label": "D",
-            "is_correct": true,
+            "correct_label": "C",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S09_5",
             "target_file": "scripts\\migrate-black.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
-            "is_correct": true,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "C",
+            "is_correct": false,
             "error": null
           },
           {
@@ -1001,29 +1001,29 @@
             "target_file": "scripts\\release_tests.py",
             "choosen_item": null,
             "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "B",
-            "is_correct": false,
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S09_7",
             "target_file": "tests\\optional.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
-            "is_correct": true,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "A",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S09_8",
             "target_file": "tests\\test_blackd.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B)",
-            "correct_label": "B",
-            "is_correct": true,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "D",
+            "is_correct": false,
             "error": null
           },
           {
@@ -1032,8 +1032,8 @@
             "choosen_item": null,
             "ai_answer": "D",
             "ai_raw_response": "D",
-            "correct_label": "D",
-            "is_correct": true,
+            "correct_label": "A",
+            "is_correct": false,
             "error": null
           },
           {
@@ -1042,8 +1042,8 @@
             "choosen_item": null,
             "ai_answer": "D",
             "ai_raw_response": "D",
-            "correct_label": "D",
-            "is_correct": true,
+            "correct_label": "C",
+            "is_correct": false,
             "error": null
           }
         ]
@@ -1053,11 +1053,11 @@
         "category": "spacing",
         "question_template": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
         "group_stats": {
-          "correct": 5,
-          "wrong": 5,
+          "correct": 7,
+          "wrong": 3,
           "errors": 0,
           "total": 10,
-          "accuracy": 50.0
+          "accuracy": 70.0
         },
         "executions": [
           {
@@ -1075,7 +1075,7 @@
             "target_file": "docs\\conf.py",
             "choosen_item": null,
             "ai_answer": "A",
-            "ai_raw_response": "A)",
+            "ai_raw_response": "A",
             "correct_label": "D",
             "is_correct": false,
             "error": null
@@ -1084,9 +1084,9 @@
             "execution_id": "S10_3",
             "target_file": "gallery\\gallery.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
+            "ai_answer": "D",
+            "ai_raw_response": "D) 1.0",
+            "correct_label": "D",
             "is_correct": true,
             "error": null
           },
@@ -1094,9 +1094,9 @@
             "execution_id": "S10_4",
             "target_file": "scripts\\diff_shades_gha_helper.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
+            "ai_answer": "B",
+            "ai_raw_response": "B) 1.0",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
@@ -1104,9 +1104,9 @@
             "execution_id": "S10_5",
             "target_file": "scripts\\release.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "A",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
             "is_correct": false,
             "error": null
           },
@@ -1114,50 +1114,50 @@
             "execution_id": "S10_6",
             "target_file": "tests\\conftest.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
             "correct_label": "A",
-            "is_correct": false,
+            "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S10_7",
-            "target_file": "tests\\test_black.py",
+            "target_file": "tests\\test_docs.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "A",
+            "ai_answer": "D",
+            "ai_raw_response": "D) 1.0",
+            "correct_label": "D",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S10_8",
-            "target_file": "tests\\test_docs.py",
-            "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B) 2.0",
-            "correct_label": "D",
-            "is_correct": false,
-            "error": null
-          },
-          {
-            "execution_id": "S10_9",
             "target_file": "tests\\test_no_ipynb.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D)",
-            "correct_label": "D",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
             "is_correct": true,
             "error": null
           },
           {
-            "execution_id": "S10_10",
+            "execution_id": "S10_9",
             "target_file": "tests\\test_schema.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "A",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
             "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S10_10",
+            "target_file": "tests\\test_trans.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
             "error": null
           }
         ]
@@ -1167,20 +1167,20 @@
         "category": "spacing",
         "question_template": "Quante righe vuote ci sono dopo la definizione di una classe?",
         "group_stats": {
-          "correct": 6,
-          "wrong": 4,
+          "correct": 3,
+          "wrong": 7,
           "errors": 0,
           "total": 10,
-          "accuracy": 60.0
+          "accuracy": 30.0
         },
         "executions": [
           {
             "execution_id": "S11_1",
             "target_file": "gallery\\gallery.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D)",
-            "correct_label": "C",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
             "is_correct": false,
             "error": null
           },
@@ -1188,10 +1188,10 @@
             "execution_id": "S11_2",
             "target_file": "scripts\\release.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "A",
+            "is_correct": false,
             "error": null
           },
           {
@@ -1199,23 +1199,13 @@
             "target_file": "scripts\\release_tests.py",
             "choosen_item": null,
             "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
-            "is_correct": true,
+            "ai_raw_response": "B) 1.0",
+            "correct_label": "C",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S11_4",
-            "target_file": "tests\\test_black.py",
-            "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B) 2.0",
-            "correct_label": "B",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S11_5",
             "target_file": "tests\\test_tokenize.py",
             "choosen_item": null,
             "ai_answer": "C",
@@ -1225,38 +1215,28 @@
             "error": null
           },
           {
-            "execution_id": "S11_6",
+            "execution_id": "S11_5",
             "target_file": "tests\\util.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "B",
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "A",
             "is_correct": false,
             "error": null
           },
           {
-            "execution_id": "S11_7",
+            "execution_id": "S11_6",
             "target_file": "src\\black\\brackets.py",
             "choosen_item": null,
             "ai_answer": "C",
-            "ai_raw_response": "C)",
+            "ai_raw_response": "C",
             "correct_label": "C",
             "is_correct": true,
             "error": null
           },
           {
-            "execution_id": "S11_8",
+            "execution_id": "S11_7",
             "target_file": "src\\black\\comments.py",
-            "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "C",
-            "is_correct": false,
-            "error": null
-          },
-          {
-            "execution_id": "S11_9",
-            "target_file": "src\\black\\debug.py",
             "choosen_item": null,
             "ai_answer": "B",
             "ai_raw_response": "B",
@@ -1265,13 +1245,33 @@
             "error": null
           },
           {
-            "execution_id": "S11_10",
-            "target_file": "src\\black\\linegen.py",
+            "execution_id": "S11_8",
+            "target_file": "src\\black\\debug.py",
             "choosen_item": null,
             "ai_answer": "C",
-            "ai_raw_response": "C) 2.0",
-            "correct_label": "C",
+            "ai_raw_response": "C) 1.0",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S11_9",
+            "target_file": "src\\black\\nodes.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D) 2.0",
+            "correct_label": "D",
             "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S11_10",
+            "target_file": "src\\black\\parsing.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D) 1.0",
+            "correct_label": "B",
+            "is_correct": false,
             "error": null
           }
         ]
@@ -1281,30 +1281,30 @@
         "category": "spacing",
         "question_template": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
         "group_stats": {
-          "correct": 6,
-          "wrong": 4,
+          "correct": 1,
+          "wrong": 9,
           "errors": 0,
           "total": 10,
-          "accuracy": 60.0
+          "accuracy": 10.0
         },
         "executions": [
           {
             "execution_id": "S12_1",
             "target_file": "docs\\conf.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B) 2.0",
-            "correct_label": "B",
-            "is_correct": true,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "A",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S12_2",
             "target_file": "scripts\\diff_shades_gha_helper.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "A",
+            "ai_answer": "B",
+            "ai_raw_response": "B) 1.0",
+            "correct_label": "C",
             "is_correct": false,
             "error": null
           },
@@ -1312,8 +1312,8 @@
             "execution_id": "S12_3",
             "target_file": "scripts\\release.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
+            "ai_answer": "C",
+            "ai_raw_response": "C) 1.0",
             "correct_label": "B",
             "is_correct": false,
             "error": null
@@ -1322,18 +1322,18 @@
             "execution_id": "S12_4",
             "target_file": "tests\\optional.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
-            "is_correct": true,
+            "ai_answer": "B",
+            "ai_raw_response": "B) 1.0",
+            "correct_label": "D",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S12_5",
             "target_file": "tests\\test_docs.py",
             "choosen_item": null,
-            "ai_answer": "D",
-            "ai_raw_response": "D",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
             "correct_label": "C",
             "is_correct": false,
             "error": null
@@ -1342,6 +1342,26 @@
             "execution_id": "S12_6",
             "target_file": "tests\\test_ipynb.py",
             "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S12_7",
+            "target_file": "src\\black\\cache.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S12_8",
+            "target_file": "src\\black\\const.py",
+            "choosen_item": null,
             "ai_answer": "A",
             "ai_raw_response": "A",
             "correct_label": "C",
@@ -1349,43 +1369,23 @@
             "error": null
           },
           {
-            "execution_id": "S12_7",
-            "target_file": "src\\black\\cache.py",
-            "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S12_8",
-            "target_file": "src\\black\\const.py",
-            "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
             "execution_id": "S12_9",
             "target_file": "src\\black\\debug.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B)",
-            "correct_label": "B",
-            "is_correct": true,
+            "ai_answer": "C",
+            "ai_raw_response": "C) 1.0",
+            "correct_label": "A",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "S12_10",
             "target_file": "src\\black\\handle_ipynb_magics.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "A",
-            "is_correct": true,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "B",
+            "is_correct": false,
             "error": null
           }
         ]
@@ -1404,28 +1404,18 @@
         "executions": [
           {
             "execution_id": "S13_1",
-            "target_file": "tests\\data\\cases\\comments3.py",
-            "choosen_item": "element.split(\"\\n\", 1)[0]",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "target_file": "tests\\data\\cases\\dummy_implementations.py",
+            "choosen_item": "if not isinstance(arg, (int, str)):",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S13_2",
-            "target_file": "tests\\data\\cases\\preview_cantfit_string.py",
-            "choosen_item": "normal_name = normal_function_name(\n    \"but with super long string arguments that on their own exceed the line limit so there's no way it can ever fit\",\n    \"eggs with spam and eggs and spam with eggs with spam and eggs and spam with eggs with spam and eggs and spam with eggs\",\n    this_is_a_ridiculously_long_name_and_nobody_in_their_right_mind_would_use_one_like_it=0,\n)",
-            "ai_answer": "C",
-            "ai_raw_response": "C)",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S13_3",
-            "target_file": "tests\\data\\cases\\torture.py",
-            "choosen_item": "a_function(very_long_arguments_that_surpass_the_limit, which_is_eighty_eight_in_this_case_plus_a_bit_more)",
+            "target_file": "tests\\data\\cases\\composition_no_trailing_comma.py",
+            "choosen_item": "self.assertEqual(\n                unstyle(str(report)),\n                \"2 files reformatted, 2 files left unchanged, 2 files failed to\"\n                \" reformat.\",\n            )",
             "ai_answer": "C",
             "ai_raw_response": "C",
             "correct_label": "A",
@@ -1433,19 +1423,69 @@
             "error": null
           },
           {
+            "execution_id": "S13_3",
+            "target_file": "scripts\\make_width_table.py",
+            "choosen_item": "table_path = join(dirname(__file__), \"..\", \"src\", \"black\", \"_width_table.py\")",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
             "execution_id": "S13_4",
-            "target_file": "tests\\data\\cases\\preview_long_strings.py",
-            "choosen_item": "return \"A really really really really really really really really really really really really really long {} {}\".format(\"return\", \"value\")",
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
+            "target_file": "tests\\data\\cases\\pep_572_py310.py",
+            "choosen_item": "f(x, (a := b + c for c in range(10)), y=z, **q)",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "S13_5",
-            "target_file": "src\\blib2to3\\pgen2\\driver.py",
-            "choosen_item": "name = head + tail + \".\".join(map(str, sys.version_info)) + \".pickle\"",
+            "target_file": "tests\\data\\cases\\expression.py",
+            "choosen_item": ") in socket.getaddrinfo(\"google.com\", \"http\"):",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S13_6",
+            "target_file": "tests\\data\\cases\\preview_long_strings.py",
+            "choosen_item": "bad_split_func1(\n    \"But what should happen when code has already \"\n    \"been formatted but in the wrong way? Like \"\n    \"with a space at the end instead of the \"\n    \"beginning. Or what about when it is split too \"\n    \"soon? In the case of a split that is too \"\n    \"short, black will try to honer the custom \"\n    \"split.\",\n    xxx,\n    yyy,\n    zzz,\n)",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_7",
+            "target_file": "tests\\data\\cases\\preview_wrap_comprehension_in.py",
+            "choosen_item": "element.split(\"\\n\", 1)[0]",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_8",
+            "target_file": "src\\black\\rusty.py",
+            "choosen_item": "E = TypeVar(\"E\", bound=Exception)",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_9",
+            "target_file": "tests\\data\\cases\\pep_701.py",
+            "choosen_item": "log(\n    f\"Received operation {server_operation.name} from \"\n    f\"{self.writer._transport.get_extra_info('peername')}\",  # type: ignore[attr-defined]\n    level=0,\n)",
             "ai_answer": "C",
             "ai_raw_response": "C",
             "correct_label": "C",
@@ -1453,53 +1493,13 @@
             "error": null
           },
           {
-            "execution_id": "S13_6",
-            "target_file": "tests\\data\\cases\\pep_572.py",
-            "choosen_item": "if env_base := os.environ.get(\"PYTHONUSERBASE\", None):",
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S13_7",
-            "target_file": "tests\\data\\cases\\pattern_matching_extras.py",
-            "choosen_item": "print(\"no match\", \"\\n\")",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S13_8",
-            "target_file": "tests\\data\\cases\\pattern_matching_generic.py",
-            "choosen_item": "if not supports_feature(target_versions, Feature.ASYNC_KEYWORDS):",
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "S13_9",
-            "target_file": "scripts\\release_tests.py",
-            "choosen_item": "self.assertEqual((0, 0, 0), tuple_calver(\"69.1.1a0\"))  # Hack for alphas/betas",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
             "execution_id": "S13_10",
-            "target_file": "tests\\data\\cases\\function_trailing_comma.py",
-            "choosen_item": "some_module.some_function(\n    argument1, (one_element_tuple,), argument4, argument5, argument6\n)",
+            "target_file": "scripts\\migrate-black.py",
+            "choosen_item": "git(\"checkout\", commit, f\"-b{commit}-black\")",
             "ai_answer": "C",
             "ai_raw_response": "C",
-            "correct_label": "A",
-            "is_correct": false,
+            "correct_label": "C",
+            "is_correct": true,
             "error": null
           }
         ]
@@ -1521,171 +1521,171 @@
             "target_file": "action\\main.py",
             "choosen_item": [
               "describe_name",
-              "extra_deps",
-              "read_version_specifier_from_pyproject",
-              "determine_version_specifier",
-              "pip_proc",
+              "version_specifier",
               "base_cmd",
+              "read_version_specifier_from_pyproject",
+              "pip_proc",
+              "extra_deps",
               "find_black_version_in_array",
-              "version_specifier"
+              "determine_version_specifier"
             ],
-            "ai_answer": "D",
-            "ai_raw_response": "D",
+            "ai_answer": "A",
+            "ai_raw_response": "A) 12.0",
             "correct_label": "D",
-            "is_correct": true,
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "N01_2",
             "target_file": "docs\\conf.py",
             "choosen_item": [
-              "epub_title",
-              "epub_publisher",
-              "relative_path",
-              "master_doc",
-              "epub_exclude_files",
-              "make_pypi_svg",
-              "epub_copyright",
+              "copybutton_remove_prompts",
               "replace_pr_numbers_with_links",
-              "handle_include_read",
-              "myst_heading_anchors",
-              "html_static_path",
-              "man_pages",
-              "html_theme",
-              "autodoc_member_order",
-              "intersphinx_mapping",
-              "parent_docname",
-              "needs_extensions",
-              "latex_documents",
-              "myst_disable_syntax",
-              "epub_author",
-              "templates_path",
-              "exclude_patterns",
-              "myst_enable_extensions",
               "pygments_style",
               "html_logo",
-              "needs_sphinx",
-              "copybutton_prompt_text",
-              "copybutton_prompt_is_regexp",
+              "myst_disable_syntax",
+              "make_pypi_svg",
+              "parent_docname",
               "source_suffix",
+              "relative_path",
+              "needs_sphinx",
+              "html_static_path",
+              "latex_documents",
+              "templates_path",
+              "master_doc",
+              "epub_copyright",
+              "exclude_patterns",
+              "copybutton_prompt_is_regexp",
+              "epub_exclude_files",
               "texinfo_documents",
+              "autodoc_member_order",
+              "epub_title",
+              "epub_publisher",
+              "handle_include_read",
+              "copybutton_prompt_text",
+              "epub_author",
+              "man_pages",
+              "myst_enable_extensions",
               "htmlhelp_basename",
-              "copybutton_remove_prompts"
+              "intersphinx_mapping",
+              "needs_extensions",
+              "myst_heading_anchors",
+              "html_theme"
             ],
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "C",
-            "is_correct": false,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N01_3",
             "target_file": "gallery\\gallery.py",
             "choosen_item": [
-              "black_runner",
-              "input_directory",
-              "format_repos",
-              "get_pypi_download_url",
-              "format_repo_with_version",
-              "init_repos",
-              "from_branch",
-              "git_switch_branch",
-              "get_package_source",
-              "download_and_extract_top_packages",
-              "get_top_packages",
-              "black_repo",
-              "bound_downloader",
               "current_branch",
-              "local_file",
               "source_directories",
-              "get_first_archive_member",
-              "black_versions",
-              "result_dir",
-              "get_package",
-              "black_version",
-              "format_cmd",
-              "download_and_extract",
+              "black_repo",
               "git_create_repository",
+              "git_add_and_commit",
+              "get_package",
+              "format_repos",
+              "init_repos",
+              "git_switch_branch",
+              "local_file",
               "get_archive_manager",
-              "git_add_and_commit"
+              "get_first_archive_member",
+              "result_dir",
+              "get_pypi_download_url",
+              "input_directory",
+              "get_package_source",
+              "get_top_packages",
+              "black_runner",
+              "format_cmd",
+              "format_repo_with_version",
+              "bound_downloader",
+              "download_and_extract",
+              "download_and_extract_top_packages",
+              "black_version",
+              "from_branch",
+              "black_versions"
             ],
-            "ai_answer": "D",
-            "ai_raw_response": "D) 27.0",
-            "correct_label": "D",
-            "is_correct": true,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "C",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "N01_4",
             "target_file": "scripts\\check_pre_commit_rev_in_example.py",
             "choosen_item": [
-              "source_version_control_html",
-              "pre_commit_rev",
-              "changes_soup",
-              "source_version_control_soup",
               "source_version_control",
+              "changes_soup",
+              "pre_commit_rev",
+              "source_version_control_html",
               "changes_html",
+              "source_version_control_soup",
               "pre_commit_repos"
             ],
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
+            "ai_answer": "C",
+            "ai_raw_response": "C) 7.0",
             "correct_label": "C",
-            "is_correct": false,
+            "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N01_5",
             "target_file": "scripts\\check_version_in_basics_example.py",
             "choosen_item": [
-              "latest_tag",
+              "version_examples",
               "the_basics_soup",
               "changes_soup",
               "the_basics",
+              "changes_html",
               "the_basics_html",
-              "version_examples",
-              "changes_html"
+              "latest_tag"
             ],
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "C",
-            "is_correct": false,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N01_6",
             "target_file": "scripts\\diff_shades_gha_helper.py",
             "choosen_item": [
-              "comment_body",
-              "comment_artifact",
-              "comment_url",
-              "sorted_versions",
-              "baseline_name",
-              "diff_url",
-              "baseline_cmd",
-              "comment_zip",
-              "target_rev",
-              "target_cmd",
-              "baseline_sha",
-              "pr_rev",
-              "target_sha",
-              "baseline_rev",
-              "pr_ref",
-              "pr_num",
-              "comment_data",
-              "run_id",
-              "target_name",
               "is_json",
-              "get_main_revision",
-              "get_pr_revision",
-              "http_get",
-              "get_pypi_version",
+              "baseline_sha",
+              "target_cmd",
+              "baseline_cmd",
+              "pr_ref",
+              "baseline_name",
+              "comment_url",
+              "run_id",
               "diff_step",
+              "comment_zip",
+              "get_pypi_version",
+              "pr_rev",
+              "sorted_versions",
+              "comment_data",
+              "diff_url",
+              "target_sha",
+              "comment_artifact",
               "comment_details",
-              "set_output"
+              "set_output",
+              "target_rev",
+              "pr_num",
+              "baseline_rev",
+              "get_pr_revision",
+              "target_name",
+              "comment_body",
+              "http_get",
+              "get_main_revision"
             ],
             "ai_answer": "B",
-            "ai_raw_response": "B)",
-            "correct_label": "D",
+            "ai_raw_response": "B",
+            "correct_label": "A",
             "is_correct": false,
             "error": null
           },
@@ -1709,9 +1709,9 @@
             "choosen_item": [
               "generate_schema_from_click"
             ],
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "D",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
             "is_correct": false,
             "error": null
           },
@@ -1719,33 +1719,33 @@
             "execution_id": "N01_9",
             "target_file": "scripts\\make_width_table.py",
             "choosen_item": [
-              "start_codepoint",
-              "make_width_table",
               "range_width",
               "table_path",
-              "end_codepoint"
+              "start_codepoint",
+              "end_codepoint",
+              "make_width_table"
             ],
-            "ai_answer": "D",
-            "ai_raw_response": "D) 5.0",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
             "correct_label": "D",
-            "is_correct": true,
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "N01_10",
             "target_file": "scripts\\migrate-black.py",
             "choosen_item": [
+              "current_branch",
               "allow_empty",
-              "base_branch",
               "git_diff",
+              "black_command",
               "git_apply",
               "merge_base",
-              "black_command",
-              "current_branch"
+              "base_branch"
             ],
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "B",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "A",
             "is_correct": false,
             "error": null
           }
@@ -1756,24 +1756,24 @@
         "category": "naming",
         "question_template": "Quanti nomi 'camelCase' sono presenti in questo file?",
         "group_stats": {
-          "correct": 3,
-          "wrong": 1,
+          "correct": 1,
+          "wrong": 3,
           "errors": 0,
           "total": 4,
-          "accuracy": 75.0
+          "accuracy": 25.0
         },
         "executions": [
           {
             "execution_id": "N02_1",
             "target_file": "scripts\\release_tests.py",
             "choosen_item": [
-              "setUp",
-              "tearDown"
+              "tearDown",
+              "setUp"
             ],
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
-            "is_correct": true,
+            "ai_answer": "B",
+            "ai_raw_response": "B) 1.0",
+            "correct_label": "C",
+            "is_correct": false,
             "error": null
           },
           {
@@ -1782,10 +1782,10 @@
             "choosen_item": [
               "tearDown"
             ],
-            "ai_answer": "B",
-            "ai_raw_response": "B) 1.0",
-            "correct_label": "B",
-            "is_correct": true,
+            "ai_answer": "D",
+            "ai_raw_response": "D) 2.0",
+            "correct_label": "C",
+            "is_correct": false,
             "error": null
           },
           {
@@ -1794,10 +1794,10 @@
             "choosen_item": [
               "assertFormatEqual"
             ],
-            "ai_answer": "B",
-            "ai_raw_response": "B) 6.0",
-            "correct_label": "A",
-            "is_correct": false,
+            "ai_answer": "D",
+            "ai_raw_response": "D) 1.0",
+            "correct_label": "D",
+            "is_correct": true,
             "error": null
           },
           {
@@ -1806,10 +1806,10 @@
             "choosen_item": [
               "evalString"
             ],
-            "ai_answer": "D",
-            "ai_raw_response": "D",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
             "correct_label": "D",
-            "is_correct": true,
+            "is_correct": false,
             "error": null
           }
         ]
@@ -1819,11 +1819,11 @@
         "category": "naming",
         "question_template": "Quanti nomi 'PascalCase' sono presenti in questo file?",
         "group_stats": {
-          "correct": 4,
-          "wrong": 6,
+          "correct": 2,
+          "wrong": 8,
           "errors": 0,
           "total": 10,
-          "accuracy": 40.0
+          "accuracy": 20.0
         },
         "executions": [
           {
@@ -1835,8 +1835,8 @@
             ],
             "ai_answer": "B",
             "ai_raw_response": "B",
-            "correct_label": "B",
-            "is_correct": true,
+            "correct_label": "D",
+            "is_correct": false,
             "error": null
           },
           {
@@ -1846,9 +1846,9 @@
               "NoGitTagsError",
               "SourceFiles"
             ],
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "D",
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "A",
             "is_correct": false,
             "error": null
           },
@@ -1856,11 +1856,11 @@
             "execution_id": "N03_3",
             "target_file": "scripts\\release_tests.py",
             "choosen_item": [
-              "TestRelease",
-              "FakeDateTime"
+              "FakeDateTime",
+              "TestRelease"
             ],
-            "ai_answer": "A",
-            "ai_raw_response": "A",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
             "correct_label": "D",
             "is_correct": false,
             "error": null
@@ -1872,9 +1872,9 @@
               "BlackDTestCase",
               "BlackDClientTestCase"
             ],
-            "ai_answer": "B",
-            "ai_raw_response": "B) 7.0",
-            "correct_label": "D",
+            "ai_answer": "D",
+            "ai_raw_response": "D) 3.0",
+            "correct_label": "C",
             "is_correct": false,
             "error": null
           },
@@ -1884,20 +1884,6 @@
             "choosen_item": [
               "Token"
             ],
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N03_6",
-            "target_file": "tests\\util.py",
-            "choosen_item": [
-              "FormatFailure",
-              "BlackBaseTestCase",
-              "TestCaseArgs"
-            ],
             "ai_answer": "B",
             "ai_raw_response": "B",
             "correct_label": "B",
@@ -1905,19 +1891,33 @@
             "error": null
           },
           {
+            "execution_id": "N03_6",
+            "target_file": "tests\\util.py",
+            "choosen_item": [
+              "TestCaseArgs",
+              "FormatFailure",
+              "BlackBaseTestCase"
+            ],
+            "ai_answer": "D",
+            "ai_raw_response": "D) 3.0",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
             "execution_id": "N03_7",
             "target_file": "src\\black\\brackets.py",
             "choosen_item": [
+              "LeafID",
+              "NodeType",
               "BracketTracker",
               "BracketMatchError",
               "Depth",
-              "LeafID",
-              "Priority",
-              "NodeType"
+              "Priority"
             ],
-            "ai_answer": "",
-            "ai_raw_response": "8.0",
-            "correct_label": "D",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
             "is_correct": false,
             "error": null
           },
@@ -1925,12 +1925,12 @@
             "execution_id": "N03_8",
             "target_file": "src\\black\\cache.py",
             "choosen_item": [
-              "FileData",
-              "Cache"
+              "Cache",
+              "FileData"
             ],
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "C",
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "A",
             "is_correct": false,
             "error": null
           },
@@ -1941,9 +1941,9 @@
               "ProtoComment"
             ],
             "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "A",
-            "is_correct": true,
+            "ai_raw_response": "A",
+            "correct_label": "C",
+            "is_correct": false,
             "error": null
           },
           {
@@ -1952,9 +1952,9 @@
             "choosen_item": [
               "DebugVisitor"
             ],
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "A",
+            "ai_answer": "A",
+            "ai_raw_response": "A) 6.0",
+            "correct_label": "C",
             "is_correct": false,
             "error": null
           }
@@ -1976,9 +1976,9 @@
             "execution_id": "N04_1",
             "target_file": "docs\\conf.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -1986,9 +1986,9 @@
             "execution_id": "N04_2",
             "target_file": "gallery\\gallery.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -1996,9 +1996,9 @@
             "execution_id": "N04_3",
             "target_file": "scripts\\diff_shades_gha_helper.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
             "is_correct": true,
             "error": null
           },
@@ -2006,9 +2006,9 @@
             "execution_id": "N04_4",
             "target_file": "scripts\\release.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
             "is_correct": true,
             "error": null
           },
@@ -2016,9 +2016,9 @@
             "execution_id": "N04_5",
             "target_file": "scripts\\release_tests.py",
             "choosen_item": null,
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
@@ -2026,16 +2026,6 @@
             "execution_id": "N04_6",
             "target_file": "tests\\optional.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N04_7",
-            "target_file": "tests\\test_blackd.py",
-            "choosen_item": null,
             "ai_answer": "A",
             "ai_raw_response": "A",
             "correct_label": "A",
@@ -2043,12 +2033,22 @@
             "error": null
           },
           {
-            "execution_id": "N04_8",
-            "target_file": "tests\\test_docs.py",
+            "execution_id": "N04_7",
+            "target_file": "tests\\test_blackd.py",
             "choosen_item": null,
             "ai_answer": "C",
             "ai_raw_response": "C",
             "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N04_8",
+            "target_file": "tests\\test_docs.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
@@ -2056,9 +2056,9 @@
             "execution_id": "N04_9",
             "target_file": "tests\\test_ipynb.py",
             "choosen_item": null,
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
@@ -2066,9 +2066,9 @@
             "execution_id": "N04_10",
             "target_file": "tests\\util.py",
             "choosen_item": null,
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           }
@@ -2088,58 +2088,18 @@
         "executions": [
           {
             "execution_id": "N05_1",
-            "target_file": "scripts\\migrate-black.py",
-            "choosen_item": "merge_base",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "target_file": "scripts\\check_version_in_basics_example.py",
+            "choosen_item": "the_basics_soup",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N05_2",
-            "target_file": "tests\\util.py",
-            "choosen_item": "assertFormatEqual",
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N05_3",
-            "target_file": "tests\\util.py",
-            "choosen_item": "TestCaseArgs",
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N05_4",
-            "target_file": "src\\black\\brackets.py",
-            "choosen_item": "LeafID",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N05_5",
-            "target_file": "scripts\\make_width_table.py",
-            "choosen_item": "make_width_table",
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N05_6",
-            "target_file": "tests\\test_blackd.py",
-            "choosen_item": "BlackDTestCase",
+            "target_file": "scripts\\fuzz.py",
+            "choosen_item": "test_idempotent_any_syntatically_valid_python",
             "ai_answer": "B",
             "ai_raw_response": "B",
             "correct_label": "B",
@@ -2147,42 +2107,82 @@
             "error": null
           },
           {
-            "execution_id": "N05_7",
-            "target_file": "gallery\\gallery.py",
-            "choosen_item": "black_version",
+            "execution_id": "N05_3",
+            "target_file": "tests\\test_blackd.py",
+            "choosen_item": "tearDown",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_4",
+            "target_file": "scripts\\check_version_in_basics_example.py",
+            "choosen_item": "latest_tag",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_5",
+            "target_file": "scripts\\release_tests.py",
+            "choosen_item": "TestRelease",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_6",
+            "target_file": "src\\black\\cache.py",
+            "choosen_item": "Cache",
             "ai_answer": "C",
             "ai_raw_response": "C",
             "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_7",
+            "target_file": "scripts\\check_pre_commit_rev_in_example.py",
+            "choosen_item": "source_version_control_soup",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N05_8",
-            "target_file": "tests\\util.py",
-            "choosen_item": "BlackBaseTestCase",
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
+            "target_file": "scripts\\migrate-black.py",
+            "choosen_item": "current_branch",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N05_9",
-            "target_file": "scripts\\check_pre_commit_rev_in_example.py",
-            "choosen_item": "pre_commit_repos",
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
+            "target_file": "src\\blib2to3\\pgen2\\literals.py",
+            "choosen_item": "evalString",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N05_10",
-            "target_file": "scripts\\fuzz.py",
-            "choosen_item": "dst_contents",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "target_file": "tests\\util.py",
+            "choosen_item": "TestCaseArgs",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           }
@@ -2193,17 +2193,27 @@
         "category": "naming",
         "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
         "group_stats": {
-          "correct": 6,
-          "wrong": 4,
+          "correct": 4,
+          "wrong": 6,
           "errors": 0,
           "total": 10,
-          "accuracy": 60.0
+          "accuracy": 40.0
         },
         "executions": [
           {
             "execution_id": "N06_1",
-            "target_file": "tests\\test_format.py",
-            "choosen_item": "expected",
+            "target_file": "tests\\data\\cases\\expression.py",
+            "choosen_item": "manylambdas",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N06_2",
+            "target_file": "tests\\data\\cases\\annotations.py",
+            "choosen_item": "self",
             "ai_answer": "B",
             "ai_raw_response": "B",
             "correct_label": "A",
@@ -2211,19 +2221,9 @@
             "error": null
           },
           {
-            "execution_id": "N06_2",
-            "target_file": "tests\\data\\cases\\comment_after_escaped_newline.py",
-            "choosen_item": "bobtwo",
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
-            "is_correct": true,
-            "error": null
-          },
-          {
             "execution_id": "N06_3",
-            "target_file": "tests\\data\\cases\\comments9.py",
-            "choosen_item": "top_level_quote_inline_after_else",
+            "target_file": "src\\black\\cache.py",
+            "choosen_item": "get_file_data",
             "ai_answer": "A",
             "ai_raw_response": "A",
             "correct_label": "A",
@@ -2232,8 +2232,8 @@
           },
           {
             "execution_id": "N06_4",
-            "target_file": "tests\\data\\cases\\generics_wrapping.py",
-            "choosen_item": "i",
+            "target_file": "tests\\data\\cases\\empty_lines.py",
+            "choosen_item": "f",
             "ai_answer": "A",
             "ai_raw_response": "A",
             "correct_label": "B",
@@ -2242,18 +2242,18 @@
           },
           {
             "execution_id": "N06_5",
-            "target_file": "src\\blib2to3\\pygram.py",
-            "choosen_item": "argument",
+            "target_file": "tests\\data\\cases\\comment_after_escaped_newline.py",
+            "choosen_item": "bob",
             "ai_answer": "A",
             "ai_raw_response": "A",
-            "correct_label": "B",
-            "is_correct": false,
+            "correct_label": "A",
+            "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N06_6",
-            "target_file": "scripts\\release_tests.py",
-            "choosen_item": "self",
+            "target_file": "src\\black\\strings.py",
+            "choosen_item": "original",
             "ai_answer": "A",
             "ai_raw_response": "A",
             "correct_label": "B",
@@ -2262,18 +2262,8 @@
           },
           {
             "execution_id": "N06_7",
-            "target_file": "tests\\data\\cases\\backslash_before_indent.py",
-            "choosen_item": "AnotherCase",
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "B",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N06_8",
-            "target_file": "tests\\data\\cases\\line_ranges_basic.py",
-            "choosen_item": "parameter_1",
+            "target_file": "src\\blib2to3\\pgen2\\literals.py",
+            "choosen_item": "simple_escapes",
             "ai_answer": "A",
             "ai_raw_response": "A",
             "correct_label": "A",
@@ -2281,23 +2271,33 @@
             "error": null
           },
           {
-            "execution_id": "N06_9",
-            "target_file": "tests\\data\\cases\\tricky_unicode_symbols.py",
-            "choosen_item": "x󠄀",
-            "ai_answer": "B",
-            "ai_raw_response": "B",
+            "execution_id": "N06_8",
+            "target_file": "tests\\util.py",
+            "choosen_item": "assertFormatEqual",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
             "correct_label": "B",
-            "is_correct": true,
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N06_9",
+            "target_file": "tests\\data\\cases\\fmtonoff6.py",
+            "choosen_item": "arr",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "N06_10",
-            "target_file": "tests\\data\\cases\\comments4.py",
-            "choosen_item": "list_b",
+            "target_file": "src\\black\\concurrency.py",
+            "choosen_item": "lock",
             "ai_answer": "B",
             "ai_raw_response": "B",
-            "correct_label": "B",
-            "is_correct": true,
+            "correct_label": "A",
+            "is_correct": false,
             "error": null
           }
         ]
@@ -2307,158 +2307,25 @@
         "category": "naming",
         "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
         "group_stats": {
-          "correct": 4,
-          "wrong": 7,
-          "errors": 1,
-          "total": 12,
-          "accuracy": 36.36
+          "correct": 2,
+          "wrong": 8,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 20.0
         },
         "executions": [
           {
             "execution_id": "N07_1",
             "target_file": "action\\main.py",
             "choosen_item": [
-              "array",
-              "proc",
-              "item",
               "req",
-              "m",
+              "array",
               "arrays",
               "version",
-              "pyproject"
-            ],
-            "ai_answer": "C",
-            "ai_raw_response": "C) 8.0",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N07_2",
-            "target_file": "docs\\conf.py",
-            "choosen_item": [
-              "app",
-              "content",
-              "author",
-              "svg",
-              "project",
-              "extensions",
-              "copyright",
-              "language",
-              "target",
-              "version",
-              "template",
-              "setup",
-              "release"
-            ],
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N07_3",
-            "target_file": "gallery\\gallery.py",
-            "choosen_item": [
-              "directory",
-              "result",
-              "limit",
-              "parser",
-              "config",
-              "source",
-              "args",
-              "options",
-              "archive",
-              "metadata",
-              "python",
-              "sources",
-              "repo",
-              "main",
-              "msg",
-              "workers",
-              "new",
-              "package",
-              "version",
-              "branch",
-              "repos",
-              "group"
-            ],
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "B",
-            "is_correct": false,
-            "error": null
-          },
-          {
-            "execution_id": "N07_4",
-            "target_file": "profiling\\mix_small.py",
-            "choosen_item": [
-              "config"
-            ],
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N07_5",
-            "target_file": "scripts\\check_pre_commit_rev_in_example.py",
-            "choosen_item": [
-              "main",
-              "changes",
-              "headers"
-            ],
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
-            "correct_label": "C",
-            "is_correct": false,
-            "error": null
-          },
-          {
-            "execution_id": "N07_6",
-            "target_file": "scripts\\check_version_in_basics_example.py",
-            "choosen_item": [
-              "main",
-              "changes",
-              "tags",
-              "headers"
-            ],
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "A",
-            "is_correct": false,
-            "error": null
-          },
-          {
-            "execution_id": "N07_7",
-            "target_file": "scripts\\diff_shades_gha_helper.py",
-            "choosen_item": [
-              "delimiter",
-              "config",
-              "proc",
-              "url",
-              "kwargs",
-              "pr",
-              "cmd",
-              "event",
-              "env",
-              "baseline",
-              "command",
-              "body",
-              "name",
-              "headers",
-              "main",
-              "versions",
-              "http",
-              "artifacts",
-              "job",
-              "data",
-              "target",
-              "jobs",
-              "value",
-              "r"
+              "item",
+              "pyproject",
+              "m",
+              "proc"
             ],
             "ai_answer": "A",
             "ai_raw_response": "A",
@@ -2467,36 +2334,169 @@
             "error": null
           },
           {
+            "execution_id": "N07_2",
+            "target_file": "docs\\conf.py",
+            "choosen_item": [
+              "copyright",
+              "content",
+              "release",
+              "extensions",
+              "svg",
+              "version",
+              "app",
+              "project",
+              "target",
+              "author",
+              "setup",
+              "template",
+              "language"
+            ],
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N07_3",
+            "target_file": "gallery\\gallery.py",
+            "choosen_item": [
+              "config",
+              "args",
+              "msg",
+              "repo",
+              "branch",
+              "main",
+              "workers",
+              "repos",
+              "group",
+              "parser",
+              "result",
+              "directory",
+              "python",
+              "sources",
+              "version",
+              "metadata",
+              "options",
+              "limit",
+              "package",
+              "archive",
+              "source",
+              "new"
+            ],
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N07_4",
+            "target_file": "profiling\\mix_small.py",
+            "choosen_item": [
+              "config"
+            ],
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N07_5",
+            "target_file": "scripts\\check_pre_commit_rev_in_example.py",
+            "choosen_item": [
+              "main",
+              "headers",
+              "changes"
+            ],
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N07_6",
+            "target_file": "scripts\\check_version_in_basics_example.py",
+            "choosen_item": [
+              "tags",
+              "main",
+              "headers",
+              "changes"
+            ],
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N07_7",
+            "target_file": "scripts\\diff_shades_gha_helper.py",
+            "choosen_item": [
+              "pr",
+              "config",
+              "main",
+              "name",
+              "command",
+              "delimiter",
+              "cmd",
+              "http",
+              "artifacts",
+              "headers",
+              "jobs",
+              "r",
+              "body",
+              "kwargs",
+              "versions",
+              "target",
+              "baseline",
+              "proc",
+              "job",
+              "url",
+              "event",
+              "value",
+              "data",
+              "env"
+            ],
+            "ai_answer": "A",
+            "ai_raw_response": "A) 19.0",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
             "execution_id": "N07_8",
             "target_file": "scripts\\fuzz.py",
             "choosen_item": [
-              "mode",
-              "test"
+              "test",
+              "mode"
             ],
             "ai_answer": "B",
-            "ai_raw_response": "B)",
-            "correct_label": "B",
-            "is_correct": true,
+            "ai_raw_response": "B) 0.0",
+            "correct_label": "A",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "N07_9",
             "target_file": "scripts\\generate_schema.py",
             "choosen_item": [
-              "result",
               "properties",
-              "main",
               "schemastore",
-              "schema",
-              "msg",
               "cmd",
+              "schema",
+              "default",
+              "result",
+              "msg",
+              "main",
               "outfile",
-              "name",
-              "default"
+              "name"
             ],
             "ai_answer": "D",
-            "ai_raw_response": "D)",
-            "correct_label": "B",
+            "ai_raw_response": "D",
+            "correct_label": "C",
             "is_correct": false,
             "error": null
           },
@@ -2504,11 +2504,11 @@
             "execution_id": "N07_10",
             "target_file": "scripts\\make_width_table.py",
             "choosen_item": [
-              "main",
-              "width"
+              "width",
+              "main"
             ],
             "ai_answer": "B",
-            "ai_raw_response": "B)",
+            "ai_raw_response": "B) 0.0",
             "correct_label": "C",
             "is_correct": false,
             "error": null
@@ -2520,37 +2520,17 @@
         "category": "naming",
         "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
         "group_stats": {
-          "correct": 9,
-          "wrong": 1,
+          "correct": 7,
+          "wrong": 3,
           "errors": 0,
           "total": 10,
-          "accuracy": 90.0
+          "accuracy": 70.0
         },
         "executions": [
           {
             "execution_id": "N08_1",
-            "target_file": "tests\\data\\cases\\composition_no_trailing_comma.py",
-            "choosen_item": "C",
-            "ai_answer": "B",
-            "ai_raw_response": "B",
-            "correct_label": "A",
-            "is_correct": false,
-            "error": null
-          },
-          {
-            "execution_id": "N08_2",
-            "target_file": "tests\\data\\cases\\preview_long_strings.py",
-            "choosen_item": "D6",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N08_3",
-            "target_file": "tests\\optional.py",
-            "choosen_item": "ENABLED_OPTIONAL_MARKERS",
+            "target_file": "gallery\\gallery.py",
+            "choosen_item": "PYPI_TOP_PACKAGES",
             "ai_answer": "B",
             "ai_raw_response": "B",
             "correct_label": "B",
@@ -2558,39 +2538,59 @@
             "error": null
           },
           {
-            "execution_id": "N08_4",
-            "target_file": "src\\black\\strings.py",
-            "choosen_item": "STRING_PREFIX_RE",
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
+            "execution_id": "N08_2",
+            "target_file": "src\\black\\debug.py",
+            "choosen_item": "LN",
+            "ai_answer": "B",
+            "ai_raw_response": "B) true",
             "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N08_3",
+            "target_file": "src\\blackd\\__init__.py",
+            "choosen_item": "BLACK_HEADERS",
+            "ai_answer": "B",
+            "ai_raw_response": "B) false",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N08_4",
+            "target_file": "src\\blib2to3\\pgen2\\token.py",
+            "choosen_item": "ENDMARKER",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N08_5",
-            "target_file": "tests\\data\\cases\\comments4.py",
-            "choosen_item": "C",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "target_file": "src\\black\\mode.py",
+            "choosen_item": "ASYNC_IDENTIFIERS",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N08_6",
-            "target_file": "src\\blib2to3\\pgen2\\token.py",
-            "choosen_item": "CIRCUMFLEX",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
-            "correct_label": "A",
+            "target_file": "src\\blib2to3\\pgen2\\parse.py",
+            "choosen_item": "DUMMY_NODE",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N08_7",
-            "target_file": "tests\\data\\cases\\type_params.py",
-            "choosen_item": "C",
+            "target_file": "src\\black\\const.py",
+            "choosen_item": "STDIN_PLACEHOLDER",
             "ai_answer": "B",
             "ai_raw_response": "B",
             "correct_label": "B",
@@ -2599,7 +2599,7 @@
           },
           {
             "execution_id": "N08_8",
-            "target_file": "tests\\data\\cases\\torture.py",
+            "target_file": "tests\\data\\cases\\trailing_comma_optional_parens1.py",
             "choosen_item": "A",
             "ai_answer": "A",
             "ai_raw_response": "A",
@@ -2609,8 +2609,8 @@
           },
           {
             "execution_id": "N08_9",
-            "target_file": "tests\\data\\cases\\tricky_unicode_symbols.py",
-            "choosen_item": "A᧚",
+            "target_file": "tests\\test_ipynb.py",
+            "choosen_item": "JUPYTER_MODE",
             "ai_answer": "A",
             "ai_raw_response": "A",
             "correct_label": "A",
@@ -2619,12 +2619,12 @@
           },
           {
             "execution_id": "N08_10",
-            "target_file": "src\\blib2to3\\pgen2\\tokenize.py",
-            "choosen_item": "TOKEN_TYPE_MAP",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
+            "target_file": "tests\\data\\cases\\preview_multiline_strings.py",
+            "choosen_item": "MULTILINE",
+            "ai_answer": "B",
+            "ai_raw_response": "B) true",
             "correct_label": "A",
-            "is_correct": true,
+            "is_correct": false,
             "error": null
           }
         ]
@@ -2634,27 +2634,17 @@
         "category": "naming",
         "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
         "group_stats": {
-          "correct": 7,
-          "wrong": 3,
+          "correct": 3,
+          "wrong": 7,
           "errors": 0,
           "total": 10,
-          "accuracy": 70.0
+          "accuracy": 30.0
         },
         "executions": [
           {
             "execution_id": "N09_1",
-            "target_file": "src\\blib2to3\\pgen2\\conv.py",
-            "choosen_item": "parse_graminit_c",
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N09_2",
-            "target_file": "tests\\data\\cases\\empty_lines.py",
-            "choosen_item": "DOUBLESPACE",
+            "target_file": "tests\\data\\cases\\module_docstring_3.py",
+            "choosen_item": "a",
             "ai_answer": "B",
             "ai_raw_response": "B",
             "correct_label": "B",
@@ -2662,83 +2652,93 @@
             "error": null
           },
           {
+            "execution_id": "N09_2",
+            "target_file": "tests\\data\\cases\\preview_cantfit_string.py",
+            "choosen_item": "normal_name",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
             "execution_id": "N09_3",
-            "target_file": "tests\\data\\cases\\pep_654.py",
-            "choosen_item": "tes",
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "C",
+            "target_file": "tests\\data\\cases\\remove_await_parens.py",
+            "choosen_item": "main",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "D",
             "is_correct": false,
             "error": null
           },
           {
             "execution_id": "N09_4",
-            "target_file": "tests\\data\\cases\\preview_long_strings__edge_case.py",
-            "choosen_item": "addition_inside_tuple",
-            "ai_answer": "A",
-            "ai_raw_response": "A)",
+            "target_file": "src\\black\\const.py",
+            "choosen_item": "DEFAULT_LINE_LENGTH",
+            "ai_answer": "B",
+            "ai_raw_response": "B) 22.0",
             "correct_label": "A",
-            "is_correct": true,
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "N09_5",
-            "target_file": "scripts\\diff_shades_gha_helper.py",
-            "choosen_item": "get_main_revision",
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
+            "target_file": "tests\\conftest.py",
+            "choosen_item": "pytest_addoption",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "A",
+            "is_correct": false,
             "error": null
           },
           {
             "execution_id": "N09_6",
-            "target_file": "tests\\data\\cases\\attribute_access_on_number_literals.py",
-            "choosen_item": "y",
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "A",
+            "target_file": "tests\\conftest.py",
+            "choosen_item": "pytest_addoption",
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "C",
             "is_correct": false,
             "error": null
           },
           {
             "execution_id": "N09_7",
-            "target_file": "tests\\test_trans.py",
-            "choosen_item": "test_fexpr_spans",
-            "ai_answer": "D",
-            "ai_raw_response": "D",
-            "correct_label": "D",
+            "target_file": "src\\blib2to3\\pygram.py",
+            "choosen_item": "python_grammar_async_keywords",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
             "is_correct": true,
             "error": null
           },
           {
             "execution_id": "N09_8",
-            "target_file": "tests\\data\\cases\\fmtskip.py",
-            "choosen_item": "c",
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
-            "is_correct": true,
-            "error": null
-          },
-          {
-            "execution_id": "N09_9",
-            "target_file": "scripts\\release.py",
-            "choosen_item": "cleanup_changes_template_for_release",
-            "ai_answer": "A",
-            "ai_raw_response": "A",
+            "target_file": "src\\blib2to3\\pytree.py",
+            "choosen_item": "fmt_pass_converted_first_leaf",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
             "correct_label": "C",
             "is_correct": false,
             "error": null
           },
           {
-            "execution_id": "N09_10",
-            "target_file": "tests\\data\\cases\\module_docstring_2.py",
-            "choosen_item": "b",
-            "ai_answer": "C",
-            "ai_raw_response": "C",
-            "correct_label": "C",
+            "execution_id": "N09_9",
+            "target_file": "tests\\data\\cases\\fmtskip8.py",
+            "choosen_item": "some_async_method",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
             "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N09_10",
+            "target_file": "tests\\data\\cases\\trailing_comma.py",
+            "choosen_item": "g",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "C",
+            "is_correct": false,
             "error": null
           }
         ]
