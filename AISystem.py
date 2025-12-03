@@ -69,9 +69,9 @@ class AISystem:
         Effettua la chiamata API.
         Restituisce: (contenuto_risposta, messaggio_errore)
         """
-        max_retries = 5  
-        base_wait_time = 5 
+        max_retries = 5
         last_error = None
+        wait_time = 60  # secondi
 
         for attempt in range(max_retries):
             try:
@@ -95,7 +95,6 @@ class AISystem:
                 error_str = str(e).lower()
                 if "503" in error_str or "unavailable" in error_str or "overloaded" in error_str:
                     if attempt < max_retries - 1:
-                        wait_time = base_wait_time * (2 ** attempt) 
                         print(f"Errore 503 (Overload). Riprovo tra {wait_time}s... (Tentativo {attempt + 2}/{max_retries})")
                         time.sleep(wait_time)
                     else:

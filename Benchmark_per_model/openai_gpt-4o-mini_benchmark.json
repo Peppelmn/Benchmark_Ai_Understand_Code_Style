@@ -5,15 +5,15 @@
     "question": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "C"
       },
       {
@@ -21,7 +21,7 @@
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "A",
     "target_file": "docs\\conf.py",
     "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "choosen_item": null
@@ -32,24 +32,24 @@
     "question": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
-    "target_file": "profiling\\mix_big.py",
+    "correct_label": "D",
+    "target_file": "profiling\\mix_small.py",
     "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "choosen_item": null
   },
@@ -59,24 +59,24 @@
     "question": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
-    "target_file": "profiling\\mix_small.py",
+    "correct_label": "B",
+    "target_file": "scripts\\make_width_table.py",
     "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "choosen_item": null
   },
@@ -86,24 +86,24 @@
     "question": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
-    "target_file": "scripts\\make_width_table.py",
+    "correct_label": "B",
+    "target_file": "scripts\\release_tests.py",
     "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "choosen_item": null
   },
@@ -113,24 +113,24 @@
     "question": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "scripts\\release_tests.py",
+    "correct_label": "A",
+    "target_file": "tests\\test_docs.py",
     "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "choosen_item": null
   },
@@ -140,7 +140,7 @@
     "question": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 3.0,
         "label": "A"
       },
       {
@@ -148,16 +148,16 @@
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
     "correct_label": "B",
-    "target_file": "tests\\test_docs.py",
+    "target_file": "tests\\test_no_ipynb.py",
     "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "choosen_item": null
   },
@@ -167,11 +167,11 @@
     "question": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "B"
       },
       {
@@ -179,12 +179,12 @@
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
-    "target_file": "tests\\test_no_ipynb.py",
+    "correct_label": "D",
+    "target_file": "tests\\test_ranges.py",
     "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "choosen_item": null
   },
@@ -194,24 +194,24 @@
     "question": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
-    "target_file": "tests\\test_ranges.py",
+    "correct_label": "A",
+    "target_file": "tests\\test_schema.py",
     "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "choosen_item": null
   },
@@ -229,16 +229,16 @@
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
     "correct_label": "A",
-    "target_file": "tests\\test_schema.py",
+    "target_file": "tests\\test_tokenize.py",
     "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "choosen_item": null
   },
@@ -248,24 +248,24 @@
     "question": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
-    "target_file": "tests\\test_tokenize.py",
+    "correct_label": "B",
+    "target_file": "tests\\test_trans.py",
     "question_template": "Nella definizione di una variabile nel file, quanti spazi vengono utilizzati per separare i token?",
     "choosen_item": null
   },
@@ -275,23 +275,23 @@
     "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "C",
     "target_file": "docs\\conf.py",
     "question_template": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "choosen_item": null
@@ -302,23 +302,23 @@
     "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "D",
     "target_file": "scripts\\check_pre_commit_rev_in_example.py",
     "question_template": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "choosen_item": null
@@ -329,23 +329,23 @@
     "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "A",
     "target_file": "scripts\\fuzz.py",
     "question_template": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "choosen_item": null
@@ -356,15 +356,15 @@
     "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "C"
       },
       {
@@ -391,7 +391,7 @@
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "C"
       },
       {
@@ -414,7 +414,7 @@
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "B"
       },
       {
@@ -422,7 +422,7 @@
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
@@ -437,23 +437,23 @@
     "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "D",
     "target_file": "tests\\test_schema.py",
     "question_template": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "choosen_item": null
@@ -472,15 +472,15 @@
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "C",
     "target_file": "tests\\test_trans.py",
     "question_template": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "choosen_item": null
@@ -495,7 +495,7 @@
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "B"
       },
       {
@@ -503,7 +503,7 @@
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
@@ -518,11 +518,11 @@
     "question": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "B"
       },
       {
@@ -530,44 +530,17 @@
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "A",
     "target_file": "src\\blackd\\client.py",
     "question_template": "Nella definizione della condizione in una struttura di controllo, quanti spazi vengono usati per separare i token?",
     "choosen_item": null
   },
   {
     "question_id": "S03_1",
-    "category": "spacing",
-    "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
-    "answers": [
-      {
-        "text": 0.0,
-        "label": "A"
-      },
-      {
-        "text": 1.0,
-        "label": "B"
-      },
-      {
-        "text": 2.0,
-        "label": "C"
-      },
-      {
-        "text": 3.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "A",
-    "target_file": "action\\main.py",
-    "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
-    "choosen_item": null
-  },
-  {
-    "question_id": "S03_2",
     "category": "spacing",
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "answers": [
@@ -589,6 +562,33 @@
       }
     ],
     "correct_label": "C",
+    "target_file": "action\\main.py",
+    "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
+    "choosen_item": null
+  },
+  {
+    "question_id": "S03_2",
+    "category": "spacing",
+    "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
+    "answers": [
+      {
+        "text": 0.0,
+        "label": "A"
+      },
+      {
+        "text": 2.0,
+        "label": "B"
+      },
+      {
+        "text": 3.0,
+        "label": "C"
+      },
+      {
+        "text": 1.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "A",
     "target_file": "docs\\conf.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "choosen_item": null
@@ -599,23 +599,23 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "D",
     "target_file": "gallery\\gallery.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "choosen_item": null
@@ -626,7 +626,7 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "A"
       },
       {
@@ -634,15 +634,15 @@
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "A",
     "target_file": "scripts\\check_pre_commit_rev_in_example.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "choosen_item": null
@@ -653,7 +653,7 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "A"
       },
       {
@@ -661,7 +661,7 @@
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "C"
       },
       {
@@ -669,7 +669,7 @@
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "C",
     "target_file": "scripts\\check_version_in_basics_example.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "choosen_item": null
@@ -680,23 +680,23 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "A",
     "target_file": "scripts\\diff_shades_gha_helper.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "choosen_item": null
@@ -707,7 +707,7 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "A"
       },
       {
@@ -719,7 +719,7 @@
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
@@ -742,11 +742,11 @@
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
@@ -761,23 +761,23 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "D",
     "target_file": "scripts\\make_width_table.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "choosen_item": null
@@ -788,7 +788,7 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "A"
       },
       {
@@ -800,11 +800,11 @@
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "D",
     "target_file": "scripts\\migrate-black.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati prima della virgola?",
     "choosen_item": null
@@ -815,11 +815,11 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 2.0,
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "B"
       },
       {
@@ -842,7 +842,7 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "A"
       },
       {
@@ -850,15 +850,15 @@
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "D",
     "target_file": "docs\\conf.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "choosen_item": null
@@ -881,7 +881,7 @@
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
@@ -900,7 +900,7 @@
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "B"
       },
       {
@@ -923,15 +923,15 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "C"
       },
       {
@@ -939,7 +939,7 @@
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "C",
     "target_file": "scripts\\diff_shades_gha_helper.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "choosen_item": null
@@ -950,23 +950,23 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "B",
     "target_file": "scripts\\fuzz.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "choosen_item": null
@@ -977,11 +977,11 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 4.0,
         "label": "B"
       },
       {
@@ -989,7 +989,7 @@
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
@@ -1004,23 +1004,23 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "A",
     "target_file": "scripts\\make_width_table.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "choosen_item": null
@@ -1035,19 +1035,19 @@
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "B",
     "target_file": "scripts\\migrate-black.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "choosen_item": null
@@ -1058,23 +1058,23 @@
     "question": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "C",
     "target_file": "scripts\\release.py",
     "question_template": "Nelle liste di argomenti delle funzioni, quanti spazi vengono utilizzati dopo la virgola?",
     "choosen_item": null
@@ -1085,23 +1085,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "B",
     "target_file": "action\\main.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "choosen_item": null
@@ -1112,23 +1112,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "B",
     "target_file": "docs\\conf.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "choosen_item": null
@@ -1139,23 +1139,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "answers": [
       {
-        "text": 5.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 5.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "C",
     "target_file": "gallery\\gallery.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "choosen_item": null
@@ -1166,11 +1166,11 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "B"
       },
       {
@@ -1182,7 +1182,7 @@
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "B",
     "target_file": "scripts\\check_pre_commit_rev_in_example.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "choosen_item": null
@@ -1193,23 +1193,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 5.0,
         "label": "B"
       },
       {
-        "text": 5.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "D",
     "target_file": "scripts\\check_version_in_basics_example.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "choosen_item": null
@@ -1224,11 +1224,11 @@
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "C"
       },
       {
@@ -1236,7 +1236,7 @@
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "B",
     "target_file": "scripts\\diff_shades_gha_helper.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "choosen_item": null
@@ -1247,23 +1247,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "C",
     "target_file": "scripts\\fuzz.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "choosen_item": null
@@ -1274,15 +1274,15 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "C"
       },
       {
@@ -1301,7 +1301,7 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "answers": [
       {
-        "text": 5.0,
+        "text": 4.0,
         "label": "A"
       },
       {
@@ -1309,15 +1309,15 @@
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 5.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "C",
     "target_file": "scripts\\make_width_table.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "choosen_item": null
@@ -1328,23 +1328,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "D",
     "target_file": "scripts\\migrate-black.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una funzione?",
     "choosen_item": null
@@ -1355,15 +1355,15 @@
     "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "answers": [
       {
-        "text": 86.0,
+        "text": 90.0,
         "label": "A"
       },
       {
-        "text": 87.0,
+        "text": 86.0,
         "label": "B"
       },
       {
-        "text": 84.0,
+        "text": 87.0,
         "label": "C"
       },
       {
@@ -1371,7 +1371,7 @@
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "C",
     "target_file": "action\\main.py",
     "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "choosen_item": null
@@ -1382,23 +1382,23 @@
     "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "answers": [
       {
-        "text": 85.0,
+        "text": 87.0,
         "label": "A"
       },
       {
-        "text": 82.0,
+        "text": 85.0,
         "label": "B"
       },
       {
-        "text": 84.0,
+        "text": 82.0,
         "label": "C"
       },
       {
-        "text": 83.0,
+        "text": 84.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "B",
     "target_file": "docs\\conf.py",
     "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "choosen_item": null
@@ -1413,15 +1413,15 @@
         "label": "A"
       },
       {
-        "text": 86.0,
+        "text": 90.0,
         "label": "B"
       },
       {
-        "text": 91.0,
+        "text": 89.0,
         "label": "C"
       },
       {
-        "text": 90.0,
+        "text": 91.0,
         "label": "D"
       }
     ],
@@ -1436,24 +1436,24 @@
     "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "answers": [
       {
-        "text": 27.0,
+        "text": 190.0,
         "label": "A"
       },
       {
-        "text": 28.0,
+        "text": 191.0,
         "label": "B"
       },
       {
-        "text": 26.0,
+        "text": 192.0,
         "label": "C"
       },
       {
-        "text": 25.0,
+        "text": 193.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
-    "target_file": "profiling\\dict_big.py",
+    "correct_label": "A",
+    "target_file": "profiling\\mix_small.py",
     "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "choosen_item": null
   },
@@ -1463,24 +1463,24 @@
     "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "answers": [
       {
-        "text": 46.0,
+        "text": 88.0,
         "label": "A"
       },
       {
-        "text": 43.0,
+        "text": 84.0,
         "label": "B"
       },
       {
-        "text": 44.0,
+        "text": 85.0,
         "label": "C"
       },
       {
-        "text": 47.0,
+        "text": 87.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
-    "target_file": "profiling\\list_big.py",
+    "correct_label": "D",
+    "target_file": "scripts\\check_pre_commit_rev_in_example.py",
     "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "choosen_item": null
   },
@@ -1490,24 +1490,24 @@
     "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "answers": [
       {
-        "text": 190.0,
+        "text": 81.0,
         "label": "A"
       },
       {
-        "text": 189.0,
+        "text": 79.0,
         "label": "B"
       },
       {
-        "text": 188.0,
+        "text": 84.0,
         "label": "C"
       },
       {
-        "text": 191.0,
+        "text": 83.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "profiling\\mix_big.py",
+    "correct_label": "A",
+    "target_file": "scripts\\check_version_in_basics_example.py",
     "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "choosen_item": null
   },
@@ -1517,24 +1517,24 @@
     "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "answers": [
       {
-        "text": 193.0,
+        "text": 87.0,
         "label": "A"
       },
       {
-        "text": 190.0,
+        "text": 86.0,
         "label": "B"
       },
       {
-        "text": 189.0,
+        "text": 84.0,
         "label": "C"
       },
       {
-        "text": 191.0,
+        "text": 90.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
-    "target_file": "profiling\\mix_small.py",
+    "correct_label": "A",
+    "target_file": "scripts\\diff_shades_gha_helper.py",
     "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "choosen_item": null
   },
@@ -1544,24 +1544,24 @@
     "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "answers": [
       {
-        "text": 85.0,
+        "text": 82.0,
         "label": "A"
       },
       {
-        "text": 86.0,
+        "text": 83.0,
         "label": "B"
       },
       {
-        "text": 87.0,
+        "text": 80.0,
         "label": "C"
       },
       {
-        "text": 89.0,
+        "text": 79.0,
         "label": "D"
       }
     ],
     "correct_label": "C",
-    "target_file": "scripts\\check_pre_commit_rev_in_example.py",
+    "target_file": "scripts\\fuzz.py",
     "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "choosen_item": null
   },
@@ -1571,38 +1571,11 @@
     "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "answers": [
       {
-        "text": 82.0,
+        "text": 90.0,
         "label": "A"
       },
       {
-        "text": 81.0,
-        "label": "B"
-      },
-      {
-        "text": 79.0,
-        "label": "C"
-      },
-      {
-        "text": 83.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "scripts\\check_version_in_basics_example.py",
-    "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
-    "choosen_item": null
-  },
-  {
-    "question_id": "S06_10",
-    "category": "spacing",
-    "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
-    "answers": [
-      {
-        "text": 85.0,
-        "label": "A"
-      },
-      {
-        "text": 84.0,
+        "text": 93.0,
         "label": "B"
       },
       {
@@ -1614,8 +1587,35 @@
         "label": "D"
       }
     ],
+    "correct_label": "A",
+    "target_file": "scripts\\generate_schema.py",
+    "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
+    "choosen_item": null
+  },
+  {
+    "question_id": "S06_10",
+    "category": "spacing",
+    "question": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
+    "answers": [
+      {
+        "text": 82.0,
+        "label": "A"
+      },
+      {
+        "text": 83.0,
+        "label": "B"
+      },
+      {
+        "text": 79.0,
+        "label": "C"
+      },
+      {
+        "text": 81.0,
+        "label": "D"
+      }
+    ],
     "correct_label": "D",
-    "target_file": "scripts\\diff_shades_gha_helper.py",
+    "target_file": "scripts\\make_width_table.py",
     "question_template": "Qual è la lunghezza massima di una riga di codice (esclusi i commenti e le docstring)?",
     "choosen_item": null
   },
@@ -1629,19 +1629,19 @@
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 6.0,
         "label": "B"
       },
       {
-        "text": 4.0,
+        "text": 5.0,
         "label": "C"
       },
       {
-        "text": 7.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "D",
     "target_file": "action\\main.py",
     "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
     "choosen_item": null
@@ -1652,23 +1652,23 @@
     "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
     "answers": [
       {
-        "text": 7.0,
+        "text": 5.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 6.0,
         "label": "B"
       },
       {
-        "text": 6.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 5.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "D",
     "target_file": "docs\\conf.py",
     "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
     "choosen_item": null
@@ -1683,15 +1683,15 @@
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 5.0,
         "label": "C"
       },
       {
-        "text": 6.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
@@ -1706,24 +1706,24 @@
     "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
     "answers": [
       {
-        "text": 5.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 7.0,
         "label": "B"
       },
       {
-        "text": 4.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 5.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
-    "target_file": "profiling\\dict_big.py",
+    "correct_label": "A",
+    "target_file": "profiling\\mix_small.py",
     "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
     "choosen_item": null
   },
@@ -1741,16 +1741,16 @@
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 5.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
     "correct_label": "B",
-    "target_file": "profiling\\list_big.py",
+    "target_file": "scripts\\check_pre_commit_rev_in_example.py",
     "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
     "choosen_item": null
   },
@@ -1760,96 +1760,15 @@
     "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
     "answers": [
       {
-        "text": 2.0,
-        "label": "A"
-      },
-      {
-        "text": 4.0,
-        "label": "B"
-      },
-      {
-        "text": 5.0,
-        "label": "C"
-      },
-      {
         "text": 3.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "profiling\\mix_big.py",
-    "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
-    "choosen_item": null
-  },
-  {
-    "question_id": "S07_7",
-    "category": "spacing",
-    "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
-    "answers": [
-      {
-        "text": 2.0,
         "label": "A"
-      },
-      {
-        "text": 6.0,
-        "label": "B"
-      },
-      {
-        "text": 7.0,
-        "label": "C"
-      },
-      {
-        "text": 4.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "D",
-    "target_file": "profiling\\mix_small.py",
-    "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
-    "choosen_item": null
-  },
-  {
-    "question_id": "S07_8",
-    "category": "spacing",
-    "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
-    "answers": [
-      {
-        "text": 4.0,
-        "label": "A"
-      },
-      {
-        "text": 7.0,
-        "label": "B"
       },
       {
         "text": 2.0,
-        "label": "C"
-      },
-      {
-        "text": 1.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "A",
-    "target_file": "scripts\\check_pre_commit_rev_in_example.py",
-    "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
-    "choosen_item": null
-  },
-  {
-    "question_id": "S07_9",
-    "category": "spacing",
-    "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
-    "answers": [
-      {
-        "text": 1.0,
-        "label": "A"
-      },
-      {
-        "text": 6.0,
         "label": "B"
       },
       {
-        "text": 7.0,
+        "text": 1.0,
         "label": "C"
       },
       {
@@ -1863,7 +1782,34 @@
     "choosen_item": null
   },
   {
-    "question_id": "S07_10",
+    "question_id": "S07_7",
+    "category": "spacing",
+    "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
+    "answers": [
+      {
+        "text": 6.0,
+        "label": "A"
+      },
+      {
+        "text": 4.0,
+        "label": "B"
+      },
+      {
+        "text": 2.0,
+        "label": "C"
+      },
+      {
+        "text": 7.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "B",
+    "target_file": "scripts\\diff_shades_gha_helper.py",
+    "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
+    "choosen_item": null
+  },
+  {
+    "question_id": "S07_8",
     "category": "spacing",
     "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
     "answers": [
@@ -1872,20 +1818,74 @@
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 4.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 6.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 5.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "scripts\\diff_shades_gha_helper.py",
+    "correct_label": "B",
+    "target_file": "scripts\\fuzz.py",
+    "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
+    "choosen_item": null
+  },
+  {
+    "question_id": "S07_9",
+    "category": "spacing",
+    "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
+    "answers": [
+      {
+        "text": 4.0,
+        "label": "A"
+      },
+      {
+        "text": 3.0,
+        "label": "B"
+      },
+      {
+        "text": 2.0,
+        "label": "C"
+      },
+      {
+        "text": 7.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "A",
+    "target_file": "scripts\\generate_schema.py",
+    "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
+    "choosen_item": null
+  },
+  {
+    "question_id": "S07_10",
+    "category": "spacing",
+    "question": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
+    "answers": [
+      {
+        "text": 4.0,
+        "label": "A"
+      },
+      {
+        "text": 2.0,
+        "label": "B"
+      },
+      {
+        "text": 6.0,
+        "label": "C"
+      },
+      {
+        "text": 7.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "A",
+    "target_file": "scripts\\make_width_table.py",
     "question_template": "Quanti spazi vengono utilizzati per l'indentazione del codice?",
     "choosen_item": null
   },
@@ -1895,15 +1895,15 @@
     "question": "Quante righe vuote ci sono prima di un commento?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "C"
       },
       {
@@ -1926,19 +1926,19 @@
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "D",
     "target_file": "gallery\\gallery.py",
     "question_template": "Quante righe vuote ci sono prima di un commento?",
     "choosen_item": null
@@ -1953,15 +1953,15 @@
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
@@ -1976,23 +1976,23 @@
     "question": "Quante righe vuote ci sono prima di un commento?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "D",
     "target_file": "scripts\\generate_schema.py",
     "question_template": "Quante righe vuote ci sono prima di un commento?",
     "choosen_item": null
@@ -2003,23 +2003,23 @@
     "question": "Quante righe vuote ci sono prima di un commento?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "A",
     "target_file": "scripts\\make_width_table.py",
     "question_template": "Quante righe vuote ci sono prima di un commento?",
     "choosen_item": null
@@ -2030,7 +2030,7 @@
     "question": "Quante righe vuote ci sono prima di un commento?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "A"
       },
       {
@@ -2038,7 +2038,7 @@
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "C"
       },
       {
@@ -2057,15 +2057,15 @@
     "question": "Quante righe vuote ci sono prima di un commento?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "C"
       },
       {
@@ -2073,7 +2073,7 @@
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "A",
     "target_file": "tests\\test_blackd.py",
     "question_template": "Quante righe vuote ci sono prima di un commento?",
     "choosen_item": null
@@ -2084,7 +2084,7 @@
     "question": "Quante righe vuote ci sono prima di un commento?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "A"
       },
       {
@@ -2096,7 +2096,7 @@
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
@@ -2111,23 +2111,23 @@
     "question": "Quante righe vuote ci sono prima di un commento?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 5.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "C",
     "target_file": "tests\\test_tokenize.py",
     "question_template": "Quante righe vuote ci sono prima di un commento?",
     "choosen_item": null
@@ -2165,7 +2165,7 @@
     "question": "Quante righe vuote ci sono dopo un commento?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "A"
       },
       {
@@ -2173,7 +2173,7 @@
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "C"
       },
       {
@@ -2192,23 +2192,23 @@
     "question": "Quante righe vuote ci sono dopo un commento?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "B",
     "target_file": "scripts\\diff_shades_gha_helper.py",
     "question_template": "Quante righe vuote ci sono dopo un commento?",
     "choosen_item": null
@@ -2219,23 +2219,23 @@
     "question": "Quante righe vuote ci sono dopo un commento?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "C",
     "target_file": "scripts\\generate_schema.py",
     "question_template": "Quante righe vuote ci sono dopo un commento?",
     "choosen_item": null
@@ -2246,11 +2246,11 @@
     "question": "Quante righe vuote ci sono dopo un commento?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "B"
       },
       {
@@ -2258,11 +2258,11 @@
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "A",
     "target_file": "scripts\\make_width_table.py",
     "question_template": "Quante righe vuote ci sono dopo un commento?",
     "choosen_item": null
@@ -2273,15 +2273,69 @@
     "question": "Quante righe vuote ci sono dopo un commento?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "A"
       },
       {
+        "text": 0.0,
+        "label": "B"
+      },
+      {
         "text": 3.0,
+        "label": "C"
+      },
+      {
+        "text": 1.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "B",
+    "target_file": "scripts\\migrate-black.py",
+    "question_template": "Quante righe vuote ci sono dopo un commento?",
+    "choosen_item": null
+  },
+  {
+    "question_id": "S09_6",
+    "category": "spacing",
+    "question": "Quante righe vuote ci sono dopo un commento?",
+    "answers": [
+      {
+        "text": 0.0,
+        "label": "A"
+      },
+      {
+        "text": 1.0,
         "label": "B"
       },
       {
         "text": 2.0,
+        "label": "C"
+      },
+      {
+        "text": 3.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "A",
+    "target_file": "scripts\\release_tests.py",
+    "question_template": "Quante righe vuote ci sono dopo un commento?",
+    "choosen_item": null
+  },
+  {
+    "question_id": "S09_7",
+    "category": "spacing",
+    "question": "Quante righe vuote ci sono dopo un commento?",
+    "answers": [
+      {
+        "text": 2.0,
+        "label": "A"
+      },
+      {
+        "text": 1.0,
+        "label": "B"
+      },
+      {
+        "text": 3.0,
         "label": "C"
       },
       {
@@ -2290,12 +2344,39 @@
       }
     ],
     "correct_label": "D",
-    "target_file": "scripts\\migrate-black.py",
+    "target_file": "tests\\optional.py",
     "question_template": "Quante righe vuote ci sono dopo un commento?",
     "choosen_item": null
   },
   {
-    "question_id": "S09_6",
+    "question_id": "S09_8",
+    "category": "spacing",
+    "question": "Quante righe vuote ci sono dopo un commento?",
+    "answers": [
+      {
+        "text": 0.0,
+        "label": "A"
+      },
+      {
+        "text": 1.0,
+        "label": "B"
+      },
+      {
+        "text": 3.0,
+        "label": "C"
+      },
+      {
+        "text": 2.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "A",
+    "target_file": "tests\\test_blackd.py",
+    "question_template": "Quante righe vuote ci sono dopo un commento?",
+    "choosen_item": null
+  },
+  {
+    "question_id": "S09_9",
     "category": "spacing",
     "question": "Quante righe vuote ci sono dopo un commento?",
     "answers": [
@@ -2317,87 +2398,6 @@
       }
     ],
     "correct_label": "A",
-    "target_file": "scripts\\release_tests.py",
-    "question_template": "Quante righe vuote ci sono dopo un commento?",
-    "choosen_item": null
-  },
-  {
-    "question_id": "S09_7",
-    "category": "spacing",
-    "question": "Quante righe vuote ci sono dopo un commento?",
-    "answers": [
-      {
-        "text": 3.0,
-        "label": "A"
-      },
-      {
-        "text": 2.0,
-        "label": "B"
-      },
-      {
-        "text": 1.0,
-        "label": "C"
-      },
-      {
-        "text": 0.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "D",
-    "target_file": "tests\\optional.py",
-    "question_template": "Quante righe vuote ci sono dopo un commento?",
-    "choosen_item": null
-  },
-  {
-    "question_id": "S09_8",
-    "category": "spacing",
-    "question": "Quante righe vuote ci sono dopo un commento?",
-    "answers": [
-      {
-        "text": 1.0,
-        "label": "A"
-      },
-      {
-        "text": 2.0,
-        "label": "B"
-      },
-      {
-        "text": 0.0,
-        "label": "C"
-      },
-      {
-        "text": 3.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "C",
-    "target_file": "tests\\test_blackd.py",
-    "question_template": "Quante righe vuote ci sono dopo un commento?",
-    "choosen_item": null
-  },
-  {
-    "question_id": "S09_9",
-    "category": "spacing",
-    "question": "Quante righe vuote ci sono dopo un commento?",
-    "answers": [
-      {
-        "text": 1.0,
-        "label": "A"
-      },
-      {
-        "text": 3.0,
-        "label": "B"
-      },
-      {
-        "text": 2.0,
-        "label": "C"
-      },
-      {
-        "text": 0.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "D",
     "target_file": "tests\\test_ipynb.py",
     "question_template": "Quante righe vuote ci sono dopo un commento?",
     "choosen_item": null
@@ -2412,19 +2412,19 @@
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "D",
     "target_file": "tests\\test_tokenize.py",
     "question_template": "Quante righe vuote ci sono dopo un commento?",
     "choosen_item": null
@@ -2435,23 +2435,23 @@
     "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "B"
       },
       {
-        "text": 4.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "D",
     "target_file": "action\\main.py",
     "question_template": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "choosen_item": null
@@ -2462,7 +2462,7 @@
     "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "A"
       },
       {
@@ -2470,15 +2470,15 @@
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "A",
     "target_file": "docs\\conf.py",
     "question_template": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "choosen_item": null
@@ -2493,19 +2493,19 @@
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "B",
     "target_file": "gallery\\gallery.py",
     "question_template": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "choosen_item": null
@@ -2516,7 +2516,7 @@
     "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "A"
       },
       {
@@ -2524,7 +2524,7 @@
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "C"
       },
       {
@@ -2547,15 +2547,15 @@
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "B"
       },
       {
-        "text": 4.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
@@ -2570,23 +2570,23 @@
     "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "A",
     "target_file": "tests\\conftest.py",
     "question_template": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "choosen_item": null
@@ -2597,38 +2597,11 @@
     "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "answers": [
       {
-        "text": 4.0,
-        "label": "A"
-      },
-      {
-        "text": 1.0,
-        "label": "B"
-      },
-      {
         "text": 3.0,
-        "label": "C"
-      },
-      {
-        "text": 2.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "tests\\test_black.py",
-    "question_template": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
-    "choosen_item": null
-  },
-  {
-    "question_id": "S10_8",
-    "category": "spacing",
-    "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
-    "answers": [
-      {
-        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "B"
       },
       {
@@ -2646,47 +2619,47 @@
     "choosen_item": null
   },
   {
-    "question_id": "S10_9",
+    "question_id": "S10_8",
     "category": "spacing",
     "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "A",
     "target_file": "tests\\test_no_ipynb.py",
     "question_template": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "choosen_item": null
   },
   {
-    "question_id": "S10_10",
+    "question_id": "S10_9",
     "category": "spacing",
     "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 5.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "C"
       },
       {
@@ -2700,16 +2673,16 @@
     "choosen_item": null
   },
   {
-    "question_id": "S11_1",
+    "question_id": "S10_10",
     "category": "spacing",
-    "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
+    "question": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 4.0,
         "label": "B"
       },
       {
@@ -2717,11 +2690,38 @@
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "D",
+    "target_file": "tests\\test_trans.py",
+    "question_template": "Quante righe vuote ci sono dopo ogni import o blocco di import?",
+    "choosen_item": null
+  },
+  {
+    "question_id": "S11_1",
+    "category": "spacing",
+    "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
+    "answers": [
+      {
+        "text": 0.0,
+        "label": "A"
+      },
+      {
+        "text": 3.0,
+        "label": "B"
+      },
+      {
+        "text": 4.0,
+        "label": "C"
+      },
+      {
+        "text": 2.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "D",
     "target_file": "gallery\\gallery.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "choosen_item": null
@@ -2736,15 +2736,15 @@
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 5.0,
         "label": "B"
       },
       {
-        "text": 5.0,
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
@@ -2759,7 +2759,7 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "A"
       },
       {
@@ -2767,15 +2767,15 @@
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 5.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "C",
     "target_file": "scripts\\release_tests.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "choosen_item": null
@@ -2786,11 +2786,11 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 4.0,
         "label": "B"
       },
       {
@@ -2803,7 +2803,7 @@
       }
     ],
     "correct_label": "D",
-    "target_file": "tests\\test_black.py",
+    "target_file": "tests\\test_tokenize.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "choosen_item": null
   },
@@ -2813,24 +2813,24 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
-    "target_file": "tests\\test_tokenize.py",
+    "correct_label": "C",
+    "target_file": "tests\\util.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "choosen_item": null
   },
@@ -2844,42 +2844,15 @@
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "C"
-      },
-      {
-        "text": 3.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "A",
-    "target_file": "tests\\util.py",
-    "question_template": "Quante righe vuote ci sono dopo la definizione di una classe?",
-    "choosen_item": null
-  },
-  {
-    "question_id": "S11_7",
-    "category": "spacing",
-    "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
-    "answers": [
-      {
-        "text": 2.0,
-        "label": "A"
-      },
-      {
-        "text": 3.0,
-        "label": "B"
       },
       {
         "text": 4.0,
-        "label": "C"
-      },
-      {
-        "text": 5.0,
         "label": "D"
       }
     ],
@@ -2889,29 +2862,56 @@
     "choosen_item": null
   },
   {
+    "question_id": "S11_7",
+    "category": "spacing",
+    "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
+    "answers": [
+      {
+        "text": 5.0,
+        "label": "A"
+      },
+      {
+        "text": 1.0,
+        "label": "B"
+      },
+      {
+        "text": 2.0,
+        "label": "C"
+      },
+      {
+        "text": 4.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "C",
+    "target_file": "src\\black\\comments.py",
+    "question_template": "Quante righe vuote ci sono dopo la definizione di una classe?",
+    "choosen_item": null
+  },
+  {
     "question_id": "S11_8",
     "category": "spacing",
     "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 5.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "src\\black\\comments.py",
+    "correct_label": "C",
+    "target_file": "src\\black\\debug.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "choosen_item": null
   },
@@ -2921,24 +2921,24 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 5.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
     "correct_label": "B",
-    "target_file": "src\\black\\debug.py",
+    "target_file": "src\\black\\nodes.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "choosen_item": null
   },
@@ -2948,24 +2948,24 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 2.0,
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "src\\black\\linegen.py",
+    "correct_label": "A",
+    "target_file": "src\\black\\parsing.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una classe?",
     "choosen_item": null
   },
@@ -2975,7 +2975,7 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "answers": [
       {
-        "text": 5.0,
+        "text": 0.0,
         "label": "A"
       },
       {
@@ -2987,7 +2987,7 @@
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
@@ -3002,23 +3002,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "D",
     "target_file": "scripts\\diff_shades_gha_helper.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "choosen_item": null
@@ -3029,23 +3029,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 4.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "D",
     "target_file": "scripts\\release.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "choosen_item": null
@@ -3056,15 +3056,15 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "answers": [
       {
-        "text": 5.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 5.0,
         "label": "C"
       },
       {
@@ -3083,7 +3083,7 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "A"
       },
       {
@@ -3091,15 +3091,15 @@
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "C",
     "target_file": "tests\\test_docs.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "choosen_item": null
@@ -3110,23 +3110,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 3.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "B",
     "target_file": "tests\\test_ipynb.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "choosen_item": null
@@ -3137,23 +3137,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 2.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 5.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "A",
     "target_file": "src\\black\\cache.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "choosen_item": null
@@ -3164,7 +3164,7 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "A"
       },
       {
@@ -3172,15 +3172,15 @@
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "D",
     "target_file": "src\\black\\const.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "choosen_item": null
@@ -3191,23 +3191,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 5.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "B",
     "target_file": "src\\black\\debug.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "choosen_item": null
@@ -3218,23 +3218,23 @@
     "question": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 2.0,
         "label": "A"
       },
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 5.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "A",
     "target_file": "src\\black\\handle_ipynb_magics.py",
     "question_template": "Quante righe vuote ci sono dopo la definizione di una costante o di un blocco di costanti?",
     "choosen_item": null
@@ -3242,106 +3242,37 @@
   {
     "question_id": "S13_1",
     "category": "spacing",
-    "question": "Osservando questa parte di codice: \n\nproc = subprocess.run(cmd, stdout=subprocess.PIPE, encoding=\"utf-8\")\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "question": "Osservando questa parte di codice: \n\nfor codepoint in range(0, sys.maxunicode + 1):\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
     "answers": [
       {
         "text": "Ogni argomento è su una nuova riga",
         "label": "A"
       },
       {
-        "text": "Tutti gli argomenti sono sulla stessa riga",
+        "text": "Strategia mista (alcuni a capo, altri no)",
         "label": "B"
       },
       {
-        "text": "Strategia mista (alcuni a capo, altri no)",
+        "text": "Tutti gli argomenti sono sulla stessa riga",
         "label": "C"
       }
     ],
-    "correct_label": "B",
-    "target_file": "scripts\\diff_shades_gha_helper.py",
+    "correct_label": "C",
+    "target_file": "scripts\\make_width_table.py",
     "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "choosen_item": "proc = subprocess.run(cmd, stdout=subprocess.PIPE, encoding=\"utf-8\")"
+    "choosen_item": "for codepoint in range(0, sys.maxunicode + 1):"
   },
   {
     "question_id": "S13_2",
     "category": "spacing",
-    "question": "Osservando questa parte di codice: \n\nchanges_soup = BeautifulSoup(changes_html, \"html.parser\")\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "question": "Osservando questa parte di codice: \n\nsource_version_control_soup = BeautifulSoup(\n        source_version_control_html, \"html.parser\"\n    )\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
     "answers": [
       {
-        "text": "Ogni argomento è su una nuova riga",
+        "text": "Tutti gli argomenti sono sulla stessa riga",
         "label": "A"
       },
       {
-        "text": "Strategia mista (alcuni a capo, altri no)",
-        "label": "B"
-      },
-      {
-        "text": "Tutti gli argomenti sono sulla stessa riga",
-        "label": "C"
-      }
-    ],
-    "correct_label": "C",
-    "target_file": "scripts\\check_version_in_basics_example.py",
-    "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "choosen_item": "changes_soup = BeautifulSoup(changes_html, \"html.parser\")"
-  },
-  {
-    "question_id": "S13_3",
-    "category": "spacing",
-    "question": "Osservando questa parte di codice: \n\nprint(\"A OK\", file=sys.stdout)\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "answers": [
-      {
         "text": "Ogni argomento è su una nuova riga",
-        "label": "A"
-      },
-      {
-        "text": "Tutti gli argomenti sono sulla stessa riga",
-        "label": "B"
-      },
-      {
-        "text": "Strategia mista (alcuni a capo, altri no)",
-        "label": "C"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "tests\\data\\cases\\comments.py",
-    "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "choosen_item": "print(\"A OK\", file=sys.stdout)"
-  },
-  {
-    "question_id": "S13_4",
-    "category": "spacing",
-    "question": "Osservando questa parte di codice: \n\nif supports_feature(target_versions, Feature.PATTERN_MATCHING):\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "answers": [
-      {
-        "text": "Ogni argomento è su una nuova riga",
-        "label": "A"
-      },
-      {
-        "text": "Strategia mista (alcuni a capo, altri no)",
-        "label": "B"
-      },
-      {
-        "text": "Tutti gli argomenti sono sulla stessa riga",
-        "label": "C"
-      }
-    ],
-    "correct_label": "C",
-    "target_file": "tests\\data\\cases\\pattern_matching_generic.py",
-    "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "choosen_item": "if supports_feature(target_versions, Feature.PATTERN_MATCHING):"
-  },
-  {
-    "question_id": "S13_5",
-    "category": "spacing",
-    "question": "Osservando questa parte di codice: \n\nassert_tokenizes(\n        'f\"{x:y}\"\\n',\n        [\n            Token(type=\"FSTRING_START\", string='f\"', start=(1, 0), end=(1, 2)),\n            Token(type=\"OP\", string=\"{\", start=(1, 2), end=(1, 3)),\n            Token(type=\"NAME\", string=\"x\", start=(1, 3), end=(1, 4)),\n            Token(type=\"OP\", string=\":\", start=(1, 4), end=(1, 5)),\n            Token(type=\"FSTRING_MIDDLE\", string=\"y\", start=(1, 5), end=(1, 6)),\n            Token(type=\"OP\", string=\"}\", start=(1, 6), end=(1, 7)),\n            Token(type=\"FSTRING_END\", string='\"', start=(1, 7), end=(1, 8)),\n            Token(type=\"NEWLINE\", string=\"\\n\", start=(1, 8), end=(1, 9)),\n            Token(type=\"ENDMARKER\", string=\"\", start=(2, 0), end=(2, 0)),\n        ],\n    )\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "answers": [
-      {
-        "text": "Ogni argomento è su una nuova riga",
-        "label": "A"
-      },
-      {
-        "text": "Tutti gli argomenti sono sulla stessa riga",
         "label": "B"
       },
       {
@@ -3350,32 +3281,101 @@
       }
     ],
     "correct_label": "A",
-    "target_file": "tests\\test_tokenize.py",
+    "target_file": "scripts\\check_pre_commit_rev_in_example.py",
     "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "choosen_item": "assert_tokenizes(\n        'f\"{x:y}\"\\n',\n        [\n            Token(type=\"FSTRING_START\", string='f\"', start=(1, 0), end=(1, 2)),\n            Token(type=\"OP\", string=\"{\", start=(1, 2), end=(1, 3)),\n            Token(type=\"NAME\", string=\"x\", start=(1, 3), end=(1, 4)),\n            Token(type=\"OP\", string=\":\", start=(1, 4), end=(1, 5)),\n            Token(type=\"FSTRING_MIDDLE\", string=\"y\", start=(1, 5), end=(1, 6)),\n            Token(type=\"OP\", string=\"}\", start=(1, 6), end=(1, 7)),\n            Token(type=\"FSTRING_END\", string='\"', start=(1, 7), end=(1, 8)),\n            Token(type=\"NEWLINE\", string=\"\\n\", start=(1, 8), end=(1, 9)),\n            Token(type=\"ENDMARKER\", string=\"\", start=(2, 0), end=(2, 0)),\n        ],\n    )"
+    "choosen_item": "source_version_control_soup = BeautifulSoup(\n        source_version_control_html, \"html.parser\"\n    )"
   },
   {
-    "question_id": "S13_6",
+    "question_id": "S13_3",
     "category": "spacing",
-    "question": "Osservando questa parte di codice: \n\nmock.patch.object(self.my_runner, \"first_method\", autospec=True) as mock_run_adb,\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "question": "Osservando questa parte di codice: \n\n} == expected(\n            value, is_going_to_be=\"too long to fit in a single line\", srsly=True\n        ), \"Not what we expected\"\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
     "answers": [
       {
         "text": "Strategia mista (alcuni a capo, altri no)",
         "label": "A"
       },
       {
-        "text": "Tutti gli argomenti sono sulla stessa riga",
+        "text": "Ogni argomento è su una nuova riga",
         "label": "B"
       },
       {
-        "text": "Ogni argomento è su una nuova riga",
+        "text": "Tutti gli argomenti sono sulla stessa riga",
         "label": "C"
       }
     ],
-    "correct_label": "B",
-    "target_file": "tests\\data\\cases\\context_managers_39.py",
+    "correct_label": "C",
+    "target_file": "tests\\data\\cases\\composition.py",
     "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "choosen_item": "mock.patch.object(self.my_runner, \"first_method\", autospec=True) as mock_run_adb,"
+    "choosen_item": "} == expected(\n            value, is_going_to_be=\"too long to fit in a single line\", srsly=True\n        ), \"Not what we expected\""
+  },
+  {
+    "question_id": "S13_4",
+    "category": "spacing",
+    "question": "Osservando questa parte di codice: \n\n} == expected(\n            value, is_going_to_be=\"too long to fit in a single line\", srsly=True\n        ), \"Not what we expected\"\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "answers": [
+      {
+        "text": "Strategia mista (alcuni a capo, altri no)",
+        "label": "A"
+      },
+      {
+        "text": "Ogni argomento è su una nuova riga",
+        "label": "B"
+      },
+      {
+        "text": "Tutti gli argomenti sono sulla stessa riga",
+        "label": "C"
+      }
+    ],
+    "correct_label": "C",
+    "target_file": "tests\\data\\cases\\composition_no_trailing_comma.py",
+    "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "choosen_item": "} == expected(\n            value, is_going_to_be=\"too long to fit in a single line\", srsly=True\n        ), \"Not what we expected\""
+  },
+  {
+    "question_id": "S13_5",
+    "category": "spacing",
+    "question": "Osservando questa parte di codice: \n\nif isinstance(c, Leaf):\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "answers": [
+      {
+        "text": "Strategia mista (alcuni a capo, altri no)",
+        "label": "A"
+      },
+      {
+        "text": "Ogni argomento è su una nuova riga",
+        "label": "B"
+      },
+      {
+        "text": "Tutti gli argomenti sono sulla stessa riga",
+        "label": "C"
+      }
+    ],
+    "correct_label": "C",
+    "target_file": "src\\black\\brackets.py",
+    "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "choosen_item": "if isinstance(c, Leaf):"
+  },
+  {
+    "question_id": "S13_6",
+    "category": "spacing",
+    "question": "Osservando questa parte di codice: \n\nToken(type=\"OP\", string=\"}\", start=(2, 2), end=(2, 3)),\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "answers": [
+      {
+        "text": "Ogni argomento è su una nuova riga",
+        "label": "A"
+      },
+      {
+        "text": "Strategia mista (alcuni a capo, altri no)",
+        "label": "B"
+      },
+      {
+        "text": "Tutti gli argomenti sono sulla stessa riga",
+        "label": "C"
+      }
+    ],
+    "correct_label": "C",
+    "target_file": "tests\\test_tokenize.py",
+    "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "choosen_item": "Token(type=\"OP\", string=\"}\", start=(2, 2), end=(2, 3)),"
   },
   {
     "question_id": "S13_7",
@@ -3383,7 +3383,7 @@
     "question": "Osservando questa parte di codice: \n\nmatch = re.match(r\"(?P<grade>LD|MD|HD)(?P<material>AL|SS)\", \"HDSS\")\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
     "answers": [
       {
-        "text": "Ogni argomento è su una nuova riga",
+        "text": "Strategia mista (alcuni a capo, altri no)",
         "label": "A"
       },
       {
@@ -3391,7 +3391,7 @@
         "label": "B"
       },
       {
-        "text": "Strategia mista (alcuni a capo, altri no)",
+        "text": "Ogni argomento è su una nuova riga",
         "label": "C"
       }
     ],
@@ -3403,14 +3403,14 @@
   {
     "question_id": "S13_8",
     "category": "spacing",
-    "question": "Osservando questa parte di codice: \n\npython_grammar = driver.load_packaged_grammar(\"blib2to3\", _GRAMMAR_FILE, cache_dir)\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "question": "Osservando questa parte di codice: \n\nnodes_to_ignore.insert(0, parent_sibling)\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
     "answers": [
       {
-        "text": "Strategia mista (alcuni a capo, altri no)",
+        "text": "Ogni argomento è su una nuova riga",
         "label": "A"
       },
       {
-        "text": "Ogni argomento è su una nuova riga",
+        "text": "Strategia mista (alcuni a capo, altri no)",
         "label": "B"
       },
       {
@@ -3419,55 +3419,55 @@
       }
     ],
     "correct_label": "C",
-    "target_file": "src\\blib2to3\\pygram.py",
+    "target_file": "src\\black\\ranges.py",
     "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "choosen_item": "python_grammar = driver.load_packaged_grammar(\"blib2to3\", _GRAMMAR_FILE, cache_dir)"
+    "choosen_item": "nodes_to_ignore.insert(0, parent_sibling)"
   },
   {
     "question_id": "S13_9",
     "category": "spacing",
-    "question": "Osservando questa parte di codice: \n\nreturn f\"{self.__class__.__name__}({', '.join(map(repr, args))})\"\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "question": "Osservando questa parte di codice: \n\nraise FalsyEG(\"eg\", [TypeError(1), ValueError(2)])\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
     "answers": [
       {
         "text": "Strategia mista (alcuni a capo, altri no)",
         "label": "A"
       },
       {
-        "text": "Ogni argomento è su una nuova riga",
+        "text": "Tutti gli argomenti sono sulla stessa riga",
         "label": "B"
       },
       {
-        "text": "Tutti gli argomenti sono sulla stessa riga",
+        "text": "Ogni argomento è su una nuova riga",
         "label": "C"
       }
     ],
-    "correct_label": "C",
-    "target_file": "src\\blib2to3\\pytree.py",
+    "correct_label": "B",
+    "target_file": "tests\\data\\cases\\pep_654_style.py",
     "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "choosen_item": "return f\"{self.__class__.__name__}({', '.join(map(repr, args))})\""
+    "choosen_item": "raise FalsyEG(\"eg\", [TypeError(1), ValueError(2)])"
   },
   {
     "question_id": "S13_10",
     "category": "spacing",
-    "question": "Osservando questa parte di codice: \n\nreturn re.sub(r\"\\\\(\\'|\\\"|\\\\|[abfnrtv]|x.{0,2}|[0-7]{1,3})\", escape, s)\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
+    "question": "Osservando questa parte di codice: \n\nif random.uniform(0, 1) > 0.5:\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
     "answers": [
       {
         "text": "Ogni argomento è su una nuova riga",
         "label": "A"
       },
       {
-        "text": "Strategia mista (alcuni a capo, altri no)",
+        "text": "Tutti gli argomenti sono sulla stessa riga",
         "label": "B"
       },
       {
-        "text": "Tutti gli argomenti sono sulla stessa riga",
+        "text": "Strategia mista (alcuni a capo, altri no)",
         "label": "C"
       }
     ],
-    "correct_label": "C",
-    "target_file": "src\\blib2to3\\pgen2\\literals.py",
+    "correct_label": "B",
+    "target_file": "tests\\data\\cases\\remove_newline_after_code_block_open.py",
     "question_template": "Osservando questa parte di codice: \n\nchoosen_item\n\n, quale delle seguenti strategie di spaziatura degli argomenti viene utilizzata?",
-    "choosen_item": "return re.sub(r\"\\\\(\\'|\\\"|\\\\|[abfnrtv]|x.{0,2}|[0-7]{1,3})\", escape, s)"
+    "choosen_item": "if random.uniform(0, 1) > 0.5:"
   },
   {
     "question_id": "N01_1",
@@ -3475,11 +3475,11 @@
     "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 8.0,
         "label": "A"
       },
       {
-        "text": 8.0,
+        "text": 4.0,
         "label": "B"
       },
       {
@@ -3487,22 +3487,22 @@
         "label": "C"
       },
       {
-        "text": 10.0,
+        "text": 13.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "A",
     "target_file": "action\\main.py",
     "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "choosen_item": [
-      "read_version_specifier_from_pyproject",
-      "determine_version_specifier",
-      "describe_name",
-      "extra_deps",
-      "pip_proc",
       "find_black_version_in_array",
+      "describe_name",
       "version_specifier",
-      "base_cmd"
+      "base_cmd",
+      "extra_deps",
+      "determine_version_specifier",
+      "pip_proc",
+      "read_version_specifier_from_pyproject"
     ]
   },
   {
@@ -3511,11 +3511,11 @@
     "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "answers": [
       {
-        "text": 27.0,
+        "text": 29.0,
         "label": "A"
       },
       {
-        "text": 33.0,
+        "text": 35.0,
         "label": "B"
       },
       {
@@ -3523,7 +3523,7 @@
         "label": "C"
       },
       {
-        "text": 35.0,
+        "text": 27.0,
         "label": "D"
       }
     ],
@@ -3531,38 +3531,38 @@
     "target_file": "docs\\conf.py",
     "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "choosen_item": [
-      "html_static_path",
-      "source_suffix",
-      "intersphinx_mapping",
-      "master_doc",
-      "latex_documents",
-      "html_logo",
-      "needs_sphinx",
-      "epub_exclude_files",
-      "parent_docname",
-      "myst_heading_anchors",
       "epub_author",
-      "epub_title",
-      "autodoc_member_order",
-      "epub_copyright",
-      "relative_path",
-      "html_theme",
-      "make_pypi_svg",
-      "templates_path",
-      "copybutton_remove_prompts",
       "epub_publisher",
-      "pygments_style",
+      "myst_heading_anchors",
+      "intersphinx_mapping",
+      "source_suffix",
+      "make_pypi_svg",
+      "latex_documents",
+      "epub_exclude_files",
+      "needs_sphinx",
       "htmlhelp_basename",
-      "exclude_patterns",
-      "handle_include_read",
-      "myst_disable_syntax",
-      "copybutton_prompt_is_regexp",
-      "copybutton_prompt_text",
-      "texinfo_documents",
-      "myst_enable_extensions",
-      "man_pages",
       "needs_extensions",
-      "replace_pr_numbers_with_links"
+      "replace_pr_numbers_with_links",
+      "epub_copyright",
+      "autodoc_member_order",
+      "templates_path",
+      "html_theme",
+      "man_pages",
+      "exclude_patterns",
+      "copybutton_remove_prompts",
+      "copybutton_prompt_is_regexp",
+      "parent_docname",
+      "master_doc",
+      "relative_path",
+      "html_static_path",
+      "pygments_style",
+      "myst_disable_syntax",
+      "copybutton_prompt_text",
+      "html_logo",
+      "epub_title",
+      "handle_include_read",
+      "texinfo_documents",
+      "myst_enable_extensions"
     ]
   },
   {
@@ -3571,52 +3571,52 @@
     "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "answers": [
       {
-        "text": 31.0,
+        "text": 23.0,
         "label": "A"
       },
       {
-        "text": 26.0,
+        "text": 29.0,
         "label": "B"
       },
       {
-        "text": 22.0,
+        "text": 26.0,
         "label": "C"
       },
       {
-        "text": 27.0,
+        "text": 30.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "C",
     "target_file": "gallery\\gallery.py",
     "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "choosen_item": [
-      "black_version",
-      "download_and_extract",
-      "get_first_archive_member",
-      "get_archive_manager",
-      "bound_downloader",
+      "source_directories",
+      "git_add_and_commit",
+      "local_file",
+      "input_directory",
+      "format_cmd",
+      "get_package_source",
+      "git_switch_branch",
+      "black_repo",
+      "init_repos",
       "git_create_repository",
       "get_package",
-      "from_branch",
-      "format_cmd",
-      "git_add_and_commit",
-      "input_directory",
-      "current_branch",
-      "format_repo_with_version",
-      "black_repo",
-      "result_dir",
-      "source_directories",
-      "download_and_extract_top_packages",
-      "init_repos",
-      "get_top_packages",
-      "git_switch_branch",
-      "black_versions",
-      "black_runner",
-      "local_file",
+      "download_and_extract",
       "format_repos",
-      "get_package_source",
-      "get_pypi_download_url"
+      "get_archive_manager",
+      "get_top_packages",
+      "black_runner",
+      "from_branch",
+      "format_repo_with_version",
+      "bound_downloader",
+      "black_version",
+      "current_branch",
+      "download_and_extract_top_packages",
+      "get_first_archive_member",
+      "black_versions",
+      "get_pypi_download_url",
+      "result_dir"
     ]
   },
   {
@@ -3625,50 +3625,15 @@
     "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "answers": [
       {
-        "text": 2.0,
-        "label": "A"
-      },
-      {
-        "text": 3.0,
-        "label": "B"
-      },
-      {
-        "text": 7.0,
-        "label": "C"
-      },
-      {
-        "text": 6.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "C",
-    "target_file": "scripts\\check_pre_commit_rev_in_example.py",
-    "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
-    "choosen_item": [
-      "source_version_control_soup",
-      "changes_html",
-      "changes_soup",
-      "pre_commit_repos",
-      "pre_commit_rev",
-      "source_version_control",
-      "source_version_control_html"
-    ]
-  },
-  {
-    "question_id": "N01_5",
-    "category": "naming",
-    "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
-    "answers": [
-      {
-        "text": 3.0,
-        "label": "A"
-      },
-      {
         "text": 5.0,
+        "label": "A"
+      },
+      {
+        "text": 11.0,
         "label": "B"
       },
       {
-        "text": 12.0,
+        "text": 10.0,
         "label": "C"
       },
       {
@@ -3677,16 +3642,51 @@
       }
     ],
     "correct_label": "D",
+    "target_file": "scripts\\check_pre_commit_rev_in_example.py",
+    "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
+    "choosen_item": [
+      "pre_commit_rev",
+      "changes_html",
+      "source_version_control_html",
+      "source_version_control",
+      "source_version_control_soup",
+      "pre_commit_repos",
+      "changes_soup"
+    ]
+  },
+  {
+    "question_id": "N01_5",
+    "category": "naming",
+    "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
+    "answers": [
+      {
+        "text": 12.0,
+        "label": "A"
+      },
+      {
+        "text": 11.0,
+        "label": "B"
+      },
+      {
+        "text": 7.0,
+        "label": "C"
+      },
+      {
+        "text": 5.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "C",
     "target_file": "scripts\\check_version_in_basics_example.py",
     "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "choosen_item": [
-      "version_examples",
-      "changes_html",
-      "changes_soup",
-      "latest_tag",
-      "the_basics",
       "the_basics_soup",
-      "the_basics_html"
+      "changes_html",
+      "latest_tag",
+      "the_basics_html",
+      "version_examples",
+      "the_basics",
+      "changes_soup"
     ]
   },
   {
@@ -3695,53 +3695,53 @@
     "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "answers": [
       {
-        "text": 27.0,
+        "text": 31.0,
         "label": "A"
       },
       {
-        "text": 23.0,
+        "text": 29.0,
         "label": "B"
       },
       {
-        "text": 31.0,
+        "text": 27.0,
         "label": "C"
       },
       {
-        "text": 25.0,
+        "text": 24.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "C",
     "target_file": "scripts\\diff_shades_gha_helper.py",
     "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "choosen_item": [
+      "target_rev",
+      "get_main_revision",
+      "diff_url",
+      "target_name",
+      "is_json",
+      "run_id",
+      "target_cmd",
+      "diff_step",
+      "pr_num",
+      "comment_body",
+      "baseline_sha",
       "pr_ref",
       "comment_zip",
-      "get_pr_revision",
-      "run_id",
-      "http_get",
-      "get_main_revision",
-      "pr_rev",
+      "baseline_rev",
       "comment_artifact",
+      "http_get",
+      "get_pr_revision",
+      "pr_rev",
+      "comment_details",
+      "sorted_versions",
+      "target_sha",
       "baseline_name",
       "set_output",
-      "baseline_sha",
-      "sorted_versions",
-      "comment_details",
       "comment_data",
-      "diff_url",
-      "comment_body",
-      "diff_step",
-      "comment_url",
-      "target_name",
-      "baseline_cmd",
-      "target_rev",
-      "pr_num",
       "get_pypi_version",
-      "baseline_rev",
-      "target_sha",
-      "is_json",
-      "target_cmd"
+      "comment_url",
+      "baseline_cmd"
     ]
   },
   {
@@ -3750,23 +3750,23 @@
     "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "answers": [
       {
-        "text": 5.0,
+        "text": 4.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 6.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "C",
     "target_file": "scripts\\fuzz.py",
     "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "choosen_item": [
@@ -3781,11 +3781,11 @@
     "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 6.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "B"
       },
       {
@@ -3793,11 +3793,11 @@
         "label": "C"
       },
       {
-        "text": 6.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "D",
     "target_file": "scripts\\generate_schema.py",
     "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "choosen_item": [
@@ -3810,31 +3810,31 @@
     "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "answers": [
       {
-        "text": 3.0,
+        "text": 5.0,
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "C"
       },
       {
-        "text": 10.0,
+        "text": 9.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "A",
     "target_file": "scripts\\make_width_table.py",
     "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "choosen_item": [
-      "end_codepoint",
-      "start_codepoint",
-      "table_path",
       "range_width",
-      "make_width_table"
+      "end_codepoint",
+      "make_width_table",
+      "start_codepoint",
+      "table_path"
     ]
   },
   {
@@ -3843,32 +3843,32 @@
     "question": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "answers": [
       {
-        "text": 7.0,
+        "text": 5.0,
         "label": "A"
       },
       {
-        "text": 12.0,
+        "text": 7.0,
         "label": "B"
       },
       {
-        "text": 5.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 10.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "B",
     "target_file": "scripts\\migrate-black.py",
     "question_template": "Quanti nomi 'snake_case' sono presenti in questo file?",
     "choosen_item": [
+      "current_branch",
+      "merge_base",
+      "git_diff",
       "black_command",
       "allow_empty",
       "base_branch",
-      "merge_base",
-      "current_branch",
-      "git_diff",
       "git_apply"
     ]
   },
@@ -3882,15 +3882,15 @@
         "label": "A"
       },
       {
-        "text": 6.0,
+        "text": 5.0,
         "label": "B"
       },
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": 0.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
@@ -3908,15 +3908,15 @@
     "question": "Quanti nomi 'camelCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 6.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 5.0,
         "label": "C"
       },
       {
@@ -3924,7 +3924,7 @@
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "B",
     "target_file": "tests\\test_blackd.py",
     "question_template": "Quanti nomi 'camelCase' sono presenti in questo file?",
     "choosen_item": [
@@ -3937,7 +3937,7 @@
     "question": "Quanti nomi 'camelCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 0.0,
+        "text": 6.0,
         "label": "A"
       },
       {
@@ -3945,11 +3945,11 @@
         "label": "B"
       },
       {
-        "text": 4.0,
+        "text": 5.0,
         "label": "C"
       },
       {
-        "text": 6.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
@@ -3966,15 +3966,15 @@
     "question": "Quanti nomi 'camelCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 6.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 5.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 0.0,
         "label": "C"
       },
       {
@@ -3982,7 +3982,7 @@
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "A",
     "target_file": "src\\blib2to3\\pgen2\\literals.py",
     "question_template": "Quanti nomi 'camelCase' sono presenti in questo file?",
     "choosen_item": [
@@ -3999,15 +3999,15 @@
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 3.0,
         "label": "D"
       }
     ],
@@ -4025,15 +4025,15 @@
     "question": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 4.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 3.0,
+        "text": 6.0,
         "label": "C"
       },
       {
@@ -4055,11 +4055,11 @@
     "question": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 1.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 5.0,
         "label": "B"
       },
       {
@@ -4085,23 +4085,23 @@
     "question": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 6.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 7.0,
+        "text": 6.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "B",
     "target_file": "tests\\test_blackd.py",
     "question_template": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "choosen_item": [
@@ -4115,23 +4115,23 @@
     "question": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 6.0,
+        "text": 5.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 5.0,
+        "text": 1.0,
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 6.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "C",
     "target_file": "tests\\test_tokenize.py",
     "question_template": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "choosen_item": [
@@ -4148,15 +4148,15 @@
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 0.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 8.0,
         "label": "C"
       },
       {
-        "text": 6.0,
+        "text": 2.0,
         "label": "D"
       }
     ],
@@ -4164,9 +4164,9 @@
     "target_file": "tests\\util.py",
     "question_template": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "choosen_item": [
+      "FormatFailure",
       "TestCaseArgs",
-      "BlackBaseTestCase",
-      "FormatFailure"
+      "BlackBaseTestCase"
     ]
   },
   {
@@ -4175,32 +4175,32 @@
     "question": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 7.0,
         "label": "A"
       },
       {
-        "text": 6.0,
+        "text": 5.0,
         "label": "B"
       },
       {
-        "text": 10.0,
+        "text": 2.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 6.0,
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "D",
     "target_file": "src\\black\\brackets.py",
     "question_template": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "choosen_item": [
-      "NodeType",
-      "Priority",
-      "BracketTracker",
-      "BracketMatchError",
+      "LeafID",
       "Depth",
-      "LeafID"
+      "BracketTracker",
+      "Priority",
+      "BracketMatchError",
+      "NodeType"
     ]
   },
   {
@@ -4209,23 +4209,23 @@
     "question": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 3.0,
+        "text": 2.0,
         "label": "B"
       },
       {
-        "text": 1.0,
+        "text": 7.0,
         "label": "C"
       },
       {
-        "text": 4.0,
+        "text": 5.0,
         "label": "D"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "B",
     "target_file": "src\\black\\cache.py",
     "question_template": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "choosen_item": [
@@ -4239,23 +4239,23 @@
     "question": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 4.0,
+        "text": 0.0,
         "label": "A"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 6.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 5.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "B",
     "target_file": "src\\black\\comments.py",
     "question_template": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "choosen_item": [
@@ -4268,11 +4268,11 @@
     "question": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "answers": [
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "A"
       },
       {
-        "text": 1.0,
+        "text": 2.0,
         "label": "B"
       },
       {
@@ -4284,7 +4284,7 @@
         "label": "D"
       }
     ],
-    "correct_label": "B",
+    "correct_label": "A",
     "target_file": "src\\black\\debug.py",
     "question_template": "Quanti nomi 'PascalCase' sono presenti in questo file?",
     "choosen_item": [
@@ -4297,7 +4297,7 @@
     "question": "Qual è la convenzione di naming più utilizzata in questo file?",
     "answers": [
       {
-        "text": "snake_case",
+        "text": "camelCase",
         "label": "A"
       },
       {
@@ -4305,11 +4305,11 @@
         "label": "B"
       },
       {
-        "text": "camelCase",
+        "text": "snake_case",
         "label": "C"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "C",
     "target_file": "docs\\conf.py",
     "question_template": "Qual è la convenzione di naming più utilizzata in questo file?",
     "choosen_item": null
@@ -4320,7 +4320,7 @@
     "question": "Qual è la convenzione di naming più utilizzata in questo file?",
     "answers": [
       {
-        "text": "snake_case",
+        "text": "PascalCase",
         "label": "A"
       },
       {
@@ -4328,11 +4328,11 @@
         "label": "B"
       },
       {
-        "text": "PascalCase",
+        "text": "snake_case",
         "label": "C"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "C",
     "target_file": "gallery\\gallery.py",
     "question_template": "Qual è la convenzione di naming più utilizzata in questo file?",
     "choosen_item": null
@@ -4343,7 +4343,7 @@
     "question": "Qual è la convenzione di naming più utilizzata in questo file?",
     "answers": [
       {
-        "text": "camelCase",
+        "text": "PascalCase",
         "label": "A"
       },
       {
@@ -4351,7 +4351,7 @@
         "label": "B"
       },
       {
-        "text": "PascalCase",
+        "text": "camelCase",
         "label": "C"
       }
     ],
@@ -4435,7 +4435,7 @@
     "question": "Qual è la convenzione di naming più utilizzata in questo file?",
     "answers": [
       {
-        "text": "snake_case",
+        "text": "PascalCase",
         "label": "A"
       },
       {
@@ -4443,11 +4443,11 @@
         "label": "B"
       },
       {
-        "text": "PascalCase",
+        "text": "snake_case",
         "label": "C"
       }
     ],
-    "correct_label": "A",
+    "correct_label": "C",
     "target_file": "tests\\test_blackd.py",
     "question_template": "Qual è la convenzione di naming più utilizzata in questo file?",
     "choosen_item": null
@@ -4524,7 +4524,7 @@
   {
     "question_id": "N05_1",
     "category": "naming",
-    "question": "Quale convenzione di naming è stata utilizzata per il nome 'evalString'?",
+    "question": "Quale convenzione di naming è stata utilizzata per il nome 'setUp'?",
     "answers": [
       {
         "text": "snake_case",
@@ -4536,6 +4536,29 @@
       },
       {
         "text": "PascalCase",
+        "label": "C"
+      }
+    ],
+    "correct_label": "B",
+    "target_file": "scripts\\release_tests.py",
+    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
+    "choosen_item": "setUp"
+  },
+  {
+    "question_id": "N05_2",
+    "category": "naming",
+    "question": "Quale convenzione di naming è stata utilizzata per il nome 'evalString'?",
+    "answers": [
+      {
+        "text": "PascalCase",
+        "label": "A"
+      },
+      {
+        "text": "camelCase",
+        "label": "B"
+      },
+      {
+        "text": "snake_case",
         "label": "C"
       }
     ],
@@ -4545,9 +4568,9 @@
     "choosen_item": "evalString"
   },
   {
-    "question_id": "N05_2",
+    "question_id": "N05_3",
     "category": "naming",
-    "question": "Quale convenzione di naming è stata utilizzata per il nome 'pre_commit_rev'?",
+    "question": "Quale convenzione di naming è stata utilizzata per il nome 'make_width_table'?",
     "answers": [
       {
         "text": "camelCase",
@@ -4563,17 +4586,155 @@
       }
     ],
     "correct_label": "C",
-    "target_file": "scripts\\check_pre_commit_rev_in_example.py",
+    "target_file": "scripts\\make_width_table.py",
     "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
-    "choosen_item": "pre_commit_rev"
+    "choosen_item": "make_width_table"
   },
   {
-    "question_id": "N05_3",
+    "question_id": "N05_4",
+    "category": "naming",
+    "question": "Quale convenzione di naming è stata utilizzata per il nome 'Cache'?",
+    "answers": [
+      {
+        "text": "camelCase",
+        "label": "A"
+      },
+      {
+        "text": "snake_case",
+        "label": "B"
+      },
+      {
+        "text": "PascalCase",
+        "label": "C"
+      }
+    ],
+    "correct_label": "C",
+    "target_file": "src\\black\\cache.py",
+    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
+    "choosen_item": "Cache"
+  },
+  {
+    "question_id": "N05_5",
+    "category": "naming",
+    "question": "Quale convenzione di naming è stata utilizzata per il nome 'NoGitTagsError'?",
+    "answers": [
+      {
+        "text": "camelCase",
+        "label": "A"
+      },
+      {
+        "text": "snake_case",
+        "label": "B"
+      },
+      {
+        "text": "PascalCase",
+        "label": "C"
+      }
+    ],
+    "correct_label": "C",
+    "target_file": "scripts\\release.py",
+    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
+    "choosen_item": "NoGitTagsError"
+  },
+  {
+    "question_id": "N05_6",
+    "category": "naming",
+    "question": "Quale convenzione di naming è stata utilizzata per il nome 'SourceFiles'?",
+    "answers": [
+      {
+        "text": "camelCase",
+        "label": "A"
+      },
+      {
+        "text": "snake_case",
+        "label": "B"
+      },
+      {
+        "text": "PascalCase",
+        "label": "C"
+      }
+    ],
+    "correct_label": "C",
+    "target_file": "scripts\\release.py",
+    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
+    "choosen_item": "SourceFiles"
+  },
+  {
+    "question_id": "N05_7",
+    "category": "naming",
+    "question": "Quale convenzione di naming è stata utilizzata per il nome 'base_branch'?",
+    "answers": [
+      {
+        "text": "snake_case",
+        "label": "A"
+      },
+      {
+        "text": "PascalCase",
+        "label": "B"
+      },
+      {
+        "text": "camelCase",
+        "label": "C"
+      }
+    ],
+    "correct_label": "A",
+    "target_file": "scripts\\migrate-black.py",
+    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
+    "choosen_item": "base_branch"
+  },
+  {
+    "question_id": "N05_8",
+    "category": "naming",
+    "question": "Quale convenzione di naming è stata utilizzata per il nome 'comment_details'?",
+    "answers": [
+      {
+        "text": "snake_case",
+        "label": "A"
+      },
+      {
+        "text": "PascalCase",
+        "label": "B"
+      },
+      {
+        "text": "camelCase",
+        "label": "C"
+      }
+    ],
+    "correct_label": "A",
+    "target_file": "scripts\\diff_shades_gha_helper.py",
+    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
+    "choosen_item": "comment_details"
+  },
+  {
+    "question_id": "N05_9",
+    "category": "naming",
+    "question": "Quale convenzione di naming è stata utilizzata per il nome 'allow_empty'?",
+    "answers": [
+      {
+        "text": "PascalCase",
+        "label": "A"
+      },
+      {
+        "text": "camelCase",
+        "label": "B"
+      },
+      {
+        "text": "snake_case",
+        "label": "C"
+      }
+    ],
+    "correct_label": "C",
+    "target_file": "scripts\\migrate-black.py",
+    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
+    "choosen_item": "allow_empty"
+  },
+  {
+    "question_id": "N05_10",
     "category": "naming",
     "question": "Quale convenzione di naming è stata utilizzata per il nome 'tearDown'?",
     "answers": [
       {
-        "text": "snake_case",
+        "text": "camelCase",
         "label": "A"
       },
       {
@@ -4581,180 +4742,19 @@
         "label": "B"
       },
       {
-        "text": "camelCase",
+        "text": "snake_case",
         "label": "C"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "A",
     "target_file": "tests\\test_blackd.py",
     "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
     "choosen_item": "tearDown"
   },
   {
-    "question_id": "N05_4",
-    "category": "naming",
-    "question": "Quale convenzione di naming è stata utilizzata per il nome 'tearDown'?",
-    "answers": [
-      {
-        "text": "camelCase",
-        "label": "A"
-      },
-      {
-        "text": "snake_case",
-        "label": "B"
-      },
-      {
-        "text": "PascalCase",
-        "label": "C"
-      }
-    ],
-    "correct_label": "A",
-    "target_file": "scripts\\release_tests.py",
-    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
-    "choosen_item": "tearDown"
-  },
-  {
-    "question_id": "N05_5",
-    "category": "naming",
-    "question": "Quale convenzione di naming è stata utilizzata per il nome 'generate_schema_from_click'?",
-    "answers": [
-      {
-        "text": "PascalCase",
-        "label": "A"
-      },
-      {
-        "text": "camelCase",
-        "label": "B"
-      },
-      {
-        "text": "snake_case",
-        "label": "C"
-      }
-    ],
-    "correct_label": "C",
-    "target_file": "scripts\\generate_schema.py",
-    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
-    "choosen_item": "generate_schema_from_click"
-  },
-  {
-    "question_id": "N05_6",
-    "category": "naming",
-    "question": "Quale convenzione di naming è stata utilizzata per il nome 'Token'?",
-    "answers": [
-      {
-        "text": "camelCase",
-        "label": "A"
-      },
-      {
-        "text": "PascalCase",
-        "label": "B"
-      },
-      {
-        "text": "snake_case",
-        "label": "C"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "tests\\test_tokenize.py",
-    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
-    "choosen_item": "Token"
-  },
-  {
-    "question_id": "N05_7",
-    "category": "naming",
-    "question": "Quale convenzione di naming è stata utilizzata per il nome 'ProtoComment'?",
-    "answers": [
-      {
-        "text": "camelCase",
-        "label": "A"
-      },
-      {
-        "text": "PascalCase",
-        "label": "B"
-      },
-      {
-        "text": "snake_case",
-        "label": "C"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "src\\black\\comments.py",
-    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
-    "choosen_item": "ProtoComment"
-  },
-  {
-    "question_id": "N05_8",
-    "category": "naming",
-    "question": "Quale convenzione di naming è stata utilizzata per il nome 'setUp'?",
-    "answers": [
-      {
-        "text": "camelCase",
-        "label": "A"
-      },
-      {
-        "text": "PascalCase",
-        "label": "B"
-      },
-      {
-        "text": "snake_case",
-        "label": "C"
-      }
-    ],
-    "correct_label": "A",
-    "target_file": "scripts\\release_tests.py",
-    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
-    "choosen_item": "setUp"
-  },
-  {
-    "question_id": "N05_9",
-    "category": "naming",
-    "question": "Quale convenzione di naming è stata utilizzata per il nome 'version_examples'?",
-    "answers": [
-      {
-        "text": "snake_case",
-        "label": "A"
-      },
-      {
-        "text": "camelCase",
-        "label": "B"
-      },
-      {
-        "text": "PascalCase",
-        "label": "C"
-      }
-    ],
-    "correct_label": "A",
-    "target_file": "scripts\\check_version_in_basics_example.py",
-    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
-    "choosen_item": "version_examples"
-  },
-  {
-    "question_id": "N05_10",
-    "category": "naming",
-    "question": "Quale convenzione di naming è stata utilizzata per il nome 'changes_soup'?",
-    "answers": [
-      {
-        "text": "camelCase",
-        "label": "A"
-      },
-      {
-        "text": "snake_case",
-        "label": "B"
-      },
-      {
-        "text": "PascalCase",
-        "label": "C"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "scripts\\check_version_in_basics_example.py",
-    "question_template": "Quale convenzione di naming è stata utilizzata per il nome 'choosen_item'?",
-    "choosen_item": "changes_soup"
-  },
-  {
     "question_id": "N06_1",
     "category": "naming",
-    "question": "Il nome 'arg1' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "question": "Il nome 'parameter_4' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
         "text": "true",
@@ -4765,15 +4765,15 @@
         "label": "B"
       }
     ],
-    "correct_label": "B",
-    "target_file": "tests\\data\\cases\\long_strings__type_annotations.py",
+    "correct_label": "A",
+    "target_file": "tests\\data\\cases\\line_ranges_exceeding_end.py",
     "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": "arg1"
+    "choosen_item": "parameter_4"
   },
   {
     "question_id": "N06_2",
     "category": "naming",
-    "question": "Il nome 'baz' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "question": "Il nome 'b' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
         "text": "true",
@@ -4785,14 +4785,14 @@
       }
     ],
     "correct_label": "B",
-    "target_file": "tests\\data\\cases\\dummy_implementations.py",
+    "target_file": "src\\black\\output.py",
     "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": "baz"
+    "choosen_item": "b"
   },
   {
     "question_id": "N06_3",
     "category": "naming",
-    "question": "Il nome 'data' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "question": "Il nome 'then' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
         "text": "true",
@@ -4804,52 +4804,52 @@
       }
     ],
     "correct_label": "B",
-    "target_file": "tests\\data\\cases\\comments5.py",
+    "target_file": "src\\blackd\\__init__.py",
     "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": "data"
+    "choosen_item": "then"
   },
   {
     "question_id": "N06_4",
     "category": "naming",
-    "question": "Il nome 'foo' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "question": "Il nome 'japanese' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
-        "text": "true",
+        "text": "false",
         "label": "A"
       },
       {
-        "text": "false",
+        "text": "true",
         "label": "B"
       }
     ],
-    "correct_label": "B",
-    "target_file": "tests\\data\\cases\\form_feeds.py",
+    "correct_label": "A",
+    "target_file": "tests\\data\\cases\\preview_long_strings__east_asian_width.py",
     "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": "foo"
+    "choosen_item": "japanese"
   },
   {
     "question_id": "N06_5",
     "category": "naming",
-    "question": "Il nome 'lcomp3' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "question": "Il nome 'status' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
-        "text": "false",
+        "text": "true",
         "label": "A"
       },
       {
-        "text": "true",
+        "text": "false",
         "label": "B"
       }
     ],
-    "correct_label": "A",
-    "target_file": "tests\\data\\cases\\preview_wrap_comprehension_in.py",
+    "correct_label": "B",
+    "target_file": "tests\\data\\cases\\keep_newline_after_match.py",
     "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": "lcomp3"
+    "choosen_item": "status"
   },
   {
     "question_id": "N06_6",
     "category": "naming",
-    "question": "Il nome 'abc' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "question": "Il nome 'before' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
         "text": "true",
@@ -4861,14 +4861,14 @@
       }
     ],
     "correct_label": "B",
-    "target_file": "tests\\data\\miscellaneous\\blackd_diff.py",
+    "target_file": "src\\black\\numerics.py",
     "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": "abc"
+    "choosen_item": "before"
   },
   {
     "question_id": "N06_7",
     "category": "naming",
-    "question": "Il nome 'bad_split3' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "question": "Il nome 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
         "text": "true",
@@ -4879,15 +4879,34 @@
         "label": "B"
       }
     ],
-    "correct_label": "A",
-    "target_file": "tests\\data\\cases\\split_delimiter_comments.py",
+    "correct_label": "B",
+    "target_file": "tests\\data\\cases\\prefer_rhs_split.py",
     "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": "bad_split3"
+    "choosen_item": "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
   },
   {
     "question_id": "N06_8",
     "category": "naming",
-    "question": "Il nome 'source' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "question": "Il nome 'installed' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "answers": [
+      {
+        "text": "true",
+        "label": "A"
+      },
+      {
+        "text": "false",
+        "label": "B"
+      }
+    ],
+    "correct_label": "B",
+    "target_file": "src\\black\\handle_ipynb_magics.py",
+    "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "choosen_item": "installed"
+  },
+  {
+    "question_id": "N06_9",
+    "category": "naming",
+    "question": "Il nome 'foo' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
         "text": "false",
@@ -4899,47 +4918,28 @@
       }
     ],
     "correct_label": "A",
-    "target_file": "gallery\\gallery.py",
+    "target_file": "tests\\data\\cases\\single_line_format_skip_with_multiple_comments.py",
     "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": "source"
-  },
-  {
-    "question_id": "N06_9",
-    "category": "naming",
-    "question": "Il nome 'do_not_touch_this_prefix2' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "answers": [
-      {
-        "text": "false",
-        "label": "A"
-      },
-      {
-        "text": "true",
-        "label": "B"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "tests\\data\\cases\\raw_docstring_no_string_normalization.py",
-    "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": "do_not_touch_this_prefix2"
+    "choosen_item": "foo"
   },
   {
     "question_id": "N06_10",
     "category": "naming",
-    "question": "Il nome 'C' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "question": "Il nome 'TopLevel' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
-        "text": "true",
+        "text": "false",
         "label": "A"
       },
       {
-        "text": "false",
+        "text": "true",
         "label": "B"
       }
     ],
     "correct_label": "B",
-    "target_file": "tests\\data\\cases\\composition.py",
+    "target_file": "tests\\data\\cases\\nested_stub.py",
     "question_template": "Il nome 'choosen_item' segue una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": "C"
+    "choosen_item": "TopLevel"
   },
   {
     "question_id": "N07_1",
@@ -4967,14 +4967,14 @@
     "target_file": "action\\main.py",
     "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "choosen_item": [
-      "m",
-      "item",
+      "proc",
       "req",
-      "version",
-      "array",
-      "pyproject",
       "arrays",
-      "proc"
+      "array",
+      "version",
+      "item",
+      "pyproject",
+      "m"
     ]
   },
   {
@@ -4987,15 +4987,15 @@
         "label": "A"
       },
       {
-        "text": 9.0,
+        "text": 18.0,
         "label": "B"
       },
       {
-        "text": 14.0,
+        "text": 12.0,
         "label": "C"
       },
       {
-        "text": 17.0,
+        "text": 8.0,
         "label": "D"
       }
     ],
@@ -5003,19 +5003,19 @@
     "target_file": "docs\\conf.py",
     "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "choosen_item": [
-      "extensions",
-      "copyright",
-      "svg",
       "project",
-      "release",
-      "setup",
-      "version",
-      "template",
-      "author",
       "target",
-      "language",
+      "template",
+      "content",
+      "version",
       "app",
-      "content"
+      "setup",
+      "copyright",
+      "language",
+      "release",
+      "extensions",
+      "author",
+      "svg"
     ]
   },
   {
@@ -5024,48 +5024,48 @@
     "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
-        "text": 25.0,
+        "text": 17.0,
         "label": "A"
       },
       {
-        "text": 24.0,
+        "text": 22.0,
         "label": "B"
       },
       {
-        "text": 22.0,
+        "text": 24.0,
         "label": "C"
       },
       {
-        "text": 20.0,
+        "text": 26.0,
         "label": "D"
       }
     ],
-    "correct_label": "C",
+    "correct_label": "B",
     "target_file": "gallery\\gallery.py",
     "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "choosen_item": [
-      "config",
-      "metadata",
-      "sources",
-      "options",
-      "result",
-      "python",
-      "directory",
-      "package",
-      "parser",
-      "version",
+      "repos",
       "branch",
-      "group",
-      "workers",
-      "limit",
-      "repo",
       "main",
+      "package",
+      "sources",
+      "repo",
       "msg",
-      "archive",
-      "source",
+      "metadata",
+      "group",
+      "version",
+      "result",
+      "config",
+      "workers",
+      "parser",
+      "directory",
       "args",
+      "archive",
+      "options",
       "new",
-      "repos"
+      "python",
+      "limit",
+      "source"
     ]
   },
   {
@@ -5074,23 +5074,23 @@
     "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
-        "text": 6.0,
+        "text": 3.0,
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 1.0,
         "label": "B"
       },
       {
-        "text": 0.0,
+        "text": 4.0,
         "label": "C"
       },
       {
-        "text": 1.0,
+        "text": 5.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
+    "correct_label": "B",
     "target_file": "profiling\\mix_small.py",
     "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "choosen_item": [
@@ -5103,190 +5103,7 @@
     "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "answers": [
       {
-        "text": 3.0,
-        "label": "A"
-      },
-      {
-        "text": 6.0,
-        "label": "B"
-      },
-      {
-        "text": 1.0,
-        "label": "C"
-      },
-      {
-        "text": 2.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "A",
-    "target_file": "scripts\\check_pre_commit_rev_in_example.py",
-    "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": [
-      "changes",
-      "headers",
-      "main"
-    ]
-  },
-  {
-    "question_id": "N07_6",
-    "category": "naming",
-    "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "answers": [
-      {
-        "text": 1.0,
-        "label": "A"
-      },
-      {
-        "text": 4.0,
-        "label": "B"
-      },
-      {
-        "text": 0.0,
-        "label": "C"
-      },
-      {
         "text": 7.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "scripts\\check_version_in_basics_example.py",
-    "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": [
-      "changes",
-      "tags",
-      "headers",
-      "main"
-    ]
-  },
-  {
-    "question_id": "N07_7",
-    "category": "naming",
-    "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "answers": [
-      {
-        "text": 22.0,
-        "label": "A"
-      },
-      {
-        "text": 24.0,
-        "label": "B"
-      },
-      {
-        "text": 26.0,
-        "label": "C"
-      },
-      {
-        "text": 19.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "scripts\\diff_shades_gha_helper.py",
-    "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": [
-      "pr",
-      "cmd",
-      "value",
-      "config",
-      "body",
-      "artifacts",
-      "jobs",
-      "headers",
-      "delimiter",
-      "kwargs",
-      "job",
-      "data",
-      "event",
-      "name",
-      "r",
-      "target",
-      "url",
-      "main",
-      "command",
-      "versions",
-      "baseline",
-      "http",
-      "proc",
-      "env"
-    ]
-  },
-  {
-    "question_id": "N07_8",
-    "category": "naming",
-    "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "answers": [
-      {
-        "text": 4.0,
-        "label": "A"
-      },
-      {
-        "text": 2.0,
-        "label": "B"
-      },
-      {
-        "text": 0.0,
-        "label": "C"
-      },
-      {
-        "text": 7.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "scripts\\fuzz.py",
-    "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": [
-      "test",
-      "mode"
-    ]
-  },
-  {
-    "question_id": "N07_9",
-    "category": "naming",
-    "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "answers": [
-      {
-        "text": 12.0,
-        "label": "A"
-      },
-      {
-        "text": 13.0,
-        "label": "B"
-      },
-      {
-        "text": 6.0,
-        "label": "C"
-      },
-      {
-        "text": 10.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "D",
-    "target_file": "scripts\\generate_schema.py",
-    "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "choosen_item": [
-      "msg",
-      "default",
-      "outfile",
-      "name",
-      "cmd",
-      "schema",
-      "schemastore",
-      "properties",
-      "main",
-      "result"
-    ]
-  },
-  {
-    "question_id": "N07_10",
-    "category": "naming",
-    "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
-    "answers": [
-      {
-        "text": 2.0,
         "label": "A"
       },
       {
@@ -5298,11 +5115,194 @@
         "label": "C"
       },
       {
+        "text": 3.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "D",
+    "target_file": "scripts\\check_pre_commit_rev_in_example.py",
+    "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "choosen_item": [
+      "headers",
+      "main",
+      "changes"
+    ]
+  },
+  {
+    "question_id": "N07_6",
+    "category": "naming",
+    "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "answers": [
+      {
         "text": 4.0,
+        "label": "A"
+      },
+      {
+        "text": 8.0,
+        "label": "B"
+      },
+      {
+        "text": 3.0,
+        "label": "C"
+      },
+      {
+        "text": 0.0,
         "label": "D"
       }
     ],
     "correct_label": "A",
+    "target_file": "scripts\\check_version_in_basics_example.py",
+    "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "choosen_item": [
+      "headers",
+      "tags",
+      "main",
+      "changes"
+    ]
+  },
+  {
+    "question_id": "N07_7",
+    "category": "naming",
+    "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "answers": [
+      {
+        "text": 27.0,
+        "label": "A"
+      },
+      {
+        "text": 21.0,
+        "label": "B"
+      },
+      {
+        "text": 22.0,
+        "label": "C"
+      },
+      {
+        "text": 24.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "D",
+    "target_file": "scripts\\diff_shades_gha_helper.py",
+    "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "choosen_item": [
+      "name",
+      "kwargs",
+      "jobs",
+      "proc",
+      "pr",
+      "url",
+      "target",
+      "main",
+      "artifacts",
+      "data",
+      "http",
+      "r",
+      "baseline",
+      "event",
+      "config",
+      "body",
+      "job",
+      "cmd",
+      "headers",
+      "value",
+      "delimiter",
+      "versions",
+      "command",
+      "env"
+    ]
+  },
+  {
+    "question_id": "N07_8",
+    "category": "naming",
+    "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "answers": [
+      {
+        "text": 2.0,
+        "label": "A"
+      },
+      {
+        "text": 1.0,
+        "label": "B"
+      },
+      {
+        "text": 0.0,
+        "label": "C"
+      },
+      {
+        "text": 7.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "A",
+    "target_file": "scripts\\fuzz.py",
+    "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "choosen_item": [
+      "mode",
+      "test"
+    ]
+  },
+  {
+    "question_id": "N07_9",
+    "category": "naming",
+    "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "answers": [
+      {
+        "text": 13.0,
+        "label": "A"
+      },
+      {
+        "text": 10.0,
+        "label": "B"
+      },
+      {
+        "text": 8.0,
+        "label": "C"
+      },
+      {
+        "text": 15.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "B",
+    "target_file": "scripts\\generate_schema.py",
+    "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "choosen_item": [
+      "name",
+      "schemastore",
+      "outfile",
+      "properties",
+      "default",
+      "msg",
+      "main",
+      "cmd",
+      "result",
+      "schema"
+    ]
+  },
+  {
+    "question_id": "N07_10",
+    "category": "naming",
+    "question": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
+    "answers": [
+      {
+        "text": 1.0,
+        "label": "A"
+      },
+      {
+        "text": 2.0,
+        "label": "B"
+      },
+      {
+        "text": 6.0,
+        "label": "C"
+      },
+      {
+        "text": 7.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "B",
     "target_file": "scripts\\make_width_table.py",
     "question_template": "Quanti nomi non seguono una convenzione di naming standard (snake_case, camelCase, o PascalCase)?",
     "choosen_item": [
@@ -5313,26 +5313,83 @@
   {
     "question_id": "N08_1",
     "category": "naming",
-    "question": "Il nome della costante 'C' utilizza un underscore?",
+    "question": "Il nome della costante 'A' utilizza un underscore?",
     "answers": [
       {
-        "text": "true",
+        "text": "false",
         "label": "A"
       },
       {
-        "text": "false",
+        "text": "true",
         "label": "B"
       }
     ],
-    "correct_label": "B",
-    "target_file": "tests\\data\\cases\\raw_docstring.py",
+    "correct_label": "A",
+    "target_file": "tests\\data\\cases\\fmtonoff5.py",
     "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
-    "choosen_item": "C"
+    "choosen_item": "A"
   },
   {
     "question_id": "N08_2",
     "category": "naming",
-    "question": "Il nome della costante 'TOKEN_TYPE_MAP' utilizza un underscore?",
+    "question": "Il nome della costante 'T' utilizza un underscore?",
+    "answers": [
+      {
+        "text": "true",
+        "label": "A"
+      },
+      {
+        "text": "false",
+        "label": "B"
+      }
+    ],
+    "correct_label": "B",
+    "target_file": "src\\black\\rusty.py",
+    "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
+    "choosen_item": "T"
+  },
+  {
+    "question_id": "N08_3",
+    "category": "naming",
+    "question": "Il nome della costante 'STDIN_PLACEHOLDER' utilizza un underscore?",
+    "answers": [
+      {
+        "text": "true",
+        "label": "A"
+      },
+      {
+        "text": "false",
+        "label": "B"
+      }
+    ],
+    "correct_label": "A",
+    "target_file": "src\\black\\const.py",
+    "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
+    "choosen_item": "STDIN_PLACEHOLDER"
+  },
+  {
+    "question_id": "N08_4",
+    "category": "naming",
+    "question": "Il nome della costante 'A' utilizza un underscore?",
+    "answers": [
+      {
+        "text": "true",
+        "label": "A"
+      },
+      {
+        "text": "false",
+        "label": "B"
+      }
+    ],
+    "correct_label": "B",
+    "target_file": "tests\\data\\miscellaneous\\force_pyi.py",
+    "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
+    "choosen_item": "A"
+  },
+  {
+    "question_id": "N08_5",
+    "category": "naming",
+    "question": "Il nome della costante 'ENABLED_OPTIONAL_MARKERS' utilizza un underscore?",
     "answers": [
       {
         "text": "false",
@@ -5344,14 +5401,52 @@
       }
     ],
     "correct_label": "B",
-    "target_file": "src\\blib2to3\\pgen2\\tokenize.py",
+    "target_file": "tests\\optional.py",
     "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
-    "choosen_item": "TOKEN_TYPE_MAP"
+    "choosen_item": "ENABLED_OPTIONAL_MARKERS"
   },
   {
-    "question_id": "N08_3",
+    "question_id": "N08_6",
     "category": "naming",
-    "question": "Il nome della costante 'DATA_DIR' utilizza un underscore?",
+    "question": "Il nome della costante 'S1' utilizza un underscore?",
+    "answers": [
+      {
+        "text": "true",
+        "label": "A"
+      },
+      {
+        "text": "false",
+        "label": "B"
+      }
+    ],
+    "correct_label": "B",
+    "target_file": "tests\\data\\cases\\preview_long_strings.py",
+    "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
+    "choosen_item": "S1"
+  },
+  {
+    "question_id": "N08_7",
+    "category": "naming",
+    "question": "Il nome della costante 'X' utilizza un underscore?",
+    "answers": [
+      {
+        "text": "false",
+        "label": "A"
+      },
+      {
+        "text": "true",
+        "label": "B"
+      }
+    ],
+    "correct_label": "A",
+    "target_file": "tests\\data\\cases\\type_aliases.py",
+    "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
+    "choosen_item": "X"
+  },
+  {
+    "question_id": "N08_8",
+    "category": "naming",
+    "question": "Il nome della costante '_DEFAULT_HEADERS' utilizza un underscore?",
     "answers": [
       {
         "text": "true",
@@ -5363,31 +5458,12 @@
       }
     ],
     "correct_label": "A",
-    "target_file": "tests\\util.py",
+    "target_file": "src\\blackd\\client.py",
     "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
-    "choosen_item": "DATA_DIR"
+    "choosen_item": "_DEFAULT_HEADERS"
   },
   {
-    "question_id": "N08_4",
-    "category": "naming",
-    "question": "Il nome della costante 'B' utilizza un underscore?",
-    "answers": [
-      {
-        "text": "false",
-        "label": "A"
-      },
-      {
-        "text": "true",
-        "label": "B"
-      }
-    ],
-    "correct_label": "A",
-    "target_file": "tests\\data\\miscellaneous\\force_pyi.py",
-    "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
-    "choosen_item": "B"
-  },
-  {
-    "question_id": "N08_5",
+    "question_id": "N08_9",
     "category": "naming",
     "question": "Il nome della costante 'C' utilizza un underscore?",
     "answers": [
@@ -5406,9 +5482,9 @@
     "choosen_item": "C"
   },
   {
-    "question_id": "N08_6",
+    "question_id": "N08_10",
     "category": "naming",
-    "question": "Il nome della costante 'COMMA_PRIORITY' utilizza un underscore?",
+    "question": "Il nome della costante 'NO' utilizza un underscore?",
     "answers": [
       {
         "text": "false",
@@ -5416,89 +5492,13 @@
       },
       {
         "text": "true",
-        "label": "B"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "src\\black\\brackets.py",
-    "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
-    "choosen_item": "COMMA_PRIORITY"
-  },
-  {
-    "question_id": "N08_7",
-    "category": "naming",
-    "question": "Il nome della costante 'CACHE_DIR' utilizza un underscore?",
-    "answers": [
-      {
-        "text": "false",
-        "label": "A"
-      },
-      {
-        "text": "true",
-        "label": "B"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "src\\black\\cache.py",
-    "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
-    "choosen_item": "CACHE_DIR"
-  },
-  {
-    "question_id": "N08_8",
-    "category": "naming",
-    "question": "Il nome della costante 'DUMMY_NODE' utilizza un underscore?",
-    "answers": [
-      {
-        "text": "true",
-        "label": "A"
-      },
-      {
-        "text": "false",
         "label": "B"
       }
     ],
     "correct_label": "A",
-    "target_file": "src\\blib2to3\\pgen2\\parse.py",
+    "target_file": "tests\\data\\cases\\empty_lines.py",
     "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
-    "choosen_item": "DUMMY_NODE"
-  },
-  {
-    "question_id": "N08_9",
-    "category": "naming",
-    "question": "Il nome della costante 'L1' utilizza un underscore?",
-    "answers": [
-      {
-        "text": "true",
-        "label": "A"
-      },
-      {
-        "text": "false",
-        "label": "B"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "tests\\data\\cases\\preview_long_strings.py",
-    "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
-    "choosen_item": "L1"
-  },
-  {
-    "question_id": "N08_10",
-    "category": "naming",
-    "question": "Il nome della costante 'A' utilizza un underscore?",
-    "answers": [
-      {
-        "text": "true",
-        "label": "A"
-      },
-      {
-        "text": "false",
-        "label": "B"
-      }
-    ],
-    "correct_label": "B",
-    "target_file": "tests\\data\\cases\\fmtskip6.py",
-    "question_template": "Il nome della costante 'choosen_item' utilizza un underscore?",
-    "choosen_item": "A"
+    "choosen_item": "NO"
   },
   {
     "question_id": "N09_1",
@@ -5506,26 +5506,26 @@
     "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
     "answers": [
       {
-        "text": 11.0,
+        "text": 41.0,
         "label": "A"
       },
       {
-        "text": 5.0,
+        "text": 39.0,
         "label": "B"
       },
       {
-        "text": 12.0,
+        "text": 37.0,
         "label": "C"
       },
       {
-        "text": 7.0,
+        "text": 33.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "tests\\data\\cases\\line_ranges_fmt_off_decorator.py",
+    "correct_label": "C",
+    "target_file": "tests\\data\\cases\\expression.py",
     "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "choosen_item": "MyClass"
+    "choosen_item": "what_is_up_with_those_new_coord_names"
   },
   {
     "question_id": "N09_2",
@@ -5533,92 +5533,11 @@
     "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
     "answers": [
       {
-        "text": 14.0,
+        "text": 4.0,
         "label": "A"
       },
-      {
-        "text": 19.0,
-        "label": "B"
-      },
-      {
-        "text": 9.0,
-        "label": "C"
-      },
-      {
-        "text": 10.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "A",
-    "target_file": "tests\\data\\cases\\dummy_implementations.py",
-    "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "choosen_item": "async_function"
-  },
-  {
-    "question_id": "N09_3",
-    "category": "naming",
-    "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "answers": [
-      {
-        "text": 37.0,
-        "label": "A"
-      },
-      {
-        "text": 33.0,
-        "label": "B"
-      },
-      {
-        "text": 36.0,
-        "label": "C"
-      },
-      {
-        "text": 35.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "C",
-    "target_file": "tests\\data\\cases\\collections.py",
-    "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "choosen_item": "IGNORED_TYPES_FOR_ATTRIBUTE_CHECKING"
-  },
-  {
-    "question_id": "N09_4",
-    "category": "naming",
-    "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "answers": [
-      {
-        "text": 21.0,
-        "label": "A"
-      },
-      {
-        "text": 18.0,
-        "label": "B"
-      },
-      {
-        "text": 24.0,
-        "label": "C"
-      },
-      {
-        "text": 19.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "A",
-    "target_file": "tests\\data\\cases\\preview_long_strings__edge_case.py",
-    "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "choosen_item": "addition_inside_tuple"
-  },
-  {
-    "question_id": "N09_5",
-    "category": "naming",
-    "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "answers": [
       {
         "text": 6.0,
-        "label": "A"
-      },
-      {
-        "text": 4.0,
         "label": "B"
       },
       {
@@ -5626,30 +5545,84 @@
         "label": "C"
       },
       {
-        "text": 2.0,
+        "text": 1.0,
         "label": "D"
       }
     ],
     "correct_label": "D",
-    "target_file": "tests\\data\\cases\\walrus_in_dict.py",
+    "target_file": "tests\\data\\cases\\multiline_consecutive_open_parentheses_ignore.py",
     "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "choosen_item": "up"
+    "choosen_item": "a"
   },
   {
-    "question_id": "N09_6",
+    "question_id": "N09_3",
     "category": "naming",
     "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
     "answers": [
       {
-        "text": 26.0,
+        "text": 16.0,
         "label": "A"
       },
       {
-        "text": 31.0,
+        "text": 18.0,
         "label": "B"
       },
       {
-        "text": 29.0,
+        "text": 13.0,
+        "label": "C"
+      },
+      {
+        "text": 15.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "A",
+    "target_file": "tests\\test_trans.py",
+    "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
+    "choosen_item": "test_fexpr_spans"
+  },
+  {
+    "question_id": "N09_4",
+    "category": "naming",
+    "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
+    "answers": [
+      {
+        "text": 5.0,
+        "label": "A"
+      },
+      {
+        "text": 9.0,
+        "label": "B"
+      },
+      {
+        "text": 8.0,
+        "label": "C"
+      },
+      {
+        "text": 4.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "D",
+    "target_file": "tests\\data\\cases\\async_stmts.py",
+    "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
+    "choosen_item": "func"
+  },
+  {
+    "question_id": "N09_5",
+    "category": "naming",
+    "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
+    "answers": [
+      {
+        "text": 16.0,
+        "label": "A"
+      },
+      {
+        "text": 18.0,
+        "label": "B"
+      },
+      {
+        "text": 17.0,
         "label": "C"
       },
       {
@@ -5658,12 +5631,12 @@
       }
     ],
     "correct_label": "A",
-    "target_file": "scripts\\generate_schema.py",
+    "target_file": "scripts\\check_version_in_basics_example.py",
     "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "choosen_item": "generate_schema_from_click"
+    "choosen_item": "version_examples"
   },
   {
-    "question_id": "N09_7",
+    "question_id": "N09_6",
     "category": "naming",
     "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
     "answers": [
@@ -5672,22 +5645,49 @@
         "label": "A"
       },
       {
-        "text": 15.0,
+        "text": 9.0,
         "label": "B"
       },
       {
-        "text": 16.0,
+        "text": 11.0,
         "label": "C"
       },
       {
-        "text": 12.0,
+        "text": 5.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "tests\\data\\cases\\pattern_matching_simple.py",
+    "correct_label": "B",
+    "target_file": "tests\\data\\cases\\allow_empty_first_line.py",
     "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "choosen_item": "current_room"
+    "choosen_item": "top_level"
+  },
+  {
+    "question_id": "N09_7",
+    "category": "naming",
+    "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
+    "answers": [
+      {
+        "text": 57.0,
+        "label": "A"
+      },
+      {
+        "text": 58.0,
+        "label": "B"
+      },
+      {
+        "text": 60.0,
+        "label": "C"
+      },
+      {
+        "text": 63.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "C",
+    "target_file": "tests\\data\\cases\\docstring.py",
+    "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
+    "choosen_item": "stable_quote_normalization_with_immediate_inner_single_quote"
   },
   {
     "question_id": "N09_8",
@@ -5695,34 +5695,7 @@
     "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
     "answers": [
       {
-        "text": 14.0,
-        "label": "A"
-      },
-      {
-        "text": 11.0,
-        "label": "B"
-      },
-      {
-        "text": 16.0,
-        "label": "C"
-      },
-      {
-        "text": 12.0,
-        "label": "D"
-      }
-    ],
-    "correct_label": "D",
-    "target_file": "tests\\data\\cases\\tricky_unicode_symbols.py",
-    "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "choosen_item": "Q̇_per_meter"
-  },
-  {
-    "question_id": "N09_9",
-    "category": "naming",
-    "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "answers": [
-      {
-        "text": 5.0,
+        "text": 4.0,
         "label": "A"
       },
       {
@@ -5730,18 +5703,45 @@
         "label": "B"
       },
       {
-        "text": 7.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 10.0,
+        "text": 7.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "tests\\data\\cases\\split_delimiter_comments.py",
+    "correct_label": "C",
+    "target_file": "tests\\data\\miscellaneous\\decorators.py",
     "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "choosen_item": "bad_split3"
+    "choosen_item": "var"
+  },
+  {
+    "question_id": "N09_9",
+    "category": "naming",
+    "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
+    "answers": [
+      {
+        "text": 37.0,
+        "label": "A"
+      },
+      {
+        "text": 34.0,
+        "label": "B"
+      },
+      {
+        "text": 36.0,
+        "label": "C"
+      },
+      {
+        "text": 30.0,
+        "label": "D"
+      }
+    ],
+    "correct_label": "B",
+    "target_file": "tests\\data\\cases\\long_strings_flag_disabled.py",
+    "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
+    "choosen_item": "long_unmergable_string_with_pragma"
   },
   {
     "question_id": "N09_10",
@@ -5749,25 +5749,25 @@
     "question": "Qual è la lunghezza del nome più lungo trovato nel file?",
     "answers": [
       {
-        "text": 18.0,
+        "text": 7.0,
         "label": "A"
       },
       {
-        "text": 16.0,
+        "text": 8.0,
         "label": "B"
       },
       {
-        "text": 19.0,
+        "text": 3.0,
         "label": "C"
       },
       {
-        "text": 17.0,
+        "text": 4.0,
         "label": "D"
       }
     ],
-    "correct_label": "D",
-    "target_file": "tests\\data\\cases\\fmtskip8.py",
+    "correct_label": "C",
+    "target_file": "tests\\data\\miscellaneous\\blackd_diff.py",
     "question_template": "Qual è la lunghezza del nome più lungo trovato nel file?",
-    "choosen_item": "some_async_method"
+    "choosen_item": "abc"
   }
 ]

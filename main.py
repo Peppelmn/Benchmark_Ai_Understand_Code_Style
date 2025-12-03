@@ -11,6 +11,7 @@ import platform
 import time
 import os
 import socket
+from pathlib import Path
 
 warnings.filterwarnings("ignore", category=SyntaxWarning)
 
@@ -80,40 +81,75 @@ if __name__ == "__main__":
         "google" : 
             [
                 "gemini/gemini-2.5-flash",
+                # "gemini/gemini-3.0-flash",
                 # "gemini/gemini-2.5-pro",
             ]
         }
 
     for provider, models_list in models.items():
+        provider_name = "copilot-api"
+        # if provider == "openai":
+        #     provider_name = provider
+        if provider == "google":
+            provider_name = "google"
+            
         for model in models_list:
-            max_token_per_minute = 115000
-            if model == "gemini/gemini-2.5-pro":
-                max_token_per_minute = 125000
-            elif model == "gemini/gemini-2.5-flash":
-                max_token_per_minute = 2350000
-            elif model in ["openai/gpt-4o-mini", "openai/gpt-5.1", "openai/gpt-4.1", "openai/gpt-3.5-turbo"]:
-                max_token_per_minute = 10000
+            safe_model_name = model.replace('/', '_')
+            
+            bench_dir = Path("Benchmark_per_model")
+            eval_dir = Path("Evaluation_per_model")
+            
+            bench_dir.mkdir(parents=True, exist_ok=True)
+            eval_dir.mkdir(parents=True, exist_ok=True)
+
+            benchmark_path = bench_dir / f"{safe_model_name}_benchmark.json"
+            evaluation_path = eval_dir / f"{safe_model_name}_evaluation.json"
+            
+            benchmark_file = str(benchmark_path)
+            evaluation_file = str(evaluation_path)
 
             codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "black-main")
-            spacingAnalyzer=SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
-            namingAnalyzer=NamingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
-            try:
-                questions = get_all_questions(spacingAnalyzer, namingAnalyzer)
-                print(f"File saltati (Spacing): {spacingAnalyzer.parse_error_count} (a causa di errori di sintassi)")
-                print(f"File saltati (Naming):  {namingAnalyzer.parse_error_count} (a causa di errori di sintassi)")
-            except Exception as e:
-                print(f"Errore durante la generazione delle domande: {e}")
-                exit()
+            
+            # --- CONFIGURAZIONE LIMITI ---
+            max_token_per_minute = 115000
+            if model == "gemini/gemini-2.5-pro":
+                max_token_per_minute = 125000 
+            elif model == "gemini/gemini-2.5-flash":
+                max_token_per_minute = 200000 
+            elif model in ["openai/gpt-4o-mini", "openai/gpt-3.5-turbo"]:
+                max_token_per_minute = 10000 
 
             system = BenchmarkSystem(codebase_path=codebase_path)
 
-            # Genera il benchmark
-            benchmark = system.generate_benchmark(questions, output_path="benchmark.json")
+            if benchmark_path.exists():
+                print(f"\nBenchmark trovato per {model}: '{benchmark_file}'.")
+            else:
+                print(f"\nCreazione NUOVO benchmark per {model}...")
+                
+                spacingAnalyzer = SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
+                namingAnalyzer = NamingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
+                
+                try:
+                    questions = get_all_questions(spacingAnalyzer, namingAnalyzer)
+                    print(f"File saltati (Spacing): {spacingAnalyzer.parse_error_count}")
+                    print(f"File saltati (Naming):  {namingAnalyzer.parse_error_count}")
+                except Exception as e:
+                    print(f"Errore fatale durante la generazione delle domande: {e}")
+                    exit()
 
-            ai_system = AISystem(model=model, provider="copilot-api" if provider!="google" else "google")
+                system.generate_benchmark(questions, output_path=benchmark_path)
+                print(f"Benchmark salvato in '{benchmark_path}'")
+
+            print(f"Avvio valutazione AI per {model}...")
+            
+            ai_system = AISystem(model=model, provider=provider_name)
+            
+            # Carica gli item dal file corretto
+            items_to_evaluate = system.get_benchmark_items(benchmark_file)
+            
             evaluation_results = ai_system.evaluate_benchmark(
-                benchmark_items=system.get_benchmark_items("benchmark.json"),
+                benchmark_items=items_to_evaluate,
                 codebase_path=codebase_path,
-                output_path=f"{model.replace('/', '_')}_evaluation.json",
+                output_path=evaluation_file,
                 wait_time=60
             )
