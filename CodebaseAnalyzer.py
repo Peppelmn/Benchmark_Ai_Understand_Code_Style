@@ -1,9 +1,10 @@
+from ast import List
 from pathlib import Path
 
 class CodebaseAnalyzer:
     """Classe base per analizzatori di codebase"""
     
-    def __init__(self, codebase_path: str, max_token_limit):
+    def __init__(self, codebase_path: str, max_token_limit, num_target_files_per_question=10):
         """
         Inizializza l'analyzer filtrando i file non validi o troppo grandi.
         
@@ -14,7 +15,7 @@ class CodebaseAnalyzer:
         self.codebase_path = Path(codebase_path)
         self.python_files = []
         self.parse_error_count = 0
-        self.num_target_files_per_question = 10
+        self.num_target_files_per_question = num_target_files_per_question
         self.max_char_limit = max_token_limit * 4
         
         print(f"Inizializzazione Analyzer: scansione file in {self.codebase_path}...")
@@ -54,3 +55,7 @@ class CodebaseAnalyzer:
             self.python_files.append(path)
             
         print(f"Analyzer pronto. File validi caricati: {len(self.python_files)} (Scartati per dimensione: {skipped_count})")
+
+    def get_files(self):
+        """Restituisce la lista dei file Python validi trovati nella codebase."""
+        return self.python_files

@@ -8,8 +8,8 @@ import ast
 class SpacingAnalyzer(CodebaseAnalyzer):
     """Analizza la codebase su aspetti di spacing, trova la risposta corretta per le domande"""
 
-    def __init__(self, codebase_path: str, max_token_limit):
-        super().__init__(codebase_path, max_token_limit)
+    def __init__(self, codebase_path: str, max_token_limit, num_target_files_per_question):
+        super().__init__(codebase_path, max_token_limit, num_target_files_per_question)
 
     def _find_consistent_files(self, analyze_function, per_line=True):
         """
@@ -59,7 +59,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 # Verifica se i valori sono consistenti (tutti uguali)
                 if len(set(values)) == 1:
                     relative_path = path.relative_to(self.codebase_path)
-                    consistent_files.append((str(relative_path), float(values[0])))
+                    consistent_files.append((str(relative_path), float(values[0]), None))
 
             except Exception as e:
                 print(f"[!] Errore analizzando {path}: {e}")
@@ -312,7 +312,7 @@ class SpacingAnalyzer(CodebaseAnalyzer):
             max_len = max_line_length(path)
             if max_len is not None:
                 relative_path = path.relative_to(self.codebase_path)
-                consistent_files.append((str(relative_path), float(max_len)))
+                consistent_files.append((str(relative_path), float(max_len), None))
                 if len(consistent_files) >= self.num_target_files_per_question:
                     break
         return consistent_files
@@ -780,9 +780,9 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 
             return found_calls
 
-        # --- Logica per trovare 10 file diversi ---
+        # --- Logica per trovare file diversi ---
         results = []
-        target_count = 10
+        target_count = self.num_target_files_per_question
         max_lines = 1000
         
         files_to_check = list(self.python_files)

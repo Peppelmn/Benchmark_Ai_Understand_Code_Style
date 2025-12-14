@@ -40,8 +40,6 @@ class BenchmarkSystem:
             correct_answer=correct_answer,
             distractors=distractors
         )
-    
-    # In BenchmarkSystem.py
 
     def generate_benchmark(self, questions: List[Question], output_path: str = None) -> List[Dict]:
         benchmark_items = []

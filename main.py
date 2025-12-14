@@ -3,6 +3,7 @@ import random
 import warnings
 from AISystem import AISystem
 from BenchmarkSystem import BenchmarkSystem
+from GitHubLoader import GitHubLoader
 from QuestionDefiner import get_all_questions
 from Spacing.SpacingAnalyzer import SpacingAnalyzer
 from Naming.NamingAnalyzer import NamingAnalyzer
@@ -12,6 +13,7 @@ import time
 import os
 import socket
 from pathlib import Path
+from DistributionAnalyzer import DistributionAnalyzer
 
 warnings.filterwarnings("ignore", category=SyntaxWarning)
 
@@ -56,12 +58,21 @@ def start_copilot_server():
         print(f"Per favore esegui manualmente: {command}")
 
 if __name__ == "__main__":
-    start_copilot_server()
+    # start_copilot_server()
+    loader = GitHubLoader()
+    loader.download_repositories(query="language:python stars:>10", limit=20, max_size_mb=200)
+    codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "downloads")
+    spacingAnalyzer= SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=250000, num_target_files_per_question=10000)
+    namingAnalyzer= NamingAnalyzer(codebase_path=codebase_path, max_token_limit=250000, num_target_files_per_question=20000)
+
+    distributionAnalyzer = DistributionAnalyzer(spacingAnalyzer, namingAnalyzer)
+    distributionAnalyzer.analyze(output_path="answer_distribution_report.json")
+    
     
     models = {
         "openai" : 
             [
-                # "openai/gpt-4.1",
+                "openai/gpt-4.1",
                 # "openai/gpt-5.1",
                 # "openai/gpt-3.5-turbo",
                 # "openai/gpt-4o-mini",
@@ -80,7 +91,7 @@ if __name__ == "__main__":
             ],
         "google" : 
             [
-                "gemini/gemini-2.5-flash",
+                # "gemini/gemini-2.5-flash",
                 # "gemini/gemini-3.0-flash",
                 # "gemini/gemini-2.5-pro",
             ]
@@ -92,6 +103,12 @@ if __name__ == "__main__":
         #     provider_name = provider
         if provider == "google":
             provider_name = "google"
+
+        
+        
+        # 2. DEFINISCI LA NUOVA CODEBASE PATH
+        # Ora puntiamo alla cartella che contiene TUTTI i progetti scaricati
+        codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "downloads")
             
         for model in models_list:
             safe_model_name = model.replace('/', '_')
@@ -107,11 +124,9 @@ if __name__ == "__main__":
             
             benchmark_file = str(benchmark_path)
             evaluation_file = str(evaluation_path)
-
-            codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "black-main")
             
             # --- CONFIGURAZIONE LIMITI ---
-            max_token_per_minute = 115000
+            max_token_per_minute = 115000 
             if model == "gemini/gemini-2.5-pro":
                 max_token_per_minute = 125000 
             elif model == "gemini/gemini-2.5-flash":
@@ -119,37 +134,37 @@ if __name__ == "__main__":
             elif model in ["openai/gpt-4o-mini", "openai/gpt-3.5-turbo"]:
                 max_token_per_minute = 10000 
 
-            system = BenchmarkSystem(codebase_path=codebase_path)
+            # system = BenchmarkSystem(codebase_path=codebase_path)
 
-            if benchmark_path.exists():
-                print(f"\nBenchmark trovato per {model}: '{benchmark_file}'.")
-            else:
-                print(f"\nCreazione NUOVO benchmark per {model}...")
+            # if benchmark_path.exists():
+            #     print(f"\nBenchmark trovato per {model}: '{benchmark_file}'.")
+            # else:
+            #     print(f"\nCreazione NUOVO benchmark per {model}...")
                 
-                spacingAnalyzer = SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
-                namingAnalyzer = NamingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
+            #     spacingAnalyzer = SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
+            #     namingAnalyzer = NamingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
                 
-                try:
-                    questions = get_all_questions(spacingAnalyzer, namingAnalyzer)
-                    print(f"File saltati (Spacing): {spacingAnalyzer.parse_error_count}")
-                    print(f"File saltati (Naming):  {namingAnalyzer.parse_error_count}")
-                except Exception as e:
-                    print(f"Errore fatale durante la generazione delle domande: {e}")
-                    exit()
+            #     try:
+            #         questions = get_all_questions(spacingAnalyzer, namingAnalyzer)
+            #         print(f"File saltati (Spacing): {spacingAnalyzer.parse_error_count}")
+            #         print(f"File saltati (Naming):  {namingAnalyzer.parse_error_count}")
+            #     except Exception as e:
+            #         print(f"Errore fatale durante la generazione delle domande: {e}")
+            #         exit()
 
-                system.generate_benchmark(questions, output_path=benchmark_path)
-                print(f"Benchmark salvato in '{benchmark_path}'")
+            #     system.generate_benchmark(questions, output_path=benchmark_path)
+            #     print(f"Benchmark salvato in '{benchmark_path}'")
 
-            print(f"Avvio valutazione AI per {model}...")
+            # print(f"Avvio valutazione AI per {model}...")
             
-            ai_system = AISystem(model=model, provider=provider_name)
+            # ai_system = AISystem(model=model, provider=provider_name)
             
-            # Carica gli item dal file corretto
-            items_to_evaluate = system.get_benchmark_items(benchmark_file)
+            # # Carica gli item dal file corretto
+            # items_to_evaluate = system.get_benchmark_items(benchmark_file)
             
-            evaluation_results = ai_system.evaluate_benchmark(
-                benchmark_items=items_to_evaluate,
-                codebase_path=codebase_path,
-                output_path=evaluation_file,
-                wait_time=60
-            )
+            # evaluation_results = ai_system.evaluate_benchmark(
+            #     benchmark_items=items_to_evaluate,
+            #     codebase_path=codebase_path,
+            #     output_path=evaluation_file,
+            #     wait_time=60
+            # )\
