@@ -1,5 +1,0 @@
-[tool.black]
-ine_length = 50
-target-ersion = ['py37']
-exclude='\.pyi?$'
-include='\.py?$'

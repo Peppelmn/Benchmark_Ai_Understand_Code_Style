@@ -30,7 +30,7 @@ TEMPLATE: S01
     "is_correct": true,
     "target_file": "docs\conf.py":
     {
-        project = "Black" <--------------------
+        project ="Black" <--------------------
         copyright = "2018-Present, Łukasz Langa and contributors to Black" <--------------------
         author = "Łukasz Langa and contributors to Black" <--------------------
 
