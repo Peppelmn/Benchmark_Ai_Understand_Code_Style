@@ -60,14 +60,10 @@ def start_copilot_server():
 if __name__ == "__main__":
     # start_copilot_server()
     loader = GitHubLoader()
-    loader.download_repositories(query="language:python stars:>10", limit=20, max_size_mb=200)
+    # loader.download_repositories(query="language:python stars:>10", limit=30, max_size_mb=200)
     codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "downloads")
-    spacingAnalyzer= SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=250000, num_target_files_per_question=10000)
-    namingAnalyzer= NamingAnalyzer(codebase_path=codebase_path, max_token_limit=250000, num_target_files_per_question=20000)
-
-    distributionAnalyzer = DistributionAnalyzer(spacingAnalyzer, namingAnalyzer)
+    distributionAnalyzer = DistributionAnalyzer()
     distributionAnalyzer.analyze(output_path="answer_distribution_report.json")
-    
     
     models = {
         "openai" : 
@@ -104,10 +100,6 @@ if __name__ == "__main__":
         if provider == "google":
             provider_name = "google"
 
-        
-        
-        # 2. DEFINISCI LA NUOVA CODEBASE PATH
-        # Ora puntiamo alla cartella che contiene TUTTI i progetti scaricati
         codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "downloads")
             
         for model in models_list:
@@ -141,8 +133,8 @@ if __name__ == "__main__":
             # else:
             #     print(f"\nCreazione NUOVO benchmark per {model}...")
                 
-            #     spacingAnalyzer = SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
-            #     namingAnalyzer = NamingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
+            #     spacingAnalyzer = SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute, num_target_files_per_question=10)
+            #     namingAnalyzer = NamingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute, num_target_files_per_question=10)
                 
             #     try:
             #         questions = get_all_questions(spacingAnalyzer, namingAnalyzer)

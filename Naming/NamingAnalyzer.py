@@ -247,10 +247,7 @@ class NamingAnalyzer(CodebaseAnalyzer):
             pascal_count = counts_data["PascalCase"]["count"]
             
             total_classifiable_names = snake_count + camel_count + pascal_count
-
-            # Troviamo il file con il maggior numero di nomi in totale
-            # (ignoriamo file con meno di 10 nomi per evitare file banali)
-            if total_classifiable_names >= 10:
+            if total_classifiable_names >= 5:
                 
                 # Ora determina la convenzione dominante PER QUESTO file
                 convention_counts = {
@@ -394,11 +391,8 @@ class NamingAnalyzer(CodebaseAnalyzer):
         results = []
         max_lines = 1000
         
-        # Mescoliamo i file per garantire varietà
-        files_to_check = list(self.python_files)
-        random.shuffle(files_to_check)
 
-        for file_path in files_to_check:
+        for file_path in self.python_files:
             # Interrompi se abbiamo raggiunto l'obiettivo
             if len(results) >= self.num_target_files_per_question:
                 break

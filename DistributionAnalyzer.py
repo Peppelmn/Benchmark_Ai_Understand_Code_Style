@@ -1,5 +1,8 @@
 import json
 from collections import Counter
+import os
+from Naming.NamingAnalyzer import NamingAnalyzer
+from Spacing.SpacingAnalyzer import SpacingAnalyzer
 
 class DistributionAnalyzer:
     """
@@ -7,8 +10,11 @@ class DistributionAnalyzer:
     generate dagli Analyzer e salva un report dettagliato con percentuali.
     """
     
-    def __init__(self, spacing_analyzer, naming_analyzer):
-        self.analyzers = [spacing_analyzer, naming_analyzer]
+    def __init__(self, spacingAnalyzer: SpacingAnalyzer = None, namingAnalyzer: NamingAnalyzer = None):
+        codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "downloads")
+        self.spacingAnalyzer= SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=250000, num_target_files_per_question=10000) if spacingAnalyzer is None else spacingAnalyzer
+        self.namingAnalyzer= NamingAnalyzer(codebase_path=codebase_path, max_token_limit=250000, num_target_files_per_question=20000) if namingAnalyzer is None else namingAnalyzer
+        self.analyzers = [self.spacingAnalyzer, self.namingAnalyzer]
 
     def analyze(self, output_path: str = None):
         """
@@ -58,9 +64,16 @@ class DistributionAnalyzer:
                     total = len(answers)
                     counts = Counter(answers)
                     
+                    # --- MODIFICA QUI: ORDINAMENTO ---
+                    # Ordiniamo gli elementi del Counter in base al valore (count) in ordine decrescente.
+                    # x[1] rappresenta il conteggio. reverse=True mette i numeri più alti prima.
+                    sorted_counts = sorted(counts.items(), key=lambda x: x[1], reverse=True)
+
                     # Creiamo il dizionario formattato richiesto: "Valore": "Count, Perc%"
                     formatted_distribution = {}
-                    for answer_key, count in counts.items():
+                    
+                    # Iteriamo sulla lista ORDINATA invece che su counts.items()
+                    for answer_key, count in sorted_counts:
                         percentage = (count / total) * 100 if total > 0 else 0
                         # Formato stringa: "N, P%" (es: "576, 48.0%")
                         formatted_distribution[answer_key] = f"{count}, {percentage:.1f}%"
@@ -80,6 +93,6 @@ class DistributionAnalyzer:
             try:
                 with open(output_path, 'w', encoding='utf-8') as f:
                     json.dump(all_stats, f, indent=4, ensure_ascii=False)
-                print(f"✅ Report JSON salvato in: {output_path}")
+                print(f"Report JSON salvato in: {output_path}")
             except Exception as e:
-                print(f"❌ Impossibile salvare il JSON: {e}")
+                print(f"Impossibile salvare il JSON: {e}")
