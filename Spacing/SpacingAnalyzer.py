@@ -6,57 +6,52 @@ import random
 import ast
 
 class SpacingAnalyzer(CodebaseAnalyzer):
-    """Analizza la codebase su aspetti di spacing, trova la risposta corretta per le domande"""
 
-    def __init__(self, codebase_path: str, max_token_limit, num_target_files_per_question):
-        super().__init__(codebase_path, max_token_limit, num_target_files_per_question)
+    def __init__(self, codebase_path: str, max_token_limit, max_results_per_question = 10):
+        super().__init__(codebase_path, max_token_limit, max_results_per_question)
 
     def _find_consistent_files(self, analyze_function, per_line=True):
         """
-        Metodo generico per trovare file con una caratteristica 'consistente'.
+        Scans codebase files by applying a specific analysis function and selects only those files where the analysis result is consistent.
 
-        - analyze_function: funzione che analizza una riga (se per_line=True) o un intero file (se per_line=False)
-        - per_line: True se la funzione lavora su singole righe, False se lavora su un intero file.
+        Args:
+            analyze_function (callable): The function to apply to each line or file.
+            per_line (bool): If True, analyzes the file line by line; otherwise, analyzes the whole file path.
+
+        Returns: A list of tuples (relative_path, consistent_value, None).
         """
         consistent_files = []
 
         for path in self.python_files:
 
-            if len(consistent_files) >= self.num_target_files_per_question:
+            if len(consistent_files) >= self.max_results_per_question:
                 break
 
             try:
-
                 if per_line:
                     values = []
                     with open(path, "r", encoding="utf-8", errors="ignore") as f:
-                        for i, line in enumerate(f):
-                            if i > 1000:  # evita file enormi
-                                break
+                        for _, line in enumerate(f):
                             val = analyze_function(line)
                             if val is not None:
-                                # Se è una lista, estrai media o primo valore
                                 if isinstance(val, list):
                                     if len(val) == 0:
                                         continue
                                     val = sum(val) / len(val)
                                 values.append(round(val, 2))
                 else:
-                    # Funzione che analizza tutto il file
                     val = analyze_function(path)
                     if val is None:
                         continue
-                    # Può restituire una lista (es. più valori)
                     if isinstance(val, list):
                         values = val
                     else:
                         values = [val]
 
-                # Se non abbiamo valori, salta il file
                 if not values:
                     continue
 
-                # Verifica se i valori sono consistenti (tutti uguali)
+                # Verifica se tutti i valori nella lista sono identici (consistenza)
                 if len(set(values)) == 1:
                     relative_path = path.relative_to(self.codebase_path)
                     consistent_files.append((str(relative_path), float(values[0]), None))
@@ -64,27 +59,31 @@ class SpacingAnalyzer(CodebaseAnalyzer):
             except Exception as e:
                 print(f"[!] Errore analizzando {path}: {e}")
 
-        # Se non trovi nulla, restituisci None
         return consistent_files
 
     def question_S01(self):
-        
+        """
+        Analyzes spacing around operators (assignment, comparison, mathematical) within code lines, ignoring strings and function calls.
+
+        Returns: A list of files where operator spacing is consistent, including the average number of spaces detected.
+        """
         def count_spaces_between_tokens(line):
+
+            # Rimuove commenti e spazi iniziali/finali
             line = line.split('#')[0].rstrip()
             line = line.lstrip()
             if not line.strip():
                 return None
 
-            # Rimuove stringhe e f-string per evitare "=" interni
             line = re.sub(r"f?(['\"])(?:\\.|(?!\1).)*\1", "__STR__", line)
 
-            # Controlla se c'è un vero assegnamento
             if "=" not in line or any(op in line for op in ["==", "!=", ">=", "<="]):
                 return None
 
-            # Collassa chiamate funzione in un token singolo
             def collapse_calls(s):
                 pattern = re.compile(r"([A-Za-z_]\w*)\s*\([^()]*\)")
+
+                
                 while True:
                     new_s = pattern.sub(lambda m: m.group(1) + "(__CALL__)", s)
                     if new_s == s:
@@ -107,34 +106,30 @@ class SpacingAnalyzer(CodebaseAnalyzer):
         return self._find_consistent_files(count_spaces_between_tokens)
     
     def question_S02(self):
+        """
+        Analyzes token spacing within control structure conditions (if, while, for), ignoring strings and nested calls.
 
+        Returns: A list of files where spacing in conditions is consistent, including the average number of spaces detected.
+        """
         def count_spaces_in_control_structure(line):
-            """Analizza gli spazi in una struttura di controllo."""
-            # Rimuovi commenti e spazi iniziali/finali
             line = line.split('#')[0].rstrip()
             line = line.lstrip()
             if not line.strip():
                 return None
 
-            # Verifica se è una struttura di controllo
             control_keywords = ('if', 'while', 'for')
             if not any(line.startswith(keyword + ' ') for keyword in control_keywords):
                 return None
 
-            # Estrai la condizione tra la keyword e il ':'
             try:
-                # Trova la keyword usata
                 keyword = next(k for k in control_keywords if line.startswith(k + ' '))
                 condition = line[len(keyword):].split(':')[0].strip()
 
-                # Per i 'for', prendi solo la parte dopo 'in'
                 if keyword == 'for' and ' in ' in condition:
                     condition = condition.split(' in ')[1]
 
-                # Rimuovi stringhe per evitare falsi positivi
                 condition = re.sub(r"f?(['\"])(?:\\.|(?!\1).)*\1", "__STR__", condition)
                 
-                # Collassa le chiamate di funzione
                 def collapse_calls(s):
                     pattern = re.compile(r"([A-Za-z_]\w*)\s*\([^()]*\)")
                     while True:
@@ -146,7 +141,6 @@ class SpacingAnalyzer(CodebaseAnalyzer):
 
                 condition = collapse_calls(condition)
 
-                # Trova i token e gli spazi tra essi
                 tokens = re.findall(r"[A-Za-z_]\w*|\d+\.\d+|\d+|[<>=!]=|[+\-*/%<>]=?|and|or|not|in|is|[(),\[\]]", condition)
                 if len(tokens) < 2:
                     return None
@@ -163,45 +157,42 @@ class SpacingAnalyzer(CodebaseAnalyzer):
         return self._find_consistent_files(count_spaces_in_control_structure)
     
     def get_spaces_around_commas(self, count_before_after: str):
+        """
+        Helper method that analyzes the number of spaces present around commas in function argument lists.
 
+        Args:
+            count_before_after (str): "before" to count spaces preceding the comma, "after" for those following it.
+
+        Returns: A list of files with consistent spacing around commas.
+        """
         def count_spaces_around_commas(line):
-            """Analizza gli spazi prima o dopo le virgole negli argomenti di funzione."""
-            # Rimuovi commenti e spazi iniziali/finali
             line = line.split('#')[0].rstrip()
             line = line.lstrip()
             if not line.strip():
                 return None
 
-            # Cerca definizioni di funzioni o chiamate con argomenti
-            # Pattern per catturare il contenuto tra parentesi
             func_pattern = r'(?:def\s+\w+|[\w.]+)\s*\(([^)]+)\)'
             matches = re.findall(func_pattern, line)
             
             if not matches:
                 return None
 
-            # Analizza tutti i gruppi di argomenti trovati nella riga
             space_counts = []
             
             for args_str in matches:
-                # Rimuovi stringhe per evitare virgole all'interno di esse
                 args_cleaned = re.sub(r"f?(['\"])(?:\\.|(?!\1).)*\1", "__STR__", args_str)
                 
-                # Trova tutte le virgole e conta gli spazi prima o dopo di esse
                 parts = args_cleaned.split(',')
                 
-                # Se c'è solo una parte, non ci sono virgole
                 if len(parts) <= 1:
                     continue
                 
                 if count_before_after == "before":
-                    # Conta gli spazi prima della virgola (spazi finali di ogni parte)
                     for i in range(len(parts) - 1):
                         part = parts[i]
                         trailing_spaces = len(part) - len(part.rstrip(' '))
                         space_counts.append(trailing_spaces)
                 else:
-                    # Conta gli spazi dopo la virgola (spazi iniziali di ogni parte)
                     for i in range(1, len(parts)):
                         part = parts[i]
                         leading_spaces = len(part) - len(part.lstrip(' '))
@@ -212,28 +203,34 @@ class SpacingAnalyzer(CodebaseAnalyzer):
         return self._find_consistent_files(count_spaces_around_commas)
     
     def question_S03(self):
+        """
+        Specifically analyzes the number of spaces present *before* a comma in function arguments.
+
+        Returns: A list of files where pre-comma spacing is consistent (e.g., 0 or 1).
+        """
         return self.get_spaces_around_commas("before")
     
     def question_S04(self):
+        """
+        Specifically analyzes the number of spaces present *after* a comma in function arguments.
+
+        Returns: A list of files where post-comma spacing is consistent (e.g., 1).
+        """
         return self.get_spaces_around_commas("after")
 
     def question_S05(self):
         """
-        Trova i file che usano un numero coerente di righe vuote
-        dopo una definizione di funzione (incluso il corpo).
+        Uses AST to locate function definition ends and counts how many blank lines immediately follow the function body.
+
+        Returns: A list of files that use a consistent number of blank lines after functions.
         """
-        
         def count_blank_lines_after_function(file_path):
-            """
-            Conta le righe vuote dopo ogni definizione di funzione (incluse quelle annidate)
-            usando l'Abstract Syntax Tree (AST).
-            """
             blank_counts = []
             
             try:
                 with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                     content = f.read()
-                    lines = content.splitlines() # Ci serve l'elenco delle righe
+                    lines = content.splitlines()
                 
                 if not lines:
                     return []
@@ -241,34 +238,23 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 tree = ast.parse(content)
                 
             except Exception as e:
-                # Gestisce sia SyntaxError di ast.parse sia Errori I/O
                 self.parse_error_count += 1
                 return []
 
-            # ast.walk() scorre l'albero e trova TUTTI i nodi,
-            # incluse le funzioni annidate, nell'ordine corretto.
             for node in ast.walk(tree):
-                # Cerchiamo sia funzioni normali (def) sia asincrone (async def)
                 if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
-                    # end_lineno ci dice la riga in cui finisce il corpo della funzione.
-                    # L'indice della riga finale (convertito da 1-based a 0-based)
                     func_end_line_index = node.end_lineno - 1
                     
-                    # Ora contiamo le righe vuote DOPO questa riga
                     blank_count = 0
                     i = func_end_line_index + 1
                     
                     while i < len(lines):
                         if not lines[i].strip():
-                            # È una riga vuota
                             blank_count += 1
                             i += 1
                         else:
-                            # È una riga con contenuto, fermiamo il conteggio
                             break
                     
-                    # Abbiamo trovato la fine del file o una riga di codice.
-                    # Salviamo il conteggio.
                     blank_counts.append(blank_count)
 
             return blank_counts
@@ -276,29 +262,24 @@ class SpacingAnalyzer(CodebaseAnalyzer):
         return self._find_consistent_files(count_blank_lines_after_function, per_line=False)
     
     def question_S06(self):
-        """Trova la lunghezza massima delle righe di codice in un file,
-        ignorando docstring e stringhe multi-linea ('''...''' e \"\"\"...\"\"\")."""
+        """
+        Calculates the maximum line length in a file, excluding multi-line docstrings and comments from the count.
 
+        Returns: A list of files with their detected maximum line length.
+        """
         def max_line_length(file_path):
-            """Restituisce la lunghezza massima delle righe in un file ignorando
-            docstring / stringhe multi-linea e commenti/righe vuote."""
             max_length = 0
             try:
                 with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                     content = f.read()
-                    # Rimuove stringhe multi-linea ('''...''' e """...""") su più righe
-                    # (?s) abilita DOTALL così il . cattura anche newline
                     content = re.sub(r"(?s)(?:'''(?:.*?)'''|\"\"\"(?:.*?)\"\"\")", "", content)
 
-                    for i, line in enumerate(content.splitlines()):
-                        if i > 5000:
-                            break
+                    for _, line in enumerate(content.splitlines()):
                         stripped = line.rstrip("\n\r")
                         if not stripped.strip():
                             continue
                         if stripped.lstrip().startswith("#"):
                             continue
-                        # Considera la lunghezza effettiva della riga
                         length = len(stripped)
                         if length > max_length:
                             max_length = length
@@ -313,35 +294,33 @@ class SpacingAnalyzer(CodebaseAnalyzer):
             if max_len is not None:
                 relative_path = path.relative_to(self.codebase_path)
                 consistent_files.append((str(relative_path), float(max_len), None))
-                if len(consistent_files) >= self.num_target_files_per_question:
+                if len(consistent_files) >= self.max_results_per_question:
                     break
         return consistent_files
 
     def question_S07(self):
-        """Trova i file che usano un numero coerente di spazi per indentazione.
         """
+        Analyzes indentation levels to determine the dominant indentation step used in the file.
 
+        Returns: A list of files that maintain consistent indentation.
+        """
         def count_indent_spaces(line):
-            """Conta gli spazi iniziali in una riga di codice Python."""
             if not line.strip():
-                return None  # riga vuota
+                return None
             if line.lstrip().startswith("#"):
-                return None  # commento
+                return None
             if line.startswith("\t"):
-                return None  # ignora tabulazioni, non coerente con spazi
+                return None
             leading_spaces = len(line) - len(line.lstrip(' '))
             if leading_spaces == 0:
                 return None
             return leading_spaces
 
         def analyze_file(file_path):
-            """Analizza le indentazioni nel file e restituisce i livelli trovati."""
             indent_values = []
             try:
                 with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-                    for i, line in enumerate(f):
-                        if i > 3000:
-                            break
+                    for _, line in enumerate(f):
                         val = count_indent_spaces(line)
                         if val is not None:
                             indent_values.append(val)
@@ -352,12 +331,10 @@ class SpacingAnalyzer(CodebaseAnalyzer):
             if not indent_values:
                 return []
 
-            # Trova le differenze di indentazione (livelli)
             diffs = [v for v in set(indent_values) if v > 0]
             if not diffs:
                 return []
 
-            # Controlla che tutti gli spazi usati per l'indentazione siano multipli di un valore consistente
             smallest = min(diffs)
             if all(v % smallest == 0 for v in diffs):
                 return [smallest]
@@ -366,12 +343,15 @@ class SpacingAnalyzer(CodebaseAnalyzer):
         return self._find_consistent_files(analyze_file, per_line=False)
 
     def get_blank_lines_around_comments(self, count_above_below: str):
-        """Trova i file che hanno un numero coerente di righe vuote sopra e sotto i commenti.
-        Restituisce un file e la media di righe vuote trovata, se coerente.
         """
+        Helper method that counts blank lines immediately above or below comments.
 
+        Args:
+            count_above_below (str): "above" to count blank lines before a comment, "below" for those after it.
+
+        Returns: A list of files where the number of blank lines around comments is consistent.
+        """
         def count_blank_lines_around_comments(file_path):
-            """Conta le righe vuote immediatamente sopra e sotto i commenti in un file."""
             try:
                 with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                     lines = f.readlines()
@@ -388,16 +368,13 @@ class SpacingAnalyzer(CodebaseAnalyzer):
             for i, line in enumerate(lines):
                 stripped = line.strip()
 
-                # Cerca commenti che iniziano con '#'
                 if stripped.startswith("#") and not stripped.startswith("#!"):
-                    # Conta le righe vuote sopra
                     j = i - 1
                     count_above = 0
                     while j >= 0 and not lines[j].strip():
                         count_above += 1
                         j -= 1
 
-                    # Conta le righe vuote sotto
                     k = i + 1
                     count_below = 0
                     while k < len(lines) and not lines[k].strip():
@@ -407,7 +384,6 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                     blanks_above.append(count_above)
                     blanks_below.append(count_below)
 
-            # Se non ci sono commenti, ignora il file
             if not blanks_above and not blanks_below:
                 return None
 
@@ -419,195 +395,28 @@ class SpacingAnalyzer(CodebaseAnalyzer):
         return self._find_consistent_files(count_blank_lines_around_comments, per_line=False)
 
     def question_S08(self):
+        """
+        Analyzes the number of blank lines present immediately above a comment.
+
+        Returns: A list of files that maintain consistent vertical spacing before comments.
+        """
         return self.get_blank_lines_around_comments("above")
     
     def question_S09(self):
+        """
+        Analyzes the number of blank lines present immediately below a comment.
+
+        Returns: A list of files that maintain consistent vertical spacing after comments.
+        """
         return self.get_blank_lines_around_comments("below")
 
     def question_S10(self):
         """
-        Trova i file che usano un numero coerente di righe vuote
-        dopo OGNI blocco di import (singolo o multiplo).
-        """
+        Uses AST to group import blocks and counts blank lines following them.
 
+        Returns: A list of files that use a consistent number of blank lines after import blocks.
+        """
         def count_blank_lines_after_every_import_block(file_path):
-            """
-            Conta le righe vuote dopo OGNI blocco di import contiguo
-            usando l'Abstract Syntax Tree (AST).
-            """
-            
-            try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-                    content = f.read()
-                    lines = content.splitlines() # Ci serve l'elenco delle righe
-                
-                if not lines:
-                    return []
-                    
-                tree = ast.parse(content)
-                
-            except Exception as e:
-                self.parse_error_count += 1
-                return []
-
-            def count_blanks_from(start_line_index, all_lines):
-                """Helper per contare le righe vuote da un indice di riga."""
-                blank_count = 0
-                i = start_line_index + 1
-                while i < len(all_lines):
-                    if not all_lines[i].strip():
-                        blank_count += 1
-                        i += 1
-                    else:
-                        break # Trovata riga con contenuto
-                return blank_count
-
-            # Usiamo un NodeVisitor per trovare tutti gli import
-            # e raggrupparli in blocchi contigui.
-            class ImportVisitor(ast.NodeVisitor):
-                def __init__(self, lines):
-                    self.lines = lines
-                    self.blank_counts = []
-                    # Indice 0-based dell'ultima riga di import trovata
-                    self.last_import_end_line = -1 
-
-                def visit_Import(self, node):
-                    self.process_import_node(node)
-                    self.generic_visit(node)
-
-                def visit_ImportFrom(self, node):
-                    self.process_import_node(node)
-                    self.generic_visit(node)
-
-                def process_import_node(self, node):
-                    if not hasattr(node, 'end_lineno'):
-                        return # Salta se non abbiamo info (Python < 3.8)
-                    
-                    # Converti in indici 0-based
-                    current_start_line = node.lineno - 1
-                    current_end_line = node.end_lineno - 1
-                    
-                    # Se questo import NON è contiguo al precedente...
-                    # E abbiamo già visto un import (last_import_end_line != -1)
-                    # ...allora il blocco precedente è finito. Contiamo gli spazi.
-                    if self.last_import_end_line != -1 and current_start_line > (self.last_import_end_line + 1):
-                        # C'è un salto (codice o righe vuote) tra i blocchi di import.
-                        # Conta gli spazi dopo il blocco PRECEDENTE.
-                        count = count_blanks_from(self.last_import_end_line, self.lines)
-                        self.blank_counts.append(count)
-
-                    # Questo import è ora l'ultimo che abbiamo visto.
-                    # Aggiorniamo l'indice dell'ultima riga.
-                    self.last_import_end_line = current_end_line
-                
-                def finalize(self):
-                    # Dopo aver visitato tutto l'albero,
-                    # dobbiamo contare gli spazi dopo l'ULTIMO blocco di import trovato.
-                    if self.last_import_end_line != -1:
-                        count = count_blanks_from(self.last_import_end_line, self.lines)
-                        self.blank_counts.append(count)
-
-            # Esegui il Visitor
-            visitor = ImportVisitor(lines)
-            visitor.visit(tree)
-            visitor.finalize() # Conta gli spazi dopo l'ultimo blocco
-            
-            return visitor.blank_counts
-
-        return self._find_consistent_files(count_blank_lines_after_every_import_block, per_line=False)
-    
-    def question_S11(self):
-        """
-        Trova i file che usano un numero coerente di righe vuote
-        dopo una definizione di classe (incluse quelle annidate).
-        """
-        
-        def count_blank_lines_after_class_ast(file_path):
-            """
-            Conta le righe vuote dopo ogni definizione di classe (incluse quelle annidate)
-            usando l'Abstract Syntax Tree (AST).
-            """
-            blank_counts = []
-            
-            try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-                    content = f.read()
-                    lines = content.splitlines() # Ci serve l'elenco delle righe
-                
-                if not lines:
-                    return []
-                    
-                tree = ast.parse(content)
-                
-            except Exception as e:
-                # Gestisce sia SyntaxError di ast.parse sia Errori I/O
-                self.parse_error_count += 1
-                return []
-
-            # ast.walk() scorre l'albero e trova TUTTI i nodi ClassDef,
-            # incluse le classi annidate.
-            for node in ast.walk(tree):
-                if isinstance(node, ast.ClassDef): 
-                    
-                    # 'end_lineno' ci dice la riga in cui finisce il corpo della classe.
-                    if not hasattr(node, 'end_lineno'):
-                        # Sicurezza per versioni < Python 3.8
-                        print(f"[!] Attenzione: 'end_lineno' non disponibile per {file_path} "
-                              "(serve Python 3.8+). Salto S11 per questo file.")
-                        return []
-
-                    # L'indice della riga finale (convertito da 1-based a 0-based)
-                    class_end_line_index = node.end_lineno - 1
-                    
-                    # Ora contiamo le righe vuote DOPO questa riga
-                    blank_count = 0
-                    i = class_end_line_index + 1
-                    
-                    while i < len(lines):
-                        if not lines[i].strip():
-                            # È una riga vuota
-                            blank_count += 1
-                            i += 1
-                        else:
-                            # È una riga con contenuto, fermiamo il conteggio
-                            break
-                    
-                    # Abbiamo trovato la fine del file o una riga di codice.
-                    # Salviamo il conteggio.
-                    blank_counts.append(blank_count)
-
-            return blank_counts
-        
-        return self._find_consistent_files(count_blank_lines_after_class_ast, per_line=False)
-    
-    def question_S12(self):
-        """
-        Trova i file che usano un numero coerente di righe vuote
-        dopo OGNI blocco di assegnazione di costanti (es. NOME_MAIUSCOLO = ...).
-        """
-
-        def _is_constant_name(name_str: str) -> bool:
-            """
-            Helper per determinare se un nome di variabile segue la
-            convenzione delle costanti (es. MAIUSCOLO, MAIUSCOLO_1).
-            """
-            if not name_str or not isinstance(name_str, str):
-                return False
-            # Deve contenere almeno una lettera
-            if not any(c.isalpha() for c in name_str):
-                return False # Esclude "_" o "123"
-            
-            # Controlla se tutti i caratteri alfabetici sono maiuscoli
-            for char in name_str:
-                if char.isalpha() and not char.isupper():
-                    return False # Trovata una lettera minuscola
-            return True
-
-        def count_blank_lines_after_constants_ast(file_path):
-            """
-            Conta le righe vuote dopo OGNI blocco di costanti
-            usando l'Abstract Syntax Tree (AST).
-            """
             
             try:
                 with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
@@ -624,7 +433,6 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 return []
 
             def count_blanks_from(start_line_index, all_lines):
-                """Helper per contare le righe vuote da un indice di riga."""
                 blank_count = 0
                 i = start_line_index + 1
                 while i < len(all_lines):
@@ -632,32 +440,158 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                         blank_count += 1
                         i += 1
                     else:
-                        break # Trovata riga con contenuto
+                        break
+                return blank_count
+
+            class ImportVisitor(ast.NodeVisitor):
+                def __init__(self, lines):
+                    self.lines = lines
+                    self.blank_counts = []
+                    self.last_import_end_line = -1 
+
+                def visit_Import(self, node):
+                    self.process_import_node(node)
+                    self.generic_visit(node)
+
+                def visit_ImportFrom(self, node):
+                    self.process_import_node(node)
+                    self.generic_visit(node)
+
+                def process_import_node(self, node):
+                    if not hasattr(node, 'end_lineno'):
+                        return
+                    
+                    current_start_line = node.lineno - 1
+                    current_end_line = node.end_lineno - 1
+                    
+                    if self.last_import_end_line != -1 and current_start_line > (self.last_import_end_line + 1):
+                        count = count_blanks_from(self.last_import_end_line, self.lines)
+                        self.blank_counts.append(count)
+
+                    self.last_import_end_line = current_end_line
+                
+                def finalize(self):
+                    if self.last_import_end_line != -1:
+                        count = count_blanks_from(self.last_import_end_line, self.lines)
+                        self.blank_counts.append(count)
+
+            visitor = ImportVisitor(lines)
+            visitor.visit(tree)
+            visitor.finalize()
+            
+            return visitor.blank_counts
+
+        return self._find_consistent_files(count_blank_lines_after_every_import_block, per_line=False)
+    
+    def question_S11(self):
+        """
+        Uses AST to locate class ends and counts blank lines immediately following them.
+
+        Returns: A list of files that use a consistent number of blank lines after classes.
+        """
+        def count_blank_lines_after_class_ast(file_path):
+            blank_counts = []
+            
+            try:
+                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                    content = f.read()
+                    lines = content.splitlines()
+                
+                if not lines:
+                    return []
+                    
+                tree = ast.parse(content)
+                
+            except Exception as e:
+                self.parse_error_count += 1
+                return []
+
+            for node in ast.walk(tree):
+                if isinstance(node, ast.ClassDef): 
+                    
+                    if not hasattr(node, 'end_lineno'):
+                        print(f"[!] Attenzione: 'end_lineno' non disponibile per {file_path} "
+                              "(serve Python 3.8+). Salto S11 per questo file.")
+                        return []
+
+                    class_end_line_index = node.end_lineno - 1
+                    
+                    blank_count = 0
+                    i = class_end_line_index + 1
+                    
+                    while i < len(lines):
+                        if not lines[i].strip():
+                            blank_count += 1
+                            i += 1
+                        else:
+                            break
+                    
+                    blank_counts.append(blank_count)
+
+            return blank_counts
+        
+        return self._find_consistent_files(count_blank_lines_after_class_ast, per_line=False)
+    
+    def question_S12(self):
+        """
+        Identifies constant assignment blocks via AST and analyzes the blank lines following such blocks.
+
+        Returns: A list of files with consistent vertical separation after constant blocks.
+        """
+        def _is_constant_name(name_str: str) -> bool:
+            if not name_str or not isinstance(name_str, str):
+                return False
+            if not any(c.isalpha() for c in name_str):
+                return False
+            
+            for char in name_str:
+                if char.isalpha() and not char.isupper():
+                    return False
+            return True
+
+        def count_blank_lines_after_constants_ast(file_path):
+            try:
+                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                    content = f.read()
+                    lines = content.splitlines()
+                
+                if not lines:
+                    return []
+                    
+                tree = ast.parse(content)
+                
+            except Exception as e:
+                self.parse_error_count += 1
+                return []
+
+            def count_blanks_from(start_line_index, all_lines):
+                blank_count = 0
+                i = start_line_index + 1
+                while i < len(all_lines):
+                    if not all_lines[i].strip():
+                        blank_count += 1
+                        i += 1
+                    else:
+                        break
                 return blank_count
 
             class ConstantVisitor(ast.NodeVisitor):
                 def __init__(self, lines):
                     self.lines = lines
                     self.blank_counts = []
-                    # Indice 0-based dell'ultima riga di costante trovata
                     self.last_constant_end_line = -1 
 
                 def visit_Assign(self, node):
-                    """Visita 'VAR = ...'"""
                     self.process_constant_node(node)
-                    # Continua a visitare i figli, potrebbero esserci costanti annidate
                     self.generic_visit(node)
 
                 def visit_AnnAssign(self, node):
-                    """Visita 'VAR: int = ...'"""
                     self.process_constant_node(node)
                     self.generic_visit(node)
 
                 def process_constant_node(self, node):
-                    """Controlla se il nodo è un'assegnazione di costante e processalo."""
                     
                     is_const = False
-                    # Controlla se ALMENO una delle destinazioni è una costante
                     if isinstance(node, ast.Assign):
                         for target in node.targets:
                             if isinstance(target, ast.Name) and _is_constant_name(target.id):
@@ -667,55 +601,41 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                         if isinstance(node.target, ast.Name) and _is_constant_name(node.target.id):
                             is_const = True
 
-                    # Se questo nodo non è un'assegnazione di costante, ignora.
                     if not is_const:
                         return 
 
-                    # Controllo di sicurezza per Python < 3.8
                     if not hasattr(node, 'end_lineno'):
                         return 
                     
                     current_start_line = node.lineno - 1
                     current_end_line = node.end_lineno - 1
                     
-                    # Controlla se questo è un nuovo blocco di costanti
-                    # Se la riga di inizio è > 1 riga dopo la fine dell'ultimo blocco...
                     if self.last_constant_end_line != -1 and current_start_line > (self.last_constant_end_line + 1):
-                        # ...allora il blocco precedente è finito. Contiamo gli spazi dopo di esso.
                         count = count_blanks_from(self.last_constant_end_line, self.lines)
                         self.blank_counts.append(count)
 
-                    # Questa riga di costante è ora l'ultima che abbiamo visto
                     self.last_constant_end_line = current_end_line
                 
                 def finalize(self):
-                    """Chiamato dopo la visita, per contare gli spazi dopo l'ultimo blocco."""
                     if self.last_constant_end_line != -1:
                         count = count_blanks_from(self.last_constant_end_line, self.lines)
                         self.blank_counts.append(count)
 
-            # Esegui il Visitor
             visitor = ConstantVisitor(lines)
             visitor.visit(tree)
-            visitor.finalize() # Conta gli spazi dopo l'ultimo blocco
+            visitor.finalize()
             
             return visitor.blank_counts
 
-        # Il tuo metodo helper _find_consistent_files non cambia
         return self._find_consistent_files(count_blank_lines_after_constants_ast, per_line=False)
     
     def question_S13(self):
         """
-        Analizza come viene gestita la spaziatura degli argomenti nelle chiamate a funzione.
-        Restituisce 10 varianti nel formato:
-        (percorso_file, strategia_corretta, snippet_codice)
-        """
+        Analyzes function calls to determine the argument wrapping strategy.
 
+        Returns: A list of tuples containing (file_path, strategy_description, example_code_snippet).
+        """
         def analyze_function_calls_in_file(file_path):
-            """
-            Analizza le chiamate a funzione in un file.
-            Restituisce una lista di tuple: (strategia, snippet_codice)
-            """
             found_calls = []
             try:
                 with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
@@ -730,29 +650,20 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                     if isinstance(node, ast.Call):
                         args = node.args + node.keywords
                         
-                        # Consideriamo solo chiamate con almeno 2 argomenti
                         if len(args) < 2: continue
                             
-                        # --- 1. Estrazione Linee ---
-                        # ast.Call ha lineno e end_lineno (Python 3.8+)
                         if not hasattr(node, 'lineno') or not hasattr(node, 'end_lineno'):
                             continue
 
                         start_line = node.lineno - 1
                         end_line = node.end_lineno - 1
                         
-                        # Estrai lo snippet di codice
-                        # Se è su una sola riga
                         if start_line == end_line:
                             snippet = lines_content[start_line].strip()
                         else:
-                            # Se è su più righe, prendiamo tutto il blocco
-                            # Aggiungiamo un po' di pulizia per l'indentazione se necessario, 
-                            # ma per ora prendiamo le righe raw
                             snippet_lines = lines_content[start_line : end_line + 1]
                             snippet = "\n".join(snippet_lines).strip()
 
-                        # --- 2. Analisi Strategia ---
                         arg_lines = []
                         for arg in node.args:
                             arg_lines.append(arg.lineno)
@@ -766,13 +677,10 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                         
                         strategy = "mixed"
                         if len(unique_lines) == 1:
-                            # Se tutti gli argomenti sono sulla stessa riga, controlliamo se sono sulla stessa riga della chiamata
-                            # (anche se tecnicamente 'same_line' si riferisce agli argomenti tra loro)
                             strategy = "same_line"
                         elif len(unique_lines) == len(args):
                             strategy = "newline_every_arg"
                         
-                        # Salva il risultato
                         found_calls.append((strategy, snippet))
                             
             except Exception:
@@ -780,29 +688,21 @@ class SpacingAnalyzer(CodebaseAnalyzer):
                 
             return found_calls
 
-        # --- Logica per trovare file diversi ---
         results = []
-        target_count = self.num_target_files_per_question
         max_lines = 1000
         
-        files_to_check = list(self.python_files)
-        random.shuffle(files_to_check)
-
-        for file_path in files_to_check:
-            if len(results) >= target_count:
+        for file_path in self.python_files:
+            if len(results) >= self.max_results_per_question:
                 break
 
-            # Controllo preliminare dimensione
             try:
                 with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                     if len(f.readlines()) > max_lines: continue
             except: continue
 
-            # Analizza il file
             calls_data = analyze_function_calls_in_file(str(file_path))
             
             if calls_data:
-                # Scegli una chiamata a caso da questo file
                 chosen_strategy, snippet = random.choice(calls_data)
                 
                 relative_path = str(file_path.relative_to(self.codebase_path))

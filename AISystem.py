@@ -10,8 +10,22 @@ from datetime import datetime
 
 
 class AISystem:
-    
+    """
+    A harness for benchmarking Large Language Models against a specific codebase.
+    It handles API communication via LiteLLM, context loading, prompt engineering,
+    error handling (retries/rate limits), and state persistence for resuming interrupted runs.
+    """
     def __init__(self, model: str, provider: str):
+        """
+        Initializes the AI system, configuring the API provider and loading necessary credentials.
+
+        Args:
+            model (str): The specific model identifier (e.g., "gpt-4-turbo", "gemini-1.5-pro").
+            provider (str): The API provider ("openai", "google", "ollama", "copilot-api").
+
+        Raises:
+            ValueError: If the provider is not supported.
+        """
         self.model = model
         self.provider = provider.lower()
         self.env_file = "keys.env"
@@ -35,6 +49,16 @@ class AISystem:
         print(f"Sistema AI inizializzato con modello: {self.model} (provider: {self.provider})")
 
     def _load_specific_file_context(self, codebase_path: str, target_file: str) -> str:
+        """
+        Reads the content of a specific target file from the codebase to serve as context.
+
+        Args:
+            codebase_path (str): The root directory of the codebase.
+            target_file (str): The relative path to the file to be analyzed.
+
+        Returns:
+            str: A formatted string containing the file content or an error message if unreadable.
+        """
         full_path = Path(codebase_path) / target_file
         context = "=== CODEBASE ===\n\n"
         if not full_path.exists():
@@ -48,6 +72,17 @@ class AISystem:
         return context
 
     def _create_prompt(self, benchmark_item: Dict, codebase_context: str):
+        """
+        Constructs the final prompt by combining the codebase context, system instructions,
+        and the specific multiple-choice question.
+
+        Args:
+            benchmark_item (Dict): The dictionary containing the question and answer options.
+            codebase_context (str): The text content of the target file.
+
+        Returns:
+            str: The fully assembled prompt string ready to be sent to the LLM.
+        """
         context_prompt = f"""{codebase_context}
         === ISTRUZIONI ===
         Analizza attentamente la codebase fornita sopra e rispondi alla seguente domanda.
@@ -66,12 +101,20 @@ class AISystem:
 
     def _call_litellm(self, prompt: str) -> Tuple[str, Optional[str]]:
         """
-        Effettua la chiamata API.
-        Restituisce: (contenuto_risposta, messaggio_errore)
+        Executes the API call using LiteLLM with robust error handling and retry logic.
+        Handles RateLimits, 503 Overloads, and generic internal errors.
+
+        Args:
+            prompt (str): The text prompt to send to the model.
+
+        Returns:
+            Tuple[str, Optional[str]]: A tuple containing:
+                - The response content (str), or empty string on failure.
+                - An error message (str) if an error occurred, otherwise None.
         """
         max_retries = 5
         last_error = None
-        wait_time = 60  # secondi
+        wait_time = 60
 
         for attempt in range(max_retries):
             try:
@@ -83,7 +126,6 @@ class AISystem:
                     api_key=self.api_key,
                     api_base=self.api_base
                 )
-                # Successo: Ritorna il contenuto e Nessun errore
                 return response.choices[0].message.content.strip(), None
 
             except litellm.RateLimitError as e:
@@ -111,6 +153,15 @@ class AISystem:
         return "", f"Unknown Error (Loop finished): {last_error}"
 
     def _extract_answer_letter(self, ai_response: str) -> str:
+        """
+        Parses the raw text response from the AI to extract the selected option letter (A, B, C, or D).
+
+        Args:
+            ai_response (str): The raw output string from the LLM.
+
+        Returns:
+            str: The uppercase letter found (A/B/C/D), or an empty string if no valid letter is found.
+        """
         if not ai_response: return ""
         ai_response = ai_response.upper().strip()
         for char in ai_response:
@@ -119,11 +170,21 @@ class AISystem:
         return ""
 
     def process_question(self, benchmark_item: Dict, codebase_path: str) -> Dict:
-        """Processa una domanda, riprovando se la risposta è troppo prolissa (>10 char)."""
+        """
+        Orchestrates the processing of a single benchmark item.
+        It handles context loading, prompt generation, API calls, and includes logic to
+        retry if the model generates an excessively long response (>10 chars).
+
+        Args:
+            benchmark_item (Dict): The question data object.
+            codebase_path (str): The root path to the codebase.
+
+        Returns:
+            Dict: A dictionary containing the detailed execution result (answer, correctness, errors).
+        """
         target_file = benchmark_item.get('target_file')
         error_msg = None
         
-        # --- 1. Caricamento Contesto ---
         if not target_file:
             error_msg = "Missing 'target_file' in benchmark item"
             print(f"[ERRORE] {error_msg}")
@@ -134,7 +195,6 @@ class AISystem:
         
         prompt = self._create_prompt(benchmark_item, codebase_context)
         
-        # --- 2. Ciclo di Tentativi per Lunghezza ---
         max_len_retries = 5
         ai_response = ""
         call_error = None
@@ -142,31 +202,24 @@ class AISystem:
         for i in range(max_len_retries):
             print(f"Invio domanda {benchmark_item['question_id']} al modello (Tentativo {i+1})...")
             
-            # Chiamata all'AI
             ai_response, call_error = self._call_litellm(prompt)
             
-            # Se c'è un errore tecnico (es. 503, 429, RateLimit), fermiamo subito il ciclo
             if call_error:
                 error_msg = call_error
                 break
             
-            # Pulisci la risposta da spazi bianchi
             cleaned_response = ai_response.strip()
             
-            # CONTROLLO LUNGHEZZA: Se <= 10 caratteri, accettiamo e usciamo
             if len(cleaned_response) <= 10:
                 break
             
-            # Se siamo qui, la risposta era troppo lunga
             print(f"  -> Risposta troppo lunga ({len(cleaned_response)} char): '{cleaned_response[:20]}...'. Riprovo tra 60 secondi.")
             
-            # Opzionale: Aggiungiamo un messaggio di rinforzo al prompt per il prossimo tentativo
             if i < max_len_retries - 1:
                 prompt += "\n\n[SYSTEM MESSAGE]: La tua risposta precedente era troppo lunga. Rispondi SOLO con la lettera (A, B, C, o D)."
 
-            time.sleep(60)  # Attesa prima del prossimo tentativo
+            time.sleep(60)
 
-        # --- 3. Elaborazione Risultato Finale ---
         if len(ai_response.strip()) > 10 and not call_error:
             error_msg = "Risposta AI troppo lunga dopo più tentativi."
             ai_answer = ""
@@ -196,7 +249,15 @@ class AISystem:
         return result
 
     def _save_state(self, output_path: Path, current_run_summary: Dict):
-        """Legge lo storico, aggiorna o aggiunge l'esecuzione corrente e salva tutto."""
+        """
+        Persists the current evaluation state to a JSON file.
+        It reads existing history to ensure data for other models is not lost and updates/appends
+        the current model's run data.
+
+        Args:
+            output_path (Path): The file path where results should be saved.
+            current_run_summary (Dict): The data structure containing results and stats for the current run.
+        """
         history = []
         if output_path.exists():
             try:
@@ -204,14 +265,12 @@ class AISystem:
                     content = f.read().strip()
                     if content:
                         history = json.loads(content)
-                        # Assicura che history sia una lista
                         if not isinstance(history, list):
                             history = [history]
             except (json.JSONDecodeError, IOError) as e:
                 print(f"Attenzione: impossibile leggere o decodificare il file storico {output_path}. Verrà creato un nuovo file. Errore: {e}")
                 history = []
 
-        # Cerca se un'esecuzione per questo modello/provider è già nello storico
         run_found = False
         for i, run in enumerate(history):
             if run.get("model") == self.model and run.get("provider") == self.provider:
@@ -221,8 +280,6 @@ class AISystem:
         
         if not run_found:
             history.append(current_run_summary)
-
-        # Salva lo storico aggiornato
         try:
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(history, f, indent=2, ensure_ascii=False)
@@ -230,13 +287,27 @@ class AISystem:
             print(f"ERRORE CRITICO: Impossibile salvare lo stato in {output_path}. Errore: {e}")
 
     def evaluate_benchmark(self, benchmark_items: List[Dict], codebase_path: str, output_path: str = "ai_evaluation.json", wait_time: int = 10) -> Dict:
-        """Valuta il modello, salva i progressi dopo ogni item e può riprendere un'esecuzione interrotta."""
-        
+        """
+        The main driver function that iterates through the benchmark items.
+        Features:
+        - Resumes from previous interruptions by checking processed IDs.
+        - Groups results logically by template ID.
+        - Calculates real-time statistics (accuracy per category).
+        - Saves state after every single item to prevent data loss.
+
+        Args:
+            benchmark_items (List[Dict]): The list of questions to evaluate.
+            codebase_path (str): The path to the codebase folder.
+            output_path (str, optional): The JSON file for saving results. Defaults to "ai_evaluation.json".
+            wait_time (int, optional): Seconds to wait between requests to avoid rate limits. Defaults to 10.
+
+        Returns:
+            Dict: The final summary of the evaluation run.
+        """
         path = Path(output_path)
         processed_ids = set()
         current_run_summary = None
 
-        # --- 1. Caricamento Stato Precedente (se esiste) ---
         if path.exists():
             try:
                 with open(path, 'r', encoding='utf-8') as f:
@@ -254,7 +325,6 @@ class AISystem:
             except (json.JSONDecodeError, IOError) as e:
                 print(f"Attenzione: file di output {path} corrotto o illeggibile. Si ricomincia da capo. Errore: {e}")
 
-        # --- 2. Inizializzazione se non è stato trovato uno stato precedente ---
         if current_run_summary is None:
             print("Nessuna esecuzione precedente trovata per questo modello. Inizio una nuova valutazione.")
             current_run_summary = {
@@ -271,7 +341,6 @@ class AISystem:
         print(f"Inizio valutazione su {len(benchmark_items)} item (Modello: {self.model})")
         print(f"{'='*60}\n")
         
-        # --- 3. Ciclo Principale di Elaborazione ---
         items_to_process = [item for item in benchmark_items if item['question_id'] not in processed_ids]
         if not items_to_process:
             print("Tutti gli item sono già stati processati. Nessuna nuova operazione da eseguire.")
@@ -287,12 +356,10 @@ class AISystem:
             
             result = self.process_question(item, codebase_path)
             
-            # Se la chiamata API fallisce per un limite, interrompi il ciclo
             if result['error'] and "RateLimitError" in result['error']:
                 print("Interruzione a causa di Rate Limit. I progressi sono stati salvati.")
                 break
 
-            # --- Logica di Raggruppamento Incrementale ---
             logical_id = full_id.split('_')[0]
             if logical_id not in grouped_results:
                 grouped_results[logical_id] = {
@@ -331,17 +398,14 @@ class AISystem:
             else:
                 group_stats["wrong"] += 1
             
-            # Ricalcola l'accuratezza del gruppo (escludendo gli errori tecnici dal denominatore se preferisci, qui li includiamo nel totale)
             valid_total = group_stats["total"] - group_stats["errors"]
             if valid_total > 0:
                 group_stats["accuracy"] = round((group_stats["correct"] / valid_total) * 100, 2)
             else:
                 group_stats["accuracy"] = 0.0
             
-            # --- 4. Aggiornamento e Salvataggio dello Stato dopo ogni item ---
             current_run_summary["results"] = list(grouped_results.values())
             
-            # Ricalcola le statistiche ogni volta
             all_executions = [ex for group in current_run_summary["results"] for ex in group["executions"]]
             total_errors = sum(1 for ex in all_executions if ex["error"])
             
@@ -385,7 +449,6 @@ class AISystem:
             self._save_state(path, current_run_summary)
             print(f"  -> Progresso salvato in {path.name}")
             
-            # Se c'è stato un errore che non è un Rate Limit, attendi prima di continuare
             if not ("RateLimitError" in (result['error'] or "")):
                  time.sleep(wait_time)
         

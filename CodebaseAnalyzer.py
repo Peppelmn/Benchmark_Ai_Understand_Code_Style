@@ -1,61 +1,75 @@
-from ast import List
 from pathlib import Path
 
 class CodebaseAnalyzer:
-    """Classe base per analizzatori di codebase"""
+    """
+    Base class for specific codebase analyzers (e.g., Spacing, Naming).
+    It handles the initial scanning of the directory, filtering of invalid or
+    excessively large files, and caches the list of valid Python files to avoid
+    redundant I/O operations across different analyzer instances.
+    """
+    _python_files_cache = [] 
+    _is_initialized = False
     
-    def __init__(self, codebase_path: str, max_token_limit, num_target_files_per_question=10):
+    def __init__(self, codebase_path: str, max_token_limit, max_results_per_question = 10):
         """
-        Inizializza l'analyzer filtrando i file non validi o troppo grandi.
-        
+        Initializes the analyzer by setting up paths and limits.
+        If the shared file cache is empty, it triggers a codebase scan.
+
         Args:
-            codebase_path: Percorso della cartella da analizzare
-            max_char_limit: Limite caratteri (~120k chars = ~30k tokens)
+            codebase_path (str): The root path to the directory to analyze.
+            max_token_limit (int): The maximum allowed tokens (approx.) per file. Files exceeding this are skipped.
+            max_results_per_question (int, optional): The target number of samples to find per question type. Defaults to 10.
         """
         self.codebase_path = Path(codebase_path)
-        self.python_files = []
+        self.python_files = CodebaseAnalyzer._python_files_cache 
         self.parse_error_count = 0
-        self.num_target_files_per_question = num_target_files_per_question
+        self.max_results_per_question = max_results_per_question
+        self.max_token_limit = max_token_limit
         self.max_char_limit = max_token_limit * 4
         
+        if not CodebaseAnalyzer._is_initialized:
+            self._scan_codebase()
+            CodebaseAnalyzer._is_initialized = True
+        else:
+            print(f"Analyzer pronto. File caricati dalla cache: {len(self.python_files)}")
+
+    def _scan_codebase(self):
+        """
+        Private method that performs the actual file system traversal.
+        It recursively finds .py files, applies filters (folders, symlinks, size),
+        and populates the class-level `_python_files_cache`.
+        """
         print(f"Inizializzazione Analyzer: scansione file in {self.codebase_path}...")
-        skipped_count = 0
+        token_skipped_count = 0
+        exception_skipped_count = 0
+
+        CodebaseAnalyzer._python_files_cache.clear()
 
         for path in self.codebase_path.rglob("*.py"):
             
-            # 1. Filtro Cartelle (Standard)
             if any(part in {".git", "__pycache__", ".venv", "venv", "node_modules", "build", "dist"} for part in path.parts):
                 continue
             
-            # 2. Filtro Link Simbolici
             if path.is_symlink():
                 continue
 
-            # 3. Filtro DIMENSIONE (Il controllo centralizzato)
             try:
-                # Leggiamo il file per vedere quanto è grosso
                 with open(path, 'r', encoding='utf-8', errors='ignore') as f:
                     content = f.read()
                 
                 if len(content) > self.max_char_limit:
-                    skipped_count += 1
-                    # (Opzionale) Debug print per vedere cosa scarta
-                    # print(f"  -> Skipped {path.name}: troppo grande ({len(content)} chars)")
+                    token_skipped_count += 1
                     continue
                     
-                # Se il file è vuoto, inutile analizzarlo
                 if not content.strip():
                     continue
 
             except Exception:
-                # Se non riusciamo nemmeno a leggerlo (es. permessi), lo saltiamo
+                exception_skipped_count += 1
                 continue
 
-            # Se passa tutti i controlli, è un file valido per il benchmark
-            self.python_files.append(path)
+            CodebaseAnalyzer._python_files_cache.append(path)
             
-        print(f"Analyzer pronto. File validi caricati: {len(self.python_files)} (Scartati per dimensione: {skipped_count})")
-
-    def get_files(self):
-        """Restituisce la lista dei file Python validi trovati nella codebase."""
-        return self.python_files
+        print(f"Scansione completata. File validi caricati: {len(CodebaseAnalyzer._python_files_cache)}")
+        print(f"\t->Scartati per numero token > {self.max_token_limit}: {token_skipped_count}")
+        print(f"\t->Scartati per errori di lettura: {exception_skipped_count}")

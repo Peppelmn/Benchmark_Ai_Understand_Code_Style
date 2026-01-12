@@ -19,13 +19,19 @@ warnings.filterwarnings("ignore", category=SyntaxWarning)
 
 def start_copilot_server():
     """
-    Apre una NUOVA finestra di terminale ed esegue il server copilot-api.
+    Launches the Copilot API server in a new dedicated terminal window.
+    It checks if the server is already running on the default port (4141) before attempting startup.
     """
-
     def is_server_running(host="localhost", port=4141):
         """
-        Controlla se c'è un servizio attivo sulla porta specificata.
-        Restituisce True se la porta è aperta, False altrimenti.
+        Checks if a service is actively listening on the specified host and port.
+
+        Args:
+            host (str): The hostname to check. Defaults to "localhost".
+            port (int): The port number to check. Defaults to 4141.
+
+        Returns:
+            bool: True if the connection is successful (server running), False otherwise.
         """
         try:
             with socket.create_connection((host, port), timeout=1):
@@ -58,17 +64,17 @@ def start_copilot_server():
         print(f"Per favore esegui manualmente: {command}")
 
 if __name__ == "__main__":
-    # start_copilot_server()
-    loader = GitHubLoader()
-    # loader.download_repositories(query="language:python stars:>10", limit=30, max_size_mb=200)
     codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "downloads")
-    distributionAnalyzer = DistributionAnalyzer()
-    distributionAnalyzer.analyze(output_path="answer_distribution_report.json")
+    # start_copilot_server()
+    # loader = GitHubLoader()
+    # loader.download_repositories(query="language:python stars:>10", limit=100, max_size_mb=200)
+    # distributionAnalyzer = DistributionAnalyzer()
+    # distributionAnalyzer.analyze(output_path="answer_distribution_report.json")
     
     models = {
         "openai" : 
             [
-                "openai/gpt-4.1",
+                # "openai/gpt-4.1",
                 # "openai/gpt-5.1",
                 # "openai/gpt-3.5-turbo",
                 # "openai/gpt-4o-mini",
@@ -87,7 +93,7 @@ if __name__ == "__main__":
             ],
         "google" : 
             [
-                # "gemini/gemini-2.5-flash",
+                "gemini/gemini-2.5-flash",
                 # "gemini/gemini-3.0-flash",
                 # "gemini/gemini-2.5-pro",
             ]
@@ -95,8 +101,6 @@ if __name__ == "__main__":
 
     for provider, models_list in models.items():
         provider_name = "copilot-api"
-        # if provider == "openai":
-        #     provider_name = provider
         if provider == "google":
             provider_name = "google"
 
@@ -117,7 +121,6 @@ if __name__ == "__main__":
             benchmark_file = str(benchmark_path)
             evaluation_file = str(evaluation_path)
             
-            # --- CONFIGURAZIONE LIMITI ---
             max_token_per_minute = 115000 
             if model == "gemini/gemini-2.5-pro":
                 max_token_per_minute = 125000 
@@ -126,32 +129,31 @@ if __name__ == "__main__":
             elif model in ["openai/gpt-4o-mini", "openai/gpt-3.5-turbo"]:
                 max_token_per_minute = 10000 
 
-            # system = BenchmarkSystem(codebase_path=codebase_path)
+            system = BenchmarkSystem(codebase_path=codebase_path)
 
-            # if benchmark_path.exists():
-            #     print(f"\nBenchmark trovato per {model}: '{benchmark_file}'.")
-            # else:
-            #     print(f"\nCreazione NUOVO benchmark per {model}...")
+            if benchmark_path.exists():
+                print(f"\nBenchmark trovato per {model}: '{benchmark_file}'.")
+            else:
+                print(f"\nCreazione NUOVO benchmark per {model}...")
                 
-            #     spacingAnalyzer = SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute, num_target_files_per_question=10)
-            #     namingAnalyzer = NamingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute, num_target_files_per_question=10)
+                spacingAnalyzer = SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
+                namingAnalyzer = NamingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
                 
-            #     try:
-            #         questions = get_all_questions(spacingAnalyzer, namingAnalyzer)
-            #         print(f"File saltati (Spacing): {spacingAnalyzer.parse_error_count}")
-            #         print(f"File saltati (Naming):  {namingAnalyzer.parse_error_count}")
-            #     except Exception as e:
-            #         print(f"Errore fatale durante la generazione delle domande: {e}")
-            #         exit()
+                try:
+                    questions = get_all_questions(spacingAnalyzer, namingAnalyzer)
+                    print(f"\t->File scartati per errori di parsing Ast(Spacing): {spacingAnalyzer.parse_error_count}")
+                    print(f"\t->File scartati per errori di parsing Ast(Naming):  {namingAnalyzer.parse_error_count}")
+                except Exception as e:
+                    print(f"Errore fatale durante la generazione delle domande: {e}")
+                    exit()
 
-            #     system.generate_benchmark(questions, output_path=benchmark_path)
-            #     print(f"Benchmark salvato in '{benchmark_path}'")
+                system.generate_benchmark(questions, output_path=benchmark_path)
+                print(f"Benchmark salvato in '{benchmark_path}'")
 
             # print(f"Avvio valutazione AI per {model}...")
             
             # ai_system = AISystem(model=model, provider=provider_name)
             
-            # # Carica gli item dal file corretto
             # items_to_evaluate = system.get_benchmark_items(benchmark_file)
             
             # evaluation_results = ai_system.evaluate_benchmark(

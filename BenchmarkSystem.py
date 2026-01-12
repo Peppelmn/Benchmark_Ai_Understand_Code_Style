@@ -11,30 +11,48 @@ from Naming.NamingDistractorGenerator import NamingDistractorGenerator
 from Spacing.SpacingDistractorGenerator import SpacingDistractorGenerator
 
 class BenchmarkSystem:
-    """Sistema principale per generare e gestire il benchmark"""
-    
+    """
+    Core system responsible for generating, managing, and retrieving benchmark items.
+    It orchestrates the interaction between Question definitions, Distractor Generators,
+    and the final JSON output structure.
+    """    
     def __init__(self, codebase_path: str):
+        """
+        Initializes the BenchmarkSystem and registers the necessary distractor generators.
+
+        Args:
+            codebase_path (str): The root path to the codebase being analyzed.
+        """
         self.codebase_path = codebase_path
         
-        # Registra i generatori di distrattori
         self.distractor_generators: Dict[str, DistractorGenerator] = {
             "naming": NamingDistractorGenerator(),
             "spacing": SpacingDistractorGenerator(),
         }
     
     def process_question(self, question: Question) -> BenchmarkItem:
-        """Processa una singola domanda e genera l'item completo"""
+        """
+        Processes a single Question object to generate a complete BenchmarkItem,
+        including the correct answer and valid distractors.
+
+        Args:
+            question (Question): The abstract question definition.
+
+        Returns:
+            BenchmarkItem: A fully constructed item ready for the benchmark.
+
+        Raises:
+            ValueError: If no distractor generator is found for the question's category.
+        """
         
         correct_answer = Answer(question.correct_answer_value, True)
         
-        #Genera distrattori
         generator = self.distractor_generators.get(question.category)
         if not generator:
             raise ValueError(f"Generator non trovato: {question.category}")
         
         distractors = generator.generate(correct_answer, question)
         
-        #Crea l'item completo
         return BenchmarkItem(
             question=question,
             correct_answer=correct_answer,
@@ -42,26 +60,32 @@ class BenchmarkSystem:
         )
 
     def generate_benchmark(self, questions: List[Question], output_path: str = None) -> List[Dict]:
+        """
+        Generates the full benchmark dataset by expanding abstract Questions into specific items for each target file.
+        
+        For each question in the input list, this method iterates through its associated target files (e.g., 10 files per question type),
+        creates specific question instances with context (e.g., formatting variable names), generates distractors, and optionally saves the result to a JSON file.
+
+        Args:
+            questions (List[Question]): A list of Question objects populated with analysis data (target files and correct answers).
+            output_path (str, optional): The file path where the generated benchmark JSON should be saved.
+
+        Returns:
+            List[Dict]: A list of dictionaries representing the generated benchmark items.
+        """
         benchmark_items = []
         
         for q in questions:
-            # Iteriamo su tutti i file target trovati per questa domanda (es. 10)
             for i, target_file in enumerate(q.target_files):
                 try:
-                    # 1. Prepara il testo specifico
-                    # Se c'è extra_data (es. nome variabile per N06), formattiamo la stringa
                     if q.extra_data:
                         formatted_text = q.text_template.format(q.extra_data[i])
                     else:
                         formatted_text = q.text_template
 
-                    # 2. Risposta corretta specifica per questo file
                     correct_val = q.correct_answer_values[i]
                     correct_answer_obj = Answer(correct_val, True)
 
-                    # 3. Generatore di Distrattori
-                    # Creiamo un oggetto Question "proxy" temporaneo per il generatore
-                    # (Il generatore si aspetta un oggetto Question con un ID per decidere la logica)
                     proxy_q = Question(
                         id=q.id, category=q.category, text_template=formatted_text,
                         target_files=[target_file], correct_answer_values=[correct_val]
@@ -70,16 +94,13 @@ class BenchmarkSystem:
                     generator = self.distractor_generators.get(q.category)
                     distractors = generator.generate(correct_answer_obj, proxy_q)
                     
-                    if distractors is None: distractors = [] # Safety check
+                    if distractors is None: distractors = []
 
-                    # 4. Crea l'Item Finale
-                    # Nota: Creiamo un nuovo oggetto Question "fisico" per questo singolo item
-                    # così il to_dict funzionerà correttamente
                     single_file_q = Question(
-                        id=f"{q.id}_{i+1}", # ID Univoco: S01_1, S01_2...
+                        id=f"{q.id}_{i+1}",
                         category=q.category,
                         text_template=formatted_text,
-                        target_files=[target_file], # Lista di 1 elemento
+                        target_files=[target_file],
                         correct_answer_values=[correct_val]
                     )
 
@@ -89,9 +110,7 @@ class BenchmarkSystem:
                         distractors=distractors
                     )
                     
-                    # Converti in dict e aggiungi alla lista
                     item_dict = item.to_dict()
-                    # Sovrascriviamo target_file per essere sicuri che sia una stringa nel JSON finale
                     item_dict["target_file"] = target_file
                     item_dict["question_template"] = q.text_template.format("choosen_item") if q.extra_data else q.text_template
                     item_dict["choosen_item"] = q.extra_data[i] if q.extra_data else None
@@ -108,7 +127,15 @@ class BenchmarkSystem:
         return benchmark_items
         
     def get_benchmark_items(self, benchmark_path: str) -> List[Dict]:
-        """Carica gli item del benchmark da un file JSON"""
+        """
+        Loads an existing benchmark dataset from a JSON file.
+
+        Args:
+            benchmark_path (str): The path to the benchmark JSON file.
+
+        Returns:
+            List[Dict]: The list of benchmark items loaded from the file.
+        """
         with open(benchmark_path, 'r', encoding='utf-8') as f:
             benchmark_items = json.load(f)
         return benchmark_items

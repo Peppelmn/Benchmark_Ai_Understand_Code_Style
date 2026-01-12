@@ -4,7 +4,11 @@ import random
 
 @dataclass
 class Question:
-    """Rappresenta una domanda del benchmark"""
+    """
+    Represents a benchmark question definition.
+    It serves as a container for a specific question type found across multiple target files,
+    holding the template text and the corresponding correct values for each file.
+    """
     id: str
     category: str
     text_template: str
@@ -14,19 +18,31 @@ class Question:
 
 @dataclass
 class Answer:
-    """Rappresenta una risposta (corretta o errata)"""
+    """
+    Represents a single answer option (either correct or a distractor) for a multiple-choice question.
+    """    
     text: Any
     is_correct: bool
 
 @dataclass
 class BenchmarkItem:
-    """Item completo del benchmark"""
+    """
+    Represents a complete, distinct benchmark item.
+    It aggregates the specific question instance, the ground truth answer, and the generated distractors.
+    """
     question: Question
     correct_answer: Answer
     distractors: List[Answer]
 
     def to_dict(self) -> Dict:
-        """Converte in formato per l'IA"""
+        """
+        Converts the benchmark item into a dictionary format suitable for AI evaluation.
+        It combines the correct answer with distractors, shuffles them to randomize positions,
+        and assigns selection labels (A, B, C, D).
+
+        Returns:
+            Dict: The formatted dictionary containing the question prompt, shuffled options, correct label, and target file.
+        """
         answers = [self.correct_answer] + self.distractors
         random.shuffle(answers)
         
