@@ -1,19 +1,15 @@
 import os
-import random
 import warnings
-from AISystem import AISystem
-from BenchmarkSystem import BenchmarkSystem
-from GitHubLoader import GitHubLoader
-from QuestionDefiner import get_all_questions
-from Spacing.SpacingAnalyzer import SpacingAnalyzer
-from Naming.NamingAnalyzer import NamingAnalyzer
+from AISystem.AISystem import AISystem
+from Benchmark.BenchmarkSystem import BenchmarkSystem
+from AnswerDataset.DatasetGenerator import DatasetGenerator
+from Codebase.GitHubLoader import GitHubLoader
 import subprocess
 import platform
 import time
 import os
 import socket
-from pathlib import Path
-from DistributionAnalyzer import DistributionAnalyzer
+from AnswerDistribution.DistributionAnalyzer import DistributionAnalyzer
 
 warnings.filterwarnings("ignore", category=SyntaxWarning)
 
@@ -64,12 +60,22 @@ def start_copilot_server():
         print(f"Per favore esegui manualmente: {command}")
 
 if __name__ == "__main__":
+
     codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "downloads")
-    # start_copilot_server()
-    # loader = GitHubLoader()
-    # loader.download_repositories(query="language:python stars:>10", limit=100, max_size_mb=200)
-    # distributionAnalyzer = DistributionAnalyzer()
-    # distributionAnalyzer.analyze(output_path="answer_distribution_report.json")
+    dataset_path = os.path.join(os.path.dirname(__file__), "AnswerDataset", "master_dataset.json")
+    bencmark_path = os.path.join(os.path.dirname(__file__), "Benchmark", "benchmark.json")
+
+    loader = GitHubLoader()
+    loader.download_repositories(query="language:python stars:>10", limit=50, max_size_mb=200)
+
+    dataset_generator = DatasetGenerator(codebase_path=codebase_path)
+    dataset_generator.generate_dataset(output_path=dataset_path)
+
+    distribution_analyzer = DistributionAnalyzer(dataset_path=dataset_path)
+    distribution_analyzer.analyze(output_path=os.path.join(os.path.dirname(__file__), "AnswerDistribution", "answer_distribution_report.json"))
+
+    benchmark_generator = BenchmarkSystem(dataset_path=dataset_path)
+    benchmark_generator.generate_benchmark(output_path=bencmark_path, target_count_per_question=10)
     
     models = {
         "openai" : 
@@ -103,62 +109,16 @@ if __name__ == "__main__":
         provider_name = "copilot-api"
         if provider == "google":
             provider_name = "google"
-
-        codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "downloads")
-            
         for model in models_list:
-            safe_model_name = model.replace('/', '_')
-            
-            bench_dir = Path("Benchmark_per_model")
-            eval_dir = Path("Evaluation_per_model")
-            
-            bench_dir.mkdir(parents=True, exist_ok=True)
-            eval_dir.mkdir(parents=True, exist_ok=True)
+            evaluation_path = os.path.join(os.path.dirname(__file__), "AISystem", "EvaluationPerModel", f"{model.replace('/', '_')}_evaluation.json")
 
-            benchmark_path = bench_dir / f"{safe_model_name}_benchmark.json"
-            evaluation_path = eval_dir / f"{safe_model_name}_evaluation.json"
-            
-            benchmark_file = str(benchmark_path)
-            evaluation_file = str(evaluation_path)
-            
-            max_token_per_minute = 115000 
-            if model == "gemini/gemini-2.5-pro":
-                max_token_per_minute = 125000 
-            elif model == "gemini/gemini-2.5-flash":
-                max_token_per_minute = 200000 
-            elif model in ["openai/gpt-4o-mini", "openai/gpt-3.5-turbo"]:
-                max_token_per_minute = 10000 
+            ai_system = AISystem(model=model, provider=provider_name)
 
-            system = BenchmarkSystem(codebase_path=codebase_path)
+            items_to_evaluate = benchmark_generator.get_benchmark_items(bencmark_path)
 
-            if benchmark_path.exists():
-                print(f"\nBenchmark trovato per {model}: '{benchmark_file}'.")
-            else:
-                print(f"\nCreazione NUOVO benchmark per {model}...")
-                
-                spacingAnalyzer = SpacingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
-                namingAnalyzer = NamingAnalyzer(codebase_path=codebase_path, max_token_limit=max_token_per_minute)
-                
-                try:
-                    questions = get_all_questions(spacingAnalyzer, namingAnalyzer)
-                    print(f"\t->File scartati per errori di parsing Ast(Spacing): {spacingAnalyzer.parse_error_count}")
-                    print(f"\t->File scartati per errori di parsing Ast(Naming):  {namingAnalyzer.parse_error_count}")
-                except Exception as e:
-                    print(f"Errore fatale durante la generazione delle domande: {e}")
-                    exit()
-
-                system.generate_benchmark(questions, output_path=benchmark_path)
-                print(f"Benchmark salvato in '{benchmark_path}'")
-
-            # print(f"Avvio valutazione AI per {model}...")
-            
-            # ai_system = AISystem(model=model, provider=provider_name)
-            
-            # items_to_evaluate = system.get_benchmark_items(benchmark_file)
-            
-            # evaluation_results = ai_system.evaluate_benchmark(
-            #     benchmark_items=items_to_evaluate,
-            #     codebase_path=codebase_path,
-            #     output_path=evaluation_file,
-            #     wait_time=60
-            # )\
+            evaluation_results = ai_system.evaluate_benchmark(
+                benchmark_items=items_to_evaluate,
+                codebase_path=codebase_path,
+                output_path=evaluation_path,
+                wait_time=60
+            )

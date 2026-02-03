@@ -23,9 +23,9 @@ class SpacingDistractorGenerator(DistractorGenerator):
             return self.generate_distractor(float(correct_answer.text), num_distractors)
         elif question.id == "S13":
             strategies = [
-                "Tutti gli argomenti sono sulla stessa riga",
-                "Ogni argomento è su una nuova riga",
-                "Strategia mista (alcuni a capo, altri no)"
+                "All arguments are on the same line",
+                "Every argument is on a new line",
+                "Mixed strategy (some on new lines, others not)"
             ]
             distractors = []
             correct_value = correct_answer.text

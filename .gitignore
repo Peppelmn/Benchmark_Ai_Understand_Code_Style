@@ -1,7 +1,7 @@
 # Ignora file con chiavi o configurazioni sensibili
 .env
 keys.env
-Codebase/
+Codebase/downloads/
 
 # (opzionale ma consigliato)
 __pycache__/

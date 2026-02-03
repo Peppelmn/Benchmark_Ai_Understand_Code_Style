@@ -1,0 +1,215 @@
+[
+  {
+    "timestamp": "2026-02-01T21:27:27.182105",
+    "model": "gemini/gemini-2.5-flash",
+    "provider": "google",
+    "stats": {
+      "correct": {
+        "spacing": 14,
+        "naming": 0,
+        "total": 14
+      },
+      "wrong": {
+        "spacing": 2,
+        "naming": 0,
+        "total": 2
+      },
+      "errors": 0,
+      "accuracy": {
+        "spacing": 87.5,
+        "naming": 0.0,
+        "total": 87.5
+      }
+    },
+    "results": [
+      {
+        "template_id": "S01",
+        "category": "spacing",
+        "question_template": "In variable definitions within the file, how many spaces are used to separate tokens?",
+        "group_stats": {
+          "correct": 9,
+          "wrong": 1,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 90.0
+        },
+        "executions": [
+          {
+            "execution_id": "S01_1",
+            "target_file": "Python\\maths\\sum_of_harmonic_series.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S01_2",
+            "target_file": "browser-use\\examples\\models\\qwen.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S01_3",
+            "target_file": "gpt4free\\g4f\\providers\\create_images.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S01_4",
+            "target_file": "rich\\rich\\_null_file.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S01_5",
+            "target_file": "awesome-llm-apps\\advanced_ai_agents\\single_agent_apps\\windows_use_autonomous_agent\\windows_use\\agent\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S01_6",
+            "target_file": "scikit-learn\\sklearn\\model_selection\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S01_7",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\s3\\resource_providers\\aws_s3_bucketpolicy_plugin.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C)",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S01_8",
+            "target_file": "MetaGPT\\metagpt\\utils\\embedding.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S01_9",
+            "target_file": "localstack\\localstack-core\\localstack\\aws\\handlers\\auth.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S01_10",
+            "target_file": "MetaGPT\\metagpt\\ext\\aflow\\scripts\\evaluator.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D)",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S02",
+        "category": "spacing",
+        "question_template": "In control structure conditions, how many spaces are used to separate tokens?",
+        "group_stats": {
+          "correct": 5,
+          "wrong": 1,
+          "errors": 0,
+          "total": 6,
+          "accuracy": 83.33
+        },
+        "executions": [
+          {
+            "execution_id": "S02_1",
+            "target_file": "ragflow\\admin\\client\\user.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S02_2",
+            "target_file": "yolov5\\hubconf.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S02_3",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\events\\models.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S02_4",
+            "target_file": "you-get\\src\\you_get\\extractors\\nicovideo.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S02_5",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\youtube\\_search.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S02_6",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\bitmovin.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          }
+        ]
+      }
+    ]
+  }
+]
