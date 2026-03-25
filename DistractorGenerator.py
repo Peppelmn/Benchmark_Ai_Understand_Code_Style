@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from typing import List
 from DataClassesDefiner import Question, Answer
 
-class DistractorGenerator(ABC):
+class DistractorGenerator:
     """Base class for distractor generators"""
     
     @abstractmethod

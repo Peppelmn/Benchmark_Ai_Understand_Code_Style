@@ -212,7 +212,7 @@ class BenchmarkSystem:
 
         return selected_samples
 
-    def generate_benchmark(self, output_path: str, target_count_per_question: int = 20):
+    def generate_benchmark(self, output_path: str, target_count_per_question: int = 10):
         """
         Generates the final benchmark JSON file containing questions, correct answers, and distractors.
 
@@ -222,7 +222,7 @@ class BenchmarkSystem:
 
         Args:
             output_path (str): The file path where the benchmark JSON will be saved.
-            target_count_per_question (int, optional): The number of questions to generate per template ID. Defaults to 20.
+            target_count_per_question (int, optional): The number of questions to generate per template ID. Defaults to 10.
         """
 
         if os.path.exists(output_path):

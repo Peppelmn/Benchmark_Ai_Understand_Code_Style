@@ -163,6 +163,8 @@ class AISystem:
         """
         if not ai_response: return ""
         ai_response = ai_response.upper().strip()
+        if any(ai_response == f"RISPOSTA: {char}" for char in ['A', 'B', 'C', 'D']):
+            return ai_response[-1] if ai_response[-1] in ['A', 'B', 'C', 'D'] else ""
         for char in ai_response:
             if char in ['A', 'B', 'C', 'D']:
                 return char
@@ -196,6 +198,8 @@ class AISystem:
         
         max_len_retries = 5
         ai_response = ""
+        cleaned_response = ""
+        is_response_right = False
         call_error = None
 
         for i in range(max_len_retries):
@@ -207,9 +211,11 @@ class AISystem:
                 error_msg = call_error
                 break
             
-            cleaned_response = ai_response.strip()
+            cleaned_response = ai_response.upper().strip()
             
-            if len(cleaned_response) <= 10:
+            is_response_right = len(cleaned_response) <= 5 or any(cleaned_response == f"RISPOSTA: {char}" for char in ['A', 'B', 'C', 'D'])
+
+            if is_response_right:
                 break
             
             print(f"  -> Risposta troppo lunga ({len(cleaned_response)} char): '{cleaned_response[:20]}...'. Riprovo tra 60 secondi.")
@@ -219,7 +225,7 @@ class AISystem:
 
             time.sleep(60)
 
-        if len(ai_response.strip()) > 10 and not call_error:
+        if not is_response_right and not call_error:
             error_msg = "Risposta AI troppo lunga dopo più tentativi."
             ai_answer = ""
         else:
@@ -298,7 +304,7 @@ class AISystem:
             benchmark_items (List[Dict]): The list of questions to evaluate.
             codebase_path (str): The path to the codebase folder.
             output_path (str, optional): The JSON file for saving results. Defaults to "ai_evaluation.json".
-            wait_time (int, optional): Seconds to wait between requests to avoid rate limits. Defaults to 10.
+            wait_time (int, optional): Seconds to wait between requests to avoid rate limits. Defaults to 60.
 
         Returns:
             Dict: The final summary of the evaluation run.
@@ -348,7 +354,7 @@ class AISystem:
             full_id = item['question_id']
             
             if full_id in processed_ids:
-                print(f"\n[{i}/{len(benchmark_items)}] Item {full_id} già processato. Salto.")
+                print(f"\n[{i}/{len(benchmark_items)}] Item {full_id} già processato. Salto. \n")
                 continue
 
             print(f"\n[{i}/{len(benchmark_items)}] Processando item {full_id}...")

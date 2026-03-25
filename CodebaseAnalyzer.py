@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import List
+from abc import ABC, abstractmethod
 
 class CodebaseAnalyzer:
     """
@@ -113,6 +114,24 @@ class CodebaseAnalyzer:
         print(f"\t-> Scartati (Test/Config/Migrazioni): {tests_skipped_count}")
         print(f"\t-> Scartati (Troppo grandi > {self.max_token_limit} tok): {token_skipped_count}")
         print(f"\t-> Scartati (Errori lettura): {exception_skipped_count}")
+
+    @abstractmethod
+    def analyze_file(self, file_path: str) -> dict:
+        """
+        Abstract method to be implemented by subclasses.
+        Analyzes a single file and returns metrics specific to the analyzer type.
+
+        Args:
+            file_path (str): The absolute path to the file to analyze.
+
+        Returns:
+            dict: A dictionary containing analysis results. Structure depends on the subclass implementation.
+
+        Raises:
+            NotImplementedError: This method must be implemented by subclasses.
+        """
+        raise NotImplementedError("Subclasses must implement analyze_file()")
+        
 
     def get_python_files(self) -> List[Path]:
         """

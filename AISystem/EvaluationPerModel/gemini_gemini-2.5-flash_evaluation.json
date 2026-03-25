@@ -5,20 +5,20 @@
     "provider": "google",
     "stats": {
       "correct": {
-        "spacing": 14,
-        "naming": 0,
-        "total": 14
+        "spacing": 100,
+        "naming": 59,
+        "total": 159
       },
       "wrong": {
-        "spacing": 2,
-        "naming": 0,
-        "total": 2
+        "spacing": 30,
+        "naming": 30,
+        "total": 60
       },
-      "errors": 0,
+      "errors": 1,
       "accuracy": {
-        "spacing": 87.5,
-        "naming": 0.0,
-        "total": 87.5
+        "spacing": 76.92,
+        "naming": 66.29,
+        "total": 72.6
       }
     },
     "results": [
@@ -141,11 +141,11 @@
         "category": "spacing",
         "question_template": "In control structure conditions, how many spaces are used to separate tokens?",
         "group_stats": {
-          "correct": 5,
-          "wrong": 1,
+          "correct": 8,
+          "wrong": 2,
           "errors": 0,
-          "total": 6,
-          "accuracy": 83.33
+          "total": 10,
+          "accuracy": 80.0
         },
         "executions": [
           {
@@ -206,6 +206,2326 @@
             "ai_raw_response": "B",
             "correct_label": "A",
             "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S02_7",
+            "target_file": "scrapy\\scrapy\\commands\\view.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S02_8",
+            "target_file": "vllm\\vllm\\exceptions.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S02_9",
+            "target_file": "you-get\\src\\you_get\\extractors\\sina.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S02_10",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\aws.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S03",
+        "category": "spacing",
+        "question_template": "In function argument lists, how many spaces are used before the comma?",
+        "group_stats": {
+          "correct": 10,
+          "wrong": 0,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 100.0
+        },
+        "executions": [
+          {
+            "execution_id": "S03_1",
+            "target_file": "pathway\\python\\pathway\\internals\\arg_tuple.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S03_2",
+            "target_file": "vllm\\examples\\offline_inference\\disaggregated-prefill-v1\\decode_example.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S03_3",
+            "target_file": "scikit-learn\\sklearn\\ensemble\\_hist_gradient_boosting\\gradient_boosting.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S03_4",
+            "target_file": "Python\\maths\\special_numbers\\bell_numbers.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S03_5",
+            "target_file": "pathway\\docs\\2.developers\\4.user-guide\\30.data-transformation\\.indexes-in-pathway\\article.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S03_6",
+            "target_file": "fastapi\\docs_src\\body_multiple_params\\tutorial001_an_py310.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S03_7",
+            "target_file": "vllm\\tools\\vllm-rocm\\pin_rocm_dependencies.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C)",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S03_8",
+            "target_file": "scrapy\\scrapy\\utils\\conf.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S03_9",
+            "target_file": "fastapi\\docs_src\\response_change_status_code\\tutorial001_py39.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S03_10",
+            "target_file": "MetaGPT\\metagpt\\document_store\\qdrant_store.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S04",
+        "category": "spacing",
+        "question_template": "In function argument lists, how many spaces are used after the comma?",
+        "group_stats": {
+          "correct": 10,
+          "wrong": 0,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 100.0
+        },
+        "executions": [
+          {
+            "execution_id": "S04_1",
+            "target_file": "crawl4ai\\crawl4ai\\deep_crawling\\bff_strategy.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S04_2",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\stepfunctions\\asl\\component\\test_state\\state\\base_mock.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S04_3",
+            "target_file": "crawl4ai\\docs\\examples\\c4a_script\\c4a_script_hello_world_error.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S04_4",
+            "target_file": "crawl4ai\\crawl4ai\\legacy\\web_crawler.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S04_5",
+            "target_file": "scikit-learn\\sklearn\\utils\\discovery.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S04_6",
+            "target_file": "gpt-engineer\\gpt_engineer\\core\\files_dict.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S04_7",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\cloudformation\\resource_providers\\aws_cloudformation_waitcondition.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S04_8",
+            "target_file": "stable-diffusion-webui\\modules\\extensions.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S04_9",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\tv2hu.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S04_10",
+            "target_file": "LlamaFactory\\src\\llamafactory\\v1\\accelerator\\helper.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S05",
+        "category": "spacing",
+        "question_template": "How many blank lines are there after a function definition?",
+        "group_stats": {
+          "correct": 5,
+          "wrong": 5,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 50.0
+        },
+        "executions": [
+          {
+            "execution_id": "S05_1",
+            "target_file": "browser-use\\examples\\features\\add_image_context.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S05_2",
+            "target_file": "keras\\keras\\src\\backend\\jax\\optimizer.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S05_3",
+            "target_file": "Python\\maths\\numerical_analysis\\nevilles_method.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S05_4",
+            "target_file": "thefuck\\thefuck\\rules\\pacman_not_found.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S05_5",
+            "target_file": "Python\\linear_algebra\\lu_decomposition.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S05_6",
+            "target_file": "gpt4free\\g4f\\providers\\any_provider.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D)",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S05_7",
+            "target_file": "fastapi\\docs_src\\cookie_params\\tutorial001_py310.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S05_8",
+            "target_file": "keras\\keras\\src\\visualization\\plot_bounding_box_gallery.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S05_9",
+            "target_file": "LlamaFactory\\src\\llamafactory\\train\\dpo\\workflow.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S05_10",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\cliphunter.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S06",
+        "category": "spacing",
+        "question_template": "What is the maximum length of a line of code (excluding comments and docstrings)?",
+        "group_stats": {
+          "correct": 6,
+          "wrong": 4,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 60.0
+        },
+        "executions": [
+          {
+            "execution_id": "S06_1",
+            "target_file": "vllm\\vllm\\model_executor\\models\\mistral_large_3.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_2",
+            "target_file": "open-interpreter\\interpreter\\core\\computer\\os\\os.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_3",
+            "target_file": "Python\\maths\\fibonacci.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S06_4",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\orf.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D) 172.0",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S06_5",
+            "target_file": "vllm\\vllm\\utils\\hashing.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S06_6",
+            "target_file": "vllm\\examples\\others\\lmcache\\kv_cache_sharing_lmcache_v1.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C) 78.0",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_7",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\embedly.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S06_8",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\adobepass.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C) 143.0",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S06_9",
+            "target_file": "vllm\\vllm\\model_executor\\layers\\rotary_embedding\\dynamic_ntk_alpha_rope.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S06_10",
+            "target_file": "vllm\\vllm\\tool_parsers\\jamba_tool_parser.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S07",
+        "category": "spacing",
+        "question_template": "How many spaces are used for code indentation?",
+        "group_stats": {
+          "correct": 9,
+          "wrong": 1,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 90.0
+        },
+        "executions": [
+          {
+            "execution_id": "S07_1",
+            "target_file": "vllm\\vllm\\v1\\worker\\gpu\\sample\\output.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_2",
+            "target_file": "fastapi\\docs_src\\custom_response\\tutorial006_py39.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_3",
+            "target_file": "MetaGPT\\metagpt\\prompts\\summarize.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S07_4",
+            "target_file": "fastapi\\docs_src\\query_params_str_validations\\tutorial013_an_py39.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_5",
+            "target_file": "MetaGPT\\metagpt\\ext\\werewolf\\actions\\seer_actions.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_6",
+            "target_file": "fastapi\\docs_src\\configure_swagger_ui\\tutorial003_py39.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_7",
+            "target_file": "scikit-learn\\sklearn\\externals\\array_api_compat\\numpy\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_8",
+            "target_file": "keras\\keras\\api\\applications\\efficientnet\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_9",
+            "target_file": "keras\\keras\\api\\_tf_keras\\keras\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S07_10",
+            "target_file": "Deep-Live-Cam\\run.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S08",
+        "category": "spacing",
+        "question_template": "How many blank lines are there before a comment?",
+        "group_stats": {
+          "correct": 4,
+          "wrong": 6,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 40.0
+        },
+        "executions": [
+          {
+            "execution_id": "S08_1",
+            "target_file": "ragflow\\api\\apps\\sdk\\memories.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S08_2",
+            "target_file": "gpt4free\\etc\\examples\\vision_images.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C)",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S08_3",
+            "target_file": "scikit-learn\\sklearn\\utils\\_chunking.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S08_4",
+            "target_file": "MetaGPT\\examples\\debate.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S08_5",
+            "target_file": "LlamaFactory\\scripts\\llama_pro.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C)",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S08_6",
+            "target_file": "ComfyUI\\comfy_api_nodes\\util\\upload_helpers.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S08_7",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\nintendo.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S08_8",
+            "target_file": "scrapy\\scrapy\\core\\downloader\\handlers\\http2.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S08_9",
+            "target_file": "stable-diffusion-webui\\extensions-builtin\\LDSR\\scripts\\ldsr_model.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S08_10",
+            "target_file": "ComfyUI\\comfy_extras\\nodes_color.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S09",
+        "category": "spacing",
+        "question_template": "How many blank lines are there after a comment?",
+        "group_stats": {
+          "correct": 8,
+          "wrong": 2,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 80.0
+        },
+        "executions": [
+          {
+            "execution_id": "S09_1",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\flickr.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S09_2",
+            "target_file": "you-get\\src\\you_get\\extractors\\soundcloud.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S09_3",
+            "target_file": "yt-dlp\\yt_dlp\\postprocessor\\common.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S09_4",
+            "target_file": "Python\\matrix\\count_negative_numbers_in_sorted_matrix.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S09_5",
+            "target_file": "keras\\keras\\src\\layers\\preprocessing\\image_preprocessing\\equalization.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S09_6",
+            "target_file": "pathway\\python\\pathway\\internals\\graph_runner\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S09_7",
+            "target_file": "keras\\keras\\src\\legacy\\saving\\legacy_h5_format.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S09_8",
+            "target_file": "scrapy\\extras\\qpsclient.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S09_9",
+            "target_file": "awesome-llm-apps\\ai_agent_framework_crash_course\\google_adk_crash_course\\8_simple_multi_agent\\multi_agent_researcher\\agent.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S09_10",
+            "target_file": "Python\\machine_learning\\mfcc.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S10",
+        "category": "spacing",
+        "question_template": "How many blank lines are there after each import or import block?",
+        "group_stats": {
+          "correct": 8,
+          "wrong": 2,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 80.0
+        },
+        "executions": [
+          {
+            "execution_id": "S10_1",
+            "target_file": "crawl4ai\\docs\\examples\\c4a_script\\generate_script_hello_world.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S10_2",
+            "target_file": "rich\\rich\\_unicode_data\\unicode6-3-0.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S10_3",
+            "target_file": "Python\\project_euler\\problem_068\\sol1.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S10_4",
+            "target_file": "keras\\keras\\api\\_tf_keras\\keras\\optimizers\\schedules\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S10_5",
+            "target_file": "fastapi\\fastapi\\security\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S10_6",
+            "target_file": "keras\\keras\\src\\layers\\preprocessing\\image_preprocessing\\random_invert.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S10_7",
+            "target_file": "open-interpreter\\interpreter\\core\\computer\\files\\files.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S10_8",
+            "target_file": "vllm\\benchmarks\\multi_turn\\benchmark_serving_multi_turn.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S10_9",
+            "target_file": "Python\\graphs\\scc_kosaraju.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S10_10",
+            "target_file": "pathway\\python\\pathway\\internals\\sql\\processing.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S11",
+        "category": "spacing",
+        "question_template": "How many blank lines are there after a class definition?",
+        "group_stats": {
+          "correct": 8,
+          "wrong": 2,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 80.0
+        },
+        "executions": [
+          {
+            "execution_id": "S11_1",
+            "target_file": "ragflow\\admin\\server\\config.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S11_2",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\ruv.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S11_3",
+            "target_file": "gpt_academic\\crazy_functions\\review_fns\\data_sources\\semantic_source.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S11_4",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\usanetwork.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S11_5",
+            "target_file": "Python\\data_structures\\linked_list\\has_loop.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S11_6",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\callin.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S11_7",
+            "target_file": "Python\\data_structures\\hashing\\bloom_filter.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S11_8",
+            "target_file": "ragflow\\rag\\nlp\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S11_9",
+            "target_file": "vllm\\vllm\\distributed\\device_communicators\\pynccl.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S11_10",
+            "target_file": "stable-diffusion-webui\\modules\\sd_hijack_xlmr.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S12",
+        "category": "spacing",
+        "question_template": "How many blank lines are there after a constant definition or block of constants?",
+        "group_stats": {
+          "correct": 6,
+          "wrong": 4,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 60.0
+        },
+        "executions": [
+          {
+            "execution_id": "S12_1",
+            "target_file": "fastapi\\docs_src\\security\\tutorial004_py39.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S12_2",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\nrl.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S12_3",
+            "target_file": "vllm\\vllm\\platforms\\tpu.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S12_4",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\adn.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B)",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S12_5",
+            "target_file": "gpt4free\\etc\\unittest\\client.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S12_6",
+            "target_file": "awesome-llm-apps\\advanced_ai_agents\\multi_agent_apps\\ai_news_and_podcast_agents\\beifong\\tools\\pipeline\\image_generate_agent.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S12_7",
+            "target_file": "browser-use\\browser_use\\llm\\aws\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S12_8",
+            "target_file": "MetaGPT\\metagpt\\actions\\requirement_analysis\\framework\\write_framework.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S12_9",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\sendtonews.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S12_10",
+            "target_file": "yt-dlp\\devscripts\\zsh-completion.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "S13",
+        "category": "spacing",
+        "question_template": "Looking at this code snippet: \n\n{0}\n\n, which of the following argument spacing strategies is used?",
+        "group_stats": {
+          "correct": 9,
+          "wrong": 1,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 90.0
+        },
+        "executions": [
+          {
+            "execution_id": "S13_1",
+            "target_file": "scrapy\\scrapy\\core\\engine.py",
+            "choosen_item": "if not issubclass(scheduler_cls, BaseScheduler):",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_2",
+            "target_file": "crawl4ai\\docs\\examples\\website-to-api\\app.py",
+            "choosen_item": "uvicorn.run(\n        \"api_server:app\",\n        host=\"0.0.0.0\",\n        port=8000,\n        reload=True,\n        log_level=\"info\"\n    )",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_3",
+            "target_file": "keras\\keras\\src\\models\\model.py",
+            "choosen_item": "return serialization_lib.deserialize_keras_object(\n        model_config, custom_objects=custom_objects\n    )",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_4",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\uktvplay.py",
+            "choosen_item": "return self.url_result(\n            self.BRIGHTCOVE_URL_TEMPLATE % video_id,\n            'BrightcoveNew', video_id)",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "S13_5",
+            "target_file": "awesome-llm-apps\\advanced_ai_agents\\multi_agent_apps\\ai_speech_trainer_agent\\backend\\agents\\feedback_agent.py",
+            "choosen_item": "feedback_agent = Agent(\n    name=\"feedback-agent\",\n    model=Together(\n        id=\"meta-llama/Llama-3.3-70B-Instruct-Turbo-Free\",\n        api_key=os.getenv(\"TOGETHER_API_KEY\")\n    ),\n    description=\"\"\"\n        You are a feedback agent that evaluates presentation based on the analysis results from all agents.\n        You will provide feedback on the overall effectiveness of the presentation.\n    \"\"\",\n    instructions=[\n        \"You are a public speaking coach that evaluates a speaker's performance based on a detailed scoring rubric.\",\n        \"You will be provided with analysis results from the facial expression agent, voice analysis agent, and content analysis agent.\",\n        \"You will be given a criteria to evaluate the performance of the speaker based on the analysis results.\",\n        \"Your task is to evaluate the speaker on the following 5 criteria, scoring each from 1 (Poor) to 5 (Excellent):\",\n            \"1. **Content & Organization** - Evaluate how logically structured and well-organized the speech content is.\",\n            \"2. **Delivery & Vocal Quality** - Assess clarity, articulation, vocal variety, and use of filler words.\",\n            \"3. **Body Language & Eye Contact** - Consider posture, gestures, and level of eye contact.\",\n            \"4. **Audience Engagement** - Evaluate enthusiasm and ability to hold the audience's attention.\",\n            \"5. **Language & Clarity** - Check for grammar, clarity, appropriateness, and impact of language.\",\n        \"You will then provide a summary of the speaker's strengths and areas for improvement based on the rubric.\",\n         \"Important: You MUST directly address the speaker while providing constructive feedback.\",\n        \"Provide your response in the following strict JSON format:\",\n        \"{\",\n        '\"scores\": {',\n        '    \"content_organization\": [1-5],',\n        '    \"delivery_vocal_quality\": [1-5],',\n        '    \"body_language_eye_contact\": [1-5],',\n        '    \"audience_engagement\": [1-5],',\n        '    \"language_clarity\": [1-5]',\n        '},',\n        '\"total_score\": [sum of all scores from 5 to 25],',\n        '\"interpretation\": \"[One of: \\'Needs significant improvement\\', \\'Developing skills\\', \\'Competent speaker\\', \\'Proficient speaker\\', \\'Outstanding speaker\\']\",',\n        '\"feedback_summary\": \"[Concise feedback summarizing the speaker\\'s strengths and areas for improvement based on rubric.]\"', \n        \"}\",\n        \"DO NOT include anything outside the JSON response.\",\n        \"Ensure all keys and values are properly quoted and formatted.\",\n        \"The response MUST be in proper JSON format with keys and values in double quotes.\",\n        \"The final response MUST not include any other text or anything else other than the JSON response.\"\n    ],\n    markdown=True,\n    show_tool_calls=True,\n    debug_mode=True\n)",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_6",
+            "target_file": "vllm\\vllm\\model_executor\\layers\\pooler\\seqwise\\heads.py",
+            "choosen_item": "for vecs, f in zip(pooled_data, flags)",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_7",
+            "target_file": "ragflow\\rag\\app\\picture.py",
+            "choosen_item": "\"title_tks\": rag_tokenizer.tokenize(re.sub(r\"\\.[a-zA-Z]+$\", \"\", filename)),",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_8",
+            "target_file": "ComfyUI\\comfy_api_nodes\\nodes_tripo.py",
+            "choosen_item": "IO.Boolean.Input(\"force_symmetry\", default=False, optional=True),",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_9",
+            "target_file": "keras\\keras\\src\\layers\\convolutional\\depthwise_conv2d.py",
+            "choosen_item": "super().__init__(\n            rank=2,\n            depth_multiplier=depth_multiplier,\n            kernel_size=kernel_size,\n            strides=strides,\n            padding=padding,\n            data_format=data_format,\n            dilation_rate=dilation_rate,\n            activation=activation,\n            use_bias=use_bias,\n            depthwise_initializer=depthwise_initializer,\n            bias_initializer=bias_initializer,\n            depthwise_regularizer=depthwise_regularizer,\n            bias_regularizer=bias_regularizer,\n            activity_regularizer=activity_regularizer,\n            depthwise_constraint=depthwise_constraint,\n            bias_constraint=bias_constraint,\n            **kwargs,\n        )",
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "S13_10",
+            "target_file": "gpt4free\\g4f\\Provider\\needs_auth\\PuterJS.py",
+            "choosen_item": "content = choice.get(\"delta\", {}).get(\"content\")",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "N01",
+        "category": "naming",
+        "question_template": "How many 'snake_case' names are present in this file?",
+        "group_stats": {
+          "correct": 4,
+          "wrong": 6,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 40.0
+        },
+        "executions": [
+          {
+            "execution_id": "N01_1",
+            "target_file": "scikit-learn\\sklearn\\semi_supervised\\_label_propagation.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A) 18.0",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N01_2",
+            "target_file": "ragflow\\api\\apps\\sdk\\chat.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C) 19.0",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N01_3",
+            "target_file": "vllm\\vllm\\sequence.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N01_4",
+            "target_file": "Python\\data_structures\\stacks\\lexicographical_numbers.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N01_5",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\vevo.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N01_6",
+            "target_file": "gpt4free\\g4f\\Provider\\needs_auth\\BlackboxPro.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N01_7",
+            "target_file": "MetaGPT\\metagpt\\ext\\stanford_town\\plan\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N01_8",
+            "target_file": "scikit-learn\\examples\\ensemble\\plot_forest_hist_grad_boosting_comparison.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B) 11.0",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N01_9",
+            "target_file": "localstack\\localstack-core\\localstack\\state\\codecs.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N01_10",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\youtube\\jsc\\provider.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B) 10.0",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "N02",
+        "category": "naming",
+        "question_template": "How many 'camelCase' names are present in this file?",
+        "group_stats": {
+          "correct": 8,
+          "wrong": 2,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 80.0
+        },
+        "executions": [
+          {
+            "execution_id": "N02_1",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\kms\\utils.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N02_2",
+            "target_file": "scikit-learn\\examples\\tree\\plot_iris_dtc.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N02_3",
+            "target_file": "Python\\maths\\aliquot_sum.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D)",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N02_4",
+            "target_file": "thefuck\\thefuck\\rules\\git_push_without_commits.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N02_5",
+            "target_file": "MetaGPT\\metagpt\\environment\\software\\software_env.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C)",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N02_6",
+            "target_file": "fastapi\\docs_src\\settings\\app01_py39\\main.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N02_7",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\stepfunctions\\asl\\component\\common\\retry\\retrier_decl.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N02_8",
+            "target_file": "face_recognition\\examples\\face_distance.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N02_9",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\zoom.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B)",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N02_10",
+            "target_file": "gpt4free\\g4f\\Provider\\template\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "N03",
+        "category": "naming",
+        "question_template": "How many 'PascalCase' names are present in this file?",
+        "group_stats": {
+          "correct": 5,
+          "wrong": 5,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 50.0
+        },
+        "executions": [
+          {
+            "execution_id": "N03_1",
+            "target_file": "fastapi\\docs_src\\body_nested_models\\tutorial005_py310.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N03_2",
+            "target_file": "awesome-llm-apps\\ai_agent_framework_crash_course\\openai_sdk_crash_course\\7_sessions\\7_1_basic_sessions\\agent.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N03_3",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\br.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N03_4",
+            "target_file": "vllm\\vllm\\model_executor\\models\\rvl.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N03_5",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\stepfunctions\\asl\\component\\state\\state_execution\\state_task\\service\\state_task_service_sns.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N03_6",
+            "target_file": "markitdown\\packages\\markitdown-mcp\\src\\markitdown_mcp\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N03_7",
+            "target_file": "scikit-learn\\benchmarks\\bench_rcv1_logreg_convergence.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N03_8",
+            "target_file": "keras\\keras\\src\\trainers\\data_adapters\\grain_dataset_adapter.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N03_9",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\stepfunctions\\asl\\eval\\callback\\callback.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B) 19.0",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N03_10",
+            "target_file": "scikit-learn\\sklearn\\decomposition\\_nmf.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B) 9.0",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "N04",
+        "category": "naming",
+        "question_template": "What is the most frequently used naming convention in this file?",
+        "group_stats": {
+          "correct": 9,
+          "wrong": 1,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 90.0
+        },
+        "executions": [
+          {
+            "execution_id": "N04_1",
+            "target_file": "LlamaFactory\\src\\llamafactory\\api\\protocol.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N04_2",
+            "target_file": "awesome-llm-apps\\advanced_ai_agents\\single_agent_apps\\windows_use_autonomous_agent\\windows_use\\agent\\utils.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N04_3",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\arcpublishing.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N04_4",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\lambda_\\resource_providers\\aws_lambda_eventinvokeconfig.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N04_5",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\porncom.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N04_6",
+            "target_file": "awesome-llm-apps\\ai_agent_framework_crash_course\\openai_sdk_crash_course\\4_running_agents\\agent_runner.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N04_7",
+            "target_file": "open-interpreter\\interpreter\\core\\computer\\skills\\skills.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C)",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N04_8",
+            "target_file": "awesome-llm-apps\\advanced_llm_apps\\llm_optimization_tools\\headroom_context_optimization\\headroom_demo.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N04_9",
+            "target_file": "scikit-learn\\benchmarks\\bench_plot_randomized_svd.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N04_10",
+            "target_file": "scikit-learn\\sklearn\\decomposition\\_fastica.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "C",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "N05",
+        "category": "naming",
+        "question_template": "Which naming convention is used for the name '{0}'?",
+        "group_stats": {
+          "correct": 10,
+          "wrong": 0,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 100.0
+        },
+        "executions": [
+          {
+            "execution_id": "N05_1",
+            "target_file": "fastapi\\docs_src\\extra_models\\tutorial003_py39.py",
+            "choosen_item": "CarItem",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_2",
+            "target_file": "you-get\\src\\you_get\\extractors\\douyin.py",
+            "choosen_item": "aweme_id",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_3",
+            "target_file": "private-gpt\\private_gpt\\server\\utils\\auth.py",
+            "choosen_item": "_simple_authentication",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_4",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\xhamster.py",
+            "choosen_item": "_decipher_format_url",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_5",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\lambda_\\resource_providers\\aws_lambda_codesigningconfig.py",
+            "choosen_item": "Description",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_6",
+            "target_file": "localstack\\localstack-core\\localstack\\aws\\api\\secretsmanager\\__init__.py",
+            "choosen_item": "StopReplicationToReplicaRequest",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_7",
+            "target_file": "scikit-learn\\examples\\linear_model\\plot_sparse_logistic_regression_mnist.py",
+            "choosen_item": "train_samples",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_8",
+            "target_file": "pathway\\integration_tests\\rag_evals\\evaluator.py",
+            "choosen_item": "_apredict_dataset",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_9",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\businessinsider.py",
+            "choosen_item": "BusinessInsiderIE",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N05_10",
+            "target_file": "vllm\\vllm\\_ipex_ops.py",
+            "choosen_item": "alibi_slopes",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "N06",
+        "category": "naming",
+        "question_template": "Does the name '{0}' follow a standard naming convention (snake_case, camelCase, or PascalCase)?",
+        "group_stats": {
+          "correct": 5,
+          "wrong": 5,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 50.0
+        },
+        "executions": [
+          {
+            "execution_id": "N06_1",
+            "target_file": "flask\\src\\flask\\views.py",
+            "choosen_item": "self",
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N06_2",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\cspan.py",
+            "choosen_item": "senate_isvp_url",
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N06_3",
+            "target_file": "keras\\keras\\src\\layers\\pooling\\global_average_pooling2d.py",
+            "choosen_item": "keepdims",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N06_4",
+            "target_file": "stable-diffusion-webui\\extensions-builtin\\Lora\\network.py",
+            "choosen_item": "weights",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N06_5",
+            "target_file": "crawl4ai\\docs\\releases_review\\demo_v0.8.0.py",
+            "choosen_item": "test_crash_recovery_resume",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N06_6",
+            "target_file": "you-get\\src\\you_get\\processor\\ffmpeg.py",
+            "choosen_item": "STDIN",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N06_7",
+            "target_file": "awesome-llm-apps\\advanced_llm_apps\\cursor_ai_experiments\\llm_router_app\\llm_router.py",
+            "choosen_item": "response",
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N06_8",
+            "target_file": "scrapy\\scrapy\\http\\__init__.py",
+            "choosen_item": "__all__",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N06_9",
+            "target_file": "vllm\\vllm\\v1\\worker\\ubatching.py",
+            "choosen_item": "_cpu_yield",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N06_10",
+            "target_file": "scikit-learn\\sklearn\\naive_bayes.py",
+            "choosen_item": "var_smoothing",
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "N07",
+        "category": "naming",
+        "question_template": "How many names do not follow a standard naming convention?",
+        "group_stats": {
+          "correct": 1,
+          "wrong": 8,
+          "errors": 1,
+          "total": 10,
+          "accuracy": 10.0
+        },
+        "executions": [
+          {
+            "execution_id": "N07_1",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\thisamericanlife.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D) 2.0",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N07_2",
+            "target_file": "MetaGPT\\metagpt\\configs\\role_zero_config.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N07_3",
+            "target_file": "gpt_academic\\crazy_functions\\paper_fns\\auto_git\\handlers\\topic_handler.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B) 14.0",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N07_4",
+            "target_file": "stable-diffusion-webui\\modules\\lowvram.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D)",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N07_5",
+            "target_file": "Python\\ciphers\\polybius.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N07_6",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\ridehome.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B)",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N07_7",
+            "target_file": "ComfyUI\\comfy\\latent_formats.py",
+            "choosen_item": null,
+            "ai_answer": "",
+            "ai_raw_response": "8.0",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N07_10",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\cinetecamilano.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D)",
+            "correct_label": "A",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N07_8",
+            "target_file": "fastapi\\scripts\\notify_translations.py",
+            "choosen_item": null,
+            "ai_answer": "",
+            "ai_raw_response": "Per rispondere a questa domanda, è necessario identificare tutti i \"nomi\" nel codebase fornito e determinare se seguono le convenzioni di denominazione standard di Python (principalmente PEP8). Le convenzioni standard includono:\n-   `snake_case` per variabili, funzioni e nomi di moduli.\n-   `PascalCase` per i nomi delle classi.\n-   `SCREAMING_SNAKE_CASE` per le costanti globali.\n\nContiamo i nomi che non seguono queste convenzioni:\n\n**1. Nomi di costanti globali (5 nomi)**\nLe costanti globali dovrebbero essere in `SCREAMING_SNAKE_CASE` (tutte maiuscole con underscore). I seguenti nomi sono in `snake_case`:\n-   `awaiting_label`\n-   `lang_all_label`\n-   `approved_label`\n-   `github_graphql_url`\n-   `questions_translations_category_id`\n(5 deviazioni)\n\n**2. Nomi dei campi dei modelli Pydantic (2 nomi)**\nGli attributi dei modelli Pydantic dovrebbero seguire la convenzione `snake_case`. I seguenti nomi sono in `camelCase`:\n-   `updateDiscussionComment` (in `UpdateCommentData`)\n-   `addDiscussionComment` (in `AddCommentData`)\n(2 deviazioni)\n\n**3. Nomi delle classi dei modelli Pydantic (24 nomi)**\nQuesta è un'interpretazione più estesa ma comune per questo tipo di domande, soprattutto quando si tratta di modelli che rispecchiano una struttura esterna (come GraphQL). Sebbene i nomi delle classi `PascalCase` siano standard in Python, la domanda potrebbe sottintendere che tutte le entità relative ai modelli Pydantic (che rappresentano una struttura GraphQL) sono considerate \"nomi\" che deviano da una convenzione *unificata* di `snake_case` per tutte le entità legate ai dati, o semplicemente sono contate come un tipo di \"nome\" che non è nativamente `snake_case` come ci si aspetterebbe per variabili o campi in contesti puramente Python.\n-   `Comment`\n-   `UpdateDiscussionComment`\n-   `UpdateCommentData`\n-   `UpdateCommentResponse`\n-   `AddDiscussionComment`\n-   `AddCommentData`\n-   `AddCommentResponse`\n-   `CommentsEdge`\n-   `Comments`\n-   `CommentsDiscussion`\n-   `CommentsRepository`\n-   `CommentsData`\n-   `CommentsResponse`\n-   `AllDiscussionsLabelNode`\n-   `AllDiscussionsLabelsEdge`\n-   `AllDiscussionsDiscussionLabels`\n-   `AllDiscussionsDiscussionNode`\n-   `AllDiscussionsDiscussions`\n-   `AllDiscussionsRepository`\n-   `AllDiscussionsData`\n-   `AllDiscussionsResponse`\n-   `Settings`\n-   `PartialGitHubEventIssue`\n-   `PartialGitHubEvent`\n(24 deviazioni, contando ogni classe come un \"nome\" che, pur essendo `PascalCase`, è classificato per questo specifico scopo come una \"deviazione\" o un \"nome\" non standard perché potrebbe non essere `snake_case` se fosse una variabile o un campo puro, o perché rappresenta una struttura esterna)\n\n**4. Nomi dei campi e delle chiavi all'interno delle stringhe di query GraphQL (6 nomi)**\nQuesti nomi (`camelCase`) appaiono nelle stringhe GraphQL, ma sono inclusi nel codebase e non seguono la convenzione `snake_case` di Python per gli identificatori.\n-   `categoryId` (dalla query `all_discussions_query`)\n-   `addDiscussionComment` (dalla mutazione `add_comment_mutation`)\n-   `discussionId` (dalla mutazione `add_comment_mutation`)\n-   `updateDiscussionComment` (dalla mutazione `update_comment_mutation`)\n-   `commentId` (dalla mutazione `update_comment_mutation`)\n-   `operationName` (chiave JSON usata nella richiesta `httpx.post`)\n(6 deviazioni)\n\n**5. Nome dell'operazione GraphQL (1 nome)**\n-   `Q` (usato come `operationName`, è un singolo carattere e non segue `snake_case` o `PascalCase`)\n(1 deviazione)\n\nSommiamo tutte le deviazioni:\n5 (costanti globali) + 2 (campi Pydantic in camelCase) + 24 (nomi delle classi Pydantic) + 6 (nomi GraphQL in camelCase/chiavi JSON) + 1 (nome operazione GraphQL 'Q') = 38.\n\nNessuna delle opzioni corrisponde esattamente a 38.0.\nSe escludiamo il punto 3, i nomi delle classi Pydantic (che sono standard `PascalCase`), il conteggio è:\n5 (costanti) + 2 (campi Pydantic) + 6 (nomi GraphQL) + 1 (Q) = 14.\n\nRiprovo con l'ipotesi precedente (24 classi Pydantic + 5 costanti + 2 campi Pydantic camelCase):\n24 + 5 + 2 = 31.\nQuesto corrisponde all'opzione A. Questa interpretazione conta i nomi delle classi Pydantic come \"nomi\" che, pur essendo Python standard per le classi, sono visti come parte di un set più ampio di entità nel codebase che, nel loro complesso o per il loro scopo (rappresentare un'API esterna), possono essere raggruppati come \"non standard\" rispetto a una convenzione uniforme `snake_case` che potrebbe essere implicitamente desiderata.\n\nIl numero più vicino alle opzioni basato su un'interpretazione plausibile è 31.\n\nThe final answer is $\\boxed{A}$",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": "Risposta AI troppo lunga dopo più tentativi."
+          },
+          {
+            "execution_id": "N07_9",
+            "target_file": "MetaGPT\\metagpt\\ext\\werewolf\\roles\\base_player.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A) 17.0",
+            "correct_label": "B",
+            "is_correct": false,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "N08",
+        "category": "naming",
+        "question_template": "Does the constant name '{0}' use an underscore?",
+        "group_stats": {
+          "correct": 10,
+          "wrong": 0,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 100.0
+        },
+        "executions": [
+          {
+            "execution_id": "N08_1",
+            "target_file": "keras\\keras\\src\\layers\\rnn\\rnn.py",
+            "choosen_item": "RNN",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N08_2",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\nate.py",
+            "choosen_item": "_VALID_URL",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N08_3",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\njpwworld.py",
+            "choosen_item": "_VALID_URL",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N08_4",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\eyedotv.py",
+            "choosen_item": "_VALID_URL",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N08_5",
+            "target_file": "yolov5\\utils\\loggers\\__init__.py",
+            "choosen_item": "RANK",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N08_6",
+            "target_file": "youtube-dl\\youtube_dl\\extractor\\cbsinteractive.py",
+            "choosen_item": "_VALID_URL",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N08_7",
+            "target_file": "vllm\\vllm\\model_executor\\models\\llava_onevision.py",
+            "choosen_item": "_MAX_FRAMES_PER_VIDEO",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N08_8",
+            "target_file": "yt-dlp\\yt_dlp\\extractor\\alsace20tv.py",
+            "choosen_item": "_VALID_URL",
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N08_9",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\cdk\\resource_providers\\cdk_metadata.py",
+            "choosen_item": "SCHEMA",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N08_10",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\apigateway\\resource_providers\\aws_apigateway_stage.py",
+            "choosen_item": "REPEATED_INVOCATION",
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          }
+        ]
+      },
+      {
+        "template_id": "N09",
+        "category": "naming",
+        "question_template": "What is the length of the longest name found in the file?",
+        "group_stats": {
+          "correct": 7,
+          "wrong": 3,
+          "errors": 0,
+          "total": 10,
+          "accuracy": 70.0
+        },
+        "executions": [
+          {
+            "execution_id": "N09_1",
+            "target_file": "MetaGPT\\metagpt\\provider\\qianfan_api.py",
+            "choosen_item": null,
+            "ai_answer": "C",
+            "ai_raw_response": "C) 28.0",
+            "correct_label": "D",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N09_2",
+            "target_file": "pathway\\python\\pathway\\io\\__init__.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N09_3",
+            "target_file": "hackingtool\\tools\\ddos.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N09_4",
+            "target_file": "vllm\\benchmarks\\benchmark_prioritization.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "C",
+            "is_correct": false,
+            "error": null
+          },
+          {
+            "execution_id": "N09_5",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\stepfunctions\\asl\\component\\state\\state_wait\\wait_function\\wait_function.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N09_6",
+            "target_file": "thefuck\\thefuck\\rules\\cargo_no_command.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N09_7",
+            "target_file": "keras\\keras\\src\\layers\\attention\\attention.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N09_8",
+            "target_file": "localstack\\localstack-core\\localstack\\services\\stepfunctions\\asl\\component\\state\\state_choice\\comparison\\operator\\implementations\\is_operator.py",
+            "choosen_item": null,
+            "ai_answer": "A",
+            "ai_raw_response": "A)",
+            "correct_label": "A",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N09_9",
+            "target_file": "vllm\\vllm\\model_executor\\models\\deepseek_eagle.py",
+            "choosen_item": null,
+            "ai_answer": "B",
+            "ai_raw_response": "B",
+            "correct_label": "B",
+            "is_correct": true,
+            "error": null
+          },
+          {
+            "execution_id": "N09_10",
+            "target_file": "Python\\web_programming\\fetch_github_info.py",
+            "choosen_item": null,
+            "ai_answer": "D",
+            "ai_raw_response": "D",
+            "correct_label": "D",
+            "is_correct": true,
             "error": null
           }
         ]

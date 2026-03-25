@@ -1,5 +1,5 @@
 {
-    "S01": {
+    "*S01": {
         "total_valid_files": 4906,
         "type": "Static",
         "distribution": {
@@ -7,7 +7,7 @@
             "0.0": "50 (1.0%)"
         }
     },
-    "S02": {
+    "*S02": {
         "total_valid_files": 3211,
         "type": "Static",
         "distribution": {
@@ -15,14 +15,14 @@
             "0.0": "556 (17.3%)"
         }
     },
-    "S03": {
+    "*S03": {
         "total_valid_files": 10939,
         "type": "Static",
         "distribution": {
             "0.0": "10939 (100.0%)"
         }
     },
-    "S04": {
+    "*S04": {
         "total_valid_files": 9855,
         "type": "Static",
         "distribution": {
@@ -456,7 +456,7 @@
             "429.0": "1 (0.0%)"
         }
     },
-    "S07": {
+    "*S07": {
         "total_valid_files": 1061,
         "type": "Static",
         "distribution": {
@@ -472,7 +472,7 @@
             "11.0": "1 (0.1%)"
         }
     },
-    "S08": {
+    "*S08": {
         "total_valid_files": 3600,
         "type": "Static",
         "distribution": {
@@ -481,7 +481,7 @@
             "2.0": "32 (0.9%)"
         }
     },
-    "S09": {
+    "*S09": {
         "total_valid_files": 5450,
         "type": "Static",
         "distribution": {
@@ -764,7 +764,7 @@
             "308.0": "1 (0.0%)"
         }
     },
-    "N02": {
+    "*N02": {
         "total_valid_files": 12698,
         "type": "Static",
         "distribution": {
@@ -911,7 +911,7 @@
             "48.0": "1 (0.0%)"
         }
     },
-    "N04": {
+    "*N04": {
         "total_valid_files": 8448,
         "type": "Static",
         "distribution": {
@@ -920,7 +920,7 @@
             "camelCase": "22 (0.3%)"
         }
     },
-    "N05": {
+    "*N05": {
         "total_valid_files": 11593,
         "type": "Dynamic (more answers per file)",
         "total_samples_pool": 260505,

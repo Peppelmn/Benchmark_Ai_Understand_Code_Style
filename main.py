@@ -64,6 +64,7 @@ if __name__ == "__main__":
     codebase_path = os.path.join(os.path.dirname(__file__), "Codebase", "downloads")
     dataset_path = os.path.join(os.path.dirname(__file__), "AnswerDataset", "master_dataset.json")
     bencmark_path = os.path.join(os.path.dirname(__file__), "Benchmark", "benchmark.json")
+    distribution_report_path = os.path.join(os.path.dirname(__file__), "AnswerDistribution", "answer_distribution_report.json")
 
     loader = GitHubLoader()
     loader.download_repositories(query="language:python stars:>10", limit=50, max_size_mb=200)
@@ -72,7 +73,7 @@ if __name__ == "__main__":
     dataset_generator.generate_dataset(output_path=dataset_path)
 
     distribution_analyzer = DistributionAnalyzer(dataset_path=dataset_path)
-    distribution_analyzer.analyze(output_path=os.path.join(os.path.dirname(__file__), "AnswerDistribution", "answer_distribution_report.json"))
+    distribution_analyzer.analyze(output_path=distribution_report_path)
 
     benchmark_generator = BenchmarkSystem(dataset_path=dataset_path)
     benchmark_generator.generate_benchmark(output_path=bencmark_path, target_count_per_question=10)
@@ -99,8 +100,8 @@ if __name__ == "__main__":
             ],
         "google" : 
             [
-                "gemini/gemini-2.5-flash",
-                # "gemini/gemini-3.0-flash",
+                # "gemini/gemini-2.5-flash",
+                "gemini/gemini-3-flash-preview",
                 # "gemini/gemini-2.5-pro",
             ]
         }
